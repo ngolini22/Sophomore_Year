@@ -1,0 +1,44 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-pack.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:pack</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Policy-Driven Data Dissemination for Context-Aware Applications</b>.
+In
+<i>Proceedings of the Third IEEE International Conference on
+Pervasive Computing and Communications (PerCom)</i>,
+pages 283-289,
+Kauai, Hawaii,
+March,
+2005.
+Short paper.
+DOI <a href="http://dx.doi.org/10.1109/PERCOM.2005.32">10.1109/PERCOM.2005.32</a>.
+<p><b>Abstract:</b> Context-aware pervasive-computing applications require continuous
+monitoring of their physical and computational environment to make
+appropriate adaptation decisions in time. The data streams produced by
+sensors, however, may overflow the queues on the dissemination path.
+Traditional flow-control and congestion-control policies either drop data or
+force the sender to pause. When the data sender is sensing the physical
+environment, however, a pause is equivalent to dropping data. Instead of
+arbitrarily dropping data that may contain important events, we present a
+policy-driven data dissemination service named PACK, based on an
+overlay-based infrastructure for efficient multicast delivery. PACK enforces
+application-specified policies that define how to discard or summarize data
+flows wherever queues overflow on the data path, notably at the mobile hosts
+where applications often reside. A key contribution of our approach is to
+uniformly apply the data-stream ``packing'' abstraction to queue overflow
+caused by network congestion, slow receivers, and temporary disconnection. We
+present experimental results and a detailed application study of the PACK
+service.</p>
+<p><b>Keywords:</b> mobile computing, distributed computing, ubicomp</p>
+<p><a href="bibtex/chen-pack.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-pack.pdf">PDF</a> (163K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/chen-pack-tr.html">chen:pack-tr</a></b>.</p>
+</BODY>
+</HTML>

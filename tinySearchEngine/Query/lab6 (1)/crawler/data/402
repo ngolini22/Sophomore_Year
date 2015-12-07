@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-pervasive-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:pervasive-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Solar: A pervasive-computing infrastructure for context-aware
+mobile applications</b>.
+Technical Report
+TR2002-421,
+Dartmouth Computer Science,
+February,
+2002.
+<p><b>Abstract:</b> Emerging pervasive computing technologies transform the way we
+live and work by embedding computation in our surrounding environment. To
+avoid increasing complexity, and allow the user to concentrate on her tasks,
+applications must automatically adapt to their changing  context, the
+physical and computational environment in which they run. To support these
+``context-aware'' applications we propose a graph-based abstraction for
+collecting, aggregating, and disseminating context information. The
+abstraction models context information as  events, which are produced by
+ sources, flow through a directed acyclic graph of event-processing 
+operators, and are delivered to subscribing applications. Applications
+describe their desired event stream as a tree of operators that aggregate
+low-level context information published by existing sources into the
+high-level context information needed by the application. The  operator
+graph is thus the dynamic combination of all applications' subscription
+trees. In this paper, we motivate our graph abstraction by discussing several
+applications under development, sketch the architecture of our system
+(``Solar'') that implements our abstraction, report some early experimental
+results from the prototype, and outline issues for future research.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-pervasive-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-pervasive-tr.pdf">PDF</a> (101K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/chen-pervasive.html">chen:pervasive</a></b>.</p>
+</BODY>
+</HTML>

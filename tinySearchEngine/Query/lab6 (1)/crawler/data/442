@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/fazio-sampling.html
+3
+<HTML>
+<HEAD>
+ <TITLE>fazio:sampling</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Phillip A. Fazio, Keren Tan, and David Kotz.
+<b>Effects of network trace sampling methods on privacy and utility
+metrics</b>.
+In
+<i>Proceedings of the Annual Workshop on Wireless Systems: Advanced
+Research and Development (WISARD)</i>,
+pages 1-8,
+January,
+2012.
+DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2012.6151387">10.1109/COMSNETS.2012.6151387</a>.
+<p><b>Abstract:</b> Researchers choosing to share wireless-network traces with
+colleagues must first anonymize sensitive information, trading off the
+removal of information in the interest of identity protection and the
+preservation of useful data within the trace. While several metrics exist to
+quantify this privacy-utility tradeoff, they are often computationally
+expensive. Computing these metrics using a sample of the trace could
+potentially save precious time. In this paper, we examine several sampling
+methods to discover their effects on measurement of the privacy-utility
+tradeoff when anonymizing network traces. We tested the relative accuracy of
+several packet and flow-sampling methods on existing privacy and utility
+metrics. We concluded that, for our test trace, no single sampling method we
+examined allowed us to accurately measure the tradeoff, and that some
+sampling methods can produce grossly inaccurate estimates of those values. We
+call for further research to develop sampling methods that maintain relevant
+privacy and utility properties.</p>
+<p><a href="bibtex/fazio-sampling.bib">BibTeX</a></p>
+<p><a target=_top href = "././fazio-sampling.pdf">PDF</a> (234K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

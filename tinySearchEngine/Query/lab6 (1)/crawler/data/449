@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nanda-combined-tr2.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nanda:combined-tr2</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Soumendra Nanda, Zhenhui Jiang, and David Kotz.
+<b>A Combined Routing Method for Ad Hoc Wireless Networks</b>.
+Technical Report
+TR2009-641,
+Dartmouth Computer Science,
+February,
+2009.
+<p><b>Abstract:</b> Several simulation and real world studies show that certain ad
+hoc routing protocols perform better than others under specific mobility and
+traffic patterns. In order to exploit this phenomena, we propose a novel
+approach to adapt a network to changing conditions; we introduce "a combined
+routing method" that allows the network to seamlessly swap from one routing
+protocol to another protocol dynamically, while routing continues
+uninterrupted. By creating a thin new virtual layer, we enable each node in
+the ad hoc wireless network notify each other about the protocol swap and we
+do not make any changes to existing routing protocols. To ensure that routing
+works efficiently after the protocol swap, we reuse information from the
+previous protocol's routing table while initializing the data structures for
+the new routing protocol. We study the feasibility of our technique and the
+overheads incurred while swapping between AODV, ODMRP and APRL under
+different network topologies and traffic patterns through detailed
+simulations. Our results show that the swap latency is related to the nature
+of the destination protocol and the topology of the network. We also find
+that the control packet ratio of a routing protocol during and after a swap
+is close to that of the protocol running before a swap, thus indicating that
+our approach does not add excessive overhead.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/nanda-combined-tr2.bib">BibTeX</a></p>
+<p><a target=_top href = "././nanda-combined-tr2.pdf">PDF</a> (1951K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/nanda-combined-tr.html">nanda:combined-tr</a></b>.</p>
+</BODY>
+</HTML>

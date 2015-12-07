@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nieuwejaar-workload-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nieuwejaar:workload-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Nils Nieuwejaar, David Kotz, Apratim Purakayastha, Carla Schlatter Ellis, and Michael Best.
+<b>File-Access Characteristics of Parallel Scientific Workloads</b>.
+Technical Report
+PCS-TR95-263,
+Dartmouth Computer Science,
+August,
+1995.
+<p><b>Abstract:</b> Phenomenal improvements in the computational performance of
+multiprocessors have not been matched by comparable gains in I/O system
+performance. This imbalance has resulted in I/O becoming a significant
+bottleneck for many scientific applications. One key to overcoming this
+bottleneck is improving the performance of parallel file systems. <P> The
+design of a high-performance parallel file system requires a comprehensive
+understanding of the expected workload. Unfortunately, until recently, no
+general workload studies of parallel file systems have been conducted. The
+goal of the CHARISMA project was to remedy this problem by characterizing the
+behavior of several production workloads, on different machines, at the level
+of individual reads and writes. The first set of results from the CHARISMA
+project describe the workloads observed on an Intel iPSC/860 and a Thinking
+Machines CM-5. This paper is intended to compare and contrast these two
+workloads for an understanding of their essential similarities and
+differences, isolating common trends and platform-dependent variances. Using
+this comparison, we are able to gain more insight into the general principles
+that should guide parallel file-system design.</p>
+<p><b>Keywords:</b> parallel-IO, file system, parallel computing</p>
+<p><a href="bibtex/nieuwejaar-workload-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././nieuwejaar-workload-tr.pdf">PDF</a> (361K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/kotz-workload.html">kotz:workload</a></b>.</p>
+<p>See also later version <b><a href="abstracts/nieuwejaar-workload.html">nieuwejaar:workload</a></b>.</p>
+</BODY>
+</HTML>

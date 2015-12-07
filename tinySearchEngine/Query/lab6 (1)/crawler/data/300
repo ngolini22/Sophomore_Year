@@ -1,0 +1,482 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs50/project-recovered.html
+3
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="teams.tex"> 
+<meta name="date" content="2012-05-12 19:11:00"> 
+
+<title>CS50 Project Resources</title>
+<style type="text/css">
+
+body {
+	background-color: #AAA59E;
+}
+body,td,th {
+	color: #2A2927;
+}
+a:link {
+	color: #2C44FF;
+}
+.style1 {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 13px;
+}
+.style2 {font-family: "Courier New", Courier, monospace}
+.style4 {font-family: "Courier New", Courier, monospace; font-size: 14px; }
+.style5 {font-size: 14px}
+.style7 {font-family: "Courier New", Courier, monospace; font-size: 14None; }
+
+</style>
+<link rel="stylesheet" type="text/css" href="teams.css"> 
+
+
+</head>
+
+<body>
+<h1>CS50 - Software Design and Implementation - Spring 2012 </h1>
+<h1>The Sensor-Bot Group Final Project </h1>
+
+<a href="#newsnannouncements">Latest News & Announcements</a>&nbsp;&nbsp;&nbsp;<a href="#usefulmaterial">Useful Material</a>&nbsp;&nbsp;&nbsp<a href="#teams">Teams & Robot IPs</a>&nbsp;&nbsp;&nbsp;<a href="#faqs">FAQs</a>
+
+<p>There are no lectures during the last two weeks of the course. During this time you will be working in teams programming <a href="http://www.acroname.com/garcia/garcia.html">Gracia</a>  robots.</p>
+
+<p>The project will pull on all the skills you have developed so far but will provide a set of new skills needed to do cross development and embedded systems programming and debugging. This completes the hackers toolkit that you can be proud of. We will do distributed programming using sockets, mutable threads for embedded Linux.</p>
+
+<p>We have added a mote sensor to the bot that allows it to interact with a sensor network built across the CS department. We have also added a camera to the bot. You will write the controller that runs on your laptop and the server side on the rob - all in C and Linux. Once your ready your bot will go on a treasure hunt.  The final task is the CS50 remote controlled bot race.</p>
+
+<p>This web page contains resources and news affiliated with the final project. Please refer to this web page for announcements and clarifications as you develop your project.</p>
+
+<h2>Project Description</h2>
+
+<p>The <a href="http://www.cs.dartmouth.edu/~campbell/cs50/roboticsproject.html">Project Description</a> page contains a high level overview of various aspects of the project, including introduction, goals, major system component decompositions, API functions, gradings and certain rules. Make sure you check it out and are familiar with all the information.</p>
+
+<br>
+
+<h2>Project Milestones & Requirements</h2>
+
+</span></span><span style="font-style: italic;">Kick off day - what you should do today?</span><br>
+1) get your bot;<br>
+2) review the material on the project web page;<br>
+3) set up a team meeting to discuss the design review, who is doing what, set up SVN, essentially, get organized;<br>
+4) check out what you need for your design review (see below). <span style="font-weight: bold;"></span><br>
+
+<br>
+
+From the introduction webpage: <span style="font-style: italic;">The project is made up of a small team (three or four people) and requires strong collaboration and a problem solving mindset to get the job done. The instructor will put the teams together with each member being responsible to deliver against a part of the overall system design, implementation, testing and integration.&nbsp; The goals of this activity are to help you develop the confidence, skills, and habits necessary to write large computer programs while part of a multi-person team. You will become conversant in software engineering paradigms, and be exposed to various public-domain and open source tools that make the software development process easier. In addition, you will develop vital skills in self-directed learning, problem solving, and communication. The project will have a design and code review as well as the demo. </span><br>
+
+<br>
+
+A project report that captures the design and implementation will be submitted as part of the assessment. The report should be 10 pages max, including<br>
+<br>
+1) Thread design of client and server<br>
+2) Design Specs<br>
+3) Implementation Specs<br>
+4) GUI screen dump<br>
+5) Lesson learned<br>
+<br>
+
+<span style="font-weight: bold;">The project potion of the course grade is large: 35% of the overall grade.</span>&nbsp; <span style="font-weight: bold;">We give the same grade for the project to all members of a team unless it is clear that people aren't equally pulling their weight. There has not been a year when we didn't give the same grade to all members of a team.</span><br>
+
+<span style="font-weight: bold;"></span><span style="font-family: Helvetica,Arial,sans-serif;"><span style="font-family: Times New Roman,Times,serif;"><big style="font-weight: bold;"><br>
+
+</big></span></span><span style="font-family: Times New Roman,Times,serif;">The following set of deadlines are important for the progress of the project. Please note that you need to provide documentation for the design and code reviews and the final project submission.<br>
+
+<br>
+
+</span><span style="font-family: Times New Roman,Times,serif;"></span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;">4 - 9 PM Monday May 21 design review.&nbsp;</span></span><span style="font-family: Times New Roman,Times,serif;">The project review should include requirements, Design Spec (inputs/outputs, data flow, data structures, pseudo-code) and functional decomposition. We are particularly interested in how the functions map to threads on the client (unix machine/laptop) and server (bot); we will discuss the&nbsp;<span style="font-style: italic;">threaded design</span> in the review. We are also interested in who is doing what. </span><span style="font-family: Times New Roman,Times,serif;"> The project review material is due 12AM midnight the day before review Send tarball documentation to cs50@cs.dartmouth.edu</span><br>
+
+<span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;"></span></span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;"></span><br>
+
+<span style="font-weight: bold;"></span></span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;">4 - 9 PM Monday May 28 code review</span></span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;">. </span>The code review should include the Implementation Spec and whatever code is written up until the review point (please indicate the svn version for code review instead of sending all the code). The code review material is due 12 AM midnight the day before review. Send tarball of your source tree to cs50@cs.dartmouth.edu<br>
+
+</span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;"></span></span><span style="font-family: Times New Roman,Times,serif;"><br>
+
+</span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;">4 - 8 PM Wednesday May 30 demo or die day</span>.</span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;"></span> Demo of project.<br>
+
+<span style="font-weight: bold;"><br>
+
+</span></span><span style="font-family: Times New Roman,Times,serif;"><span style="font-weight: bold;">24:00 hours Thursday May 31 project reports due</span></span><span style="font-family: Times New Roman,Times,serif;">.The report written in latex includes description of the project, the Design Spec, functional decomposition of the system, Implementation Spec, lessons learnt. The appendix includes a README indicating your submitted svn version and how to compile and run your code. All material should be signed into the teams cvs project page. The PDF of the project report should be sent to cs50@cs.dartmouth.edu<br>
+
+</span><br>
+
+<a name="newsnannouncements">
+<h2>News and Announcements</h2>
+<!--
+
+<p><em><strong>May 17th</strong></em><br/>
+We now have battery-charger connectors for all chargers; you can directly connect your battery to the charger for changing, no long need to go through your robot as a relay.
+
+-->
+<p><em><strong>May 23rd</strong></em><br/>
+Add FAQs section.
+
+<p><em><strong>May 21st</strong></em><br/>
+Each team now has a SVN account set up, at https://svn.cs.dartmouth.edu/classes/cs50-S12/TeamName/<br/>
+
+<p><em><strong>May 13th</strong></em><br/>
+Project teams are <a href="#teams">announced</a> , useful material links posted, and design review signup sheet is available.
+
+<p><em><strong>May 12nd</strong></em><br/>
+Wireless IP addresses of six bots are now posted.
+
+<br>
+
+<h2> Demo Signup </h2>
+
+Go <a href="https://docs.google.com/spreadsheet/ccc?key=0Ap-M4YhzUkghdEJmb1MxUThlTXdKWFliQWQ0WENnTGc&hl=en#gid=0">here</a> to sign your team up for a slot
+(it takes a few minutes and a manual refresh to see the changes on this page).<br><br>
+<iframe width='320' height='240' frameborder='0' src='https://docs.google.com/spreadsheet/ccc?key=0Ap-M4YhzUkghdEJmb1MxUThlTXdKWFliQWQ0WENnTGc&hl=en&output=html&output=html&widget=true'></iframe>
+
+<br>
+
+<h2> Code Review Signup </h2>
+
+Go <a href="https://docs.google.com/spreadsheet/ccc?key=0Ap-M4YhzUkghdGlFaXA1MmF4NS1VY1N4R3FBZjNHSlE&hl=en#gid=0">here</a> to sign your team up for a slot
+(it takes a few minutes and a manual refresh to see the changes on this page).<br><br>
+<iframe width='320' height='240' frameborder='0' src='https://docs.google.com/spreadsheet/ccc?key=0Ap-M4YhzUkghdGlFaXA1MmF4NS1VY1N4R3FBZjNHSlE&hl=en&output=html&output=html&widget=true'></iframe>
+
+<br>
+
+<h2> Design Review Signup </h2>
+
+Go <a href="https://docs.google.com/spreadsheet/ccc?key=0Ap-M4YhzUkghdGh4SGpidUFIcmJBQ1NGS3ZSQWpJVkE&hl=en#gid=0">here</a> to sign your team up for a slot
+(it takes a few minutes and a manual refresh to see the changes on this page).<br><br>
+<iframe width='320' height='240' frameborder='0' src='https://docs.google.com/spreadsheet/ccc?key=0Ap-M4YhzUkghdGh4SGpidUFIcmJBQ1NGS3ZSQWpJVkE&hl=en&output=html&output=html&widget=true'></iframe>
+
+<br>
+<a name="usefulmaterial">
+<h2>Useful Material</h2>
+
+<table width="50%" border="1" cellpadding="1" bordercolor="#FAFAFA" bgcolor="#C7C1B8">
+
+  <tr valign="middle">
+    <td width="32%"><strong>Link</strong></td>
+    <td width="68%"><strong>Notes</strong></td>
+  </tr>
+  
+ <tr valign="middle">
+    <td><a href="http://www.cs.dartmouth.edu/~campbell/cs50/project/gtk.html">GTK Tutorial</a> <br> <a href="http://www.cs.dartmouth.edu/~campbell/cs50/project/gtk_tutorial.pdf">Slides (including GDK)</a>   </td>
+    <td> GTK tutorial.</td> 
+  </tr>
+
+  <tr valign="middle">
+    <td><a href="http://www.acroname.com/garcia/garcia.html">Acroname Garcia
+    Website</a></td>
+    <td> Acroname's website for the Garcia robot.  See the lins in the upper
+    right hand side of the page.
+    </td>
+  </tr>
+
+  <tr valign="middle">
+    <td><a href="http://www.cs.dartmouth.edu/~xy/cs23/portal">Portal Binary</a></td>
+    <td>Portal base solution to test your robot.
+    </td>
+  </tr>
+
+  <tr valign="middle">
+    <td><a href="http://www.cs.dartmouth.edu/~campbell/cs50/project/garcia-tutorial.pdf">Garcia Tutorial</a></td>
+    <td> Introduction to Garcia robots slides (originally by Pan Wei).
+    </td>
+  </tr>
+  
+  <tr valign="middle">
+    <td><a href="http://www.cs.dartmouth.edu/~campbell/cs50/project/GARCIAII.html">Garcia Develeopment Tutorial</a></td>
+    <td>Pan Wei's tutorial covering compiling for the Garcia and the APIs used
+    to interact with it. </td>
+  </tr>
+
+  <tr valign="middle">
+    <td><a href="http://www.cs.dartmouth.edu/~xy/cs23/sanity-check.html">Garcia Sanity Check</a></td>
+    <td> Document describing how to set up robot, ssh into it and run
+    sample controller.
+    </td>
+  </tr>
+
+</table>
+
+<br>
+<br>
+
+
+<a name="teams">
+<h2 class="likepartHead"><a 
+ id="x1-2000"></a>Project Teams</h2>
+
+<br>
+<p><em><strong>Groups Leader: Fanghao Chen</strong></em><br>
+=========================
+<p><em><strong>Group 1</strong></em><br>
+Hongyu Chen<br>
+Robert L. Marchman<br>
+Matthew J. Diephuis<br>
+Monkruman B. St Jules<br>
+</p>
+
+<p><em><strong>Group 2</strong></em><br>
+Robin Wang<br>
+Chandrasekar Ramesh<br>
+Max N. Deibel<br>
+</p>
+
+<p><em><strong>Group 3: BLISTERING BARNACLES</strong></em><br>
+Chuanqi Sun<br>
+Scott L. Brookes<br>
+Justice Amoh Jr<br>
+Cooper S. Stimson<br>
+</p>
+
+<p><em><strong>Group 4</strong></em><br>
+Tianshun Miao<br>
+Michael C. Kwa<br>
+Graeson C. McMahon<br>
+</p>
+
+<br>
+<p><em><strong>Groups Leader: Lauren E. Litscher</strong></em><br>
+=========================
+
+<p><em><strong>Group 5: Segfault</strong></em><br>
+Tucker Ward<br>
+Roger L. Melick<br>
+Graham B. Findlay<br>
+Kyle M. Lawson<br>
+</p>
+
+<p><em><strong>Group 6: Fanghao Family</strong></em><br>
+Adam Tong<br>
+Matthew Ge<br>
+Mehdi Oulmakki<br>
+Anup Dhamala<br>
+</p>
+
+<p><em><strong>Group 7: DROP TABLE Groups</strong></em><br>
+Matthew C. Digman<br>
+Michael A. Urbach<br>
+Diana L. Salsbury<br>
+Matthew S. McNierney<br>
+</p>
+
+<br>
+<p><em><strong>Groups Leader: Melissa S. Queen</strong></em><br>
+=========================
+
+<p><em><strong>Group 8: free (willy) </strong></em><br>
+Shuyang Fang<br>
+Piotr Teterwak<br>
+Eugene E. Zheng<br>
+William D. Geoghegan III<br>
+</p>
+
+<p><em><strong>Group 9: Garcia Can Socket</strong></em><br>
+Samuel Tan Jun Jie<br>
+Randy X. Li<br>
+Yon Soo Park<br>
+Ethan M. Thomas<br>
+</p>
+
+<p><em><strong>Group 10</strong></em><br>
+Joseph T. Loftus<br>
+Elaine G. Levey<br>
+Tewende Anani Sawadogo<br>
+Andrew D. Pillsbury<br>
+</p>
+
+<br>
+
+<h2 class="likepartHead"><a 
+ id="x1-2000"></a>Robot IPs</h2>
+
+<p><em><strong>Black robot: 129.170.210.229</strong></em> (Group1 & Group2)<br/>
+
+<p><em><strong>Orange robot:129.170.210.231</strong></em> (Group3 & Group4)<br/>
+
+<p><em><strong>Blue robot: 129.170.210.228</strong></em> (Group5 & Group6)<br/>
+
+<p><em><strong>Red robot:129.170.210.230</strong></em> (Group7 & Group8)<br/>
+
+<p><em><strong>White robot:129.170.210.227</strong> (Group9 & Group10)</em><br/>
+
+<p><em><strong>Yellow robot:129.170.210.226</strong></em><br/>
+
+<br>
+
+<a name="faqs">
+<h2 class="likepartHead"><a 
+ id="x1-2000"></a>FAQs</h2>
+
+ Q: How could I run the command on garcia? <br>
+ A: copy the binary say cs23Garcia_turn to /home/acroname/aBinary; type "./cs23Garcia_turn" to run the binary.<br>
+
+ <br>
+
+ Q: How should I avoid overwritten problem between teams or with other shared teams?<br>
+ A: It is OK you rename your binary file. Take group1 as example, I recommend the command guy name the binary as "group1_garcia_control" alike with the team name and component within the binary filename. It can easily solve the name conflict problem. <br>
+
+ <br> 
+
+ Q: Why robot is not working or cannot ssh or has any weird behavior?<br>
+ A: Try to use a fully charged battery… Then physically connect using cable if problem still exists.<br>
+
+ <br> 
+
+ Q: How could I run the asf as daemon?<br>
+ A: copy your asf to robot; do a ls -l to check if your asf is excutable; then follow the command in instrunction to run it.<br>
+
+<!--
+spring 2010
+<div 
+class="colorbox" id="colorbox1"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Black (129.170.210.229):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Jae</span><span 
+class="cmtt-10">&#x00A0;Heon</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Janet</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Michelle</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Thomas</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Blue (129.170.210.228):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Cole</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Michael</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Shloka</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Tim</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Orange (129.170.210.231):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Chi</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;John</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Rebecca</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Rob</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Red (129.170.210.230):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Carla</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Dan</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Hao</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Xiaochao</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Yellow (129.170.210.226):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Alexandra</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Pammi</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Qingyuan</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Sean</span><br /><br /></div></div>
+
+<br><br><br><br>
+</div>
+-->
+<!--
+winter 10
+<div 
+class="colorbox" id="colorbox1"><div class="BVerbatimInput"><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Black (129.170.210.229):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Daniel</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Kyle</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Wenyu</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Orange (129.170.210.231):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Alex</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Emily</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Shinkyu</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Blue (129.170.210.228):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Emma</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Forrest</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Ye</span><br /><br /><span 
+class="cmtt-10">Team</span><span 
+class="cmtt-10">&#x00A0;Red (129.170.210.230):</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Benjamin</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Lei</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Yifei</span><br /><br /><br /><br /></div></div>
+
+-->
+
+<br>
+
+<!--
+
+<h2>Lab Hours for the project:</h2>
+TBD
+
+<table width="75%" border="1" cellpadding="1" bordercolor="#FAFAFA" bgcolor="#C7C1B8">
+  <tr valign="middle">
+    <td></td> <td>Monday</td><td>Tuesday</td><td>Wednesday</td>
+    <td>Thursday</td><td>Friday</td><td>Saturday</td><td>Sunday</td>
+  </tr>
+  
+  <tr valign="middle">
+    <td>Nick</td>
+    <td>10AM-12PM</td><td>8-10PM</td><td>10AM-12PM</td>
+    <td>5-7</td><td>10AM-12PM</td><td>4-6PM</td><td>6-8PM</td>
+  </tr>
+  <tr valign="middle">
+    <td>Paritosh</td>
+    <td>9-11PM</td><td></td><td>10AM-12PM</td>
+    <td>9-11PM</td><td>10AM-12PM</td><td></td><td>3-5PM</td>
+  </tr>
+
+</table>
+
+<h2>Q&amp;A</h2>
+<p>Below is a record of questions that have been asked and their answers. I will include the addition dates so that it easy for you to see if any new information has been added here. </p>
+
+<p><strong><em>May 22nd</em></strong><br />
+  <br />
+Q: For the strings we send to the server, are the characters
+  supposed to be in unicode or ascii? Since I'm writing the server
+  in Java, the characters are in unicode and I'm going to have
+  to convert them to ASCII when I talk to the clients. Will
+I have to do the same when I talk to the unifying server?<br />
+A: The unifying server protocol is all ASCII. To clarify a little, here is some debugging output from my C client as it talks to the Unifying server. </p>
+-->
+
+</body>
+
+</html>

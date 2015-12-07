@@ -1,0 +1,45 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/henderson-jvoice.html
+3
+<HTML>
+<HEAD>
+ <TITLE>henderson:jvoice</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Tristan Henderson, David Kotz, and Ilya Abyzov.
+<b>The Changing Usage of a Mature Campus-wide Wireless Network</b>.
+<i>Computer Networks</i>,
+52(14):2690-2712,
+October,
+2008.
+DOI <a href="http://dx.doi.org/10.1016/j.comnet.2008.05.003">10.1016/j.comnet.2008.05.003</a>.
+<p><b>Abstract:</b> Wireless Local Area Networks (WLANs) are now commonplace on many
+academic and corporate campuses. As "Wi-Fi" technology becomes ubiquitous, it
+is increasingly important to understand trends in the usage of these
+networks. This paper analyzes an extensive network trace from a mature 802.11
+WLAN, including more than 550 access points and 7000 users over seventeen
+weeks. We employ several measurement techniques, including syslog messages,
+telephone records, SNMP polling and tcpdump packet captures. This is the
+largest WLAN study to date, and the first to look at a mature WLAN. We
+compare this trace to a trace taken after the network's initial deployment
+two years prior. <P> We found that the applications used on the WLAN changed
+dramatically, with significant increases in peer-to-peer and streaming
+multimedia traffic. Despite the introduction of a Voice over IP (VoIP) system
+that includes wireless handsets, our study indicates that VoIP has been used
+little on the wireless network thus far, and most VoIP calls are made on the
+wired network. <P> We saw greater heterogeneity in the types of clients
+used, with more embedded wireless devices such as PDAs and mobile VoIP
+clients. We define a new metric for mobility, the "session diameter". We use
+this metric to show that embedded devices have different mobility
+characteristics than laptops, and travel further and roam to more access
+points. Overall, users were surprisingly non-mobile, with half remaining
+close to home about 98\% of the time.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/henderson-jvoice.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/~dfk/papers/internal/henderson-jvoice.pdf">PDF</a> (remote)</p>
+<p><a target=_top href = "./internal/henderson-jvoice.pdf">PDF</a> (731K)(Dartmouth only)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Elsevier.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/henderson-voice.html">henderson:voice</a></b>.</p>
+</BODY>
+</HTML>

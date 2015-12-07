@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/fazio-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>fazio:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Phillip A. Fazio.
+<b>Effects of network trace sampling methods on privacy and utility
+metrics</b>.
+Technical Report
+TR2011-697,
+Dartmouth College, Computer Science,
+June,
+2011.
+<p><b>Abstract:</b> Researchers studying computer networks rely on the availability
+of traffic trace data collected from live production networks. Those choosing
+to share trace data with colleagues must first remove or otherwise anonymize
+sensitive information. This process, called sanitization, represents a
+tradeoff between the removal of information in the interest of identity
+protection and the preservation of data within the trace that is most
+relevant to researchers. While several metrics exist to quantify this
+privacy-utility tradeoff, they are often computationally expensive. Computing
+these metrics using a sample of the trace, rather than the entire input
+trace, could potentially save precious time and space resources, provided the
+accuracy of these values does not suffer. In this paper, we examine several
+simple sampling methods to discover their effects on measurement of the
+privacy-utility tradeoff when anonymizing network traces prior to their
+sharing or publication. After sanitizing a small sample trace collected from
+the Dartmouth College wireless network, we tested the relative accuracy of a
+variety of previously implemented packet and flow-sampling methods on a few
+existing privacy and utility metrics. This analysis led us to conclude that,
+for our test trace, no single sampling method we examined allowed us to
+accurately measure the trade-off, and that some sampling methods can produce
+grossly inaccurate estimates of those values. We were unable to draw
+conclusions on the use of packet versus flow sampling in these instances.</p>
+<p><a href="bibtex/fazio-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "././fazio-thesis.pdf">PDF</a> (1041K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by the author.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

@@ -1,0 +1,195 @@
+http://www.cs.dartmouth.edu/%7Eniclane/service.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nic Lane</title>
+
+<meta name="keywords" content="keywords" />
+
+<meta name="description" content="A little something about Nic Lane." />
+
+<link href="stylesheet.css" rel="stylesheet" type="text/css"  />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32165484-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+<!-- begin background wrapper -->
+<div class="wrapper-background">
+
+<!-- begin main content wrapper -->
+<div class="wrapper-main-content">
+
+
+
+<!-- ################################################################################## -->
+<!-- begin header -->
+<div class="header"><br/><br/>
+
+<!-- begin spaces to align links -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<!-- end spaces to align links -->
+
+<!-- begin links -->
+<!--[<a href="" target="_parent">projects</a>] &nbsp;  [<a href="" target="_parent">publications</a>] &nbsp;  [<a href="" target="_parent">cv</a>] &nbsp; [<a href="" target="_parent">meetings</a>] &nbsp; [<a href="" target="_parent">talks</a>] &nbsp; [<a href="" target="_parent">press</a>]-->
+[<a href="index.html">home</a>] &nbsp;  [<a href="news.html">news</a>] &nbsp; [<a href="papers.html">publications</a>] &nbsp; [<a href="resume_150215.pdf">resume</a>] &nbsp; [<a href="talks.html">talks</a>] &nbsp; [<a href="service.html">service</a>] 
+<!-- end links -->
+</div>
+<!-- end header -->
+
+<div class="papers">
+The following is a list my academic service.
+<BR><BR>
+<b>Program Committee Co-Chair</b>
+<BR>
+MobiQuitous '15<BR>
+MobiCASE '14
+<BR><BR>
+<b>Program Committee Member</b>
+<BR>
+ICWSM '15<BR>
+SenSys '15<BR>
+UbiComp '15<BR>
+PerCom '15<BR>
+MobiSys '15 -- External Review Committee<BR>
+SECON '15 -- Group Leader<BR>
+DCOSS '15 -- Mobile Sensing Track Chair<BR>
+WristSense '15<BR>
+WoWMoM '15<BR>
+WPA-15<BR>
+FutureMobileUI15<BR>
+UIC '15 -- Personalization and Social Aspects Track<BR>
+UbiComp '14<BR>
+CIKM '14 -- Information Retrieval Track<BR>
+MM '14 -- Big and Broad Multimedia Track<BR>
+HotMobile '14<BR>
+PerCom '14 -- Work in Progress (WIP) Track<BR>
+MobiQuitous '14<BR>
+WoWMoM '14<BR>
+RTCSA '14 -- System Design Practice and Emerging Applications Track<BR>
+MMSYS '14 -- Mobile Multimedia Sensing Track<BR>
+DCOSS '14 -- Social Network & CrowdSensing Track<BR>
+MDM '14<BR>
+MCSS '14<BR>
+Urb-IoT '14<BR> 
+MobiSys '13<BR>
+UbiComp '13<BR>
+SenSys '13<BR>
+RTSS '13<BR>
+Pervasive Health '13</b><BR>
+HotPlanet '13<BR>
+DCOSS '13 -- Social Networks and Crowdsensing Track<BR>
+SeNAmI '13<BR>
+SICE '13 -- Smart Sensing Systems Track<BR>
+MobiCASE '13<BR>
+PerCom '12 -- Work in Progress (WIP) Track<BR>
+Pervasive '12<BR>
+CONET '12<BR>
+SeNAmI '12<BR>
+ISMIS '12<BR>
+LBSN '12<BR>
+UrbComp '12<BR>
+Nokia Data Challenge (2012)<BR>
+PhoneSense '11<BR>
+PeMA '11<BR>
+S3 '10<BR>
+<BR>
+<b>Workshop and Tutorial Co-Organizer</b>
+<BR>
+6th International Workshop on Mobile Cloud Computing and Services (co-located MobiCom '15) -- [<a href='http://www.sigmobile.org/workshops/mcs/2015/index.html'>website</a>]
+<BR>
+2nd ACM Workshop on Mobile Systems for Computational Social Science (co-located UbiComp '13) -- [<a href='http://events.cs.bham.ac.uk/MCSS2013/'>website</a>] 
+<BR>
+Smartphone sensing: A Game Changer for Behavioral Science (co-located SISPP ’13)
+<BR>
+3rd International Workshop on Mobile Sensing 2013 (co-located IPSN ’13) -- [<a href='http://research.microsoft.com/en-us/um/beijing/events/ms_ipsn13/'>website</a>] 
+<br>
+2nd International Workshop on Mobile Sensing 2012 (co-located IPSN ’12) -- [<a href='http://research.microsoft.com/en-us/um/beijing/events/ms_ipsn12/'>website</a>]
+<br>
+Full Day Tutorial on Building and Deploying Mobile Systems for Activity Recognition (co-located UbiComp ’11)
+<br>
+1st International Workshop on Mobile Sensing 2011 (co-located UbiComp ’11) -- [<a href='http://research.microsoft.com/en-us/um/beijing/events/ms_ubicomp11/'>website</a>]
+<br><br>
+<b>Demo Chair</b><BR>
+MobiSys ‘13<br>
+PerCom '15
+<BR><BR>
+<b>Publicity Chair</b> <BR>
+UbiComp ‘13
+<BR><BR>
+<b>Sponsorship Chair</b><BR>
+HotMobile '15
+<BR><BR>
+<b>Web Chair</b><BR>
+IPSN ‘12
+<BR><BR>
+<b>Doctoral Symposium Chair</b><BR>
+SenSys '15<br>
+UbiComp '15
+<BR><BR>
+<b>Book Advisory Board Member</b>
+<BR>
+IDG Book – “Tools for Mobile Multimedia Programming and Development”
+<BR><BR>
+<b>Recognized Reviewer Panelist</b>
+<BR>
+IEEE Pervasive Computing
+
+</div>
+
+<!-- ################################## LEFT COLUMN ################################################ -->
+<!-- ******************* BIO ********************** -->
+
+<!-- begin left main column bio, news, service etc. -->
+<!--<div class="left-column">
+
+<!-- begin vertical spacer for bio -->
+<!--<div style="height:25px"></div>
+<!-- end vertical spacer for bio -->
+
+
+<!-- begin vertical spacer for bio bottom -->
+<!--<div style="height:20px"></div>
+<!-- end vertical spacer for bio bottom -->
+
+<!--</div> -->
+<!-- end left main  column -->
+
+<!-- #################################### RIGHT COLUMN ############################################## -->
+
+<!-- begin right main column photo and widgets -->
+<!--<div class="right-column"><img src="images/photos/portrait.jpg" />
+
+
+</div>-->
+<!-- end right main column -->
+
+<!-- ################################################################################## -->
+
+
+<div class="page-bottom-spacer"></div>
+
+</div>
+<!-- end main content wrapper -->
+</div>
+<!-- end background wrapper -->
+
+</body>
+</html>

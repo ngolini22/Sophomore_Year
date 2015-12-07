@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-dwta.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:dwta</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Robert Gray, and Daniela Rus.
+<b>Future Directions for Mobile-Agent Research</b>.
+<i>IEEE Distributed Systems Online</i>,
+3(8),
+August,
+2002.
+Based on a conversation with Jeff Bradshaw, Colin Harrison, Guenter
+Karjoth, Amy Murphy, Gian Pietro Picco, M. Ranganathan, Niranjan Suri, and
+Christian Tschudin.
+<p><b>Abstract:</b> The field of mobile agents should shift its emphasis toward
+mobile code, in all its forms, rather than continue focusing on mobile
+agents. The development of modular components will help application designers
+take advantage of code mobility without having to rewrite their applications
+to fit in monolithic, mobile agent systems.</p>
+<p><b>Keywords:</b> mobile computing, security, mobile-agent</p>
+<p><a href="bibtex/kotz-dwta.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-dwta.pdf">PDF</a> (490K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-dwta-tr.html">kotz:dwta-tr</a></b>.</p>
+</BODY>
+</HTML>

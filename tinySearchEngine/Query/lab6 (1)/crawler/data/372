@@ -1,0 +1,22 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/ellis-prefetchTR.html
+3
+<HTML>
+<HEAD>
+ <TITLE>ellis:prefetchTR</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Carla Schlatter Ellis and David Kotz.
+<b>Prefetching in File Systems for MIMD Multiprocessors</b>.
+Technical Report
+CS-1988-23,
+Dept. of Computer Science, Duke University,
+November,
+1988.
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/ellis-prefetchTR.bib">BibTeX</a></p>
+<p><a target=_top href = "././ellis-prefetchTR.pdf">PDF</a> (77K)</p>
+<p><b>Copyright &#169;&nbsp;1988 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/ellis-prefetch.html">ellis:prefetch</a></b>.</p>
+</BODY>
+</HTML>

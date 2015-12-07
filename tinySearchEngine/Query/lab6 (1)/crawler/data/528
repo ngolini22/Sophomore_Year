@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nog-networks.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nog:networks</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Saurab Nog and David Kotz.
+<b>A Performance Comparison of TCP/IP and MPI on FDDI, Fast
+Ethernet, and Ethernet</b>.
+Technical Report
+PCS-TR95-273,
+Dartmouth Computer Science,
+November,
+1995.
+Revised January 8, 1996.
+<p><b>Abstract:</b> Communication is a very important factor affecting distributed
+applications. Getting a close handle on network performance (both bandwidth
+and latency) is thus crucial to understanding overall application
+performance. We benchmarked some of the metrics of network performance using
+two sets of experiments, namely roundtrip and datahose. The tests were
+designed to measure a combination of network latency, bandwidth, and
+contention. We repeated the tests for two protocols (TCP/IP and MPI) and
+three networks (100 Mbit FDDI (Fiber Distributed Data Interface), 100 Mbit
+Fast Ethernet, and 10 Mbit Ethernet). The performance results provided
+interesting insights into the behaviour of these networks under different
+load conditions and the software overheads associated with an MPI
+implementation (MPICH). This document presents details about the experiments,
+their results, and our analysis of the performance. <P> Revised on 1/8/96 to
+emphasize our use of a particular MPI implementation, MPICH.</p>
+<p><b>Keywords:</b> network</p>
+<p><a href="bibtex/nog-networks.bib">BibTeX</a></p>
+<p><a target=_top href = "././nog-networks.pdf">PDF</a> (279K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by the authors.</b></p>
+</BODY>
+</HTML>

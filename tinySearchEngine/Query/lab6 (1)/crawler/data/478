@@ -1,0 +1,29 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-game-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:game-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, Rajiv T. Maheswaran, &Ccedil;agri Imer, Tamer Basar, David Kotz, and Daniela Rus.
+<b>A Game-Theoretic Formulation of Multi-Agent Resource Allocation</b>.
+Technical Report
+PCS-TR99-360,
+Dartmouth Computer Science,
+October,
+1999.
+<p><b>Abstract:</b> This paper considers resource allocation in a network with mobile
+agents competing for computational priority. We formulate this problem as a
+multi-agent game with the players being agents purchasing service from a
+common server. We show that there exists a computable Nash equilibrium when
+agents have perfect information into the future. We simulate a network of
+hosts and agents using our strategy to show that our resource-allocation
+mechanism effectively prioritizes agents according to their endowments.</p>
+<p><b>Keywords:</b> mobile-agent, mobile computing, distributed computing</p>
+<p><a href="bibtex/bredin-game-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-game-tr.pdf">PDF</a> (454K)</p>
+<p><b>Copyright &#169;&nbsp;1999 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/bredin-game.html">bredin:game</a></b>.</p>
+</BODY>
+</HTML>

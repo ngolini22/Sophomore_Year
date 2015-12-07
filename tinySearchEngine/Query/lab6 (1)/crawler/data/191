@@ -1,0 +1,46 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-explore.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:explore</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Ting Cai.
+<b>Exploring the use of I/O Nodes for Computation in a MIMD
+Multiprocessor</b>.
+In
+<i>Proceedings of the IPPS&nbsp;'95 Workshop on Input/Output in Parallel
+and Distributed Systems (IOPADS)</i>,
+pages 78-89,
+April,
+1995.
+<p><b>Abstract:</b> As parallel systems move into the production scientific-computing
+world, the emphasis will be on cost-effective solutions that provide high
+throughput for a mix of applications. Cost-effective solutions demand that a
+system make effective use of all of its resources. Many MIMD multiprocessors
+today, however, distinguish between ``compute'' and ``I/O'' nodes, the latter
+having attached disks and being dedicated to running the file-system server.
+This static division of responsibilities simplifies system management but
+does not necessarily lead to the best performance in workloads that need a
+different balance of computation and I/O. <P> Of course, computational
+processes sharing a node with a file-system service may receive less CPU
+time, network bandwidth, and memory bandwidth than they would on a
+computation-only node. In this paper we begin to examine this issue
+experimentally. We found that high-performance I/O does not necessarily
+require substantial CPU time, leaving plenty of time for application
+computation. There were some complex file-system requests, however, which
+left little CPU time available to the application. (The impact on network and
+memory bandwidth still needs to be determined.) For applications (or users)
+that cannot tolerate an occasional interruption, we recommend that they
+continue to use only compute nodes. For tolerant applications needing more
+cycles than those provided by the compute nodes, we recommend that they take
+full advantage of  both compute and I/O nodes for computation, and
+that operating systems should make this possible.</p>
+<p><b>Keywords:</b> parallel-IO, file system, parallel computing</p>
+<p><a href="bibtex/kotz-explore.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-explore.pdf">PDF</a> (291K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/kotz-explore-tr.html">kotz:explore-tr</a></b>.</p>
+</BODY>
+</HTML>

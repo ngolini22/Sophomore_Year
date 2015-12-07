@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/sorber-pnt-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>sorber:pnt-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jacob Sorber, Minho Shin, Ron Peterson, and David Kotz.
+<b>Poster: Practical Trusted Computing for mHealth Sensing</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+June,
+2011.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1999995.2000058">10.1145/1999995.2000058</a>.
+<p><b>Abstract:</b> Mobile sensing technologies present exciting opportunities for
+healthcare. Wireless sensors can automatically provide sensor data to care
+providers, dramatically improving their ability to diagnose, monitor, and
+manage a wide range of medical conditions. Using mobile phones to provide
+connectivity between sensors and providers is essential to keeping costs low
+and deployments simple. Unfortunately, software-based attacks against phones,
+which can have significant consequences for patients, are also on the rise.
+<P> This poster describes a simple, flexible, and novel approach to
+protecting both the confidentiality and integrity medical sensing and data
+processing on vulnerable mobile phones, using plug-in smart cards--even a
+phone compromised by malware. We describe our design, implementation, and
+initial experimental results using real smart cards and Android smartphones.</p>
+<p><a href="bibtex/sorber-pnt-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././sorber-pnt-poster.pdf">PDF</a> (65K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

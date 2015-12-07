@@ -1,0 +1,448 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture09/lecture09.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Dynamic Layouts using the Fragment Manager - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-11----dynamic-layouts-using-the-fragment-manager">Lecture 11 -- Dynamic Layouts using the Fragment Manager</h1>
+<p>Fragments can be used to respond to user input, varying form factors (phone or tablet) and other issues, such as, the orientation of the device. In portrait mode an app may show itself in a different manner to say landscape. The FragmentManager is responsible for adding, replacing, removing fragments dynamically. In this lecture, we will use the case study of the Fragment App to best understand how code can build dynamic layouts and respond to these types of events.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>How to build the Fragments app</li>
+<li>Dynamic layouts</li>
+<li>Portrait mode processing: The tale of two activities and two fragments</li>
+<li>Landscape mode processing: The tale of one activity and two fragments</li>
+<li>How does Android know which fragment_layout.xml to use?</li>
+<li>TitlesFragment</li>
+<li>Managing state between orientation flips</li>
+<li>FragmentManager and Fragment Transactions</li>
+<li>Adding fragments to activities</li>
+</ul>
+<h2 id="checkout-the-demo-project">Checkout the demo project</h2>
+<ul>
+<li>Download the <a href="../code/fragments.zip">fragments.zip</a> app that go with these notes. It includes two fragments that can be renders only one at at time in portrait mode, but in landscape more both fragments are shown side by side which is cool. The fragment manager and fragment transactions allow us to dynamically change the UI.</li>
+</ul>
+<p>This code is part of the <a href="http://developer.android.com/tools/samples/index.html">sample code</a> is available from the Android SDK Manager as part of the <em>ApiDemos</em> project.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Android developers: <a href="http://developer.android.com/guide/components/fragments.html">Fragment manager</a></li>
+<li>Course book section on <a href="http://commonsware.com/Android/">The Tactics of Fragments</a></li>
+<li><a href="http://developer.android.com/tools/samples/index.html">Sample code</a></li>
+</ul>
+<h2 id="fragments-app">Fragments app</h2>
+<p>The Fragment app uses fragments in a number of different ways we have not seen before. The goal of the app is simple: it presents the user with a list of <code>titles</code> of some of Shakespeare's plays (BTW, I was born 17 miles from the Bard's Stratford-Upon-Avon home, but in a different century) as a list view. The user can tap on one of these titles and get a snippet of the play's text.</p>
+<p>The cool thing about the app is that it is responsive to real world events: for example, different form factor devices have the ability to lay out fragments differently; and the user might flip the orientation of the phone -- say from portrait to landscape to portrait. The Fragment app is adaptive to these two events: different device form factors and orientation.</p>
+<p>In portrait mode the screen renders a fragment for the titles and when one is selected it renders the details the screen -- in this case the title fragment is no longer visible, only the details (i.e., play's text) is in focus. That's because in the portrait only mode only a single fragment at time can be viewed at a time, as shown below.</p>
+<div class="figure">
+<img src="images/portrait-mode.png" />
+</div>
+<p>That all changes if you flip the phone to the landscape mode when both fragments are drawn next to each other; that is, the user can view the title and detail fragments side by side, as shown below.</p>
+<div class="figure">
+<img src="images/fragapp3.png" />
+</div>
+<p>The cool thing about the landscape mode is that the two fragments are treated independently. The two fragments -- one for titles and one for details are instantiated and just added to the different modes of operation. The app is smart enough to remember which title you were looking at when modes are changed. This program would look great on a tablet where there is much more display real estate than a phone.</p>
+<p>By reading the code you will see how different configurations of fragments are displayed, based on the screen configuration.</p>
+<p>Like any project there are the usual files, but let me highlight some:</p>
+<ul>
+<li>main activity: FragmentLayout.java - this has all the code in</li>
+<li>Shakespeare.java is just a class with the data</li>
+<li>fragments: are created in XML and programmatically in the code</li>
+<li>layouts: there is two fragment layout files one for when the phone is in portrait and landscape, respectively</li>
+<li>plumbing: usual stuff with manifests, nothing special</li>
+</ul>
+<p>There are a number of requirements that the code has to address:</p>
+<ul>
+<li>being adaptive to the orientation and form factor; clearly the code has to deal with restarting the application activities and their associated fragments when the orientation changes;</li>
+<li>the app needs to manage fragments (add, replace) when necessary;</li>
+<li>the current selected title should be saved between changes to if the app adapts it remembers where it was.</li>
+</ul>
+<h2 id="systems-design">Systems design</h2>
+<p>The app has a number of activities and fragments in its design as shown in the figure below. The FragmentLayout is the launched activity. The path through the activities and fragments and their wiring is different depending on if the phone is in portrait or landscap modes. If in portrait mode the design has two activities and two fragments. If in landscape mode the design as a single activity and two fragments. After reading these notes take a look at the code with the diagram as a map.</p>
+<div class="figure">
+<img src="images/sfragdesign.png" />
+</div>
+<h2 id="dynamic-layouts">Dynamic layouts</h2>
+<p>A fragment is usually used as part of an activity's user interface and contributes its own layout to the activity. A fragment is implemented as independent object -- independent of the activity that contains it. The benefit is that it can be used by multiple activities associated with the application. However, a given instance of a fragment is tied to the activity that contains it. Note, for example, TitlesFragment is contained inside a main activity Fragment Layout.</p>
+<p>To provide a layout for a fragment, you must implement the onCreateView() callback method, which the Android system calls when it's time for the fragment to draw its layout. Your implementation of this method must return a View that is the root of your fragment's layout. We use ListFragment and in the code you will note there is no onCreateView() to draw the layout. That is because the default implementation returns a ListView from onCreateView(), so you don't need to implement it.</p>
+<p>As mentioned before a fragment is a portion of the UI associated with an activity overall view hierarchy. In the fragment app example we add fragments to the activity layout in two different ways:</p>
+<ul>
+<li><p>specifying a fragment in the XML file using <fragment> inside the activity's layout file; and</p></li>
+<li><p>programmatically by adding the fragment to an existing ViewGroup.</p></li>
+</ul>
+<h2 id="portrait-mode-processing-the-tale-of-two-activities-and-two-fragments">Portrait mode processing: The tale of two activities and two fragments</h2>
+<p>First, let's look at the <em>fragment_layout.xml</em> file below. The <code>class</code> attribute in the <fragment> specifies the Fragment class to instantiate in the layout -- by the way, the class attribute and android:name seem interchangeable -- sometimes you see name used and not class. When the system creates this activity layout, it instantiates each fragment specified in the layout and calls the onCreateView() method for each one, to retrieve each fragment's layout. <strong>The system inserts the view returned by the fragment directly in place of the <fragment> element in the XML below</strong>.</p>
+<p>The fragment_layout.xml for portrait mode is:</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;FrameLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;match_parent&quot;</span> &gt;
+ 
+    &lt;fragment
+        android:id=<span class="st">&quot;@+id/titles&quot;</span>
+        android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+        <span class="kw">class</span>=<span class="st">&quot;edu.dartmouth.cs.FragmentLayout$TitlesFragment&quot;</span> /&gt;
+ 
+&lt;/FrameLayout&gt;</code></pre>
+<p>Typically you implement the onCreateView() callback method, which the Android system calls when it's time for the fragment to draw its layout. The code in onCreateView <em>must</em> return a View that is the root of your fragment's layout. However, in our case (above in the XML) the fragment FragmentLayout$TitlesFragment is a subclass of ListFragment (which extends ListView), and the default implementation returns a ListView from onCreateView(), so you don't need to implement it in the code. That is why if you look at TitlesFragment code you will not see onCreateView() . The UI drawn is shown below:</p>
+<div class="figure">
+<img src="images/fragapp1.png" />
+</div>
+<p>In portrait mode the application will replace the existing titles fragment with the details fragment if the user taps on one of the names in the list view (again ListFragment is based on ListView). We will come back to discuss how this is done in the code in a moment. Essentially there are two activities and two different fragments used to implement this when the code runs in portrait mode; these activities are <em>FragmentLayout</em> and <em>DetailsActivity</em>.</p>
+<div class="figure">
+<img src="images/fragapp2.png" />
+</div>
+<p>If you look at the code you will see that the new details fragment is drawn by the DetailsActivity using the same root view as defined in fragment_layout.xml above,</p>
+<h2 id="landscape-mode-processing-the-tale-of-one-activity-and-two-fragments">Landscape mode processing: The tale of one activity and two fragments</h2>
+<p>In landscape mode a single activity (FragmentLayout) handles both the fragments. We will also consider inserting a fragment programmatically. Consider the landscape <code>res/layout-land/fragment_layout</code>. In this case the first fragment in the horizontal layout (in landscape on the phone) draws the titles fragment next to the details fragment, as shown below.</p>
+<div class="figure">
+<img src="images/fragapp3.png" />
+</div>
+<p>The fragment_layout.xml for landscape mode is:</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;LinearLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+    android:baselineAligned=<span class="st">&quot;false&quot;</span>
+    android:orientation=<span class="st">&quot;horizontal&quot;</span> &gt;
+ 
+    &lt;fragment
+        android:id=<span class="st">&quot;@+id/titles&quot;</span>
+        android:layout_width=<span class="st">&quot;0px&quot;</span>
+        android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+        android:layout_weight=<span class="st">&quot;1&quot;</span>
+        <span class="kw">class</span>=<span class="st">&quot;edu.dartmouth.cs.FragmentLayout$TitlesFragment&quot;</span> /&gt;
+ 
+    &lt;FrameLayout
+        android:id=<span class="st">&quot;@+id/details&quot;</span>
+        android:layout_width=<span class="st">&quot;0px&quot;</span>
+        android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+        android:layout_weight=<span class="st">&quot;1&quot;</span>
+        android:background=<span class="st">&quot;?android:attr/detailsElementBackground&quot;</span> /&gt;
+ 
+&lt;/LinearLayout&gt;</code></pre>
+<p>The system instantiates the TitlesFragment to lists the play titles as soon as the activity loads the layout<fragment>.</p>
+<p>However, the <FrameLayout> where the fragment for showing the play summary is placed only consumes empty space (left image below) on the right side of the screen until a new fragment (DetailsFragment) is created (DetailsFragment.newInstance(index)) which typically happens when a user taps a play (right image below).</p>
+<div class="figure">
+<img src="images/blank.png" />
+</div>
+<p>If you comment out the line of code shown below in TitlesFragment: onActivityCreated() (which is called when the FragmentLayout onCreate() has returned) then you will see the blank on loaded <FrameLayout> form the frame_layout above. If the line is not added back then the DetailsFragment is not loaded into the <FrameLayout> until the user selects an item from the list - at that point the DetailsFragment is created and placed into the FrameLayout.</p>
+<pre class="sourceCode java"><code class="sourceCode java">                        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onActivityCreated</span>(Bundle savedInstanceState) {
+                                    <span class="kw">super</span>.<span class="fu">onActivityCreated</span>(savedInstanceState);
+ 
+                                    **snippet**
+ 
+                                    <span class="kw">if</span> (mDualPane) {
+                                                <span class="co">// In dual-pane mode, the list view highlights the selected item.</span>
+                                                <span class="fu">getListView</span>().<span class="fu">setChoiceMode</span>(ListView.<span class="fu">CHOICE_MODE_SINGLE</span>);
+                                                <span class="co">// Make sure our UI is in the correct state.</span>
+                        <span class="fu">showDetails</span>(mCurCheckPosition);
+                                    } <span class="kw">else</span> {</code></pre>
+<p>It a poor design that would leave the right details fragment empty so by default the code displays the first play summary or last chosen title, if there is one.</p>
+<h2 id="how-does-android-now-which-fragment_layout.xml-to-use">How does Android now which fragment_layout.xml to use?</h2>
+<p>The answer is simple but not so obvious.</p>
+<p>FragmentLayout (main activity) applies a layout in the usual way, during onCreate():</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> FragmentLayout <span class="kw">extends</span> Activity {
+ 
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="co">// root view inflated</span>
+                        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">fragment_layout</span>);
+            }</code></pre>
+<p>But which fragment_layout.xml is used to set up the UI? If the phone is in portrait or landscape Android looks for the layout file in either the <code>layout-port</code> or <code>layout-land</code> directory first, if it's not found then it falls back to the default <code>layout</code> directory. All the layout files are off res/layout. Typically the following conversion is followed:</p>
+<ul>
+<li><em>res/layout</em> is where the default layouts reside</li>
+<li><em>res/layout-port</em> is for layouts -- views - that must change for portrait orientation</li>
+<li><em>res/layout-land</em> is for layouts -- views - that must change for landscape orientation</li>
+</ul>
+<p>In our implementation of fragments we have two fragment_layouts:</p>
+<ul>
+<li><em>res/layout</em> contains the portrait layout fragment_layout.xml as default -- we could have used res/layout-port/fragment_layout.xml but we did not.</li>
+<li><em>res/layout-land</em> contains the landscape layout fragment_layout.xml</li>
+</ul>
+<p>When FragmentLayout is called when the app first starts, or resumes, or when the orientation is flipped it calls setContentView(R.layout.fragment_layout); this method sets the activity (FragmentLayout) content to <code>fragment_layout</code>. This view is placed directly into the activity's view hierarchy. It can itself be a complex view hierarchy. When In the user clicks on one the items in the ListFragment then onListItemClick() callback is called which in turn calls the showDetails(position) to will start</p>
+<pre class="sourceCode java"><code class="sourceCode java">        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onListItemClick</span>(ListView l, View v, <span class="dt">int</span> position, <span class="dt">long</span> id) {
+
+            Toast.<span class="fu">makeText</span>(<span class="fu">getActivity</span>(),
+                    <span class="st">&quot;onListItemClick position is&quot;</span> + position, Toast.<span class="fu">LENGTH_LONG</span>)
+                    .<span class="fu">show</span>();
+
+            <span class="fu">showDetails</span>(position);
+        }</code></pre>
+<p>The showDetails(int index) helper function when not in landscape will simply start the DetailsActivity to display the details fragment. We will come back to landscape processing later.</p>
+<h2 id="titlesfragment">TitlesFragment</h2>
+<p>The TitlesFragment code is shown below. This is the &quot;top-level&quot; fragment, showing a list of items that the user can pick. Upon picking an item, it takes care of displaying the data to the user as appropriate based on the current UI layout. Displays a list of items that are managed by an adapter similar to ListActivity. It provides several methods for managing a list view, such as the onListItemClick() callback to handle click events. The fragment uses a helper function to show details of a selected item.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> TitlesFragment <span class="kw">extends</span> ListFragment {
+        <span class="dt">boolean</span> mDualPane;
+        <span class="dt">int</span> mCurCheckPosition = <span class="dv">0</span>;
+
+        <span class="co">// onActivityCreated() is called when the activity&#39;s onCreate() method</span>
+        <span class="co">// has returned.</span>
+
+        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onActivityCreated</span>(Bundle savedInstanceState) {
+            <span class="kw">super</span>.<span class="fu">onActivityCreated</span>(savedInstanceState);
+
+            <span class="co">// You can use getActivity(), which returns the activity associated</span>
+            <span class="co">// with a fragment.</span>
+            <span class="co">// The activity is a context (since Activity extends Context) .</span>
+
+            Toast.<span class="fu">makeText</span>(<span class="fu">getActivity</span>(), <span class="st">&quot;TitlesFragment:onActivityCreated&quot;</span>,
+                    Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+
+            <span class="co">// Populate list with our static array of titles in list in the</span>
+            <span class="co">// Shakespeare class</span>
+            <span class="fu">setListAdapter</span>(<span class="kw">new</span> ArrayAdapter&lt;String&gt;(<span class="fu">getActivity</span>(),
+                    android.<span class="fu">R</span>.<span class="fu">layout</span>.<span class="fu">simple_list_item_activated_1</span>,
+                    Shakespeare.<span class="fu">TITLES</span>));
+
+            <span class="co">// Check to see if we have a frame in which to embed the details</span>
+            <span class="co">// fragment directly in the containing UI.</span>
+            <span class="co">// R.id.details relates to the res/layout-land/fragment_layout.xml</span>
+            <span class="co">// This is first created when the phone is switched to landscape</span>
+            <span class="co">// mode</span>
+
+            View detailsFrame = <span class="fu">getActivity</span>().<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">details</span>);
+
+            Toast.<span class="fu">makeText</span>(<span class="fu">getActivity</span>(), <span class="st">&quot;detailsFrame &quot;</span> + detailsFrame,
+                    Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+
+            <span class="co">// Check that a view exists and is visible</span>
+            <span class="co">// A view is visible (0) on the screen; the default value.</span>
+            <span class="co">// It can also be invisible and hidden, as if the view had not been</span>
+            <span class="co">// added.</span>
+            <span class="co">//</span>
+            mDualPane = detailsFrame != <span class="kw">null</span>
+                    &amp;&amp; detailsFrame.<span class="fu">getVisibility</span>() == View.<span class="fu">VISIBLE</span>;
+
+            Toast.<span class="fu">makeText</span>(<span class="fu">getActivity</span>(), <span class="st">&quot;mDualPane &quot;</span> + mDualPane,
+                    Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+
+            <span class="kw">if</span> (savedInstanceState != <span class="kw">null</span>) {
+                <span class="co">// Restore last state for checked position.</span>
+                mCurCheckPosition = savedInstanceState.<span class="fu">getInt</span>(<span class="st">&quot;curChoice&quot;</span>, <span class="dv">0</span>);
+            }
+
+            <span class="kw">if</span> (mDualPane) {
+                <span class="co">// In dual-pane mode, the list view highlights the selected</span>
+                <span class="co">// item.</span>
+                <span class="fu">getListView</span>().<span class="fu">setChoiceMode</span>(ListView.<span class="fu">CHOICE_MODE_SINGLE</span>);
+                <span class="co">// Make sure our UI is in the correct state.</span>
+                <span class="fu">showDetails</span>(mCurCheckPosition);
+            } <span class="kw">else</span> {
+                <span class="co">// We also highlight in uni-pane just for fun</span>
+                <span class="fu">getListView</span>().<span class="fu">setChoiceMode</span>(ListView.<span class="fu">CHOICE_MODE_SINGLE</span>);
+                <span class="fu">getListView</span>().<span class="fu">setItemChecked</span>(mCurCheckPosition, <span class="kw">true</span>);
+            }
+        }</code></pre>
+<h2 id="managing-state-between-orientation-flips">Managing state between orientation flips</h2>
+<p>The app keep track of the current checked selection so when it resumes it -- say back again in landscape it as the last position highlighted using onSaveInstanceState() in the fragment lifecycle. The fragment saves its current dynamic state, so it can later be reconstructed in a new instance of its process is restarted. If a new instance of the fragment later needs to be created, the data you place in the Bundle here will be available in the Bundle given to onCreate(Bundle), onCreateView(LayoutInflater, ViewGroup, Bundle), and onActivityCreated(Bundle). In the code the new fragment restores the state in onActivityCreated(). State here is just the mCurCheckPosition.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSaveInstanceState</span>(Bundle outState) {
+            <span class="kw">super</span>.<span class="fu">onSaveInstanceState</span>(outState);
+            Toast.<span class="fu">makeText</span>(<span class="fu">getActivity</span>(), <span class="st">&quot;onSaveInstanceState&quot;</span>,
+                    Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+
+            outState.<span class="fu">putInt</span>(<span class="st">&quot;curChoice&quot;</span>, mCurCheckPosition);
+        }</code></pre>
+<h2 id="fragmentmanager-and-fragment-transactions">FragmentManager and Fragment Transactions</h2>
+<p>Helper function (showDetails(position)) to show the details of a selected item, either by displaying a fragment in-place in the current UI, or starting a whole new activity in which it is displayed.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="dt">void</span> <span class="fu">showDetails</span>(<span class="dt">int</span> index) {
+            mCurCheckPosition = index;
+
+            <span class="co">// The basic design is mutli-pane (landscape on the phone) allows us</span>
+            <span class="co">// to display both fragments (titles and details) with in the same</span>
+            <span class="co">// activity; that is FragmentLayout -- one activity with two</span>
+            <span class="co">// fragments.</span>
+            <span class="co">// Else, it&#39;s single-pane (portrait on the phone) and we fire</span>
+            <span class="co">// another activity to render the details fragment - two activities</span>
+            <span class="co">// each with its own fragment .</span>
+            <span class="co">//</span>
+            <span class="kw">if</span> (mDualPane) {
+                <span class="co">// We can display everything in-place with fragments, so update</span>
+                <span class="co">// the list to highlight the selected item and show the data.</span>
+                <span class="co">// We keep highlighted the current selection</span>
+                <span class="fu">getListView</span>().<span class="fu">setItemChecked</span>(index, <span class="kw">true</span>);
+
+                <span class="co">// Check what fragment is currently shown, replace if needed.</span>
+                DetailsFragment details = (DetailsFragment) <span class="fu">getFragmentManager</span>()
+                        .<span class="fu">findFragmentById</span>(R.<span class="fu">id</span>.<span class="fu">details</span>);
+                <span class="kw">if</span> (details == <span class="kw">null</span> || details.<span class="fu">getShownIndex</span>() != index) {
+                    <span class="co">// Make new fragment to show this selection.</span>
+
+                    details = DetailsFragment.<span class="fu">newInstance</span>(index);
+
+                    Toast.<span class="fu">makeText</span>(<span class="fu">getActivity</span>(),
+                            <span class="st">&quot;showDetails dual-pane: create and replace fragment&quot;</span>,
+                            Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+
+                    <span class="co">// Execute a transaction, replacing any existing fragment</span>
+                    <span class="co">// with this one inside the frame.</span>
+                    FragmentTransaction ft = <span class="fu">getFragmentManager</span>()
+                            .<span class="fu">beginTransaction</span>();
+                    ft.<span class="fu">replace</span>(R.<span class="fu">id</span>.<span class="fu">details</span>, details);
+                    ft.<span class="fu">setTransition</span>(FragmentTransaction.<span class="fu">TRANSIT_FRAGMENT_FADE</span>);
+                    ft.<span class="fu">commit</span>();
+                }
+
+            } <span class="kw">else</span> {
+                <span class="co">// Otherwise we need to launch a new activity to display</span>
+                <span class="co">// the dialog fragment with selected text.</span>
+                <span class="co">// That is: if this is a single-pane (e.g., portrait mode on a</span>
+                <span class="co">// phone) then fire DetailsActivity to display the details</span>
+                <span class="co">// fragment</span>
+
+                <span class="co">// Create an intent for starting the DetailsActivity</span>
+                Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>();
+
+                <span class="co">// explicitly set the activity context and class</span>
+                <span class="co">// associated with the intent (context, class)</span>
+                intent.<span class="fu">setClass</span>(<span class="fu">getActivity</span>(), DetailsActivity.<span class="fu">class</span>);
+
+                <span class="co">// pass the current position</span>
+                intent.<span class="fu">putExtra</span>(<span class="st">&quot;index&quot;</span>, index);
+
+                <span class="fu">startActivity</span>(intent);
+            }
+        }</code></pre>
+<h2 id="detailsactivity-portrait-mode-processing">DetailsActivity: Portrait mode processing</h2>
+<p>As discussed before If the user clicks a list item and the current layout does not include the R.id.details view (DetailsFragment does this), then the application starts the DetailsActivity activity to display the content of the item. The helper function creates a new fragment in landscape to draw the details in portrait starts an activity (DetailsActivity) to manage the detail fragment -- that is create a new DetailsFragment and add it to the root view using FragmentManager, as shown below. The DetailsActivity embeds the DetailsFragment to display the selected play summary when the screen is in portrait orientation:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="co">// This is a secondary activity, to show what the user has selected when the</span>
+    <span class="co">// screen is not large enough to show it all in one activity.</span>
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> DetailsActivity <span class="kw">extends</span> Activity {
+
+        @Override
+        <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+            <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+
+            Toast.<span class="fu">makeText</span>(<span class="kw">this</span>, <span class="st">&quot;DetailsActivity&quot;</span>, Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+
+            <span class="kw">if</span> (<span class="fu">getResources</span>().<span class="fu">getConfiguration</span>().<span class="fu">orientation</span> == Configuration.<span class="fu">ORIENTATION_LANDSCAPE</span>) {
+                <span class="co">// If the screen is now in landscape mode, we can show the</span>
+                <span class="co">// dialog in-line with the list so we don&#39;t need this activity.</span>
+                <span class="fu">finish</span>();
+                <span class="kw">return</span>;
+            }
+
+            <span class="kw">if</span> (savedInstanceState == <span class="kw">null</span>) {
+                <span class="co">// During initial setup, plug in the details fragment.</span>
+
+                <span class="co">// create fragment</span>
+                DetailsFragment details = <span class="kw">new</span> <span class="fu">DetailsFragment</span>();
+
+                <span class="co">// get and set the position input by user (i.e., &quot;index&quot;)</span>
+                <span class="co">// which is the construction arguments for this fragment</span>
+                details.<span class="fu">setArguments</span>(<span class="fu">getIntent</span>().<span class="fu">getExtras</span>());
+
+                <span class="co">//</span>
+                <span class="fu">getFragmentManager</span>().<span class="fu">beginTransaction</span>()
+                        .<span class="fu">add</span>(android.<span class="fu">R</span>.<span class="fu">id</span>.<span class="fu">content</span>, details).<span class="fu">commit</span>();
+            }
+        }
+    }</code></pre>
+<p>Recall if you flip it the FragmentLayout activity's onCreate() is called again as the app is restarted to fit the new orientation -- that's quite cool. At any time while your activity is running, you can add fragments to your activity layout. You simply need to specify a ViewGroup in which to place the fragment -- for example the <FrameLayout> above -- the details fragment is inserted programmatically into <FrameLayout></p>
+<p>The DetailsActivity finishes if the configuration is landscape, so that the main activity can take over and display the DetailsFragment alongside the TitlesFragment. This can happen when the user begins the DetailsActivity in portrait and then rotates to landscape (which will restarts the current activity). But how doe the phone know which orientation it is in? And how does the code implement the two different designs we've discussed above?</p>
+<h2 id="adding-fragments-to-activities">Adding fragments to activities</h2>
+<p>The end of this thread is the drawing of the details fragment by the new activity as shown below. Assume in the path through the onCreate() for the activity that its the first time through the application/activity running. We first create a new fragment (DetailsActivity), set the index for the item selected (Henry V) and the we use the programmatic approach to adding the fragment.</p>
+<p>At any time while your activity is running, you can add fragments to your activity layout. You simply need to specify a ViewGroup in which to place the fragment. To make fragment transactions in your activity (such as add, remove, or replace a fragment), you must use APIs from FragmentTransaction. You can get an instance of FragmentTransaction from your activity as shown below.</p>
+<p>Let's breakdown the line:</p>
+<p>getFragmentManager().beginTransaction().add(android.R.id.content, details).commit();</p>
+<p>At this point the new fragment has been created and the text added (see below) to a scrollable view.</p>
+<p>First, getFragmentManager() to execute transactions. And start a new transaction by calling <code>beginTransaction()</code></p>
+<p>You can then add a fragment using the add() method, specifying the fragment to add and the view in which to insert it. Here we are adding the <em>details</em> fragment to the root view.</p>
+<p>First we create or begin a new transaction and then add the fragment to the root view -- this adds in the detailed text set up when the fragment is created and we commit it to render or draw the fragment in the root view.</p>
+<p>Another way to rewrite the code you it is clearer -- or maybe not:</p>
+<pre class="sourceCode java"><code class="sourceCode java">            DetailsFragment details = <span class="kw">new</span> <span class="fu">DetailsFragment</span>();
+            details.<span class="fu">setArguments</span>(<span class="fu">getIntent</span>().<span class="fu">getExtras</span>());
+ 
+            FragmentManager fragmentManager = <span class="fu">getFragmentManager</span>()
+            FragmentTransaction fragmentTransaction = fragmentManager.<span class="fu">beginTransaction</span>();
+            fragmentTransaction.<span class="fu">add</span>(R.<span class="fu">id</span>.<span class="fu">contents</span>, details);
+            fragmentTransaction.<span class="fu">commit</span>();</code></pre>
+<p>The first argument passed to add() is the ViewGroup in which the fragment is placed, specified by resource ID (R.id.contents represents is the root view of the activity), and the second parameter is the fragment <code>details</code> to add. Once the changes are made to the FragmentTransaction, commit() is called for the changes to take effect.</p>
+<h2 id="detailsfragment">DetailsFragment</h2>
+<p>The fragment is first created. The fragment lifecycle ensures that onCreateView() to build the layout for the fragment. It builds the fragment with a textview -- text.setText(Shakespeare.DIALOGUE[getShownIndex()]) -- and attaches it to a scroller (ScrollView) and returns (and rendered) the view which is drawn.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="co">// This is the secondary fragment, displaying the details of a particular</span>
+            <span class="co">// item.        </span>
+ 
+            <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> DetailsFragment <span class="kw">extends</span> Fragment {
+                        
+                        **snippet**
+ 
+                        <span class="kw">public</span> <span class="dt">int</span> <span class="fu">getShownIndex</span>() {
+                                    <span class="kw">return</span> <span class="fu">getArguments</span>().<span class="fu">getInt</span>(<span class="st">&quot;index&quot;</span>, <span class="dv">0</span>);
+                        }
+ 
+                        <span class="co">// The system calls this when it&#39;s time for the fragment to draw its</span>
+                        <span class="co">// user interface for the first time. To draw a UI for your fragment,</span>
+                        <span class="co">// you must return a View from this method that is the root of your</span>
+                        <span class="co">// fragment&#39;s layout. You can return null if the fragment does not</span>
+                        <span class="co">// provide a UI.</span>
+ 
+                        <span class="co">// We create the UI with a scrollview and text and return a reference to</span>
+                        <span class="co">// the scoller which is then drawn to the screen</span>
+ 
+                        @Override
+                        <span class="kw">public</span> View <span class="fu">onCreateView</span>(LayoutInflater inflater, ViewGroup container,
+                                                Bundle savedInstanceState) {
+ 
+                            **snippet**
+ 
+                                <span class="co">// programmatically create a scrollview and textview for the text in</span>
+                                <span class="co">// the container/fragment layout. Set up the properties and add the view</span>
+ 
+                                ScrollView scroller = <span class="kw">new</span> <span class="fu">ScrollView</span>(<span class="fu">getActivity</span>());
+                                TextView text = <span class="kw">new</span> <span class="fu">TextView</span>(<span class="fu">getActivity</span>());
+                                <span class="dt">int</span> padding = (<span class="dt">int</span>) TypedValue.<span class="fu">applyDimension</span>(
+                                                    TypedValue.<span class="fu">COMPLEX_UNIT_DIP</span>, <span class="dv">4</span>, <span class="fu">getActivity</span>()
+                                                                  .<span class="fu">getResources</span>().<span class="fu">getDisplayMetrics</span>());
+                                text.<span class="fu">setPadding</span>(padding, padding, padding, padding);
+                                scroller.<span class="fu">addView</span>(text);
+                                text.<span class="fu">setText</span>(Shakespeare.<span class="fu">DIALOGUE</span>[<span class="fu">getShownIndex</span>()]);
+                                <span class="kw">return</span> scroller;
+                        }
+            }</code></pre>
+</body>
+</html>

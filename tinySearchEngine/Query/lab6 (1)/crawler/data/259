@@ -1,0 +1,29 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/sheng-map.html
+3
+<HTML>
+<HEAD>
+ <TITLE>sheng:map</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Yong Sheng, Guanling Chen, Hongda Yin, Keren Tan, Udayan Deshpande, Bennet Vance, David Kotz, Andrew Campbell, Chris McDonald, Tristan Henderson, and Joshua Wright.
+<b>MAP: A scalable monitoring system for dependable 802.11 wireless
+networks</b>.
+<i>IEEE Wireless Communications</i>,
+15(5):10-18,
+October,
+2008.
+DOI <a href="http://dx.doi.org/10.1109/MWC.2008.4653127">10.1109/MWC.2008.4653127</a>.
+<p><b>Abstract:</b> Many enterprises have deployed 802.11 wireless networks for
+mission-critical operations; these networks must be protected for dependable
+access. This paper introduces project MAP, which includes a scalable 802.11
+measurement system that can provide continuous monitoring of wireless traffic
+to quickly identify threats and attacks. We discuss the MAP system
+architecture, design decisions, and evaluation results from a real testbed.</p>
+<p><b>Keywords:</b> wireless, network, security, intrusion detection</p>
+<p><a href="bibtex/sheng-map.bib">BibTeX</a></p>
+<p><a target=_top href = "././sheng-map.pdf">PDF</a> (307K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

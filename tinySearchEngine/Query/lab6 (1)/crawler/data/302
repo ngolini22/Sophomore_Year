@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-future.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:future</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Robert S. Gray.
+<b>Mobile Code: The Future of the Internet</b>.
+In
+<i>Proceedings of the Workshop ``Mobile Agents in the Context of
+Competition and Cooperation (MAC3)'' at Autonomous Agents&nbsp;'99</i>,
+pages 6-12,
+May,
+1999.
+<p><b>Abstract:</b> Use of the Internet has exploded in recent years with the
+appearance of the World-Wide Web. In this paper, we show how current
+technological trends necessarily lead to a system based substantially on
+mobile code, and in many cases, mobile agents. We discuss several technical
+and non-technical hurdles along the path to that eventuality. Finally, we
+predict that, within five years, nearly all major Internet sites will be
+capable of hosting and willing to host some form of mobile agents.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/kotz-future.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-future.pdf">PDF</a> (187K)</p>
+<p><b>Copyright &#169;&nbsp;1999 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-future2.html">kotz:future2</a></b>.</p>
+</BODY>
+</HTML>

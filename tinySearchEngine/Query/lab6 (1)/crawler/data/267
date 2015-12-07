@@ -1,0 +1,26 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/astrachan-contest.html
+3
+<HTML>
+<HEAD>
+ <TITLE>astrachan:contest</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Owen Astrachan, Vivek Khera, and David Kotz.
+<b>The Internet Programming Contest: A Report and Philosophy</b>.
+In
+<i>Proceedings of the Twenty-fourth SIGCSE Technical Symposium on
+Computer Science Education</i>,
+pages 48-52,
+February,
+1993.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/169070.169105">10.1145/169070.169105</a>.
+<p><b>Keywords:</b> programming contest</p>
+<p><a href="bibtex/astrachan-contest.bib">BibTeX</a></p>
+<p><a target=_top href = "././astrachan-contest.pdf">PDF</a> (529K)</p>
+<p><b>Copyright &#169;&nbsp;1993 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/astrachan-contest-tr.html">astrachan:contest-tr</a></b>.</p>
+</BODY>
+</HTML>

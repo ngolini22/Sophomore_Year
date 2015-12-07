@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-voice-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:voice-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius, Zachary Marois, Jacob Sorber, Ron Peterson, Shrirang Mare, and David Kotz.
+<b>Vocal resonance as a biometric for pervasive wearable devices</b>.
+Technical Report
+TR2014-747,
+Dartmouth Computer Science,
+February,
+2014.
+<p><b>Abstract:</b> We anticipate the advent of body-area networks of pervasive
+wearable devices, whether for health monitoring, personal assistance,
+entertainment, or home automation. In our vision, the user can simply wear
+the desired set of devices, and they "just work"; no configuration is needed,
+and yet they discover each other, recognize that they are on the same body,
+configure a secure communications channel, and identify the user to which
+they are attached. This paper addresses a method to achieve the latter, that
+is, for a wearable device to identify the wearer, allowing sensor data to be
+properly labeled or personalized behavior to be properly achieved. We use
+vocal resonance, that is, the sound of the person's voice as it travels
+through the person's body. By collecting voice samples from a small wearable
+microphone, our method allows the device to determine whether (a) the speaker
+is indeed the expected person, and (b) the microphone device is physically on
+the speaker's body. We collected data from 25 subjects, demonstrate the
+feasibility of a prototype, and show that our method works with 77\% accuracy
+when a threshold is chosen a priori.</p>
+<p><a href="bibtex/cornelius-voice-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-voice-tr.pdf">PDF</a> (3994K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by the authors.</b></p>
+</BODY>
+</HTML>

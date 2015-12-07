@@ -1,0 +1,31 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-j-same-body.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:j-same-body</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius and David Kotz.
+<b>Recognizing whether sensors are on the same body</b>.
+<i>Journal of Pervasive and Mobile Computing</i>,
+8(6):822-836,
+December,
+2012.
+DOI <a href="http://dx.doi.org/10.1016/j.pmcj.2012.06.005">10.1016/j.pmcj.2012.06.005</a>.
+<p><b>Abstract:</b> In an open mobile health (mHealth) sensing system, users will be
+able to seamlessly pair sensors with their cellphone and expect the system to
+just work. This ubiquity of sensors, however, creates the potential for users
+to accidentally wear sensors that are not paired with their own cellphone.
+Our method probabilistically detects this situation by finding correlations
+between embedded accelerometers in the cellphone and sensor. We evaluate our
+method over a dataset of seven individuals with sensors in various positions
+on their body and experimentally show that our method is capable of achieving
+an accuracy of 85\%.</p>
+<p><a href="bibtex/cornelius-j-same-body.bib">BibTeX</a></p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/cornelius-j-same-body.pdf">PDF</a> (ask me)</p>
+<p><b>Copyright &#169;&nbsp;2012 by Elsevier.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/cornelius-same-body.html">cornelius:same-body</a></b>.</p>
+</BODY>
+</HTML>

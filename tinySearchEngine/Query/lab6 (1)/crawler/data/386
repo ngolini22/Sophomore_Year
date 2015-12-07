@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/minami-jcsa.html
+3
+<HTML>
+<HEAD>
+ <TITLE>minami:jcsa</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kazuhiro Minami and David Kotz.
+<b>Secure Context-sensitive Authorization</b>.
+<i>Journal of Pervasive and Mobile Computing</i>,
+1(1):123-156,
+March,
+2005.
+DOI <a href="http://dx.doi.org/10.1016/j.pmcj.2005.01.004">10.1016/j.pmcj.2005.01.004</a>.
+<p><b>Abstract:</b> There is a recent trend toward rule-based authorization systems
+to achieve flexible security policies. Also, new sensing technologies in
+pervasive computing make it possible to define context-sensitive rules, such
+as ``allow database access only to staff who are currently located in the
+main office.'' However, these rules, or the facts that are needed to verify
+authority, often involve sensitive context information. This paper presents a
+secure context-sensitive authorization system that protects confidential
+information in facts or rules. Furthermore, our system allows multiple hosts
+in a distributed environment to perform the evaluation of an authorization
+query in a collaborative way; we do not need a universally trusted central
+host that maintains all the context information. The core of our approach is
+to decompose a proof for making an authorization decision into a set of
+sub-proofs produced on multiple different hosts, while preserving the
+integrity and confidentiality policies of the mutually untrusted principals
+operating these hosts. We prove the correctness of our algorithm.</p>
+<p><a href="bibtex/minami-jcsa.bib">BibTeX</a></p>
+<p><a target=_top href = "././minami-jcsa.pdf">PDF</a> (402K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by Elsevier.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/minami-csa-tr.html">minami:csa-tr</a></b>.</p>
+</BODY>
+</HTML>

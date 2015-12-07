@@ -1,0 +1,24 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-umiacs.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:umiacs</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>High-performance File System Design for MIMD Parallel Processors</b>.
+A talk presented at the DARPA Workshop on Parallel Processing
+at UMIACS,
+August,
+1989.
+Audiovisual presentation.
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-umiacs.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-umiacs.slides.pdf">Slides - PDF</a> (1443K)</p>
+<p><a target=_top href = "././kotz-umiacs.slides.mov">Slides with audio - Quicktime</a> (7685K)</p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/~dfk/papers/kotz-umiacs.slides.html">HTML</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;1989 by the author.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

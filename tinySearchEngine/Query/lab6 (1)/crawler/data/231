@@ -1,0 +1,31 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-healthsec10.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:healthsec10</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad and David Kotz.
+<b>Can I access your Data? Privacy Management in mHealth</b>.
+In
+<i>USENIX Workshop on Health Security (HealthSec)</i>,
+August,
+2010.
+Position paper.
+<p><b>Abstract:</b> Mobile health (mHealth) has become important in the field of
+healthcare information technology, as patients begin to use mobile medical
+sensors to record their daily activities and vital signs. Since their medical
+data is collected by their sensors, the patients may wish to control data
+collection and distribution, so as to protect their data and share it only
+when the need arises. It must be possible for patients to grant or deny
+access to the data on the storage unit (mobile phones or personal health
+records (PHR)). Thus, an efficient framework is required for managing patient
+consent electronically, i.e.to allow patients to express their desires about
+what data to collect, what to store, and how to share. We describe several
+challenges posed by privacy management in mobile health.</p>
+<p><a href="bibtex/prasad-healthsec10.bib">BibTeX</a></p>
+<p><a target=_top href = "././prasad-healthsec10.pdf">PDF</a> (76K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by the authors.</b></p>
+</BODY>
+</HTML>

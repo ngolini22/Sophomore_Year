@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kim-wardriving.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kim:wardriving</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minkyong Kim, Jeffrey J. Fielding, and David Kotz.
+<b>Risks of using AP locations discovered through war driving</b>.
+In
+<i>Proceedings of the Fourth International Conference on Pervasive
+Computing (Pervasive)</i>,
+pages 67-82,
+Dublin, Ireland,
+May,
+2006.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/11748625_5">10.1007/11748625_5</a>.
+<p><b>Abstract:</b> Many pervasive-computing applications depend on knowledge of user
+location. Because most current location-sensing techniques work only either
+indoors or outdoors, researchers have started using 802.11 beacon frames from
+access points (APs) to provide broader coverage. To use 802.11 beacons, they
+need to know AP locations. Because the actual locations are often
+unavailable, they use estimated locations from  war driving. But these
+estimated locations may be different from actual locations. In this paper, we
+analyzed the errors in these estimates and the effect of these errors on
+other applications that depend on them. We found that the estimated AP
+locations have a median error of 32&nbsp;meters. We considered the error in
+tracking user positions both indoors and outdoors. Using actual AP locations,
+we could improve the accuracy as much as 70\% for indoors and 59\% for
+outdoors. We also analyzed the effect of using estimated AP locations in
+computing AP coverage range and estimating interference among APs. The
+coverage range appeared to be shorter and the interference appeared to be
+more severe than in reality.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network, ubicomp</p>
+<p><a href="bibtex/kim-wardriving.bib">BibTeX</a></p>
+<p><a target=_top href = "././kim-wardriving.pdf">PDF</a> (1800K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

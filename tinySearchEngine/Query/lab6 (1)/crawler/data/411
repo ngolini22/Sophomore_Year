@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/howell-calculus-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>howell:calculus-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jon Howell and David Kotz.
+<b>An Access-Control Calculus for Spanning Administrative Domains</b>.
+Technical Report
+PCS-TR99-361,
+Dartmouth Computer Science,
+November,
+1999.
+<p><b>Abstract:</b> In our quest to give users uniform access to resources unimpeded
+by administrative boundaries, we discovered that we needed transitive sharing
+among users, with the possibility of restricted access along each sharing
+link. To achieve that goal, we extend Lampson et al.'s calculus for access
+control to support restricted delegations. We discuss the advantages of our
+extension, including the simplification of constructs like ACLs and statement
+expiration. We also apply our extension to model the Simple Public Key
+Infrastructure and make suggestions about its future development. Our
+extended calculus exposes some surprising consequences in such systems that
+use restricted delegation.</p>
+<p><b>Keywords:</b> security, distributed computing, operating system</p>
+<p><a href="bibtex/howell-calculus-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././howell-calculus-tr.pdf">PDF</a> (544K)</p>
+<p><b>Copyright &#169;&nbsp;1999 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/howell-spki-tr.html">howell:spki-tr</a></b>.</p>
+</BODY>
+</HTML>

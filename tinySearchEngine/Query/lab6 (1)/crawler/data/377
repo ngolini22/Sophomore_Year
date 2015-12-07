@@ -1,0 +1,51 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mingli-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mingli:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ming Li.
+<b>Group-Aware Stream Filtering</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+May,
+2008.
+Available as Dartmouth Computer Science Technical Report TR2008-621.
+<p><b>Abstract:</b> Recent years have witnessed a new class of monitoring
+applications that need to continuously collect information from remote data
+sources. Those data sources, such as web click-streams, stock quotes, and
+sensor data, are often characterized as fast-rate high-volume ``streams''.
+Distributed stream-processing systems are thus designed to efficiently use
+system resources to serve the data-acquisition needs of the applications.
+Most of the state-of-the-art stream-processing systems assume an
+Ethernet-based network whose bandwidth is abundant, and focus on mechanisms
+to save computational power and memory. For applications involving wireless
+networks, particularly multi-hop mesh networks, we recognize that the most
+limiting factor in efficiently processing streams lies in the network's
+highly constrained bandwidth. Hence, this dissertation proposes a group-aware
+stream filtering approach that saves bandwidth at the cost of increased CPU
+time, for low-bandwidth data-streaming systems. This approach, used together
+with multicasting, exploits two overlooked properties of monitoring
+applications: 1) many of them can tolerate some degree of ``slack'' in their
+data quality requirements, and 2) there may exist multiple subsets of the
+source data satisfying the quality needs of an application. We can thus
+choose the ``best alternative'' subset for each application to maximize the
+data overlap within the group to best benefit from multicasting. After
+proving the problem NP-hard, we introduce a suite of heuristics-based
+algorithms that ensure data quality, specifically data granularity and
+timeliness, in addition to preserving network bandwidth. Our framework for
+group-aware stream filtering is extensible and supports a diverse range of
+filtering needs of monitoring applications. We evaluate this approach with a
+prototype system based on real-world data sets. The results show that
+quality-managed group-aware filtering is effective in trading CPU time for
+bandwidth savings, compared with self-interested stream filtering. We also
+evaluate the effect of each algorithm on temporal freshness of the data.
+Finally, we discuss other application realms that might benefit from
+group-aware stream filtering.</p>
+<p><a href="bibtex/mingli-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2008-621.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Ming Li.</b></p>
+</BODY>
+</HTML>

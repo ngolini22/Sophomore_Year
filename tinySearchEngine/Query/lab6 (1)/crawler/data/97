@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/shin-anonysense.html
+3
+<HTML>
+<HEAD>
+ <TITLE>shin:anonysense</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minho Shin, Cory Cornelius, Dan Peebles, Apu Kapadia, David Kotz, and Nikos Triandopoulos.
+<b>AnonySense: A System for Anonymous Opportunistic Sensing</b>.
+<i>Journal of Pervasive and Mobile Computing</i>,
+7(1):16-30,
+February,
+2011.
+DOI <a href="http://dx.doi.org/10.1016/j.pmcj.2010.04.001">10.1016/j.pmcj.2010.04.001</a>.
+<p><b>Abstract:</b> We describe AnonySense, a privacy-aware system for realizing
+pervasive applications based on collaborative, opportunistic sensing by
+personal mobile devices. AnonySense allows applications to submit sensing
+tasks to be distributed across participating mobile devices, later
+receiving verified, yet anonymized, sensor data reports back from
+the field, thus providing the first secure implementation of this
+participatory sensing model. We describe our security goals, threat model,
+and the architecture and protocols of AnonySense. We also describe how
+AnonySense can support extended security features that can be useful for
+different applications. We evaluate the security and feasibility of
+AnonySense through security analysis and prototype implementation. We show
+the feasibility of our approach through two plausible applications: a Wi-Fi
+rogue access point detector and a lost-object finder.</p>
+<p><b>Keywords:</b> mobile computing, sensors, security, privacy, anonymity,
+ubicomp</p>
+<p><a href="bibtex/shin-anonysense.bib">BibTeX</a></p>
+<p><a target=_top href = "././shin-anonysense.pdf">PDF</a> (701K)</p>
+<p><a target=_top href = "./internal/shin-anonysense.pdf">PDF</a> (660K)(Dartmouth only)</p>
+<p><b>Copyright &#169;&nbsp;2011 by Elsevier.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/cornelius-anonysense.html">cornelius:anonysense</a></b>.</p>
+</BODY>
+</HTML>

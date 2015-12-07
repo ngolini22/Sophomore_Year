@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/oldfield-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>oldfield:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ron Oldfield.
+<b>Efficient I/O for Computational Grid Applications</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+May,
+2003.
+Available as Dartmouth Computer Science Technical Report TR2003-459.
+<p><b>Abstract:</b> High-performance computing increasingly occurs on "computational
+grids" composed of heterogeneous and geographically distributed systems of
+computers, networks, and storage devices that collectively act as a single
+"virtual" computer. A key challenge in this environment is to provide
+efficient access to data distributed across remote data servers. This
+dissertation explores some of the issues associated with I/O for wide-area
+distributed computing and describes an I/O system, called Armada, with the
+following features: a framework to allow application and dataset providers to
+flexibly compose graphs of processing modules that describe the distribution,
+application interfaces, and processing required of the dataset before or
+after computation; an algorithm to restructure application graphs to increase
+parallelism and to improve network performance in a wide-area network; and a
+hierarchical graph-partitioning scheme that deploys components of the
+application graph in a way that is both beneficial to the application and
+sensitive to the administrative policies of the different administrative
+domains. Experiments show that applications using Armada perform well in both
+low- and high-bandwidth environments, and that our approach does an
+exceptional job of hiding the network latency inherent in grid computing.</p>
+<p><a href="bibtex/oldfield-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2003-459.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2003 by Ron Oldfield.</b></p>
+</BODY>
+</HTML>

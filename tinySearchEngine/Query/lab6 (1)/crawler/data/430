@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bratus-dist-cset.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bratus:dist-cset</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Sergey Bratus, David Kotz, Keren Tan, William Taylor, Anna Shubina, Bennet Vance, and Michael E. Locasto.
+<b>Dartmouth Internet Security Testbed (DIST): building a campus-wide
+wireless testbed</b>.
+In
+<i>Proceedings of the Workshop on Cyber Security Experimentation
+and Test (CSET)</i>,
+August,
+2009.
+USENIX Association.
+<p><b>Abstract:</b> We describe our experiences in deploying a campus-wide wireless
+security testbed. The testbed gives us the capability to monitor
+security-related aspects of the 802.11 MAC layer in over 200 diverse campus
+locations. We describe both the technical and the social challenges of
+designing, building, and deploying such a system, which, to the best of our
+knowledge, is the largest such testbed in academia (with the UCSD's Jigsaw
+infrastructure a close competitor). In this paper we focus on the 
+testbed setup, rather than on the experimental data and results.</p>
+<p><a href="bibtex/bratus-dist-cset.bib">BibTeX</a></p>
+<p><a target=_top href = "././bratus-dist-cset.pdf">PDF</a> (137K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by the authors.</b></p>
+</BODY>
+</HTML>

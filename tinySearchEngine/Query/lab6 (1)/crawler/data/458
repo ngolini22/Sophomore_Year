@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-lu-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:lu-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Disk-directed I/O for an Out-of-core Computation</b>.
+Technical Report
+PCS-TR95-251,
+Dartmouth Computer Science,
+January,
+1995.
+<p><b>Abstract:</b> New file systems are critical to obtain good I/O performance on
+large multiprocessors. Several researchers have suggested the use of 
+collective file-system operations, in which all processes in an
+application cooperate in each I/O request. Others have suggested that the
+traditional low-level interface (\tt read, write, seek) be augmented with
+various higher-level requests (e.g.,  read matrix), allowing the
+programmer to express a complex transfer in a single (perhaps collective)
+request. Collective, high-level requests permit techniques like 
+two-phase I/O and  disk-directed I/O to significantly improve
+performance over traditional file systems and interfaces. Neither of these
+techniques have been tested on anything other than simple benchmarks that
+read or write matrices. Many applications, however, intersperse computation
+and I/O to work with data sets that cannot fit in main memory. In this paper,
+we present the results of experiments with an ``out-of-core''
+LU-decomposition program, comparing a traditional interface and file system
+with a system that has a high-level, collective interface and disk-directed
+I/O. We found that a collective interface was awkward in some places, and
+forced additional synchronization. Nonetheless, disk-directed I/O was able to
+obtain much better performance than the traditional system.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-lu-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-lu-tr.pdf">PDF</a> (390K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/kotz-lu.html">kotz:lu</a></b>.</p>
+</BODY>
+</HTML>

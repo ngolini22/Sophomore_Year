@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-fsint.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:fsint</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Multiprocessor File System Interfaces</b>.
+Technical Report
+PCS-TR92-179,
+Dept. of Math and Computer Science, Dartmouth College,
+March,
+1992.
+Revised version appeared in PDIS'93.
+<p><b>Abstract:</b> Increasingly, file systems for multiprocessors are designed with
+parallel access to multiple disks, to keep I/O from becoming a serious
+bottleneck for parallel applications. Although file system software can
+transparently provide high-performance access to parallel disks, a new file
+system interface is needed to facilitate parallel access to a file from a
+parallel application. We describe the difficulties faced when using the
+conventional (Unix-like) interface in parallel applications, and then outline
+ways to extend the conventional interface to provide convenient access to the
+file for parallel programs, while retaining the traditional interface for
+programs that have no need for explicitly parallel file access. Our interface
+includes a single naming scheme, a  multiopen operation, local and
+global file pointers, mapped file pointers, logical records, 
+multifiles, and logical coercion for backward compatibility.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-fsint.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-fsint.pdf">PDF</a> (248K)</p>
+<p><b>Copyright &#169;&nbsp;1992 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/kotz-fsint2.html">kotz:fsint2</a></b>.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,27 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-pools.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:pools</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Carla Ellis.
+<b>Evaluation of Concurrent Pools</b>.
+In
+<i>Proceedings of the Ninth International Conference on Distributed
+Computer Systems (ICDCS)</i>,
+pages 378-385,
+1989.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/ICDCS.1989.37968">10.1109/ICDCS.1989.37968</a>.
+<p><b>Keywords:</b> concurrent data structure</p>
+<p><a href="bibtex/kotz-pools.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-pools.pdf">PDF</a> (784K)</p>
+<p><a target=_top href = "././kotz-pools.slides.pdf">Slides - PDF</a> (1683K)</p>
+<p><a target=_top href = "././kotz-pools.slides.mov">Slides with audio - Quicktime</a> (12252K)</p>
+<p><b>Copyright &#169;&nbsp;1989 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-poolsTR.html">kotz:poolsTR</a></b>.</p>
+</BODY>
+</HTML>

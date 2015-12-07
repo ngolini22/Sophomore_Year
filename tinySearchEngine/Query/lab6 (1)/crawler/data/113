@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/fazio-netsani.html
+3
+<HTML>
+<HEAD>
+ <TITLE>fazio:netsani</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Phil Fazio, Keren Tan, Jihwang Yeo, and David Kotz.
+<b>Short Paper: The NetSANI Framework for Analysis and Fine-tuning of
+Network Trace Sanitization</b>.
+In
+<i>Proceedings of the ACM Conference on Wireless Network Security
+(WiSec)</i>,
+pages 5-10,
+June,
+2011.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1998412.1998416">10.1145/1998412.1998416</a>.
+<p><b>Abstract:</b> Anonymization is critical prior to sharing wireless-network
+traces within the research community, to protect both personal and
+organizational sensitive information from disclosure. One difficulty in
+anonymization, or more generally, sanitization, is that users lack
+information about the quality of a sanitization result, such as how much
+privacy risk a sanitized trace may expose, and how much research utility the
+sanitized trace may retain. We propose a framework, NetSANI, that allows
+users to analyze and control the privacy/utility tradeoff in network
+sanitization. NetSANI can accommodate most of the currently available privacy
+and utility metrics for network trace sanitization. This framework provides a
+set of APIs for analyzing the privacy/utility tradeoff by comparing the
+changes in privacy and utility levels of a trace for a sanitization
+operation. We demonstrate the framework with an quantitative evaluation on
+wireless-network traces.</p>
+<p><a href="bibtex/fazio-netsani.bib">BibTeX</a></p>
+<p><a target=_top href = "././fazio-netsani.pdf">PDF</a> (218K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

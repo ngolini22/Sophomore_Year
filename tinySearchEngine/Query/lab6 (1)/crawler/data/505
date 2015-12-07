@@ -1,0 +1,47 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Prefetching and Caching Techniques in File Systems for MIMD
+Multiprocessors</b>.
+Ph.D. Thesis,
+Duke University,
+April,
+1991.
+Available as technical report CS-1991-016.
+<p><b>Abstract:</b> The increasing speed of the most powerful computers, especially
+multiprocessors, makes it difficult to provide sufficient I/O bandwidth to
+keep them running at full speed for the largest problems. Trends show that
+the difference in the speed of disk hardware and the speed of processors is
+increasing, with I/O severely limiting the performance of otherwise fast
+machines. This widening access-time gap is known as the ``I/O bottleneck
+crisis.'' One solution to the crisis, suggested by many researchers, is to
+use many disks in parallel to increase the overall bandwidth. <P> This
+dissertation studies some of the file system issues needed to get high
+performance from parallel disk systems, since parallel hardware alone cannot
+guarantee good performance. The target systems are large MIMD multiprocessors
+used for scientific applications, with large files spread over multiple disks
+attached in parallel. The focus is on automatic caching and prefetching
+techniques. We show that caching and prefetching can transparently provide
+the power of parallel disk hardware to both sequential and parallel
+applications using a conventional file system interface. We also propose a
+new file system interface (compatible with the conventional interface) that
+could make it easier to use parallel disks effectively. <P> Our methodology
+is a mixture of implementation and simulation, using a software testbed that
+we built to run on a BBN GP1000 multiprocessor. The testbed simulates the
+disks and fully implements the caching and prefetching policies. Using a
+synthetic workload as input, we use the testbed in an extensive set of
+experiments. The results show that prefetching and caching improved the
+performance of parallel file systems, often dramatically.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-thesis.pdf">PDF</a> (1117K)</p>
+<p><b>Copyright &#169;&nbsp;1991 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

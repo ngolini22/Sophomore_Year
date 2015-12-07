@@ -1,0 +1,151 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture25/lecture25.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Publishing Apps - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-25-publishing-your-android-app">Lecture 25: Publishing your Android app</h1>
+<p>Once you have design, coded and tested your Android app it's time to publish it on <a href="https://play.google.com/">Google Play</a>. In what follows, we discuss the necessary minimum steps to clean up your app, ready it for publishing and the ship it to the global marketplace. It is difficult to make a make a splash these days with over <a href="http://en.wikipedia.org/wiki/Google_Play">800,000 apps</a> on play but you could be the next mobile success so dream big.</p>
+<h2 id="resources">Resources</h2>
+<p>The best resources for understanding the publication process are as follows:</p>
+<ul>
+<li><a href="http://developer.android.com/tools/publishing/publishing_overview.html">Publishing overview</a> discusses the general process that makes your Android applications available to users.</li>
+<li><a href="http://developer.android.com/distribute/googleplay/publish/preparing.html">Publishing Checklist for Google Play</a> discuss that before you can publish your app on Google Play and distribute it to users, you need to get the app ready, test it, and prepare your promotional materials.</li>
+<li><a href="http://developer.android.com/tools/publishing/preparing.html">Preparing for Release</a> discusses that before you distribute your Android application to users you need to prepare it for release.</li>
+<li><a href="https://play.google.com/apps/publish/signup/">Google account that will be associated with your Developer Console</a></li>
+<li><a href="http://stackoverflow.com/a/8165788">Stackoverflow tips to publish</a> discuss that there is more to this than meets the eye.</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>The figure below shows the complete workflow for an Android app from conception to publishing it on Play. We've skipped a number of important phases when developing MyRuns -- we've not done functional or unit testing of any kind -- that's bad. We haven't fully tested all the edge cases. Setting that aside for the moment an app as a best practice, <a href="http://developer.android.com/tools/publishing/publishing_overview.html">your application should meet all of your release criteria for functionality, performance, and stability before you begin the publishing process</a>.</p>
+<div class="figure">
+<img src="images/workflow.png" />
+</div>
+<p>In what follows, we describe an abbreviated set of steps to release your app; these are:</p>
+<ul>
+<li><strong>Step 1: Preparing your app for release</strong></li>
+<li><strong>Step 2: Signing your app</strong></li>
+<li><strong>Step 3: Uploading your app to play</strong></li>
+</ul>
+<h2 id="step-1-preparing-your-app-for-release">Step 1: Preparing your app for release</h2>
+<p>We first discuss the package name. Then you need to make sure all debug information in your code is turned off or removed. Finally, if your app has a cloud side you need to prepare the server side and test with the phone app.</p>
+<h3 id="choose-a-good-package-name">Choose a good package name</h3>
+<p>Over the past 7 weeks we have all used the same set of package names to reflect the incremental MyRuns app; edu.dartmouth.cs.myruns1, etc. The problem is everyone has used the same package name and that won't work at app distribution time. This is acceptable in the debug phase of application development but when you are going to release the app, you have to use a unique package name for Google to identify your app. That means you can't use &quot;edu.dartmouth.cs.myruns&quot; as your package name to release on Play. You have to use another package name that is unique and hence avoids name conflicts. That's probably a reason why people use domain name to be their package name. Make sure you choose a package name that is suitable over the life of your application. You cannot change the package name after you distribute your application to users. As you know you set the package name in application's manifest file.</p>
+<div class="figure">
+<img src="images/MyRuns5PackageName.png" />
+</div>
+<h3 id="turn-off-all-logging-and-debugging-in-your-code">Turn off all logging and debugging in your code</h3>
+<p>Make sure you deactivate logging and disable the debugging option (you haven't used the debugging option) before you build your application for release. You can deactivate logging by removing calls to Log methods in your source files. You can disable debugging by removing the <em>android:debuggable</em> attribute from the <application> tag in your manifest file, or by setting the <em>android:debuggable</em> attribute to false in your manifest file. Also, make sure you remove any log files or static test files that were created in your project for debugging purposes.</p>
+<div class="figure">
+<img src="images/DeleteLog.png" />
+</div>
+<h3 id="clean-up-the-project-directories">Clean up the project directories</h3>
+<p>Clean up your project directories. Clean up your project and make sure it conforms to the directory structure described in Android Projects. At a minimum you should do the following cleanup tasks -- check all these in ProjectExplorer, as shown below:</p>
+<div class="figure">
+<img src="images/ProjectExplorer.png" />
+</div>
+<ul>
+<li><p>Review the contents of your lib/ and src/ directories. The src/directory should contain only the source files for your application (.java and .aidl files). The src/ directory should not contain any .jar files.</p></li>
+<li><p>Look in your project's res/ directory for old drawable files, layout files, and values files that you are no longer using and delete them.</p></li>
+<li><p>Check your lib/ directory for test libraries and remove them if they are no longer being used by your application.</p></li>
+<li><p>Review the contents of your assets/ directory and your res/raw/ directory for raw asset files and static files that you need to update or remove prior to release.</p></li>
+</ul>
+<h3 id="manifest-settings">Manifest settings</h3>
+<p>Review and update your manifest settings. Verify that the following manifest items are set correctly:</p>
+<ul>
+<li><p>&lt;uses-permission&gt; element: You should specify only those permissions that are relevant and required for your application.</p></li>
+<li><p>android:icon and android:label attributes: You must specify values for these attributes, which are located in the <application> element.</p></li>
+<li><p>android:versionCode and android:versionName attributes.</p></li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">   android:versionCode=<span class="st">&quot;1&quot;</span>
+   android:versionName=<span class="st">&quot;1.0&quot;</span> </code></pre>
+<p>We recommend that you specify values for these attributes, which are located in the <manifest> element. For more information see Versioning your Application.</p>
+<p>There are several additional manifest elements that you can set if you are releasing your application on Google Play. For example, the android:minSdkVersion and android:targetSdkVersion attributes, which are located in the build.gradle in the <em>app</em> module.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        minSdkVersion <span class="dv">21</span>
+        targetSdkVersion <span class="dv">21</span></code></pre>
+<p>You might want to lower the minSdkVersion to have more users from older phones, but be sure that you’ve tested on these versions.</p>
+<h3 id="update-urls-for-servers-and-services">Update URLs for servers and services</h3>
+<p>If you are using a server in your team project (we use servers in MyRun6), you need to change the server address to the one that you tend to use for the public. Implement Licensing (if you are releasing on Google Play). If you are releasing a paid application through Google Play, consider adding support for Google Play Licensing. Licensing lets you control access to your application based on whether the current user has purchased it. Using Google Play Licensing is optional even if you are releasing your app through Google Play.</p>
+<h2 id="step-2-signing-your-app">Step 2: Signing your app</h2>
+<p>The Android system requires that all installed applications are digitally signed with a certificate whose private key is held by the application's developer. While debugging, the build tools sign your application automatically with a special debug key that is created by the Android SDK build tools. When you are ready to release your application to users, you must sign it with a suitable private key on your own. You cannot publish an application that is signed with the debug key generated by the SDK tools.</p>
+<p>If you are using Android Studio, you can go to <a href="https://developer.android.com/tools/publishing/app-signing.html">https://developer.android.com/tools/publishing/app-signing.html</a> to see how to create a signed apk from your project.</p>
+<h2 id="step-3-uploading-your-app-to-play">Step 3: Uploading your app to play</h2>
+<p>If you have gone through the steps above, you should have a release-ready version of apk for the public now. You can release it on website, email or Google Play store. You can simply email the apk to people to install -- not Play store needed for that. You can offer the app from a website; or best, upload to Play and complete the workflow. We will discuss the website and Play options below.</p>
+<p><strong>Releasing through a website</strong>. If you do not want to release your app on a marketplace like Google Play, you can make the app available for download on your own website or server, including on a private or enterprise server. To do this, you must first prepare your application for release in the normal way. Then all you need to do is host the release-ready APK file on your website and provide a download link to users.</p>
+<p>When users browse to the download link from their Android-powered devices, the file is downloaded and Android system automatically starts installing it on the device. However, the installation process will start automatically only if the user has configured their settings on your phone to allow the <strong>installation of apps from unknown sources</strong>.</p>
+<div class="figure">
+<img src="images/UnknownSources.png" />
+</div>
+<p>Although it is relatively easy to release your application on your own website, it can be inefficient. For example, if you want to monetize your application you will have to process and track all financial transactions yourself and you will not be able to use Google Play's In-app Billing service to sell in-app products. In addition, you will not be able to use the Licensing service to help prevent unauthorized installation and use of your application.</p>
+<p><strong>Releasing through an App Marketplace</strong>. If you want to distribute your apps to the broadest possible audience, releasing through an app marketplace such as Google Play is ideal.</p>
+<p>The steps are as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the <a href="https://play.google.com/apps/publish/">publish page</a></li>
+<li>Read the agreement, review the distribution of countries where you can distribute and sell applications -- you need a credit card and $25.00. For this class we will publish your project apps through our internal account.</li>
+</ol>
+<div class="figure">
+<img src="images/Agreement.png" />
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Now you can add your first application to the Play store. Before publishing you need to upload the signed apk and add some descriptions in the <em>store listing</em> section to your app.</li>
+</ol>
+<div class="figure">
+<img src="images/TwoFollowingSteps.png" />
+</div>
+<p>You have to fill the requested information in the store listing before publish it. Things you need to specify include:</p>
+<ul>
+<li>text description of the app and how great it is</li>
+<li>graphic asset (one high resolution icon and at least two screenshots)</li>
+<li>categorization (e.g., social nets, games)</li>
+<li>developer's contact details, etc.</li>
+</ul>
+<div class="figure">
+<img src="images/GraphicAsset.png" />
+</div>
+<h2 id="you-are-done-you-are-android">You are done! You are Android</h2>
+<p>That is it. You are done. Done with the taught part of the course. You have completed the following and should be proud of your new skills. These are very marketable -- or your money back.</p>
+<p>We have covered the complete workflow (minus testing) for the MyRuns app -- soup to nuts.</p>
+<div class="figure">
+<img src="images/development.png" />
+</div>
+<p>Next the project phase. You will build an amazing app that uses Bio data and release it via Play.</p>
+</body>
+</html>

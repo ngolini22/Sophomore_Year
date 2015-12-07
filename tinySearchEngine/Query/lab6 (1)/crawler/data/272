@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-predict-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:predict-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song, David Kotz, Ravi Jain, and Xiaoning He.
+<b>Evaluating location predictors with extensive Wi-Fi mobility
+data</b>.
+Technical Report
+TR2004-491,
+Dartmouth Computer Science,
+February,
+2004.
+<p><b>Abstract:</b> Location is an important feature for many applications, and
+wireless networks may serve their clients better by anticipating client
+mobility. As a result, many location predictors have been proposed in the
+literature, though few have been evaluated with empirical evidence. This
+paper reports on the results of the first extensive empirical evaluation of
+location predictors using a two-year trace of the mobility patterns of more
+than 6,000 users on Dartmouth's campus-wide Wi-Fi wireless network. The
+surprising results provide critical evidence for anyone designing or using
+mobility predictors. We implemented and compared the prediction accuracy of
+several location predictors drawn from four major families of
+domain-independent predictors, namely, Markov-based, compression-based, PPM,
+and SPM predictors. We found that low-order Markov predictors performed as
+well or better than the more complex and more space-consuming
+compression-based predictors.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/song-predict-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/song-predict-tr.pdf">PDF</a> (ask me)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/song-predict.html">song:predict</a></b>.</p>
+<p>See also later version <b><a href="abstracts/song-jpredict.html">song:jpredict</a></b>.</p>
+</BODY>
+</HTML>

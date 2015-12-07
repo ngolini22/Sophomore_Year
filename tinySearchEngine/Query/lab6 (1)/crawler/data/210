@@ -1,0 +1,31 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-healthsec11.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:healthsec11</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+<b>Adaptive security and privacy for mHealth sensing</b>.
+In
+<i>USENIX Workshop on Health Security (HealthSec)</i>,
+August,
+2011.
+Short paper.
+<p><b>Abstract:</b> As healthcare in many countries faces an aging population and
+rising costs, mobile Health (mHealth) sensing technologies promise a new
+opportunity. However, the privacy concerns associated with mHealth sensing
+are a limiting factor for their widespread adoption. The use of wireless body
+area networks pose a particular challenge. Although there exist protocols
+that provide a secure and private communication channel between two devices,
+the large transmission overhead associated with these protocols limit their
+application to low-power mHealth sensing devices. We propose an adaptive
+security model that enables use of privacy-preserving protocols in low-power
+mHealth sensing by reducing the network overhead in the transmissions, while
+maintaining the security and privacy properties provided by the protocols.</p>
+<p><a href="bibtex/mare-healthsec11.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-healthsec11.pdf">PDF</a> (181K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by the authors.</b></p>
+</BODY>
+</HTML>

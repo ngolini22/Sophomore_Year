@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-bdiskdir.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:bdiskdir</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Disk-directed I/O for MIMD Multiprocessors</b>.
+In
+Hai Jin, Toni Cortes, and Rajkumar Buyya.
+editors, 
+<i>High Performance Mass Storage and Parallel I/O: Technologies
+and Applications</i>,
+chapter 35,
+IEEE Computer Society Press and John Wiley &amp; Sons,
+2001.
+<p><b>Abstract:</b> Many scientific applications that run on today's multiprocessors,
+such as weather forecasting and seismic analysis, are bottlenecked by their
+file-I/O needs. Even if the multiprocessor is configured with sufficient I/O
+hardware, the file-system software often fails to provide the available
+bandwidth to the application. Although libraries and enhanced file-system
+interfaces can make a significant improvement, we believe that fundamental
+changes are needed in the file-server software. We propose a new technique,
+disk-directed I/O, to allow the disk servers to determine the flow of data
+for maximum performance. Our simulations show that tremendous performance
+gains are possible both for simple reads and writes and for an out-of-core
+application. Indeed, our disk-directed I/O technique provided consistent high
+performance that was largely independent of data distribution, obtained up to
+93\% of peak disk bandwidth, and was as much as 18 times faster than the
+traditional technique.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system, parallel
+computing</p>
+<p><a href="bibtex/kotz-bdiskdir.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;2001 by ACM.</b></p>
+<p>Identical to <b><a href="abstracts/kotz-jdiskdir.html">kotz:jdiskdir</a></b>.</p>
+</BODY>
+</HTML>

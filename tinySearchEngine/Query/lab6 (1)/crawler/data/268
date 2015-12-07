@@ -1,0 +1,184 @@
+http://www.cs.dartmouth.edu/~sensorlab/metrosense
+3
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>MetroSense Project</title>
+  <style type="text/css">
+
+a.three:link {color: #006600; text-decoration: none}
+a.three:visited {color: #006600; text-decoration: none}
+a.three:hover {background: black /*#FFFF00*/; color: white/*#000099*/}
+
+#coolmenu{
+border: 1px;
+border-bottom-width: 0;
+width: 177px;
+position: absolute; top: 208px; left: 8px;
+background-color: #E6E6E6;
+}
+
+* html #coolmenu{ /*IE only rule, to negate the padding below IE includes in menu width.*/
+width: 177px;
+}
+
+#coolmenu a{
+font: bold 12px Verdana;
+padding: 5px;
+padding-left: 30px;
+display: block;
+width: 100%;
+color: black;
+text-decoration: none;
+border-bottom: 1px;
+}
+
+html>body #coolmenu a{ /*Non IE rule*/
+width: auto;
+}
+
+
+#coolmenu a:hover{
+background-color: black;
+color: white;
+}
+
+  </style>
+  <script charset="utf-8" id="injection_graph_func"
+ src="injection_graph_func.htm"></script>
+</head>
+<body style="background-image: url(Background.gif);">
+<div
+ style="top: 30px; position: absolute; z-index: 1; left: 245px; width: 669px;"><big><big
+ style="font-family: verdana;"><big style="font-weight: bold;"><big>MetroSense
+</big></big></big><span style="font-style: italic;">
+</span></big></div>
+<a
+ href="http://www.dartmouth.edu/">
+<img style="position: absolute; top: 25px; left: 900px;"
+ src="img/dartlogo.gif" border="0" height="124" width="129"></a>
+<img style="position: absolute; top: 890px; left: 390px;"
+ src="img/phones.png" height="220" width="445">
+<a href="http://metrosense.cs.dartmouth.edu/"><img
+ style="position: absolute; top: 10px; left: 10px;"
+ src="img/ms.sm.jpg" border="0" height="165" width="177"></a>
+<img style="position: absolute; top: 90px; left: 245px;"
+ src="img/stripe.jpg" height="8" width="640"> <img
+ style="position: absolute; top: 1110px; left: 245px;"
+ src="img/stripe.jpg" height="21" width="740"><img
+ style="position: absolute; top: 330px; left: 8px;"
+ src="img/dx_band.jpg" height="1120" width="177"><a
+ href="http://www.nsf.gov/"><img
+ style="position: absolute; top: 1240px; left: 800px;"
+ src="img/nsf.gif" border="0" height="68" width="68"></a><a
+ href="http://www.ists.dartmouth.edu/"><img
+ style="position: absolute; top: 1245px; left: 355px;"
+ src="img/ists.gif" border="0" height="58" width="270"></a><a
+ href="http://www.arl.army.mil/www/default.cfm?Action=29&amp;Page=29">
+<!--<img
+ style="position: absolute; top: 760px; left: 805px;"
+ src="img/eagleARL.gif" border="0" height="68" width="68"></a>-->
+<a
+ href="http://www.intel.com/"><img
+ style="position: absolute; top: 1349px; left: 335px;"
+ src="img/intel.gif" border="0" height="50" width="130"></a><a
+ href="http://www.nokia.com/"><img
+ style="position: absolute; top: 1349px; left: 567px;"
+ src="img/nokia.gif" border="0" height="32" width="120"></a><a
+ href="http://www.motorola.com/"><img
+ style="position: absolute; top: 1349px; left: 805px;"
+ src="img/motorola.jpg" border="0" height="52" width="77"></a>
+<center></center>
+<div id="coolmenu">
+<big style="font-family: verdana;">
+<a href="http://metrosense.cs.dartmouth.edu">Home</a>
+<a href="http://metrosense.cs.dartmouth.edu/projects.html">Projects</a>
+<a href="http://metrosense.cs.dartmouth.edu/publications.html">Publications</a>
+<a href="http://metrosense.cs.dartmouth.edu/people.html">People</a>
+<!--<a href="http://metrosense.cs.dartmouth.edu/software.html">Software</a>-->
+<a href="http://metrosense.cs.dartmouth.edu/events.html">Events</a>
+<!--<a href="http://metrosense.cs.dartmouth.edu/directions.html">Directions</a>-->
+<a href="http://metrosense.cs.dartmouth.edu/index.html#sponsors">Sponsors</a>
+</big>
+<center><big> </big></center>
+</div>
+<div
+ style="position: absolute; z-index: 1; top: 120px; height: 549px; left: 245px; width: 737px;"><big><big><span
+ style="font-style: normal; font-family: Arial;">
+<p><small><br>
+<small style="font-weight: bold; font-family: verdana;">Welcome
+to the home page of the MetroSense project</small><br>
+</small> </p>
+
+<!-- temporary advert for urbansense -->
+<!--<hr width="640" align="left">
+<p><font size="3" color="green"><b>
+** Consider submitting and/or participating in the 
+<a href="http://sensorlab.cs.dartmouth.edu/urbansensing/">UrbanSense08</a> workshop **
+</b></font></p>
+-->
+
+<!--<div style="overflow: auto; height: 300px; width: 740px;">
+<hr width="640" align="left">
+</span></big>
+</big></div>
+-->
+<hr></span></big>
+</big>
+
+<!--  start of overflow   -->
+<div style="overflow: auto; height: 800px; width: 740px;">
+<br>
+<div style="text-align: justify; font-family: verdana;">
+<small>
+Sensing is going mobile and people-centric. Sensors for activity recognition and GPS for location are now being shipped in millions of top end mobile phones enabling a myriad of new sensor based applications for personal, social and public sensing. This complements other sensors already on mobile phones such as high-quality cameras, microphones, and 
+digital compasses. At the same time we are seeing sensors installed in urban environments in support of more classic environmental sensing applications, such as, real-time feeds for air-quality, pollutants, weather conditions, and congestion conditions around the city. Collaborative data gathering of sensed data for people by people, facilitated by sensing systems comprised of everyday mobile phones and their interaction with static sensor webs, present a new frontier driven by people-centric sensing.
+<br><br>
+The MetroSense project is working with industry and agencies to develop new applications, classification techniques, privacy approaches, and sensing 
+paradigms for mobile phones enabling a global mobile sensor network capable of societal-scale sensing.
+<br><br>
+All the projects, including <a class="three" href="http://metrosense.cs.dartmouth.edu/projects.html#soundsense">SoundSense</a>, <a class="three"
+ href="http://metrosense.cs.dartmouth.edu/projects.html#cenceme">CenceMe</a>, <a class="three" href="http://metrosense.cs.dartmouth.edu/projects.html#sensorsharing">Sensor Sharing</a>, <a class="three" href="http://metrosense.cs.dartmouth.edu/projects.html#bikenet">BikeNet</a>, <a class="three" href="http://metrosense.cs.dartmouth.edu/projects.html#anonysense">AnonySense</a>, and <a class="three" href="http://metrosense.cs.dartmouth.edu/projects.html#secondlifesensor">Second Life Sensor</a> can be found <a class="three"
+ href="http://metrosense.cs.dartmouth.edu/projects.html">here</a>.
+<br><br><br>
+<a href="http://www.technologyreview.com/"><img style="position: absolute; top: 379px; left: 138px;" src="img/trlogo.jpg" border="0" height="42" width="127"></a>
+<b><i>What's new: </i></b>See &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feature on SoundSense: <a class="three" href="http://www.technologyreview.com/communications/22907/">Cell Phones That Listen and Learn</a>. 
+<br><br><br><br>
+<a href="http://www.youtube.com"><img style="position: absolute; top: 440px; left: 370px;" src="img/youtubelogo.jpg" border="0" height="42" width="90"></a>
+Also, checkout the <a class="three" href="http://www.youtube.com/watch?v=VK9AE_7dhc4">SoundSense</a> and <a class="three"
+ href="http://www.youtube.com/watch?v=8rDFbTF47PA">CenceMe</a> videos on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<br><br>
+	Something cool you haven't seen before:
+	<br><br>
+	NeuroPhone <a href="http://sensorlab.cs.dartmouth.edu/pubs/neurophone.pdf">paper</a>.
+
+    <object style="float:right; margin: 40px 240px 10px 10px;"  width="340" height="275"><param name="movie" value="http://www.youtube-nocookie.com/v/tc82Z_yfEwc&hl=en&fs=1&"></param><param name="allowFullScreen" value="true"></param>
+	<param name="allowscriptaccess" value="always"></param><embed
+	src="http://www.youtube-nocookie.com/v/tc82Z_yfEwc&hl=en&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="270" height="204"></embed></object>
+	
+</small></div>
+
+
+<!-- CONTENT HERE  -->
+
+
+</div><!--END OVERFLOW  -->
+</div>
+
+<div
+ style="position: absolute; width: 139px; left: 841px; top: 1145px; height: 21px;"><small
+ style="font-style: italic;"><span style="font-family: verdana;"><small>last
+modified: March 2010</small></span></small><span
+ style="font-weight: bold; font-family: verdana;"><br>
+</span><span style="font-weight: bold; font-family: verdana;"></span></div>
+<div
+ style="position: absolute; top: 1145px; height: 21px; font-family: verdana; left: 245px; width: 265px;"><small>
+<font size="-1"><small><sup>&copy; Computer Science Department at Dartmouth College</sup></small></font>
+</small></div>
+<div
+ style="position: absolute; top: 1200px; height: 21px; font-family: verdana; left: 485px; width: 266px;"><big>
+<font size="-1"><big><sup><a name="sponsors"></a> The project research
+is sponsored by:</sup></big></font>
+</big></div>
+</body>
+</html>

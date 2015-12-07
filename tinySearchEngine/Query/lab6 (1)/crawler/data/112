@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/peters-emg-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>peters:emg-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Travis Peters.
+<b>An Assessment of Single-Channel EMG Sensing for Gestural Input</b>.
+Technical Report
+TR2015-767,
+Dartmouth College, Computer Science,
+September,
+2014.
+<p><b>Abstract:</b> Wearable devices of all kinds are becoming increasingly popular.
+One problem that plagues wearable devices, however, is how to interact with
+them. In this paper we construct a prototype electromyography (EMG) sensing
+device that captures a single channel of EMG sensor data corresponding to
+user gestures. We also implement a machine learning pipeline to recognize
+gestural input received via our prototype sensing device. Our goal is to
+assess the feasibility of using a BITalino EMG sensor to recognize gestural
+input on a mobile health (mHealth) wearable device known as Amulet. We
+conduct three experiments in which we use the EMG sensor to collect gestural
+input data from (1) the wrist, (2) the forearm, and (3) the bicep. Our
+results show that a single channel EMG sensor located near the wrist may be a
+viable approach to reliably recognizing simple gestures without mistaking
+them for common daily activities such as drinking from a cup, walking, or
+talking while moving your arms.</p>
+<p><a href="bibtex/peters-emg-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././peters-emg-tr.pdf">PDF</a> (5551K)</p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

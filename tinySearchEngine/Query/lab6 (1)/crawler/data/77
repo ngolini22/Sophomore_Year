@@ -1,0 +1,51 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-zebra-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:zebra-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare, Andr&eacute;s Molina-Markham, Cory Cornelius, Ronald Peterson, and David Kotz.
+<b>ZEBRA: Zero-Effort Bilateral Recurring Authentication (Companion
+report)</b>.
+Technical Report
+TR2014-748,
+Dartmouth Computer Science,
+May,
+2014.
+This project has been renamed BRACE.
+<p><b>Abstract:</b> We describe and evaluate Zero-Effort Bilateral Recurring
+Authentication (ZEBRA) in our paper that appears in IEEE Symposium on
+Security and Privacy, May 2014. In this report we provide a more detailed
+comparative evaluation of ZEBRA against other related authentication schemes.
+The abstract of the paper follows. Common authentication methods based on
+passwords, tokens, or fingerprints perform one-time authentication and rely
+on users to log out from the computer terminal when they leave. Users often
+do not log out, however, which is a security risk. The most common solution,
+inactivity timeouts, inevitably fail security (too long a timeout) or
+usability (too short a timeout) goals. One solution is to authenticate users
+continuously while they are using the terminal and automatically log them out
+when they leave. Several solutions are based on user proximity, but these are
+not sufficient: they only confirm whether the user is nearby but not whether
+the user is actually using the terminal. Proposed solutions based on
+behavioral biometric authentication (e.g., keystroke dynamics) may not be
+reliable, as a recent study suggests. To address this problem we propose
+ZEBRA. In ZEBRA, a user wears a bracelet (with a built-in accelerometer,
+gyroscope, and radio) on her dominant wrist. When the user interacts with a
+computer terminal, the bracelet records the wrist movement, processes it, and
+sends it to the terminal. The terminal compares the wrist movement with the
+inputs it receives from the user (via keyboard and mouse), and confirms the
+continued presence of the user only if they correlate. Because the bracelet
+is on the same hand that provides inputs to the terminal, the accelerometer
+and gyroscope data and input events received by the terminal should correlate
+because their source is the same&nbsp;- the user's hand movement. In our
+experiments ZEBRA performed continuous authentication with 85\% accuracy in
+verifying the correct user and identified all adversaries within 11&nbsp;s. For a
+different threshold that trades security for usability, ZEBRA correctly
+verified 90\% of users and identified all adversaries within 50&nbsp;s.</p>
+<p><a href="bibtex/mare-zebra-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-zebra-tr.pdf">PDF</a> (116K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by the authors.</b></p>
+</BODY>
+</HTML>

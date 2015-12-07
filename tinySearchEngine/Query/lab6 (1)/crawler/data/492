@@ -1,0 +1,51 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nieuwejaar-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nieuwejaar:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Nils A. Nieuwejaar.
+<b>Galley: A New Parallel File System for Parallel Applications</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+November,
+1996.
+Available as Dartmouth Computer Science Technical Report
+PCS-TR96-300.
+<p><b>Abstract:</b> Most current multiprocessor file systems are designed to use
+multiple disks in parallel, using the high aggregate bandwidth to meet the
+growing I/O requirements of parallel scientific applications. Most
+multiprocessor file systems provide applications with a conventional
+Unix-like interface, allowing the application to access those multiple disks
+transparently. This interface conceals the parallelism within the file
+system, increasing the ease of programmability, but making it difficult or
+impossible for sophisticated application and library programmers to use
+knowledge about their I/O to exploit that parallelism. In addition to
+providing an insufficient interface, most current multiprocessor file systems
+are optimized for a different workload than they are being asked to support.
+<P> In this work we examine current multiprocessor file systems, as well as
+how those file systems are used by scientific applications. Contrary to the
+expectations of the designers of current parallel file systems, the workloads
+on those systems are dominated by requests to read and write small pieces of
+data. Furthermore, rather than being accessed sequentially and contiguously,
+as in uniprocessor and supercomputer workloads, files in multiprocessor file
+systems are accessed in regular, structured, but non-contiguous patterns.
+<P> Based on our observations of multiprocessor workloads, we have designed
+Galley, a new parallel file system that is intended to efficiently support
+realistic scientific multiprocessor workloads. In this work, we introduce
+Galley and discuss its design and implementation. We describe Galley's new
+three-dimensional file structure and discuss how that structure can be used
+by parallel applications to achieve higher performance. We introduce several
+new data-access interfaces, which allow applications to explicitly describe
+the regular access patterns we found to be common in parallel file system
+workloads. We show how these new interfaces allow parallel applications to
+achieve tremendous increases in I/O performance. Finally, we discuss how
+Galley's new file structure and data-access interfaces can be useful in
+practice.</p>
+<p><a href="bibtex/nieuwejaar-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR96-300.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;1996 by Nils A. Nieuwejaar.</b></p>
+</BODY>
+</HTML>

@@ -1,0 +1,243 @@
+http://www.cs.dartmouth.edu/%7Exia/cs69/schedule.html
+3
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS69/169</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="res/css/custom.css">
+    <link rel="stylesheet" href="res/font-awesome/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="res/font-awesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <style>
+      
+    </style> 
+  </head>
+  <body>
+
+    <div class="pure-g-r" id="layout">
+      <a href="#menu" id="menuLink" class="pure-menu-link">
+        <span></span>
+      </a>
+
+      <div class="pure-u" id="menu">
+        <div class="pure-menu pure-menu-open">
+          <ul>
+            <li class="">
+            <i class="icon-home"></i><a href="index.html">Home</a>
+            </li>
+            <li class="pure-menu-selected">
+            <i class="icon-calendar"></i><a href="schedule.html">Schedule</a>
+            </li>
+            <li class="">
+            <i class="icon-bookmark"></i><a href="readings.html">Readings</a>
+            </li>
+            <li class="">
+            <i class="icon-gamepad"></i><a href="projects.html">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="pure-u-1" id="main">
+        <div class="hero">
+          <p>
+            <img src="res/img/network.jpg" height=120px size=100%></img>
+          </p> 
+        </div>
+
+        <a name="#schedule"></a>
+        <div class="header">
+          <h1>Schedule</h1>
+        </div>
+        <div class="content">
+          <p>Seminar topics are still tentative. They will be
+          finalized as we get closer to the fall term.
+          </p>
+
+          <table id="schedule" class="pure-table">
+            <thead>
+              <tr style="background-color:#ccc">
+                <th align="center">Date</th>
+                <th align="center">Topic</th>
+                <th align="center">Papers</th>
+                <th align="center">Presenters</th>
+                <th align="center">Note</th>
+              </tr>
+            </thead>
+
+            <tr>
+              <td>Sept. 16</td>
+              <td align="center" colspan="3" rowspan="2" style="background-color:#F0F0F0"><i>No class meetings, read the following paper as warm-up:</i><br/>
+              <a href="http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf">How to Read a Paper</a> (Keshav, CCR'09),<br/>
+              <i>and start to claim papers on Piazza.</i>
+              </td>
+              <td align="center" rowspan="2" style="background-color:#F0F0F0"><a href="https://piazza.com/dartmouth/fall2014/cs69169"><i>Sign up on Piazza</i></a></td>
+            </tr>
+
+            <tr>
+              <td>Sept. 18</td>
+            </tr>
+
+            <tr>
+              <td>Sept. 23</td>
+              <td>Kickoff & <br/>
+                Wireless 101
+              </td>
+              <td>KPG+14</td>
+              <td>Xia, ?</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Sept. 25</td>
+              <td>Wireless & Mobile:<br/>
+                Radio spectrum management</td>
+              <td>ZLB14</td>
+              <td>Zhao</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Sept. 30</td>
+              <td>Wireless & Mobile:<br/>
+                 Interference Management</td>
+              <td>KHK+14</td>
+              <td>Mengjia</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 2</td>
+              <td>Wireless & Mobile:<br/>
+                mmWave vs. nmWave</td>
+              <td>ZZM+14, KPH+14</td>
+              <td>?, Zhao</td>
+              <td align="center"><i>Proposal due</i></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 7</td>
+              <td align="center" colspan="4"><i>Guest lecture by Shirley Zhao</i></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 9</td>
+              <td align="center" colspan="4"><i>No class meeting, work on project</i></td> 
+            </tr>
+
+            <tr>
+              <td>Oct. 14</td>
+              <td>Wireless & Mobile:<br/>
+                Energy</td>
+              <td>JK14, DLZ14</td>
+              <td>Tianlong, Rui</td>
+              <td align="center"></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 16</td>
+              <td>Wireless & Mobile:<br/>
+                Beyond the Conventional</td>
+              <td>AKK+14, WVK14</td>
+              <td>Jun</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 21</td>
+              <td align="center" colspan="4" style="background-color:#1f8dd6"><font color="white">Project Mid
+                  Presentation</font></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 23</td>
+              <td>Data Center
+                Networking:<br/>Architecture & IP</td>
+              <td>HQG+14, POB+14</td>
+              <td>Qiuhan, Haomin</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 28</td>
+              <td>Data Center
+                Networking:<br/>Transport layer</td>
+              <td>AYS+13, MBI+14</td>
+              <td>Mubing, Mengling</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Oct. 30</td>
+              <td>Data Center
+                Networking: <br/> Traffic scheduling</td>
+              <td>CZS14, AED+14</td>
+              <td>Boying, Xiaohong</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 3</td>
+              <td>Mobile Cloud:<br/>
+                Architecture</td>
+              <td>APB14, LUT+14</td>
+              <td>Arvind, Hui</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 4</td>
+              <td>Mobile Cloud: </br>
+                Smart Devices</td>
+              <td>GPL14, HCH+14</td>
+              <td>Tianlong, Yongfu</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 6</td>
+              <td>Mobile Cloud: <br/>
+                Privacy & Security</td>
+              <td>CSR+14, ZX14</td>
+              <td>Hongyi, Donglin</td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 13</td>
+              <td align="center" colspan="4"><i>No class meeting, work on project</i></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 18</td>
+              <td align="center" colspan="4" style="background-color:#1f8dd6"><font color="white">Project Final
+                Presentation 1</font></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 20</td>
+              <td align="center" colspan="4" style="background-color:#1f8dd6"><font color="white">Project Final
+                Presentation 2</font></td>
+            </tr>
+
+            <tr>
+              <td>Nov. 21</td>
+              <td colspan="3"></td>
+              <td align="center"><i>Project report
+                  due</i></td>
+            </tr>
+          </table>
+        </div>   
+
+      </div>
+
+    </div>
+    <script src="res/js/menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,562 @@
+http://www.cs.dartmouth.edu/~csrs
+3
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>CSRS'15</title>
+
+  <!-- CSS  -->
+  <link href="newcss/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="newcss/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body id="body-id" class="scrollspy">
+    <div class="navbar-fixed">
+  <nav class="white" role="navigation">
+
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">CSRS 2015</a>
+
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#raffle">Raffle</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#posters">Posters & Demos</a></li>
+      </ul>      
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#presenters">Presenters</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#schedule">Schedule</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#body-id">About</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#body-id">About</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#presenters">Presenters</a></li>
+        <li><a href="#posters">Posters & Demos</a></li>
+        <li><a href="#raffle">Raffle</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+  </nav>
+  </div>
+
+  <div id="index-banner" class="parallax-container">
+    <!-- <div class="section no-pad-bot"> -->
+      <div class="container">
+        <br><br>
+        <div class="row center">
+          <h1 class="header s12 center blue-grey-text text-darken-3">Computer Science Research Symposium</h1>
+        </div>
+        <div class="row center">
+          <h2 class="header col s12 blue-grey-text text-darken-2">Friday 8<sup>th</sup> May 2015, Kemeny 008 </h2>
+        </div>
+
+        <br><br>
+
+      <!-- </div> -->
+    </div>
+    <div class="parallax"><img src="images/background-50.svg" alt="Unsplashed background img 2"></div>
+  </div>
+
+
+  <div id="about" class="container scrollspy">
+    <div class="section">
+      <div class="row center" >
+          <div class="col offset-s2 s8">
+        <p class="flow-text">
+
+<b>Friday 8<sup>th</sup> May 2015, Kemeny 008 </b>
+	<h3>Vote at <a href="https://goo.gl/FGpHFp">https://goo.gl/FGpHFp</a></h3>
+<br>There’s a surge of interest in computer science at Dartmouth. Come find out about the latest research advances being made by our undergraduates, graduates, and faculty.</p>
+        </div>
+      </div>
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center blue-grey-text text-darken-3"><i class="mdi-action-settings-voice"></i></h2>
+            <h5 class="center">Talks</h5>
+
+            <p class="light"  style="text-align:center;">Listen to our keynote speaker, faculty, and students talk about their
+latest research results..</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center blue-grey-text text-darken-3"><i class="mdi-editor-format-align-left"></i></h2>
+            <h5 class="center">Posters</h5>
+
+            <p class="light" style="text-align:center;">Talk to the students and faculty one on one about  their work.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center blue-grey-text text-darken-3"><i class="mdi-action-settings"></i></h2>
+            <h5 class="center">Demos</h5>
+
+            <p class="light" style="text-align:center;">Checkout the cool demos.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="flow-text">
+ The Dartmouth Computer Science Research Symposium is an annual
+ exhibition of the research in the department. It not only provides a
+ means of communicating research interests and goals to fellow
+ department members, but to the greater Dartmouth community as well.
+ Students and faculty are given an opportunity to present their
+ research in either talk or poster form. CSRS serves to strengthen the
+ solidarity of our department, provide critical presentation
+ experience, and widen perspectives of Computer Science among both
+ students and faculty.
+
+ Every year, the symposium features a keynote talk given by a
+ distinguished member of the field from outside Dartmouth College. This
+ year, our keynote speaker is <a href="https://www.cs.duke.edu/brd/">Professor Bruce Donald</a> from Duke
+ University.
+</p>
+      </div>
+
+    </div>
+  </div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="images/background.svg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div id="schedule" class="container scrollspy">
+  <div class="section scrollspy">
+    <div class="row">
+      <div class="col s12 offset-m1 offset-l2 m10 l8 center">
+        <h3><i class="mdi-action-schedule blue-grey-text text-darken-3"></i></h3>
+        <h4>Schedule</h4>
+	<h3>Vote at <a href="https://goo.gl/FGpHFp">https://goo.gl/FGpHFp</a></h3>
+        <table border="0" width="100%" class="table striped">
+          <tr>
+            <th width="140" style="text-align:center">Time</th>
+            <th width="170">Speaker/Event</th>
+            <th>Title</th>
+          </tr>
+
+          <tr >
+            <td class="time" >15:00 - 15:10</td>
+            <td>Tom Cormen</td>
+            <td>Opening Remarks</td>
+          </tr>
+
+
+          <tr>
+            <td class="time">15:10 - 16:10</td>
+            <td>Bruce Donald (Key note)</td>
+            <td>Computational Protein Design, with Applications to Predicting Resistance Mutations, and HIV</td>
+          </tr>
+
+
+          <tr>
+            <td class="time">16:10 - 16:35</td>
+            <td>Shahrzad Haddadan</td>
+            <td>Gladiators and permutations </td>
+          </tr>
+
+          <tr>
+            <td class="time">16:35 - 17:05</td>
+            <td>Jason Reeves</td>
+            <td>TEDDI: Tamper Event Detection on Distributed Infrastructure</td>
+          </tr>
+
+          <tr class="talk">
+            <td class="time">17:05 - 17:25</td>
+            <td>Hany Farid</td>
+            <td>How Realistic is Photorealistic?</td>
+          </tr>
+
+          <tr class="break"  bgcolor=#a8a8a8>
+            <td class="time">17:25 - 18:00</td>
+            <td></td>
+            <td>Posters & Demos - Lobby Kemeny</td>
+          </tr>
+
+          <tr class="talk">
+            <td class="time">18:00 - 18:30</td>
+            <td>James Brofos, Matthew Jin, and Rui Shu</td>
+            <td> Adaptive Neural Network Representations for Parallel and Scalable Bayesian Optimization</td>
+          </tr>
+
+          
+          <tr>
+            <td class="time">18:30 - 19:00</td>
+            <td>Suman K. Bera</td>
+            <td>A Depth-Five Lower Bound for Iterated Matrix Multiplication</td>
+          </tr>
+
+
+          <tr class="talk">
+            <td class="time">19:00 - 19:25</td>
+            <td>Jianfu Zhou</td>
+            <td>Resurfacing Proteins Using a Structural Search Engine</td>
+          </tr>
+
+          <tr class="talk">
+            <td class="time">19:25 - 19:55</td>
+            <td>Du Tran</td>
+            <td>Learning Spatiotemporal Features with 3D Convolutional Networks</td>
+          </tr>                                                                                               
+          <tr class="break">
+            <td class="time">20:00 - 21:00</td>
+            <td >Award Ceremony, Closing Remarks and Dinner</td>
+            <td>Dartmouth Outing Club</td>
+          </tr>                   
+
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="parallax"><img src="images/background.svg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div id="presenters" class="container scrollspy">
+   <h3 class="header center blue-grey-text text-darken-3">Presenters</h3>
+   <div class="row">
+    <div class="offset-m3 col s12 m6">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/bruce_donald.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Bruce Donald<i class="mdi-navigation-more-vert right"></i></span>
+          <p>Computational Protein Design, with Applications to Predicting Resistance Mutations, and HIV</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Computational Protein Design, with Applications to Predicting Resistance Mutations, and HIV<i class="mdi-navigation-close right"></i></span>
+          <p>Computational protein design is a transformative field with exciting prospects for advancing both basic science and translational medical research. My laboratory has developed protein design algorithms and used them to design new drugs for leukemia; redesign an enzyme to diversify current antibiotics; design protein-protein interactions; and design drugs for cystic fibrosis. At the heart of this research lies OSPREY, a software package implementing provable design algorithms of considerable intrinsic interest. I will introduce these algorithms for protein design. Then, I will discuss two applications: (1) Predicting MRSA resistance mutations to new antibiotics, and (2) designing antibodies against HIV. Computational, and experimental (in vitro, and in vivo) results will be presented.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+   <div class="row">
+
+      <div class="col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/farid-2.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Hany Farid<i class="mdi-navigation-more-vert right"></i></span>
+          <p>How Realistic is Photorealistic?</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">How Realistic is Photorealistic?<i class="mdi-navigation-close right"></i></span>
+          <p>The photo realism of still and animated computer generated (CG) characters continues to improve thanks to the development of increasingly more powerful 3-D rendering software and hardware. When trying to distinguish the real from the fake, such CG characters pose significant challenges. I'll describe perceptual studies for quantifying the difficulty that we have in distinguishing CG from photographic images, and new computational techniques for performing this task.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/shahrzad.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Shahrzad Haddadan<i class="mdi-navigation-more-vert right"></i></span>
+          <p>Thresholds of Computability</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Thresholds of Computability<i class="mdi-navigation-close right"></i></span>
+          <p>We talk about a Markov Chain on the set of all rankings of n gladiators and theoretical and practical aspects of it.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/male.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Jason Reeves<i class="mdi-navigation-more-vert right"></i></span>
+          <p>TEDDI: Tamper Event Detection on Distributed Infrastructure</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">TEDDI: Tamper Event Detection on Distributed Infrastructure <i class="mdi-navigation-close right"></i></span>
+          <p>"Embedded devices installed as part of the smart grid rollout present a major security risk to utilities, because they are soft targets that could allow an attacker to access critical assets (generators, control centers, etc.) deeper in the utility’s network. While both physical tampering and intrusion protection are large, well-studied fields, state-of-the-art protection schemes suffer from several flaws: They are not powerful enough to respond properly to different tamper events, their severe responses can lead to reduced grid availability, and they often require more setup resources than a utility operator can provide. To protect these networks, we present TEDDI (Tamper Event Detection on Distributed Infrastructure), a distributed, sensor-based tamper protection architecture for embedded devices on utility networks. TEDDI uses data gathered from across the network to make more informed and more accurate tamper decisions, and can customize its response based on the event it sees. It can also be configured and installed quickly, without needing a large base of knowledge beforehand."</p>
+        </div>
+      </div>
+    </div>
+
+          <div class=" col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/james.png" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">James Brofos<i class="mdi-navigation-more-vert right"></i></span>
+          <p>Adaptive Neural Network Representations for Parallel and Scalable Bayesian Optimization</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+          <p>Bayesian optimization has emerged as a powerful, new technique for interpolating and optimizing a wide range of functions which are expensive to compute. The primary tool of Bayesian optimization is the Gaussian process, which permits one to define a prior belief, which is then transformed into a posterior through sequential sampling of points. Unfortunately, Gaussian process interpolation suffers from a major computational bottleneck that makes it prohibitively expensive to use in large-scale optimization routines. In this work, we investigate deep neural networks for learning a representation of the space for which a much less computationally expensive interpolation algorithm may be used. Our implementation adaptively updates the representation of the neural network as more data becomes available over time. Since this neural network-based approach is parallelizable, we are able to exploit simultaneous function evaluation and network parameter learning. We show that this neural network-based approach leads to many of the same appealing properties of Gaussian processes, and which scales only linearly in the number of observations ceteris paribus. We additionally seek to provide a theoretical explanation regarding why an optimization algorithm of this form functions at all. For this, we develop a probabilistic theory of martingales and apply it to a performance metric for the neural network-based approach to Bayesian optimization. We find that the performance of the deep neural network is consistent with the predictions of our probabilistic theory. We therefore speculate on the kind of representation that is learned by the network in its final hidden layer. We additionally show that our approach is easily extended to a distributed environment, which results in faster optimization. Numerical experiments demonstrate the efficacy of using deep networks for learning representations amenable to computationally inexpensive interpolation methods.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+     <div class="row">
+      <div class="offset-l1 col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/jianfu.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Jianfu Zhou<i class="mdi-navigation-more-vert right"></i></span>
+          <p>Resurfacing Proteins Using a Structural Search Engine</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+          <p>Amino acid residues located on the surfaces of protein 3D structures dictate how these molecules are “seen” by the rest of the molecular world. Alteration of surface residues can thus lead to significant changes of protein properties, and the ability to do this in a targeted manner is of key relevance in biotechnology and biomedical research. Here we propose that such “resurfacing” can be carried out by learning the mapping between surface 3D structural patters and amino-acid sequences from existing protein structures. We do this with the help of a rapid and provably correct protein substructure search engine we developed. Computational experiments, on a diverse set of test cases, show that our resurfacing method produces physically realistic structural models that compare favorably with natural proteins. Experimental validation of our designs is pending. Given the wide-ranging interest in protein resurfacing, our proposed approach should be of broad utility in biotechnological and biomedical applications.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/du.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Du Tran <i class="mdi-navigation-more-vert right"></i></span>
+          <p>Learning Spatiotemporal Features with 3D Convolutional Networks</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+          <p>We propose a simple, yet effective approach for spatiotemporal feature learning using deep 3-dimensional convolutional networks (3D ConvNets) trained on a large scale supervised video dataset. Our findings are three-fold: 1) 3D ConvNets are more suitable for spatiotemporal feature learning compared to 2D ConvNets; 2) A homogeneous architecture with small 3x3x3 convolution kernels in all layers is among the best performing architectures for 3D ConvNets; and 3) Our learned features, namely C3D (Convolutional 3D), significantly outperform state-of-the-art methods on 4 different video analysis tasks and 6 different benchmarks with a simple linear SVM. In addition, the features are compact: achieving 52.8\% accuracy on UCF101 dataset with only 10 dimensions and also very efficient to compute: 91 times faster than the current best hand-crafted features and approximately 2 orders of magnitude faster than deep learning based video classification method using optical flow. Finally, they are conceptually very simple and easy to train and use.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/suman.jpg" width="100px">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Suman K. Bera<i class="mdi-navigation-more-vert right"></i></span>
+          <p>A Depth-Five Lower Bound for Iterated Matrix Multiplication</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="mdi-navigation-close right"></i></span>
+          <p>Computation of polynomials is a building block of many mathematical computations and has wide range of applications in computer science. The complexity of computing a polynomial is most naturally captured by arithmetic circuits. Being a more structured model of computation compared to its boolean counterpart, arithmetic circuits have received a lot of attention in the past few decades. Due to their simplicity, it is believed that settling the fundamental problem of theoretical computer science, P ?= NP, in the algebraic world would be much easier. More formally, we are interested in resolving the following question: is the class of efficiently computable polynomials VP(algebraic analogue of P) separate from VNP (algebraic analogue of NP)? However no major advancement happened in this direction for many years until recently when there has been a flurry of elegant work that raised the hope to separate VP from VNP. In this talk, we survey some of these recent results focusing mainly on constant depth arithmetic circuits and outline our contribution to this area. In recent years progress has been made in two directions. Following a series of beautiful results it has been established that any poly-size general arithmetic circuit can be reduced to a homogeneous depth four arithmetic circuit of ""small"" size. This is known as depth reduction of arithmetic circuits. In other direction researchers have presented strong lower bounds on various subclass of homogeneous depth-4 arithmetic circuits. Combining results from these two directions one can hope to show good lower bounds on general arithmetic circuits and eventually separate VP from VNP. We prove a ""tight"" lower bound for certain instances of the iterated matrix multiplication (IMM) family of polynomials ( in VP) when computed by a homogeneous depth-five arithmetic circuit with some restriction on the bottom fan-in. Our result rules out the possibility of proving a stronger depth reduction to restricted homogeneous depth-5 arithmetic circuits.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+ 
+
+
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="images/background.svg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="row">
+<div id="posters" class="col s12 offset-m1 offset-l3 m10 l6 container scrollspy">
+<h3 class="header center blue-grey-text text-darken-3">Posters & Demos</h3>
+	<h3>Vote at <a href="https://goo.gl/FGpHFp">https://goo.gl/FGpHFp</a></h3>
+        <table border="0" width="100%" class="table striped">
+
+          <tr >
+            <td>Chuankai An</td>
+            <td><b>Human Identification by Visible Light Communication</b></td>
+          </tr>
+
+
+          <tr>
+            <td>Vijay Kothari</td>
+            <td><b>Trust Lab Research</b></td>
+          </tr>
+
+          <tr>
+            <td>Loris Bazzani</td>
+            <td><b>Self-taught Object Localization with Deep Networks</b></td>
+          </tr>
+
+          <tr>
+            <td>Yinan Zhang</td>
+            <td><b>Metric cells:  towards complete search for optimal trajectories</b></td>
+          </tr>
+
+          <tr>
+            <td>Haider Syed</td>
+            <td><b>Identifying Chemotherapy Regimens in Electronic Health Record Data using Temporal Sequence Alignment</b></td>
+          </tr>
+
+          <tr>
+            <td>Ryan Amos</td>
+            <td><b>B-Cell Epitope Deletion</b></td>
+          </tr>
+
+          <tr>
+            <td>Yoonjoo Choi</td>
+            <td><b>Structure-based antibody humanization</b></td>
+          </tr>
+
+          <tr>
+            <td>Deeptak Verma</td>
+            <td><b>Computationally designed T-cell epitope depleted lysostaphin mitigates anti-drug antibody response and enhances anti-MRSA efficacy in humanized mice</b></td>
+          </tr>
+
+          <tr>
+            <td>Karen Dowell</td>
+            <td><b>Functionally coordinated antibody responses to HIV revealed in integrated predictive models</b></td>
+          </tr>
+
+          <tr>
+            <td>Vikram Narayan</td>
+            <td><b>Algorithmic Composition of Bach Chorales Using Hierarchical Hidden Markov Models</b></td>
+          </tr>
+
+          <tr>
+            <td>Justin Chan</td>
+            <td><b>3D Printing Your Wireless Coverage</b></td>
+          </tr>
+
+          <tr>
+            <td>Jai Woo Lee</td>
+            <td><b>Learning Protein Interaction Specificity with Sparse Graphical Models </b></td>
+          </tr>
+
+          <tr>
+            <td>Keith Carlson</td>
+            <td><b>A Quantitative Analysis of Writing Style on the U.S. Supreme Court</b></td>
+          </tr>
+
+          <tr>
+            <td>Rui Wang</td>
+            <td><b>Your Smartphone Knows Your GPA</b></td>
+          </tr>
+
+          <tr>
+            <td>Zhao Tian</td>
+            <td><b>Invisible Visible Light Communication</b></td>
+          </tr>
+
+          <tr>
+            <td>Robert Sayegh</td>
+            <td><b>Swipr (Demo)</b></td>
+          </tr>
+
+          <tr>
+            <td>Lukas Zirngibl</td>
+            <td><b>Drawing Maching (Demo)</b></td>
+          </tr>
+
+          <tr>
+            <td>Tianxing Li</td>
+            <td><b>Real-Time Screen-Camera Communication Behind Any Scene(Demo)</b></td>
+          </tr>
+
+          <tr>
+            <td>Fanglin Chen </td>
+            <td><b>EyeScene: Supporting Continuous Scene Recognition for Smart Eyewear(Demo)</b></td>
+          </tr>
+                
+        </table>
+</div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="parallax"><img src="images/background.svg" alt="Unsplashed background img 2"></div>
+</div>
+
+<div id="raffle" class="container scrollspy">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-action-wallet-giftcard blue-grey-text text-darken-3"></i></h3>
+        <h4>Raffle<br><br></h4>
+        <img src="images/watches.png" class="responsive-img centered">
+	<h3> Raffle Link: <a href="https://goo.gl/ysX7BU">https://goo.gl/ysX7BU</a></h3>
+        <p class="flow-text"> We will be raffling a smart watch at our event. The best part is you get to choose from a Pebble Time, Apple Watch or Moto 360!</p>
+        
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+    </div>
+  </div>
+  <div class="parallax"><img src="images/background.svg" alt="Unsplashed background img 3"></div>
+</div>
+
+<footer class="page-footer blue-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Computer Science Research Symposium 2015</h5>
+        <p class="grey-text text-lighten-4">Please feel free to contact us at csrs@cs.dartmouth.edu for any other information.</p>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Event sponsored by <a class="brown-text text-lighten-3" href="http://cs.dartmouth.edu">Dartmouth Computer Science</a>
+    </div>
+  </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
+</script>
+
+</body>
+</html>

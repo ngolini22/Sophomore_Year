@@ -1,0 +1,101 @@
+http://www.cs.dartmouth.edu/~ltx
+2
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Tianxing Li</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+</head>
+
+<link rel="shortcut icon" href="http://web.cs.dartmouth.edu/sites/all/themes/dartmouth_master/favicon.ico" type="image/vnd.microsoft.icon" />
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <h1>Tianxing Li<a href="#"></a></h1></div>
+      <nav>
+        <ul class="lavaLampWithImage" id="lava_menu">
+          <li class="current"><a href="index.html">Home</a></li>
+          <li><a href="./resume.pdf">CV</a></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="site_content">
+      <div id="content">
+        <h2><img src="images/Profile.JPG" width="660" height="370"></h2>
+        <h2>About</h2>
+        <p>I am a 1st year PhD Student in the <a href="http://www.cs.dartmouth.edu/">Computer Science Department</a> at <a href="http://www.dartmouth.edu/">Dartmouth College</a>. I’m currently working in the DartNets Lab under the supervision of Prof. <a href="http://www.cs.dartmouth.edu/~xia/">Xia Zhou</a>.</p>
+        <p>My research interests are mobile sensing, wireless networking, and visible light communication, and I am also broadly interested in machine learning and energy-efficient devices.</p>
+        <p>I earned my M.S. at <a href="http://www.dartmouth.edu/">Dartmouth College</a> in 2014 and B.E. with honor from <a href="https://www.anu.edu.au/">Australian National University</a> in 2012.</p>
+        <h2>Publications </h2>
+		<p>*H-index = <font color="#FF0000">2</font>, Citation = <font color="#FF0000">18</font> according to <a href="http://scholar.google.com/citations?user=fsnA2skAAAAJ&hl=en">Google Scholar.</a></p>
+        <ul>
+		  <li><strong>Tianxing Li</strong>, Chuankai An, Andrew Campbell, and Xia Zhou, <em>HiLight: Hiding Bits in Pixel Translucency Changes</em>, ACM Workshop on Visible Light Communication Systems (VLCS), 2014, <font color="#FF0000">Best Paper Award</font> <a href="./paper/vlcs14-tianxing.pdf">[pdf]</a></li>
+		  <li>Rui Wang, Fanglin Chen, Zhenyu Chen, <strong>Tianxing Li</strong>, Gabriella Harari, Stefanie Tigno, Xia Zhou, Dror Ben-Zeev, and Andrew T. Campbell, <em>StudentLife: Assessing Mental Health, Academic Performance and Behavioral Trends of College Students using Smartphones</em>, Ubicomp 2014, <font color="#FF0000">Best Paper Nominee</font> <a href="http://studentlife.cs.dartmouth.edu/studentlife.pdf">[pdf]</a></li>
+          <li>Zhenyu Chen, Mu Lin, Fanglin Chen, Lane, N.D., Cardone, G.,Rui Wang, <strong>Tianxing Li</strong>, Yiqiang Chen, Choudhury, T. Campbell, A.T., <em>Unobtrusive sleep monitoring using smartphones</em>, Pervasive Health 2013, <a href="./paper/Unobtrusive Sleep Monitoring using Smartphones.pdf">[pdf]</a></li>
+          <li>Fang Wang, <strong>Tianxing Li</strong>, Yi Li, <em>Dual deblurring leveraged by image matching</em>, ICIP 2013 (Oral), <a href="./paper/Dual deblurring leveraged by image matching.pdf">[pdf]</a></li>
+        </ul>
+        <p>&nbsp;</p>
+		<h2>Current Research Project</h2>
+		<p> I am currently working on a visible light communication (VLC) project. At the current stage, I built a display-camera link VLC testbed and I am exploring any killer applications on this platform.
+		</p>
+        <h2>Previous Research Project</h2>
+        <p>This is my master thesis project. As we know that many apps like Skype or Hangouts require network connection all the time. Compared with 3G/4G date usage, Wi-Fi is free and low battery cost. Besides, if people go aboard and do not have data roaming, Wi-Fi could be their unique choice to get access to the Internet. Keeping Wi-Fi connection when phone is in lock-mode is a challenging problem. Some smartphone like iPhone will turn Wi-Fi off when the phone is in lock-mode, it is inevitable introduce more cost due to 3G data usage. While, Android phone could keep Wi-Fi antenna scanning with a fixed scanning interval when phone is locked. But, in this case, main processor is on every time when Wi-Fi scans the surround APs. It will cost more battery power, and when user move, the connectivity of the phone is not good. My project is to about offloading Wi-Fi functions from smartphone&rsquo;s OS down to the Wi-Fi chipset. Since Wi-Fi will not wake up the main processor every time it scan the surrounding APs, it will not only save more battery power, but also keep good Wi-Fi connection.        </p>
+        <h2>Contact        </h2>
+        <ul>
+          <li>Email: <a href="mailto:tianxing@cs.dartmouth.edu">tianxing@cs.dartmouth.edu</a></li>
+          <li>Address: Lab 147 Sudioff Building, Dartmouth College, NH 03755</li>
+        </ul>
+        <div class="style1">
+                                    <a href="https://www.facebook.com/ricky.t.li" target="_blank"><img src="images/facebook.jpeg" width="50" height="50" alt="Facebook" /></a>
+                                    <a href="https://www.linkedin.com/pub/tianxing-li/56/ba7/996" target="_blank"><img src="images/linkedin.jpeg" width="50" height="50" alt="Linkedin" /></a>
+                                    <a href="https://twitter.com/Tianxing_Li" target="_blank"><img src="images/twitter.png" width="50" height="50" alt="Twitter" /></a>
+                                    </span>
+	    <p>Last updated 10/05/2014.
+	                You are the
+	  			  <!-- Start of StatCounter Code for Default Guide -->
+	  			  <script type="text/javascript">
+	  			  var sc_project=9897330; 
+	  			  var sc_invisible=0; 
+	  			  var sc_security="4709a146"; 
+	  			  var scJsHost = (("https:" == document.location.protocol) ?
+	  			  "https://secure." : "http://www.");
+	  			  document.write("<sc"+"ript type='text/javascript' src='" +
+	  			  scJsHost+
+	  			  "statcounter.com/counter/counter.js'></"+"script>");
+	  			  </script>
+	  			  <noscript><div class="statcounter"><a title="web analytics"
+	  			  href="http://statcounter.com/" target="_blank"><img
+	  			  class="statcounter"
+	  			  src="http://c.statcounter.com/9897330/0/4709a146/0/"
+	  			  alt="web analytics"></a></div></noscript>
+	  			  <!-- End of StatCounter Code for Default Guide -->
+	                th visitor.</p>
+      </div>
+    </div>
+  </div>
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+  <script type="text/javascript" src="js/image_fade.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $("#lava_menu").lavaLamp({
+        fx: "backout",
+        speed: 700
+      });
+    });
+  </script>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

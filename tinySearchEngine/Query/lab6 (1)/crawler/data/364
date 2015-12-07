@@ -1,0 +1,49 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-same-body.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:same-body</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius and David Kotz.
+<b>Recognizing whether sensors are on the same body</b>.
+In
+<i>Proceedings of the International Conference on Pervasive
+Computing</i>,
+pages 332-349,
+June,
+2011.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/978-3-642-21726-5_21">10.1007/978-3-642-21726-5_21</a>.
+<p><b>Abstract:</b> As personal health sensors become ubiquitous, we also expect them
+to become interoperable. That is, instead of closed, end-to-end personal
+health sensing systems, we envision standardized sensors wirelessly
+communicating their data to a device many people already carry today, the
+cellphone. In an open personal health sensing system, users will be able to
+seamlessly pair off-the-shelf sensors with their cellphone and expect the
+system to \it just work. However, this ubiquity of sensors creates the
+potential for users to accidentally wear sensors that are not necessarily
+paired with their own cellphone. A husband, for example, might mistakenly
+wear a heart-rate sensor that is actually paired with his wife's cellphone.
+As long as the heart-rate sensor is within communication range, the wife's
+cellphone will be receiving heart-rate data about her husband, data that is
+incorrectly entered into her own health record. <P> We provide a method to
+probabilistically detect this situation. Because accelerometers are
+relatively cheap and require little power, we imagine that the cellphone and
+each sensor will have a companion accelerometer embedded with the sensor
+itself. We extract standard features from these companion accelerometers, and
+use a pair-wise statistic&nbsp;- coherence, a measurement of how well two signals
+are related in the frequency domain&nbsp;- to determine how well features
+correlate for different locations on the body. We then use these feature
+coherences to train a classifier to recognize whether a pair of sensors&nbsp;- or
+a sensor and a cellphone&nbsp;- are on the same body. We evaluate our method over
+a dataset of several individuals walking around with sensors in various
+positions on their body and experimentally show that our method is capable of
+achieving an accuracies over 80\%.</p>
+<p><a href="bibtex/cornelius-same-body.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-same-body.pdf">PDF</a> (289K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

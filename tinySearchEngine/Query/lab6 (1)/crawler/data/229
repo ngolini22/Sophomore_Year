@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-wearable.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:wearable</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius, Ronald Peterson, Joseph Skinner, Ryan Halter, and David Kotz.
+<b>A wearable system that knows who wears it</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+pages 55-67,
+June,
+2014.
+DOI <a href="http://dx.doi.org/10.1145/2594368.2594369">10.1145/2594368.2594369</a>.
+<p><b>Abstract:</b> Body-area networks of pervasive wearable devices are increasingly
+used for health monitoring, personal assistance, entertainment, and home
+automation. In an ideal world, a user would simply wear their desired set of
+devices with no configuration necessary: the devices would discover each
+other, recognize that they are on the same person, construct a secure
+communications channel, and recognize the user to which they are attached. In
+this paper we address a portion of this vision by offering a wearable system
+that unobtrusively recognizes the person wearing it. Because it can recognize
+the user, our system can properly label sensor data or personalize
+interactions. <P> Our recognition method uses bioimpedance, a measurement of
+how tissue responds when exposed to an electrical current. By collecting
+bioimpedance samples using a small wearable device we designed, our system
+can determine that (a)the wearer is indeed the expected person and (b)&nbsp;the
+device is physically on the wearer's body. Our recognition method works with
+98\% balanced-accuracy under a cross-validation of a day's worth of
+bioimpedance samples from a cohort of 8 volunteer subjects. We also
+demonstrate that our system continues to recognize a subset of these subjects
+even several months later. Finally, we measure the energy requirements of our
+system as implemented on a Nexus&nbsp;S smart phone and custom-designed module for
+the Shimmer sensing platform.</p>
+<p><a href="bibtex/cornelius-wearable.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-wearable.pdf">PDF</a> (2463K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by ACM Press.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

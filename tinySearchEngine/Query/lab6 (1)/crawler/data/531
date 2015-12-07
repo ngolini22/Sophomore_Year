@@ -1,0 +1,197 @@
+http://www.cs.dartmouth.edu/~dfk/#contact
+3
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD><TITLE>David Kotz</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>David Kotz, Champion International Professor
+    <font size=-1>[<a href="ChampionInternationalProfessor.html">about</a>]</font></H1>
+<H2>Department of <a href="/">Computer Science</a>, <a href="http://www.dartmouth.edu/">Dartmouth College</a></H2>
+
+<!-- 
+<td align=td>
+    <a href=papers/wordle.html><img alt="wordle" src=papers/wordle-thumb.png></a><br>
+    <font size=-1>(a <a href="http://www.wordle.net/">wordle</a> of my
+    paper titles; click on the wordle to zoom in)</font>
+  </p>
+</td>
+ -->
+
+<table>
+
+<tr><!-- Header row -->
+<td valign=middle bgcolor=lightgreen width="50%">
+<font size="+1"><b>Professional</b></font>
+</td>
+<td valign=middle bgcolor=lightblue>
+<!-- <font size="+1"><b>Personal: favorite photos of 2014</b></font> -->
+<font size="+1"><b>Graduate Faculty Mentoring Award</b>:  thanks to my graduate students!</font>
+</td>
+</tr>
+
+<tr valign=top><!-- Photo row -->
+<td align=center> <!-- professional photo -->
+    <IMG width=600 height=400 align=top alt="photo" src="photos/Kotz2013/Kotz-20130624-DSC03615.jpg">
+</td>
+
+<td align=center> <!-- Graduate Faculty Mentoring Award -->
+    <a href=Mentoring-Award.pdf>
+      <IMG width=549 height=425 align=top alt="certificate" src="Mentoring-Award.png"></a><br>
+</td>
+<!-- personal slideshow
+<td> <!-- personal slideshow -->
+  <!-- how to do it
+  first, convert the slideshow into standard smugmug style
+  then, http://help.smugmug.com/customer/portal/articles/93259-can-i-embed-photo-slideshows-on-other-sites-
+  then, convert it back to slideshow for the site
+  
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400" height="400" id="ssidx"><param name="movie" value="http://www.smugmug.com/ria/ShizamSlides-2013072402.swf" /><param name="flashVars" value="AlbumID=46571170&dontpost=true&AlbumKey=fxW43w&newWindow=false&width=400&height=400&transparent=true&splash=http%3A%2F%2Fwww.smugmug.com%2Fimg%2Fria%2FShizamSlides%2Fsmugmug_black.png&showLogo=true&captions=true&clickUrl=http%3A%2F%2Fwww.smugmug.com&showThumbs=true&showButtons=true&pageStyle=white&autoStart=true&showSpeed=true&VersionNos=2013072402&splashDelay=0&crossFadeSpeed=350&clickToImage=true&showStartButton=false&randomStart=false&randomize=true&mainHost=cdn.smugmug.com" /><param name="wmode" value="transparent" /><param name="allowNetworking" value="all" /><param name="allowScriptAccess" value="always" /><embed src="http://www.smugmug.com/ria/ShizamSlides-2013072402.swf" flashVars="AlbumID=46571170&dontpost=true&AlbumKey=fxW43w&newWindow=false&width=400&height=400&transparent=true&splash=http%3A%2F%2Fwww.smugmug.com%2Fimg%2Fria%2FShizamSlides%2Fsmugmug_black.png&showLogo=true&captions=true&clickUrl=http%3A%2F%2Fwww.smugmug.com&showThumbs=true&showButtons=true&pageStyle=white&autoStart=true&showSpeed=true&VersionNos=2013072402&splashDelay=0&crossFadeSpeed=350&clickToImage=true&showStartButton=false&randomStart=false&randomize=true&mainHost=cdn.smugmug.com" width="400" height="400" wmode="transparent" type="application/x-shockwave-flash" allowScriptAccess="always" allowNetworking="all" ></embed></object>
+</td>
+ end slideshow -->
+</tr>
+
+<tr valign=top><!-- list row -->
+<td align=left> <!-- professional -->
+<b>About me:</b>
+<ul>
+  <li><a href="vita.pdf">My vita</a> (pdf),
+      <a href="bio-dfk.txt">short bio</a>, and
+      <a href="http://scholar.google.com/citations?user=w_Q7iBoAAAAJ">Google Scholar profile</a></li>
+<!-- 
+  <li><a href="schedule.html">My schedule</A></li>
+  -->
+  <li><a href="papers/index.html">My research interests, and papers</a></li>
+  <li> <a href="people.html">My group</a></li>
+  <li><a href="teaching.html">My courses</a>
+
+  <p>
+  <li>I am seeking a <a href="postdoc.html">postdoc</a> to join my group
+
+</ul>
+<b>Current Activities:</b>
+<ul>
+  <li> <a href="http://www.dartmouth.edu/~dof/">Associate Dean of Faculty for the Sciences</a>, Dartmouth College
+  <li> Faculty affiliate, <a href="http://www.ists.dartmouth.edu">Institute for Security, Technology, and Society</a> (ISTS)
+       (<a href="http://youtu.be/ngPflO_uyVo">video</a>)
+  <li> Principal Investigator of <a href=http://thaw.org>Trustworthy Health and Wellness (THaW)</a>
+  <li> Principal Investigator of <a href=http://amulet-project.org>Amulet</a> project
+  <li> Progam co-chair for <a href="https://www.usenix.org/conference/healthtech15">HealthTech 2015</a>
+  <li> Member of the US <a href=http://www.healthit.gov/FACAS/health-it-policy-committee>HIT Policy Committee</a></li>
+  <li> Member of <a href="http://www.pbk.org/">Phi Beta Kappa</a> since 2010</li>
+  <li> <a href="http://www.ieee.org/web/membership/fellows/index.html">IEEE Fellow</a>
+       and 25-year member of the
+       <a href="http://www.computer.org">IEEE Computer Society</a></li>
+  <li> Senior Member of the <a href="http://www.acm.org">ACM</a></li>
+  <li> Member of <a href="http://www.usenix.org/">USENIX</a>,
+       and University Campus Liaison
+</ul>
+<b>Education:</b>
+<ul>
+  <li> Ph.D. <a href="http://www.cs.duke.edu/">Duke University</a>, 1991.<br>
+  <li> A.B.  <a href="http://www.dartmouth.edu/">Dartmouth College</a>,
+	     <a href="http://www.alum.dartmouth.org/classes/86/">1986</a>.<br>
+  <li> <a href="http://www.choate.edu/">Choate Rosemary Hall</a>, 1982.
+<ul>
+</td>
+<td align=left> <!-- personal -->
+<b>Photography and travel:</b>
+<ul> 
+  <li> My <a href="http://photos.davidkotz.org/"><b>SmugMug photo site</b></a>
+      (<a href="feed://api.smugmug.com/hack/feed.mg?Type=userkeyword&NickName=dfkotz&Data=travel&format=rss"><img alg=RSS src=RSS16.png>RSS feed</a>)
+  <li> My <a href="http://davidkotz.org/"><b>Wordpress travel blog</b></a>
+       and <a href="http://www.cs.dartmouth.edu/~dfk/blog/">old travel blog</a>
+       (<a href="feed://dfkotz.wordpress.com/feed"><img alg=RSS src=RSS16.png>RSS feed</a>)
+  <li> My three <a href="kids.html">kids</a>.
+</ul>
+<p>
+<b>Activities:</b>
+<ul>
+  <li> I am a Trustee of <a href="http://www.crossroadsacademy.org">Crossroads Academy</a>.
+  <li> I spent nine months as a
+        <a href="http://www.cies.org/US_scholars/">Fulbright Scholar</a>
+        in India; read about it on my <a href="http://www.cs.dartmouth.edu/~dfk/blog/Travel/India.html">India travel blog</a>.
+
+<!--
+  <li> My 'invention', the <a href="seatpack/">seatpack</a>.
+-->
+<!--
+  <li> My house projects: <a href="http://dfkotz.smugmug.com/House/Construction">1997</a>,
+       <a href="http://dfkotz.smugmug.com/House/Projects/1998-Deck">1998</a>,
+       <a href="http://dfkotz.smugmug.com/House/2000-Addition">2000</a>,
+       <a href="http://dfkotz.smugmug.com/House/Projects/2005-Patio">2005</a>,
+       <a href="http://dfkotz.smugmug.com/House/Projects/2006-Walls">2006</a>,
+       <a href="http://dfkotz.smugmug.com/House/Projects/2006-Riverbank">2006</a>, and
+       <a href="http://dfkotz.smugmug.com/House/Projects/2007-Boatshed">2007</a>.
+-->
+<!--  <li> You can rent our <a href="http://where">beach house</a> in South Carolina.   -->
+  <li> I was an early co-author of <a href="http://www.gnuplot.info">gnuplot</a>.
+  <li> <a href="photos/Kotz-old/Kotz-PDP11e.jpg">photo with PDP11e</a>, 
+  at <a href="http://www.choate.edu/">CRH</a> 1982.
+
+</ul>
+
+<strong>Search my web pages:</strong>
+<form action="search-results.html" id="cse-search-box">
+  <div>
+   <input name="cx" type="hidden"
+   value="017180522165740084141:v1wbqwoih_k" />
+   <input name="as_q" type="hidden" value="more:kotz" />
+   <input name="cof" type="hidden" value="FORID:10;NB:1" />
+   <input name="ie" type="hidden" value="UTF-8" />
+   <input id="box" maxlength="100" name="q" type="text" />
+   <input id="submit" name="sa" type="submit" value="Search" />
+  </div>
+</form>
+
+</td>
+</tr>
+</table>
+
+<hr>
+
+<h3><a name="contact">Contact information</a>, and how to pronounce Kotz:</h3>
+Pronounce "Kotz" like "coats", not "cots".  Thanks!
+
+<p>
+<table>
+  <tr align=left valign=bot>
+    <td><em>Dean of Faculty business</em></td>
+    <td>&nbsp&nbsp&nbsp</td>
+    <td><em>other business</em></td>
+  </tr>
+  <tr align=left valign=top>
+    <td>
+      David Kotz<br>
+      Associate Dean of Faculty for the Sciences<br>
+      6045 Wentworth Hall<br>
+      Dartmouth College<br>
+      Hanover, NH  03755 USA  
+      <p>
+      firstname dot lastname <img src=at.gif> dartmouth.edu<br>
+      +1 603 646-1302 (voice)<br>
+      Assistant: Christine dot Ross <img src=at.gif> dartmouth.edu
+    </td>
+    <td>&nbsp</td>
+    <td>
+      Professor David Kotz<br>
+      Department of Computer Science<br>
+      6211 Sudikoff Laboratory<br>
+      Dartmouth College<br>
+      Hanover, NH  03755-3510 USA
+      <p>
+      lastname <img src=at.gif> cs.dartmouth.edu<br>
+      +1 603 646-1439 (voice)<br>
+    </td>
+  </tr>
+</table>
+<p>
+<a href="Kotz.vcf"><img src=vcard.png align=center>&nbsp;vCard</a>
+containing all of the above
+</ul>
+
+<p>
+<hr>
+<p>
+
+</BODY>
+</HTML>

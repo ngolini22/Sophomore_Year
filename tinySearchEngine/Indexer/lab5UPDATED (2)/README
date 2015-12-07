@@ -1,0 +1,14 @@
+
+
+Most functions have a description of their functionality, and the pseudocode is written throughout the code in comments - the comments explain what each next chunk of code does.
+
+IMPT: I made it so when the user wants to have the new index be created from the file containing the old index, they input 4 arguments: [indexer] [target directory] [result file] [new index result file]. In the lab description on the website, it has 5 arguments: [indexer] [target directory] [result file] [result file] [new index result file], but I did not see the need to include the second result file argument because I just saved that arg into a variable called filename, and could use it more than once, so I didn’t need to make a new variable with the same name. 
+
+Only when 4 arguments are given does my program recreate the index into a new index and saves it to the user new index result file argument
+
+In my test script, the third test is just calling indexer with four arguments and calling a diff on the two files containing the indexes. The code automatically does everything the rubric asks for, until the diff call, which my test script does. Also, index.dat and new_index.dat are hardcoded in for the sake of testing. 
+
+
+ALSO: the files I were using were only some of my crawler results. I assume you will be testing my indexer with your crawler results so I am not turning in any of the files I used. 
+
+THIS ONE CONTAINS THE HASH.C and HASH.H

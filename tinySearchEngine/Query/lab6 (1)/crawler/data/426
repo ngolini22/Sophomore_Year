@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/tan-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>tan:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Keren Tan.
+<b>Large-scale Wireless Local-area Network Measurement and Privacy
+Analysis</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+August,
+2011.
+Available as Dartmouth Computer Science Technical Report TR2011-703.
+<p><b>Abstract:</b> The edge of the Internet is increasingly becoming wireless.
+Understanding the wireless edge is therefore important for understanding the
+performance and security aspects of the Internet experience. This need is
+especially necessary for enterprise-wide wireless local-area networks (WLANs)
+as organizations increasingly depend on WLANs for mission-critical tasks. To
+study a live production WLAN, especially a large-scale network, is a
+difficult undertaking. Two fundamental difficulties involved are (1) building
+a scalable network measurement infrastructure to collect traces from a
+large-scale production WLAN, and (2) preserving user privacy while sharing
+these collected traces to the network research community. In this
+dissertation, we present our experience in designing and implementing one of
+the largest distributed WLAN measurement systems in the United States, the
+Dartmouth Internet Security Testbed (DIST), with a particular focus on our
+solutions to the challenges of efficiency, scalability, and security. We also
+present an extensive evaluation of the DIST system. To understand the
+severity of some potential trace-sharing risks for an enterprise-wide
+large-scale wireless network, we conduct privacy analysis on one kind of
+wireless network traces, a user-association log, collected from a large-scale
+WLAN. We introduce a machine-learning based approach that can extract and
+quantify sensitive information from a user-association log, even though it is
+sanitized. Finally, we present a case study that evaluates the tradeoff
+between utility and privacy on WLAN trace sanitization.</p>
+<p><a href="bibtex/tan-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2011-703.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2011 by Keren Tan.</b></p>
+</BODY>
+</HTML>

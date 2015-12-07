@@ -1,0 +1,112 @@
+http://www.cs.dartmouth.edu/~campbell/human.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+  
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"><!-- saved from url=(0032)http://www.cs.dartmouth.edu/~an/ --><title>Andrew T. Campbell</title>
+    
+    
+    <link href="default.css" rel="stylesheet" type="text/css" media="screen"></head><body>
+    <div style="background-color: white;" class="current_page_item" id="page">
+      <h1 style="text-align: left;"><img alt="" src="headimage.jpeg" height="213" width="372"><br>
+      </h1>
+      <h1 style="text-align: left; color: rgb(255, 102, 0);"><big><font size="+3"><big>human behavioral
+              computing</big></font></big></h1>
+<p style="font-family: Times New Roman,Times,serif;"><big>In 5 years
+smartphones will disappear into wearables and&nbsp; smartspaces.
+Computing will become more intelligent, more tuned to our needs -- it's
+going to get personal. The next wave in computing is anticipatory --
+consider Google Now as a good starting point. We plan to study&nbsp;
+emergent anticipatory systems. Ultimately, these systems will be
+embedded -- implantables will allow humans to freely interact for the
+first time. This is not a taught course. It's a mix of seminar and
+project.&nbsp;</big></p>
+<p style="font-family: Times New Roman,Times,serif;"><big><br>
+We will read some papers, come up with project ideas and build apps and
+write up a workshop style paper. The class is mostly project oriented.</big><br>
+</p>
+
+      <small><font size="+1"><small><span style="color: black;"><span style="font-family: Helvetica,Arial,sans-serif; color: black;"></span>
+            </span>
+          </small></font></small>
+      <h1 style="color: rgb(255, 102, 0);">prerequisite</h1>
+      
+<p><big>The prerequisite for this class are CS65/165 smartphone programming and CS 74/174 machine learning.</big><br>
+</p>
+
+      <h1 style="color: rgb(255, 102, 0);">grading</h1>
+<p><big>25% class presentation and participation<br>
+50% project (pitch ideas, proposal, design/implementation, demo)<br>
+25% write up workshop style paper: idea, design, implementation and evaluation</big></p>
+
+      <h1 style="color: rgb(255, 102, 0);">time</h1>
+<p><big>Time period: 2A&nbsp; TuTh&nbsp;&nbsp; 2:00-3:50&nbsp;&nbsp; x-period: W 4:15-5:05.<br>
+Lecturer: Andrew Campbell</big><br>
+</p>
+
+      <h1 style="color: rgb(255, 102, 0);">week 1</h1>
+<p><big style="font-family: Times New Roman,Times,serif;">Human behavioral computing, Andrew Campbell<br>
+<a href="http://www.economist.com/news/technology-quarterly/21590760-predictive-intelligence-new-breed-personal-assistant-software-tries">Move over, Siri</a>,&nbsp; The Economist, Nov 30th 2013<br>
+<a href="http://www.cs.dartmouth.edu/%7Ecampbell/cognitivephone.pdf">From Smart to Cognitive Phones</a>, IEEE Pervasive Computing, June 2012<br>
+<a href="http://www.cs.dartmouth.edu/%7Ecampbell/papers/survey.pdf">A Survey of Mobile Phone Sensing</a>, IEEE Communications Magazine, September, 2010.<br>
+Anticipatory Mobile Computing: A Survey of the State of the Art and
+Research Challenges, Veljko Pejovic, Mirco Musolesi , under review.<br>
+</big><br>
+</p>
+
+      <h1 style="color: rgb(255, 102, 0);">week 2</h1><span style="color: black;"><span style="font-family: arial; font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: white; display: inline ! important; float: none;"></span></span>
+<p><big>We will not meet on Tuesday.<br>
+<br>
+Thursday: Protect pitches. Each student gets 10 minutes to pitch two
+ideas each. You can use slides for your presentation. Send me a two
+page write up -- one page per idea prior to class (10% of grade).
+Projects based on Google Glass or Android phones.</big><br>
+<br>
+</p>
+<h1 style="color: rgb(255, 102, 0);">week 3<br>
+</h1>
+<span style="color: black;"><span style="font-family: arial; font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: white; display: inline ! important; float: none;"></span></span>
+<big>Tuesday: carry on with brainstorming<br>
+<br>
+</big>
+<h1 style="color: rgb(255, 102, 0);">week 4<br>
+</h1>
+<big>Tuesday: Chenren Xu, Sugang Li, Gang Liu, Yanyong Zhang, Emiliano Miluzzo, Yih-Farn Chen, Jun Li, Bernhard Firner. <a href="crowd.pdf">Crowd++: Unsupervised Speaker Count with Smartphones.</a>
+To appear in Proc. of the ACM International Joint Conference on
+Pervasive and Ubiquitous Computing (UbiComp 2013), Sept. 9-12, 2013,
+Zurich, Switzerland.<br>
+<br>
+Han, Seungyeop, Matthai Philipose, and Yun-Cheng Ju. <a href="nlify.pdf">NLify: lightweight spoken natural language interfaces via exhaustive paraphrasing.</a> Proceedings of the 2013 ACM international joint conference on Pervasive and ubiquitous computing. ACM, 2013.<br>
+</big>
+      <p> </p>
+      <span class="title" style="font-family: Times New Roman,Times,serif;"></span>
+      
+      <p> </p>
+      <p><big>Tuesday: carry on with brainstorming. Now we have two projects.</big></p>
+<h1 style="color: rgb(255, 102, 0);">week 5<br>
+</h1>
+
+<big>Tuesday: teams, what are we going to implement and the plan to demo.<br>
+</big>
+
+<big><br>
+Xuan Bao, Songchun Fan, Alexander Varshavsky, Kevin Li, and Romit Roy Choudhury. 2013. Y<a href="http://synrg.csl.illinois.edu/papers/pulse-final.pdf">our reactions suggest you liked the movie: automatic content rating via reaction sensing</a>.
+In Proceedings of the 2013 ACM international joint conference on
+Pervasive and ubiquitous computing (UbiComp '13). ACM, New York, NY,
+USA, 197-206<br>
+<br>
+Thursday: Chenren Xu, Sugang Li, Gang Liu, Yanyong Zhang, Emiliano Miluzzo, Yih-Farn Chen, Jun Li, Bernhard Firner. <a href="crowd.pdf">Crowd++: Unsupervised Speaker Count with Smartphones.</a>
+To appear in Proc. of the ACM International Joint Conference on
+Pervasive and Ubiquitous Computing (UbiComp 2013), Sept. 9-12, 2013,
+Zurich, Switzerland.<br>
+
+<br>Adib, Fadel, et al. "<a href="http://witrack.csail.mit.edu/witrack-paper.pdf">3D Tracking via Body Radio Reflections</a>." (2013).<br>
+</big><p><span style="font-family: Times New Roman,Times,serif;"><br style="color: rgb(34, 34, 34); font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">
+          <span style="color: rgb(34, 34, 34); font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: white; display: inline ! important; float: none;">&nbsp;</span></span></p>
+      <br>
+      <span style="color: rgb(34, 34, 34); font-family: arial; font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255); display: inline ! important; float: none;"></span><span style="color: rgb(34, 34, 34); font-family: arial; font-size: small; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255); display: inline ! important; float: none;"></span>
+    </div>
+  </body></html>

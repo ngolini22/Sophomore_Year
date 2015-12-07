@@ -1,0 +1,21 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/aslam-kerf-news.html
+3
+<HTML>
+<HEAD>
+ <TITLE>aslam:kerf-news</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Javed Aslam, Sergey Bratus, David Kotz, Ronald Peterson, and Daniela Rus.
+<b>The Kerf toolkit for intrusion analysis</b>.
+<i>IAnewsletter</i>,
+8(2):12-16,
+Summer,
+2005.
+<p><b>Keywords:</b> security, network, intrusion detection</p>
+<p><a href="bibtex/aslam-kerf-news.bib">BibTeX</a></p>
+<p><a target=_top href = "././aslam-kerf-news.pdf">PDF</a> (1281K)</p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/aslam-toolkit.html">aslam:toolkit</a></b>.</p>
+</BODY>
+</HTML>

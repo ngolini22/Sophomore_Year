@@ -1,0 +1,519 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture24/lecture24.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title> Google Cloud Messaging for Android (GCM) - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="lecture-25---the-cloud-google-cloud-messaging-for-android-gcm">Lecture 25 - The Cloud: Google Cloud Messaging for Android (GCM)</h2>
+<p>We carry on discussing App Engine and support for building cloud services.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Using HttpURLConnection to make Android interact with App Engine web servers</li>
+<li>Google Cloud Messaging (GCM)</li>
+<li>Sending messages from the cloud to Android using GCM</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>The key resource and the most up to date information can be viewed here: <a href="http://developer.android.com/google/gcm/index.html">Google Cloud Messaging for Android</a>.</p>
+<h2 id="demo-code">Demo code</h2>
+<p>In this lecture we will use a demo that implements a simple demo app that comprises native android app on the phone and the cloud side service. The demo uses Google Cloud Messaging (GCM) between the client running on the phone and the cloud side. Download and import the <a href="../code/gcm_demo.zip">Google Cloud Messaging Demo</a>.</p>
+<p>In MyRuns6 you need to store and query ExerciseEntry data using GCM. The demo code provides a framework for doing that lab. You need to add the app side code to MyRuns and build the server side out. The above demo code includes two ADT projects: GCMDemoServer -- the server side; and GCMDemoAndroid -- the Android side. Go through the example. Understand how it works. Now thinking about the requirements of <a href="http://www.cs.dartmouth.edu/~campbell/cs65/myruns/myruns_manual.html#chap:labs:6">MyRuns6</a>.</p>
+<h2 id="google-cloud-messaging-demo">Google Cloud Messaging Demo</h2>
+<p>Google Cloud Messaging (GCM) is the communications and data transfer glue between your Android app running on your phone and the backend cloud services that we discussed in the last lecture. It's the glue that makes the cloud work.</p>
+<div class="figure">
+<img src="images/cloud.png" />
+</div>
+<p>In what follows we discuss the architecture and services offered by GCM.</p>
+<p>This demo shows how to send text from both Android App and browsers. Previous messages will be saved in datastore. When user submitted a post from browser, the server will send a message to registered devices, notifying them there are updates, then the App will update the post list from the server.</p>
+<p>The following screen shots show the App posts a message to the server, then we can get that message from browser. We use browser to post a message, the app receive that message automatically.</p>
+<ul>
+<li>Post a message from the phone:</li>
+</ul>
+<div class="figure">
+<img src="images/phone_scr_0.png" />
+</div>
+<ul>
+<li>After refreshing the browser, you can see the message just posted.</li>
+</ul>
+<div class="figure">
+<img src="images/browser_scr_0.png" />
+</div>
+<ul>
+<li>Post a message from the browser, the message will show on your phone automatically.</li>
+</ul>
+<div class="figure">
+<img src="images/phone_scr_1.png" />
+</div>
+<h3 id="how-the-demo-code-works">How the Demo Code works</h3>
+<p>The following diagram shows the main components of the system. In what follows, we briefly show how each component works together.</p>
+<div class="figure">
+<img src="images/demo_overview.png" />
+</div>
+<p>The server side consists 5 servlets, 1 jsp and a Datastore.</p>
+<ol style="list-style-type: decimal">
+<li><p>query.do This servlet is used by browser to get all posts. It receives requests from user's browser, read posts data from the datastore, put the data in the request object, then redirects to main.jsp.</p></li>
+<li><p>main.jsp This jsp page generates HTML for all the posts retrieved by query.do servlet.</p></li>
+<li><p>get_history.do This servlet is used by the smartphone app to get all posts. Similar to query.do, it receives requests from user's browser first, then return all post records to the app in text format.</p></li>
+<li><p>post.do This servlet is used by both browser and smartphone app to post new messages (posts). It can determine the source of the request (i.e. smartphone app or browser). If the request is from the smartphone app, it returns, otherwise it redirects to sendmsg.do.</p></li>
+<li><p>sendmsg.do This servlet sends a message to smartphone app to notify that there are updates. It redirect to query.do after sending the message.</p></li>
+<li><p>register.do This servlet receives smartphone app's registration, and save the registration to the datastore.</p></li>
+</ol>
+<h2 id="run-the-demo-code">Run the Demo Code</h2>
+<p>To run the demo code, you need the following things:</p>
+<ol style="list-style-type: decimal">
+<li>Your &quot;Project Number&quot; and server API Key from the Google API Console</li>
+<li>Both your phone and computer are connected to the same WiFi network. Dartmouth Secure is a working one</li>
+<li>Your computer's IP Address and port (which is 8888)</li>
+<li>Important, make sure you start the server before starting your Android app side.</li>
+</ol>
+<p>In what follows, we show you how to set up the environment, run the demo code and how to debug problems.</p>
+<h4 id="obtain-your-computers-ip-address">Obtain Your Computer's IP Address</h4>
+<p>If you use MAC, open the terminal, enter command &quot;ifconfig&quot;. It lists all your network interfaces. You are only interested in WiFi, which will be listed as en1. Find the line starts with &quot;inet&quot;, where you can find your IP address. The IP address of the example below is 10.31.236.168.</p>
+<div class="figure">
+<img src="images/ifconfig.png" />
+</div>
+<p>If you use Windows, go to command line, type &quot;ipconfig&quot;, you can find your IP Address under &quot;Wireless LAN adapter Wi-Fi&quot;.</p>
+<h4 id="gcmdemoserver">GCMDemoServer</h4>
+<p>The API key is defined in edu.dartmouth.cs.gcmdemo.server.Globals. You need to change it to your own key, as shown below.</p>
+<div class="figure">
+<img src="images/change_api_key.png" />
+</div>
+<p>Open the server run configuration in Eclipse's &quot;Run Configurations&quot; dialog, add &quot;-a 0.0.0.0&quot; to &quot;Program arguments&quot; in &quot;Arguments&quot; tab.</p>
+<div class="figure">
+<img src="images/server_run_config.png" />
+</div>
+<div class="figure">
+<img src="images/setup_ip.jpg" />
+</div>
+<p>If you get errors after importing the project, open the project's properties (from Project-&gt;Properties), go to Google-&gt;App Engine, check &quot;Use specific SDK&quot; to allow eclipse to refresh app engine libraries under your project directory.</p>
+<div class="figure">
+<img src="images/refresh_gae_lib.png" />
+</div>
+<h4 id="gcmdemoandroid">GCMDemoAndroid</h4>
+<p>First, you need to make sure Google Play Services is correctly imported to your project.</p>
+<p>Then, you need to add the complete URL (i.e., IP address: port address -- for example http://129.170.21.157:8888) to res/values/stings.xml as shown below. But you have to us the IP address from your own computer as discussed before. The port address will always be 8888. Recall that to make your demo work your laptop (which runs the server) and your Android phone have to be using the same WiFi networks (e.g., Dartmouth Secure). In summary, get your IP address, update the string <em>server_adr</em> in res/values/stings.xml. And make sure your devices are under the same WiFi network.</p>
+<div class="figure">
+<img src="images/client_setup_ip.png" />
+</div>
+<p>Finally, change SENDER_ID defined in edu.dartmouth.cs.gcmdemo.android.PostActivity to your Project Number.</p>
+<div class="figure">
+<img src="images/client_project_id.png" />
+</div>
+<h2 id="android-app-talking-to-a-web-server">Android app talking to a web server</h2>
+<p>In previous lecture, we use browser to visit the web server. However, the Android app needs to be able to connect to the server directly and exchange data. In this scenario, the app issue HTTP POST or GET request to the server, the server sends back the result to the app. The server and the app need to use the set of data format to exchange data. For example, the app can put the request's parameters in the request's header as parameters, and the server returns the data in <a href="http://www.json.org/">JSON</a>, or xml format.</p>
+<h3 id="sending-a-http-request">Sending a HTTP request</h3>
+<p>A HTTP request contains a header and content. The header defines various parameters including method (i.e. POST/GET), host, requesting path, protocol and more, the request body contains the parameters when the request's method is POST.</p>
+<p>To construct and send an HTTP request to a web server and receive response from that server in Android app, you can use a <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> object. You can implement such method like this:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> <span class="dt">static</span> String <span class="fu">post</span>(String endpoint, Map&lt;String, String&gt; params)
+            <span class="kw">throws</span> IOException {
+        URL url;
+        <span class="kw">try</span> {
+            url = <span class="kw">new</span> URL(endpoint);
+        } <span class="kw">catch</span> (MalformedURLException e) {
+            <span class="kw">throw</span> <span class="kw">new</span> IllegalArgumentException(<span class="st">&quot;invalid url: &quot;</span> + endpoint);
+        }
+        StringBuilder bodyBuilder = <span class="kw">new</span> StringBuilder();
+        Iterator&lt;Entry&lt;String, String&gt;&gt; iterator = params.<span class="fu">entrySet</span>().<span class="fu">iterator</span>();
+        <span class="co">// 1. constructs the POST body using the parameters</span>
+        <span class="kw">while</span> (iterator.<span class="fu">hasNext</span>()) {
+            Entry&lt;String, String&gt; param = iterator.<span class="fu">next</span>();
+            bodyBuilder.<span class="fu">append</span>(param.<span class="fu">getKey</span>()).<span class="fu">append</span>(&#39;=&#39;)
+                    .<span class="fu">append</span>(param.<span class="fu">getValue</span>());
+            <span class="kw">if</span> (iterator.<span class="fu">hasNext</span>()) {
+                bodyBuilder.<span class="fu">append</span>(&#39;&amp;&#39;);
+            }
+        }
+        String body = bodyBuilder.<span class="fu">toString</span>();
+        <span class="dt">byte</span>[] bytes = body.<span class="fu">getBytes</span>();
+        HttpURLConnection conn = <span class="kw">null</span>;
+        <span class="kw">try</span> {
+            <span class="co">// 2. open the HTTP connection</span>
+            conn = (HttpURLConnection) url.<span class="fu">openConnection</span>();
+            <span class="co">// 3. set header parameters</span>
+            <span class="co">// 3.1 Sets the flag indicating this connection allows output</span>
+            conn.<span class="fu">setDoOutput</span>(<span class="kw">true</span>);
+            <span class="co">// 3.2 Sets the flag indicating this connection does not use cache</span>
+            conn.<span class="fu">setUseCaches</span>(<span class="kw">false</span>);
+            <span class="co">// 3.3 Sets the length of the body</span>
+            conn.<span class="fu">setFixedLengthStreamingMode</span>(bytes.<span class="fu">length</span>);
+            <span class="co">// 3.4 Sets the method to POST</span>
+            conn.<span class="fu">setRequestMethod</span>(<span class="st">&quot;POST&quot;</span>);
+            <span class="co">// 3.5 Sets Content-Type</span>
+            conn.<span class="fu">setRequestProperty</span>(<span class="st">&quot;Content-Type&quot;</span>,
+                    <span class="st">&quot;application/x-www-form-urlencoded;charset=UTF-8&quot;</span>);
+            <span class="co">// 4. post the request</span>
+            OutputStream out = conn.<span class="fu">getOutputStream</span>();
+            out.<span class="fu">write</span>(bytes);
+            out.<span class="fu">close</span>();
+
+            <span class="co">// handle the response</span>
+            <span class="dt">int</span> status = conn.<span class="fu">getResponseCode</span>();
+            <span class="kw">if</span> (status != <span class="dv">200</span>) {
+                <span class="kw">throw</span> <span class="kw">new</span> IOException(<span class="st">&quot;Post failed with error code &quot;</span> + status);
+            }
+
+            <span class="co">// Get Response</span>
+            InputStream is = conn.<span class="fu">getInputStream</span>();
+            BufferedReader rd = <span class="kw">new</span> BufferedReader(<span class="kw">new</span> InputStreamReader(is));
+            String line;
+            StringBuffer response = <span class="kw">new</span> StringBuffer();
+            <span class="kw">while</span> ((line = rd.<span class="fu">readLine</span>()) != <span class="kw">null</span>) {
+                response.<span class="fu">append</span>(line);
+                response.<span class="fu">append</span>(<span class="ch">&#39;\n&#39;</span>);
+            }
+            rd.<span class="fu">close</span>();
+            <span class="kw">return</span> response.<span class="fu">toString</span>();
+
+        } <span class="kw">finally</span> {
+            <span class="kw">if</span> (conn != <span class="kw">null</span>) {
+                conn.<span class="fu">disconnect</span>();
+            }
+        }
+    }</code></pre>
+<p>In the post method shown above, it takes URL and parameters stored in a Map as its input. It sends the HTTP request to the URL with all the parameters using POST, then return server's responses in string. To construct a request:</p>
+<ol style="list-style-type: decimal">
+<li>converts all the parameter to a string in the format of &quot;param1_name=param1_value&amp;param2_name=param2_value&quot;, where param1_name and param2_name are the name of two parameters, param1_value and param2_value are the values for param1_name and param2_name.</li>
+<li>opens the HTTP connection</li>
+<li>sets header parameters including method, content-type, the length of the body etc.</li>
+<li>send the parameter string as the request's body using a OutputStream which is obtained from the connection object.</li>
+</ol>
+<p>After sending the request, we can check the connection's <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">status code</a>. If the status code is &quot;200&quot;, then we can read server's response from connection's InputStream.</p>
+<p>Finally, remember to close the connection when you are done.</p>
+<p>You can find some information on HTTP headers from <a href="http://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039">here</a>.</p>
+<h3 id="examples-from-the-demo">Examples from the Demo</h3>
+<p>This demo shows how to send text from both Android app and browsers. The app can post messages to the server, as well as pull all messages from the server. In what follows, we show you how to do both tasks.</p>
+<p>The servlet for receiving messages on the server is mapped to &quot;/post.do&quot;. It takes two parameters: &quot;post_text&quot; and &quot;from&quot;. &quot;post_text&quot; is the content of the message and &quot;from&quot; indicates if the message is from an app or a browser. When the user send a message to the server, it starts an AsyncTask because network operations are not allowed on UI thread. post() method described in previous section is used to send the request. Since we don't care server's response, the retured string is ignored.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">postMsg</span>(String msg) {
+        <span class="kw">new</span> AsyncTask&lt;String, Void, String&gt;() {
+
+            @Override
+            <span class="kw">protected</span> String <span class="fu">doInBackground</span>(String<span class="kw">... </span>arg0) {
+                String url = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">server_addr</span>) + <span class="st">&quot;/post.do&quot;</span>;
+                String res = <span class="st">&quot;&quot;</span>;
+                <span class="co">// construct the request parameters</span>
+                Map&lt;String, String&gt; params = <span class="kw">new</span> HashMap&lt;String, String&gt;();
+                params.<span class="fu">put</span>(<span class="st">&quot;post_text&quot;</span>, arg0[<span class="dv">0</span>]);
+                params.<span class="fu">put</span>(<span class="st">&quot;from&quot;</span>, <span class="st">&quot;phone&quot;</span>);
+                <span class="kw">try</span> {
+                    <span class="co">// send post request to the server</span>
+                    res = ServerUtilities.<span class="fu">post</span>(url, params);
+                } <span class="kw">catch</span> (Exception ex) {
+                    ex.<span class="fu">printStackTrace</span>();
+                }
+
+                <span class="kw">return</span> res;
+            }
+
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onPostExecute</span>(String res) {
+                mPostText.<span class="fu">setText</span>(<span class="st">&quot;&quot;</span>);
+                <span class="co">// retrieve all messages from the server</span>
+                <span class="fu">refreshPostHistory</span>();
+            }
+
+        }.<span class="fu">execute</span>(msg);
+    }</code></pre>
+<p>After a message is sent to the server, the app refreshes its message list by retrieving all messages from the server. The server uses servlet get_history.do to handle this request. The app send a post request to the server, the server returns the result, and finally, the app shows the result in mHistoryText which is a TextView.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">refreshPostHistory</span>() {
+        <span class="kw">new</span> AsyncTask&lt;Void, Void, String&gt;() {
+
+            @Override
+            <span class="kw">protected</span> String <span class="fu">doInBackground</span>(Void<span class="kw">... </span>arg0) {
+                String url = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">server_addr</span>)
+                        + <span class="st">&quot;/get_history.do&quot;</span>;
+                String res = <span class="st">&quot;&quot;</span>;
+                Map&lt;String, String&gt; params = <span class="kw">new</span> HashMap&lt;String, String&gt;();
+                <span class="kw">try</span> {
+                    res = ServerUtilities.<span class="fu">post</span>(url, params);
+                } <span class="kw">catch</span> (Exception ex) {
+                    ex.<span class="fu">printStackTrace</span>();
+                }
+
+                <span class="kw">return</span> res;
+            }
+
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onPostExecute</span>(String res) {
+                <span class="kw">if</span> (!res.<span class="fu">equals</span>(<span class="st">&quot;&quot;</span>)) {
+                    mHistoryText.<span class="fu">setText</span>(res);
+                }
+            }
+
+        }.<span class="fu">execute</span>();
+    }</code></pre>
+<h2 id="google-cloud-messaging">Google Cloud Messaging</h2>
+<p>Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device. This could be a lightweight message telling your app there is new data to be fetched from the server (for instance, a movie uploaded by a friend), or it could be a message containing up to 4kb of payload data (so apps like instant messaging can consume the message directly). (From <a href="http://developer.android.com/google/gcm/index.html">Google Cloud Messaging for Android</a>)</p>
+<h3 id="setup-development-environment">Setup Development Environment</h3>
+<p>The detailed process of creating a new Android application that uses the GCM requires several steps. In what follows we provide a more truncated set of steps with some screen dumps to help you along. In short, you should enable Google Cloud Messaging for Android in your <a href="https://console.developers.google.com">Google API console</a>, add Google Play Services to your app and set up required permissions.</p>
+<h4 id="step-1-enable-gcm-in-your-google-api-console">Step 1 Enable GCM in your Google API console</h4>
+<ol style="list-style-type: decimal">
+<li>Go to Google API console, select the project you want to use, go to &quot;APIs &amp; auth&quot; -&gt; &quot;APIs&quot;, turn the Google Cloud Messaging for Android toggle to ON.</li>
+<li>Go to &quot;APIs &amp; auth&quot; -&gt; &quot;Credentials&quot;, create a new &quot;Server key&quot;, input &quot;0.0.0.0/0&quot; to the &quot;Accept requests from these server IP addresses&quot; text box. This step allows any server to use the API key.</li>
+<li>Remember your server application API key, and &quot;Project Number&quot; which can be found by clicking &quot;Overview&quot; in the left column. Project Number will be used by the Android app and the API key will be used by the server.</li>
+</ol>
+<h4 id="step-2-specify-settings-in-the-application-manifest">Step 2 Specify settings in the Application Manifest</h4>
+<p>GCM is a part of Google Play Services. It requires to setup the following in the manifest to work properly:</p>
+<pre class="sourceCode xml"><code class="sourceCode xml">
+<span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;manifest</span><span class="ot"> xmlns:android=</span><span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+ 
+     <span class="er">[Snip</span><span class="ot"> code</span><span class="er">]</span>
+         <span class="er">........</span>
+         <span class="er">........</span>
+   
+     <span class="er">&lt;permission</span>
+        <span class="er">android:name</span><span class="ot">=</span><span class="st">&quot;edu.dartmouth.cs.whereami_5.MAPS_RECEIVE&quot;</span>
+<span class="ot">        android:protectionLevel=</span><span class="st">&quot;signature&quot;</span> <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;uses-permission</span><span class="ot"> android:name=</span><span class="st">&quot;android.permission.INTERNET&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;uses-permission</span><span class="ot"> android:name=</span><span class="st">&quot;android.permission.GET_ACCOUNTS&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;uses-permission</span><span class="ot"> android:name=</span><span class="st">&quot;android.permission.WAKE_LOCK&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;uses-permission</span><span class="ot"> android:name=</span><span class="st">&quot;com.google.android.c2dm.permission.RECEIVE&quot;</span> <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;permission</span><span class="ot"> android:name=</span><span class="st">&quot;com.example.gcm.permission.C2D_MESSAGE&quot;</span>
+<span class="ot">        android:protectionLevel=</span><span class="st">&quot;signature&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;uses-permission</span><span class="ot"> android:name=</span><span class="st">&quot;com.example.gcm.permission.C2D_MESSAGE&quot;</span> <span class="kw">/&gt;</span>
+
+     [Snip code]
+         ........
+         ........
+    <span class="kw">&lt;application</span> <span class="er">...</span><span class="kw">&gt;</span>
+        ........
+        ........
+         <span class="kw">&lt;meta-data</span>
+<span class="ot">            android:name=</span><span class="st">&quot;com.google.android.gms.version&quot;</span>
+<span class="ot">            android:value=</span><span class="st">&quot;@integer/google_play_services_version&quot;</span> <span class="kw">/&gt;</span>
+        ........
+        ........
+    <span class="kw">&lt;/application&gt;</span>
+<span class="er">&lt;</span>/manifest&gt;</code></pre>
+<p>com.example.gcm.permission.C2D_MESSAGE is a custom permission, in which com.example.gcm is your app's package name.</p>
+<h3 id="write-the-android-application">Write the Android Application</h3>
+<p>In what follows, we show you how to implement GCM in your Android app.</p>
+<h4 id="register-in-main-activity">Register in Main Activity</h4>
+<p>The app need to register itself to GCM when it runs for the first time. It will get a regid from the GCM server (not from your own server) after it successfully registered. You need to save the regid to SharedPref. It does not need to register again next time it the app is already registered. You can check this by reading regid from SharedPref. In what follows, we discuss how to register to GCM step by step.</p>
+<ol style="list-style-type: decimal">
+<li>Get a gcm instance and register using the instance. SENDER_ID is a String constant. Its value is your &quot;Project Number&quot;.</li>
+</ol>
+<pre class="sourceCode java"><code class="sourceCode java">GoogleCloudMessaging gcm = GoogleCloudMessaging.<span class="fu">getInstance</span>(context);
+regid = gcm.<span class="fu">register</span>(SENDER_ID);</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Store the regid to SharedPref.</li>
+</ol>
+<pre class="sourceCode java"><code class="sourceCode java">
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">storeRegistrationId</span>(Context context, String regId) {
+        <span class="dt">final</span> SharedPreferences prefs = <span class="fu">getGCMPreferences</span>(context);
+        SharedPreferences.<span class="fu">Editor</span> editor = prefs.<span class="fu">edit</span>();
+        editor.<span class="fu">putString</span>(PROPERTY_REG_ID, regId);
+        editor.<span class="fu">commit</span>();
+    }</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Send the regid to the backend. Your server needs to know the app's regid. It is used by the server as device identifier which uniquely identifies a client. In the example code, the server implemented a servlet called register, which take the regid as its only parameter, to handle registration.</li>
+</ol>
+<h4 id="receive-a-message">Receive a message</h4>
+<p>To receive a message from GCM, you need to implement a GcmBroadcastReceiver. It is the mechanism GCM uses to deliver message. The following code is the implementation of such broadcast receiver. It starts an intent service called GcmIntentService to handle incoming messages.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="kw">public</span> <span class="kw">class</span> GcmBroadcastReceiver <span class="kw">extends</span> WakefulBroadcastReceiver {
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onReceive</span>(Context context, Intent intent) {
+        <span class="co">// Explicitly specify that GcmIntentService will handle the intent.</span>
+        ComponentName comp = <span class="kw">new</span> <span class="fu">ComponentName</span>(context.<span class="fu">getPackageName</span>(),
+                GcmIntentService.<span class="fu">class</span>.<span class="fu">getName</span>());
+        <span class="co">// Start the service, keeping the device awake while it is launching.</span>
+        <span class="fu">startWakefulService</span>(context, (intent.<span class="fu">setComponent</span>(comp)));
+        <span class="fu">setResultCode</span>(Activity.<span class="fu">RESULT_OK</span>);
+    }
+}</code></pre>
+<p>You also need to define this broadcast receiver in manifest:</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+&lt;application ......&gt;
+        ......
+        &lt;receiver
+            android:name=<span class="st">&quot;.GcmBroadcastReceiver&quot;</span>
+            android:permission=<span class="st">&quot;com.google.android.c2dm.permission.SEND&quot;</span> &gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=<span class="st">&quot;com.google.android.c2dm.intent.RECEIVE&quot;</span> /&gt;
+                &lt;action android:name=<span class="st">&quot;com.google.android.c2dm.intent.REGISTRATION&quot;</span> /&gt;
+
+                &lt;category android:name=<span class="st">&quot;edu.dartmouth.cs.gcmdemo.android&quot;</span> /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+        ......
+&lt;/application&gt;</code></pre>
+<p>As mentioned in the previous step, you need to implement an intent service called GcmIntentService. In its onHandleIntent method, you need to handle various message types as shown below:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onHandleIntent</span>(Intent intent) {
+        Bundle extras = intent.<span class="fu">getExtras</span>();
+        GoogleCloudMessaging gcm = GoogleCloudMessaging.<span class="fu">getInstance</span>(<span class="kw">this</span>);
+        <span class="co">// The getMessageType() intent parameter must be the intent you received</span>
+        <span class="co">// in your BroadcastReceiver.</span>
+        String messageType = gcm.<span class="fu">getMessageType</span>(intent);
+
+        <span class="kw">if</span> (!extras.<span class="fu">isEmpty</span>()) {  <span class="co">// has effect of unparcelling Bundle</span>
+            <span class="co">/*</span>
+<span class="co">             * Filter messages based on message type. Since it is likely that GCM</span>
+<span class="co">             * will be extended in the future with new message types, just ignore</span>
+<span class="co">             * any message types you&#39;re not interested in, or that you don&#39;t</span>
+<span class="co">             * recognize.</span>
+<span class="co">             */</span>
+            <span class="kw">if</span> (GoogleCloudMessaging.
+                    MESSAGE_TYPE_SEND_ERROR.<span class="fu">equals</span>(messageType)) {
+                <span class="co">//handle send error in here</span>
+            } <span class="kw">else</span> <span class="kw">if</span> (GoogleCloudMessaging.
+                    MESSAGE_TYPE_DELETED.<span class="fu">equals</span>(messageType)) {
+                <span class="co">//handle delete message on server in here</span>
+            } <span class="kw">else</span> <span class="kw">if</span> (GoogleCloudMessaging.
+                    MESSAGE_TYPE_MESSAGE.<span class="fu">equals</span>(messageType)) {
+                <span class="co">// If it&#39;s a regular GCM message, do some work.</span>
+                String message = (String) extras.<span class="fu">get</span>(<span class="st">&quot;message&quot;</span>);
+                Intent i = <span class="kw">new</span> <span class="fu">Intent</span>();
+                i.<span class="fu">setAction</span>(<span class="st">&quot;GCM_NOTIFY&quot;</span>);
+                i.<span class="fu">putExtra</span>(<span class="st">&quot;message&quot;</span>, message);
+                <span class="fu">sendBroadcast</span>(i);
+            }
+        }
+        
+        <span class="co">// Release the wake lock provided by the WakefulBroadcastReceiver.</span>
+        GcmBroadcastReceiver.<span class="fu">completeWakefulIntent</span>(intent);
+    }</code></pre>
+<p>When it receives a message with type GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE, it sends a broadcast message. You can implement a broadcast receiver in your activity to receive and process the message.</p>
+<h3 id="write-the-server-application">Write the Server Application</h3>
+<h4 id="write-servlet-to-handle-device-registrations">Write Servlet to Handle Device Registrations</h4>
+<p>Since sending messages from server needs devices' registration ID, server needs to get regIDs from devices then store them in the datastore. You need to write servlets to handle devices' registration and unregistration requests. In the example code, we implement a register servlet. The servlet's doPost method firstly get the regid from the parameters, then save the regid to the datastore:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">doPost</span>(HttpServletRequest req, HttpServletResponse resp)
+            <span class="kw">throws</span> ServletException {
+        String regId = req.<span class="fu">getParameter</span>(PARAMETER_REG_ID);
+
+        <span class="kw">if</span> (regId != <span class="kw">null</span> &amp;&amp; !regId.<span class="fu">equals</span>(<span class="st">&quot;&quot;</span>)) {
+            RegDatastore.<span class="fu">register</span>(regId);
+        }
+        resp.<span class="fu">setStatus</span>(HttpServletResponse.<span class="fu">SC_OK</span>);
+        resp.<span class="fu">setContentType</span>(<span class="st">&quot;text/plain&quot;</span>);
+        resp.<span class="fu">setContentLength</span>(<span class="dv">0</span>);
+    }</code></pre>
+<p>The register method in RegDatastore creates a datastore entity, then saves it to the datastore:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">register</span>(String regId) {
+        Entity entity = <span class="kw">new</span> Entity(ENTITY_KIND_DEVICE, regId);
+        entity.<span class="fu">setProperty</span>(DEVICE_REG_ID_PROPERTY, regId);
+        mDatastore.<span class="fu">put</span>(entity);
+    }</code></pre>
+<h3 id="sending-messages-to-a-device">Sending Messages to a Device</h3>
+<p>To send a message to a device, the server need to find the corresponding regid first. If we want to send a message to all of our clients, we need to get all regids from the datastore:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> <span class="dt">static</span> List&lt;String&gt; <span class="fu">getDevices</span>() {
+        List&lt;String&gt; devices;
+
+        Query query = <span class="kw">new</span> Query(ENTITY_KIND_DEVICE);
+        Iterable&lt;Entity&gt; entities = mDatastore.<span class="fu">prepare</span>(query).<span class="fu">asIterable</span>();
+        devices = <span class="kw">new</span> ArrayList&lt;String&gt;();
+        <span class="kw">for</span> (Entity entity : entities) {
+            String device = (String) entity.<span class="fu">getProperty</span>(DEVICE_REG_ID_PROPERTY);
+            devices.<span class="fu">add</span>(device);
+        }
+
+        <span class="kw">return</span> devices;
+    }</code></pre>
+<p>Then, the application server issues a POST request to https://android.googleapis.com/gcm/send. The format of the POST request is as follows:</p>
+<pre class="sourceCode java"><code class="sourceCode java">Content-Type:application/json
+Authorization:key=AIzaSyB-1uEai2WiUapxCs2Q0GZYzPu7Udno5aA
+
+{ <span class="st">&quot;collapse_key&quot;</span>: <span class="st">&quot;score_update&quot;</span>,
+  <span class="st">&quot;time_to_live&quot;</span>: <span class="dv">108</span>,
+  <span class="st">&quot;delay_while_idle&quot;</span>: <span class="kw">true</span>,
+  <span class="st">&quot;data&quot;</span>: {
+    <span class="st">&quot;score&quot;</span>: <span class="st">&quot;4x8&quot;</span>,
+    <span class="st">&quot;time&quot;</span>: <span class="st">&quot;15:16.2342&quot;</span>
+  },
+  <span class="st">&quot;registration_ids&quot;</span>:[<span class="st">&quot;4&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;15&quot;</span>, <span class="st">&quot;16&quot;</span>, <span class="st">&quot;23&quot;</span>, <span class="st">&quot;42&quot;</span>]
+}</code></pre>
+<p>The first two lines are the request's headers. It specifies the content type to be JSON, and the API key to be the one you obtained from Google API console. The content is a JSON format structure. You can find detained specification from <a href="http://developer.android.com/google/gcm/http.html#app-server">here</a>. The GCM server responds with http status code 200 when success.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If the demo cannot run properly, you can follow the steps below to troubleshoot the problem:</p>
+<ol style="list-style-type: decimal">
+<li>Can you open the website using your external IP?</li>
+</ol>
+<p>To check this, open your browser, enter the URL which uses the external IP instead of the loopback IP (i.e. 127.0.0.1 or localhost). For exampleL http:// 10.31.238.27:8888. If it did not open, it means either you are not using the correct external IP address in the URL, or you have not set the IP parameter in the server's &quot;Run Configurations&quot;</p>
+<div class="figure">
+<img src="images/external.png" />
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Can you post messages from the phone?</li>
+</ol>
+<p>If you cannot post messages from the phone but can do so from the browser, it means your phone and your computer may connected to different WiFi networks that they cannot communicate directly. To fix this, you need to check both your phone's and your computer's WiFi connections.</p>
+<p>There is another possibility is that your network firewall blocks incoming connections to your server. You can try to solve this problem by disabling the firewall.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Can you receive messages when you post messages from the browser?</li>
+</ol>
+<p>If you post a message from the browser and the app on your phone is open, but the app did not refresh and got the latest message, you need to check if you are using the correct &quot;Project Number&quot; &quot;server API Key&quot; pair: they must belong to the same project.</p>
+<p>If it did not work, you can clear the app's data, as well as the server's data. To remove the datastore, stop the web server, go to war/WEB-INF/appengine-generated under the project directory, remove local_db.bin and datastore-indexes-auto.xml, restart the server.</p>
+<div class="figure">
+<img src="images/remove_datastore.jpg" />
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Datastore Management</li>
+</ol>
+<p>App engine development server provides an admin console where you can view your data in Datastore. Open your browser and open &quot;http://127.0.0.1/_ah/admin&quot;, we will see the interface of the console and you can view the data and update the data.</p>
+<div class="figure">
+<img src="images/admin_console.png" />
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>When you run the server and native app you can view the console for the server and the logcat for the app. The console selection can be shown below by clicking on the terminal with upside down triangle next to it.</li>
+</ol>
+<div class="figure">
+<img src="images/console.png" />
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>You may unable to start the server because the port is using by other process. You can learn it from the console's output as shown below.</li>
+</ol>
+<div class="figure">
+<img src="images/addr_in_use.png" />
+</div>
+<p>First thing you need to do is to check all your consoles to see if you have started another web app. As the example shown below, you can select the console 5, and terminate that server by clicking the stop button.</p>
+<div class="figure">
+<img src="images/terminate_server.png" />
+</div>
+<p>If you could not find the project, you can kill the process in the terminal:</p>
+<pre class="sourceCode java"><code class="sourceCode java">$ lsof -i -P | grep <span class="dv">8888</span>
+java      <span class="dv">15672</span>  atc   65u  IPv6 <span class="bn">0x512e2b17d9d3315d</span>      0t0  TCP *:<span class="dv">8888</span> (LISTEN)
+$ kill <span class="dv">15672</span> </code></pre>
+<p>The first command tries to find which process is using the port 8888, which is the second column of the output (pid). Then you can use &quot;kill&quot; with the pid to terminate the process.</p>
+</body>
+</html>

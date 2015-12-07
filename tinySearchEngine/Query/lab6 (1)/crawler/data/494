@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/ap-workload.html
+3
+<HTML>
+<HEAD>
+ <TITLE>ap:workload</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Apratim Purakayastha, Carla Schlatter Ellis, David Kotz, Nils Nieuwejaar, and Michael Best.
+<b>Characterizing Parallel File-Access Patterns on a Large-Scale
+Multiprocessor</b>.
+In
+<i>Proceedings of the Ninth International Parallel Processing
+Symposium (IPPS)</i>,
+pages 165-172,
+April,
+1995.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/IPPS.1995.395928">10.1109/IPPS.1995.395928</a>.
+<p><b>Abstract:</b> High-performance parallel file systems are needed to satisfy
+tremendous I/O requirements of parallel scientific applications. The design
+of such high-performance parallel file systems depends on a comprehensive
+understanding of the expected workload, but so far there have been very few
+usage studies of multiprocessor file systems. This paper is part of the
+CHARISMA project, which intends to fill this void by measuring real
+file-system workloads on various production parallel machines. In particular,
+here we present results from the CM-5 at the National Center for
+Supercomputing Applications. Our results are unique because we collect
+information about nearly every individual I/O request from the mix of jobs
+running on the machine. Analysis of the traces leads to various
+recommendations for parallel file-system design.</p>
+<p><b>Keywords:</b> parallel-IO, file system, parallel computing</p>
+<p><a href="bibtex/ap-workload.bib">BibTeX</a></p>
+<p><a target=_top href = "././ap-workload.pdf">PDF</a> (334K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/ap-workload-tr.html">ap:workload-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/nieuwejaar-workload-tr.html">nieuwejaar:workload-tr</a></b>.</p>
+</BODY>
+</HTML>

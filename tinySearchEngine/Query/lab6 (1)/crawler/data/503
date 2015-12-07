@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-jwriteback.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:jwriteback</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Carla Schlatter Ellis.
+<b>Caching and Writeback Policies in Parallel File Systems</b>.
+<i>Journal of Parallel and Distributed Computing</i>,
+17(1-2):140-145,
+January and February,
+1993.
+DOI <a href="http://dx.doi.org/10.1006/jpdc.1993.1012">10.1006/jpdc.1993.1012</a>.
+<p><b>Abstract:</b> Improvements in the processing speed of multiprocessors are
+outpacing improvements in the speed of disk hardware. Parallel disk I/O
+subsystems have been proposed as one way to close the gap between processor
+and disk speeds. Such parallel disk systems require parallel file system
+software to avoid performance-limiting bottlenecks. We discuss cache
+management techniques that can be used in a parallel file system
+implementation for multiprocessors with scientific workloads. We examine
+several writeback policies, and give results of experiments that test their
+performance.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-jwriteback.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-jwriteback.pdf">PDF</a> (252K)</p>
+<p><b>Copyright &#169;&nbsp;1993 by Academic Press.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-writeback.html">kotz:writeback</a></b>.</p>
+</BODY>
+</HTML>

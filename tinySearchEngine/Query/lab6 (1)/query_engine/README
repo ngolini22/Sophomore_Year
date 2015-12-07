@@ -1,0 +1,17 @@
+THINGS TO NOTE: 
+
+- for crawler: since dict is a global var in my crawler program, I didn’t know how not to have these functions in their own file, so my main crawler function as well as my dictionary functions are all in the same file
+
+- indexer takes approximately 20 seconds to build 
+
+- for Query testing - for some reason, there was a bug in my test harness for the definition of the SHOULD_BE function even though I copied it word for word, char by char, so I commented that part out in my bash test script hoping I can ask you what the bug is and fix my test harness so it works. It came to a point where it was too late for me to get help before having to turn my lab in, so I was hoping I could meet with you tomorrow or Wednesday to figure this out. The same thing was happening for my MALLOC_CHECK function, which is why instead of doing MALLOC_CHECK after mallocing a variable, I manually check to see if it comes out null for every malloc’d variable. 
+
+- the test log ends up in the crawler directory because crawler is the first program to be ran in the bash test script
+
+- I did not free any memory - writing the code itself took too long and I never was able to free all my memory
+
+- my query search works very well with two words, and struggles with more than that. I think this has to do with the structure of the whole program and I couldn’t figure out how to be able to handle more than two words at a time. 
+
+- for some reason, while I was testing my query with the index from a crawl depth of 3, it segfaulted randomly after I called the same thing twice, but this never happened with an index from crawl depth of 1 for all my tests, so it should be overall fine
+
+- Last thing: the way I had my program set up, the last three tests were repeats of the test 2-4, so I did not test the last three tests again, since it would have been the exact same output. 

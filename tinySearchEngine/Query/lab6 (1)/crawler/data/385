@@ -1,0 +1,44 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/minami-scalability.html
+3
+<HTML>
+<HEAD>
+ <TITLE>minami:scalability</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kazuhiro Minami and David Kotz.
+<b>Scalability in a Secure Distributed Proof System</b>.
+In
+<i>Proceedings of the Fourth International Conference on Pervasive
+Computing (Pervasive)</i>,
+pages 220-237,
+Dublin, Ireland,
+May,
+2006.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/11748625_14">10.1007/11748625_14</a>.
+<p><b>Abstract:</b> A logic-based language is often adopted in systems for pervasive
+computing, because it provides a convenient way to define rules that change
+the behavior of the systems dynamically. Those systems might define rules
+that refer to the users' context information to provide context-aware
+services. For example, a smart-home application could define rules referring
+to the location of a user to control the light of a house automatically. In
+general, the context information is maintained in different administrative
+domains, and it is, therefore, desirable to construct a proof in a
+distributed way while preserving each domain's confidentiality policies. In
+this paper, we introduce such a system, a secure distributed proof system for
+context-sensitive authorization and show that our novel caching and
+revocation mechanism improves the performance of the system, which depends on
+public key cryptographic operations to protect confidential information in
+rules and facts. Our revocation mechanism maintains dependencies among facts
+and recursively revokes across multiple hosts all the cached facts that
+depend on a fact that has become invalid. Our initial experimental results
+show that our caching mechanism, which maintains both positive and negative
+facts, significantly reduces the latency for handling a logical query.</p>
+<p><b>Keywords:</b> mobile computing, security, privacy, distributed computing</p>
+<p><a href="bibtex/minami-scalability.bib">BibTeX</a></p>
+<p><a target=_top href = "././minami-scalability.pdf">PDF</a> (236K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

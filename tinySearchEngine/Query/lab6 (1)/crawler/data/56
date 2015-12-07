@@ -1,0 +1,561 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture07/lecture07.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>User Inferface (UI) - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-7---more-user-interface-ui">Lecture 7 - More User Interface (UI)</h1>
+<p>Let's continue our discussion of the Android UI and its layout options.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Create ListView layout</li>
+<li>Use adapters and click listeners</li>
+<li>Create picker widgets</li>
+<li>Define some coding/naming style guidelines</li>
+<li>Save user data using SharedPreferfence</li>
+<li>Introduce higher-level UI components</li>
+<li>Storage options</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p>This is the same demo you download and installed in the last lecture: - Download the demo the layouts.zip app specifically designed to go with these notes.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Checkout the section in the book on UI</li>
+<li>See a tutorial on <a href="http://www.vogella.com/tutorials/AndroidListView/article.html">using lists</a></li>
+</ul>
+<h2 id="listview-layout-click-on-a-computer-science-professor">ListView Layout: Click on a computer science professor</h2>
+<p>If you want to design a UI with a long list of items then the list view is for you. The <em>ListView</em> controller allows you to vertically scrawl through a list of text items for example -- this has some properties of the <em>ScrollView</em> layout, which we discuss later.</p>
+<p><strong>Try the demo:</strong> Click on ListView Layout button and check it out.</p>
+<div class="figure">
+<img src="images/listview.png" />
+</div>
+<p>In the example below we list the Dartmouth CS faculty and allow you select one of them. When you click on a prof a message (i.e., toast) is displayed for a short period. If you look at the XML you will see that only a <em>TextView</em> is defined -- for one of the elements in the ListView table: the height, width, padding and text size are all set up statically in the XML. There is no ListView defined in the XML -- we do that in the code.</p>
+<p>First note that we do not extend activity in ListViewLayoutActivity.java rather <code>ListViewLayoutActivity extends ListActivity</code>. ListActivity has a number of methods that help create, manage and control ListViews; check out <a href="http://developer.android.com/reference/android/app/ListActivity.html">ListActivity</a>. Also, if you look at the code ListViewLayoutActivity.java you can see that we have defined a string array programmatically and not in the XML as is the case with the LinearLayout example we discussed earlier. Here we are illustrating that you can do things in XML and the code -- tip: push as much static data definition such as array strings to the XML world as you can. So in summary, in this layout we do the heavy lifting of the layout design in the code and not the XML; for example, we set up the item list in the code and not in strings.xml as we did in the Linearlayout example.</p>
+<p>We specify the layout of individual rows in the list using a TextView in the XML. A ListAdapter constructor (see below in the code) takes a parameter that specifies a layout resource for each row -- listview_layout.xml -- that specifies the row template to use, that is: TextView. Android uses Adapters to provide the data to the ListView object. The adapter also defines how each row is the ListView is displayed.</p>
+<p>The adapter is assigned to the ListView via the setAdapter method on the ListView object.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;TextView xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;fill_parent&quot;</span>
+    android:padding=<span class="st">&quot;10dp&quot;</span>
+    android:textSize=<span class="st">&quot;20sp&quot;</span> &gt;
+&lt;/TextView&gt;</code></pre>
+<p>Note, we bind the string array of faculty names to the listview layout (in listview_layout.xml) using the <em>ArrayAdapter</em> as shown in the code below. We first get the listview set up (enable) the TextFilter and then set up the setOnItemClickListener for the list view for each of the entries in the array. That means if any entry is clicked on the onItemClick() method is called and the toast displayed. You could add some code that prints out the position in the list and tailor an toast if you wish.</p>
+<p>The method <em>setListAdapter</em> will fill the complete screen of the activity with the ListView based on the formatting information in the XML found in the <code>listview_layout.xml</code> file. The <em>ArrayAdapter</em> object is used to bind the faculty names (i.e., generically an array of strings in this example) to the ListView prior to setListAdapter displaying the view to the screen.</p>
+<p>Note, there is no need to call setContentView() to load the UI from the listview_layout.xml.</p>
+<p>How do we handle when the user selects one of the items in the ListView? Well, as usual the programmer has to exposes event handlers when the user selects an item. We set up the <em>listView.setOnItemClickListener</em> and when the user clicks and item the onItemClick callback executes. onItemClick() callback method is when an item in the AdapterView has been clicked by the user; the parameters provided by the callback include:</p>
+<ul>
+<li>parent: the AdapterView where the click happened.</li>
+<li>view: the view within the AdapterView that was clicked</li>
+<li>position: the position of the view in the adapter.</li>
+<li>id: the row id of the item that was clicked.</li>
+</ul>
+<p>We don't do any view or item specific processing in onItemClick() . We simply display toast.</p>
+<p>setListAdapter() sets the activity's list view widget. The ArrayAdapter constructor has three parameters:</p>
+<ul>
+<li>context - typically this will be your activity instance</li>
+<li>resource ID of a view to use (e.g., listview_layout.xml)</li>
+<li>actual array (e.g., FACULTY)</li>
+</ul>
+<p>The code snippet of shows ...</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> ListViewLayoutActivity <span class="kw">extends</span> ListActivity {
+ 
+            <span class="dt">static</span> <span class="dt">final</span> String[] FACULTY = <span class="kw">new</span> String[] { <span class="st">&quot;Chris Bailey-Kellogg&quot;</span>,
+                                    <span class="st">&quot;Devin Balkcom&quot;</span>, <span class="st">&quot;Andrew Campbell&quot;</span>, <span class="st">&quot;Michael Casey&quot;</span>,
+                                    <span class="st">&quot;Amit Chakrabarti&quot;</span>, <span class="st">&quot;Thomas H. Cormen &quot;</span>,
+                                    <span class="st">&quot;Robert L. (Scot) Drysdale, III&quot;</span>, <span class="st">&quot;Hany Farid&quot;</span>, <span class="st">&quot;Lisa Fleischer&quot;</span>,
+                                    <span class="st">&quot;Gevorg Grigoryan&quot;</span>, <span class="st">&quot;Prasad Jayanti&quot;</span>, <span class="st">&quot;David Kotz&quot;</span>, <span class="st">&quot;Lorie Loeb&quot;</span>,
+                                    <span class="st">&quot;Fabio Pellacini&quot;</span>, <span class="st">&quot;Daniel Rockmore&quot;</span>, <span class="st">&quot;Sean Smith&quot;</span>,
+                                    <span class="st">&quot;Lorenzo Torresani&quot;</span>, <span class="st">&quot;Peter Winkler&quot;</span> };
+ 
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="co">// Don&#39;t have to do this anymore</span>
+                        <span class="co">// setContentView(R.layout.listview_layout);</span>
+ 
+                        <span class="co">// Define a new adapter</span>
+                        ArrayAdapter&lt;String&gt; mAdapter = <span class="kw">new</span> ArrayAdapter&lt;String&gt;(<span class="kw">this</span>,
+                                                R.<span class="fu">layout</span>.<span class="fu">listview_layout</span>, FACULTY);
+ 
+                        <span class="co">// Assign the adapter to ListView</span>
+                        <span class="fu">setListAdapter</span>(mAdapter);
+ 
+                        <span class="co">// Define the listener interface</span>
+                        OnItemClickListener mListener = <span class="kw">new</span> <span class="fu">OnItemClickListener</span>() {
+                                    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onItemClick</span>(AdapterView&lt;?&gt; parent, View view,
+                                                            <span class="dt">int</span> position, <span class="dt">long</span> id) {
+                                                <span class="co">// When clicked, show a toast with the TextView text</span>
+                                                Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                                        ((TextView) view).<span class="fu">getText</span>() + <span class="st">&quot; is an awesome prof!&quot;</span>,
+                                                                        Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+                                    }
+                        };
+ 
+                        <span class="co">// Get the ListView and wired the listener</span>
+                        ListView listView = <span class="fu">getListView</span>();
+                        listView.<span class="fu">setOnItemClickListener</span>(mListener);
+ 
+            }
+}</code></pre>
+<h2 id="building-layouts-with-adapters">Building Layouts with Adapters</h2>
+<p>If you are not familiar with adapters and how they are used with views see the Android developers notes on <a href="https://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews">building layouts with adapters</a>. These notes cover ListViews and ArrayAdapters used above. We use an ArrayAdapter when our data source is an array as in the case of the &quot;FACULTY&quot; String array[]. We use an array of strings that is displayed in a ListView. We initialize a new ArrayAdapter using a constructor to specify the layout for each string and the string array.</p>
+<pre class="sourceCode java"><code class="sourceCode java">                    ArrayAdapter&lt;String&gt; mAdapter = <span class="kw">new</span> ArrayAdapter&lt;String&gt;(<span class="kw">this</span>,
+                                                R.<span class="fu">layout</span>.<span class="fu">listview_layout</span>, FACULTY);</code></pre>
+<p>Again, as mentioned above, the arguments are:</p>
+<ul>
+<li>app's Context</li>
+<li>layout that contains a TextView for each string in the array -- listview_layout</li>
+<li>string array</li>
+</ul>
+<p>Once we have done that we need to call setAdapter() on the ListView:</p>
+<pre class="sourceCode java"><code class="sourceCode java">                        <span class="fu">setListAdapter</span>(mAdapter);</code></pre>
+<p>This sets the adapter that provides the data and the view.</p>
+<p>The ListActivity hosts a ListView object that can be bound to different data sources. Adapters allow you to bind the data source to the view. It serves as an intermediary between the data and view. An AdapterView is a view whose children are determined by an Adapter e.g., ListView.</p>
+<p>When the content for your layout is dynamic or not pre-determined, you can use a layout that subclasses AdapterView (i.e., ListView) to populate the layout with views at runtime. ListView is a subclass of the AdapterView class and uses an Adapter to bind data to its layout.</p>
+<h2 id="some-codingnaming-style-guidelines">Some coding/naming style guidelines</h2>
+<p>There are a number of good guidelines out there for writing Android code. Please try and follow these field naming conventions:</p>
+<ul>
+<li>Non-public, non-static field names start with m.</li>
+<li>Static field names start with s.</li>
+<li>Other fields start with a lower case letter.</li>
+<li>Public static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.</li>
+</ul>
+<p>For example:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MyClass {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> SOME_CONSTANT = <span class="dv">42</span>;
+    <span class="kw">public</span> <span class="dt">int</span> publicField;
+    <span class="kw">private</span> <span class="dt">static</span> MyClass sSingleton;
+    <span class="dt">int</span> mPackagePrivate;
+    <span class="kw">private</span> <span class="dt">int</span> mPrivate;
+    <span class="kw">protected</span> <span class="dt">int</span> mProtected;
+}</code></pre>
+<p>Check out <a href="http://source.android.com/source/code-style.html#follow-field-naming-conventions">Code Style Guidelines for Contributors</a> but don't get hung up on the term <code>strict rules</code>. Just consider them style pointers.</p>
+<h2 id="other-layouts-using-date-and-time-pickers">Other layouts: using date and time pickers</h2>
+<p>Android provides a set of standard widgets for setting the date and time -- these are called Pickers http://developer.android.com/guide/topics/ui/controls/pickers.html. The XML and code below show examples of using theDatePicker and TimePicker widgets to set the date and time, respectively. The DateAndTimeActivity.java allows the user to set date and time and then displays it in a TextView as shown the figure below.</p>
+<p><strong>Try the demo:</strong> Click on the data and time button and check it out.</p>
+<div class="figure">
+<img src="images/date-time.png" />
+</div>
+<p>The date_time_layout.xml is straightforward. A TextView is set up for displaying the date and time -- not the large than standard font (i.e., 30sp) is used. Two buttons are used to display the pickers, which are really wrapped dialog boxes. More on dialogs later. The onClick callbacks are set up in the XML as usual. The text displayed on each button is defined too.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;LinearLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;fill_parent&quot;</span>
+    android:orientation=<span class="st">&quot;vertical&quot;</span> &gt;
+ 
+    &lt;TextView
+        android:id=<span class="st">&quot;@+id/dateTime&quot;</span>
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+        android:text=<span class="st">&quot;Set me!&quot;</span>
+        android:textSize=<span class="st">&quot;30sp&quot;</span> /&gt;
+ 
+    &lt;Button
+        android:id=<span class="st">&quot;@+id/dateBtn&quot;</span>
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+        android:onClick=<span class="st">&quot;onDateClicked&quot;</span>
+        android:text=<span class="st">&quot;Set the Date&quot;</span> /&gt;
+ 
+    &lt;Button
+        android:id=<span class="st">&quot;@+id/timeBtn&quot;</span>
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+        android:onClick=<span class="st">&quot;onTimeClicked&quot;</span>
+        android:text=<span class="st">&quot;Set the Time&quot;</span> /&gt;
+ 
+&lt;/LinearLayout&gt;</code></pre>
+<p>When the user clicks on set the date the following dialog is presented to the user. Note, that the picker handles the internal setting on the time and click on the done button. However, the you are responsible for reading and storing the date and time set by the user after they have clicked the <em>Done</em> button on the dialog using callback objects; that is, <em>OnDateSetListener</em> for the date picker and <em>OnTimeSetListener</em> for the time picker. Take a look at the code below to see the callback processing on the DatePickerDialog object for example. The date is year, month, and day.</p>
+<p>The TimePicker widgets provides a similar call back object so you can access the time as a 24.00 hour clock (if configured) or a 12 hour clock with AM/PM. Time is hours and minutes. In this case the time callback object is TimePickerDialog. The OnTimeSetListener callback interface is used to indicate the user is done filling in the time (they clicked on the <em>Done</em> button)</p>
+<p>The DatePickerDialog object is first created using the constructor and then displayed to the user using the show() method as shown below, which starts the dialog and display it on screen.</p>
+<p>TimePickerDialog(Context context, TimePickerDialog.OnTimeSetListener callBack, int hourOfDay, int minute, boolean is24HourView).</p>
+<p>Note that the time picker dialog is constructed with the previously selected time (or date in the case of the date picker) from the Calendar -- as indicated above and below <em>true</em> indicates we want a 24.00 hour view.</p>
+<pre class="sourceCode java"><code class="sourceCode java">                        <span class="kw">new</span> <span class="fu">TimePickerDialog</span>(DateAndTimeActivity.<span class="fu">this</span>, mTimeListener,
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">HOUR_OF_DAY</span>),
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">MINUTE</span>), <span class="kw">true</span>).<span class="fu">show</span>();</code></pre>
+<p>We implement the TimePickerDialog.OnTimeSetListener interface to receive a callback when the user sets the time. The callback TimePickerDialog.OnTimeSetListener (<em>t</em> parameter above) is setup below. The TimePickerDialog.OnTimeSetListener i(http://developer.android.com/reference/android/app/TimePickerDialog.OnTimeSetListener.html) has a single public method that you implement <em>onTimeSet(TimePicker view, int hourOfDay, int minute)</em>, as shown below. We simply store the time input from the picker in the Calendar object <em>dateAndTime</em> that is created in the code (see the complete solution code below). Once we have stored the time we display it by calling the helper updateDateAndTimeDisplay(). This helper displays the input time using the view displayDateTime = (TextView) findViewById(R.id.dateTime); this writes the time in the correct format to the screen -- dateTime in the XML.</p>
+<pre class="sourceCode java"><code class="sourceCode java">                        TimePickerDialog.<span class="fu">OnTimeSetListener</span> mTimeListener = <span class="kw">new</span> TimePickerDialog.<span class="fu">OnTimeSetListener</span>() {
+                                    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onTimeSet</span>(TimePicker view, <span class="dt">int</span> hourOfDay, <span class="dt">int</span> minute) {
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">HOUR_OF_DAY</span>, hourOfDay);
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">MINUTE</span>, minute);
+                                                <span class="fu">updateDateAndTimeDisplay</span>();
+                                    }
+                        };</code></pre>
+<p>Let's discuss the code solution that handles the interaction with the pickers and display of the current time in the TextView -- as shown below in DateAndTimeActivity.java. As we mentioned before the Calendar instance sets the data and time in onCreate() by calling the helper method updateDateAndTimeDisplay(); the method uses takes the current data and time from the Calendar and uses DateUtils object to format the date and time correctly for the TextView <em>dateTime</em> defined in the XML. DateUtils contains various date-related utilities for creating text for things like elapsed time and date ranges, strings for days of the week and months, and AM/PM text etc -- see <a href="http://developer.android.com/reference/android/text/format/DateUtils.html">DateUtils</a> for more details.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> DateAndTimeActivity <span class="kw">extends</span> Activity {
+ 
+            TextView mDisplayDateTime;
+            Calendar mDateAndTime = Calendar.<span class="fu">getInstance</span>();
+ 
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">date_time_layout</span>);
+ 
+                        mDisplayDateTime = (TextView) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">dateTime</span>);
+ 
+                        <span class="fu">updateDateAndTimeDisplay</span>();
+ 
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onTimeClicked</span>(View v) {
+ 
+                        TimePickerDialog.<span class="fu">OnTimeSetListener</span> mTimeListener = <span class="kw">new</span> TimePickerDialog.<span class="fu">OnTimeSetListener</span>() {
+                                    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onTimeSet</span>(TimePicker view, <span class="dt">int</span> hourOfDay, <span class="dt">int</span> minute) {
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">HOUR_OF_DAY</span>, hourOfDay);
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">MINUTE</span>, minute);
+                                                <span class="fu">updateDateAndTimeDisplay</span>();
+                                    }
+                        };
+ 
+                        <span class="kw">new</span> <span class="fu">TimePickerDialog</span>(DateAndTimeActivity.<span class="fu">this</span>, mTimeListener,
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">HOUR_OF_DAY</span>),
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">MINUTE</span>), <span class="kw">true</span>).<span class="fu">show</span>();
+ 
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDateClicked</span>(View v) {
+ 
+                        DatePickerDialog.<span class="fu">OnDateSetListener</span> mDateListener = <span class="kw">new</span> DatePickerDialog.<span class="fu">OnDateSetListener</span>() {
+                                    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDateSet</span>(DatePicker view, <span class="dt">int</span> year, <span class="dt">int</span> monthOfYear,
+                                                            <span class="dt">int</span> dayOfMonth) {
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">YEAR</span>, year);
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">MONTH</span>, monthOfYear);
+                                                mDateAndTime.<span class="fu">set</span>(Calendar.<span class="fu">DAY_OF_MONTH</span>, dayOfMonth);
+                                                <span class="fu">updateDateAndTimeDisplay</span>();
+                                    }
+                        };
+ 
+                        <span class="kw">new</span> <span class="fu">DatePickerDialog</span>(DateAndTimeActivity.<span class="fu">this</span>, mDateListener,
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">YEAR</span>),
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">MONTH</span>),
+                                                mDateAndTime.<span class="fu">get</span>(Calendar.<span class="fu">DAY_OF_MONTH</span>)).<span class="fu">show</span>();
+ 
+            }
+ 
+            <span class="kw">private</span> <span class="dt">void</span> <span class="fu">updateDateAndTimeDisplay</span>() {
+                        mDisplayDateTime.<span class="fu">setText</span>(DateUtils.<span class="fu">formatDateTime</span>(<span class="kw">this</span>,
+                                                mDateAndTime.<span class="fu">getTimeInMillis</span>(), DateUtils.<span class="fu">FORMAT_SHOW_DATE</span>
+                                                                        | DateUtils.<span class="fu">FORMAT_SHOW_TIME</span>));
+            }
+ 
+}</code></pre>
+<p>Note, Android developers use (most of the time anonymous) inner classes to define specialized listeners such as TimePickerDialog.OnTimeSetListener, which register a callback -- new TimePickerDialog.OnTimeSetListener() -- to implement the program to take care of events such as set time. For example, in the case of new TimePickerDialog.OnTimeSetListener() it takes no specific parameters but creates a nested object to handle the callback. What the user clicks on <em>Done</em> to set the time onTimeSet(TimePicker view, int hourOfDay, int minute) method is called to implement the specific behavior of the user event (i.e., the user clicks on <em>Done</em>). See <a href="http://mobile.tutsplus.com/tutorials/android/java-inner-classes/">Power of Anonymous Inner Classes</a>.</p>
+<h2 id="scrollview">ScrollView</h2>
+<p>Many time you will want to design a layout that has too many views and widgets for a simple phone screen. Maybe the views might be truncated? No, Android has a scrollable view that allows you to load up the layout. In this case the user simply swipes down and up to get to the view of interest.</p>
+<p><strong>Try the demo:</strong> Click on ScrollView Layout button and check it out.</p>
+<div class="figure">
+<img src="images/scrowl.png" />
+</div>
+<p>The code snippet of <a href="lecture06.txt"><code>scrollview_layout.xml</code></a> below shows viewgroups embedded around the ScrollView.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;ScrollView xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    android:id=<span class="st">&quot;@+id/mainLayout&quot;</span>
+    android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;match_parent&quot;</span> &gt;
+ 
+    &lt;LinearLayout
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+        android:orientation=<span class="st">&quot;vertical&quot;</span> &gt;
+ 
+        &lt;ToggleButton
+            android:id=<span class="st">&quot;@+id/toggleButton1&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_margin=<span class="st">&quot;5dp&quot;</span> /&gt;
+ 
+        &lt;CheckBox
+            android:id=<span class="st">&quot;@+id/checkBox1&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:text=<span class="st">&quot;@string/ui_profile_demand_title&quot;</span> /&gt;
+ 
+        &lt;LinearLayout
+            android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_margin=<span class="st">&quot;5dp&quot;</span> &gt;
+ 
+            &lt;Button
+                android:id=<span class="st">&quot;@+id/btnSave&quot;</span>
+                android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+                android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+                android:layout_marginLeft=<span class="st">&quot;40dp&quot;</span>
+                android:layout_weight=<span class="st">&quot;1&quot;</span>
+                android:onClick=<span class="st">&quot;onSaveClicked&quot;</span>
+                android:text=<span class="st">&quot;@string/ui_button_save_title&quot;</span> &gt;
+            &lt;/Button&gt;
+ 
+            &lt;Button
+                android:id=<span class="st">&quot;@+id/btnCancel&quot;</span>
+                android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+                android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+                android:layout_marginRight=<span class="st">&quot;40dp&quot;</span>
+                android:layout_weight=<span class="st">&quot;1&quot;</span>
+                android:onClick=<span class="st">&quot;onCancelClicked&quot;</span>
+                android:text=<span class="st">&quot;@string/ui_button_cancel_title&quot;</span> &gt;
+            &lt;/Button&gt;
+        &lt;/LinearLayout&gt;
+    &lt;/LinearLayout&gt;
+ 
+&lt;/ScrollView&gt;</code></pre>
+<p>The following is also a snippet of the ScrollViewLayoutActivity. Not is has callbacks for onCancelClicked() and onSaveClicked(). However these callbacks do not save the user input. In the next example we discuss how user data is saved using SharedPreference.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> ScrollViewLayoutActivity <span class="kw">extends</span> Activity {
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSaveClicked</span>(View v) {
+ 
+                        Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">save_message</span>), Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+ 
+                        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(ScrollViewLayoutActivity.<span class="fu">this</span>,
+                                                MainLayoutActivity.<span class="fu">class</span>);
+                        <span class="fu">startActivity</span>(intent);
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCancelClicked</span>(View v) {
+ 
+                        Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">cancel_message</span>), Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+ 
+                        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(ScrollViewLayoutActivity.<span class="fu">this</span>,
+                                                MainLayoutActivity.<span class="fu">class</span>);
+                        <span class="fu">startActivity</span>(intent);
+            }
+ 
+}</code></pre>
+<p>We will use a ScrollView layout for our first programming assignment. More later.</p>
+<h2 id="sharedprefences-storing-user-data">SharedPrefences: Storing user data</h2>
+<p>If an activity is destroyed for any reason -- the user exists through the back key, or the system needs reclaims resources so kills activities that are currently not in the <em>focus</em> of the user -- then any user data entered is lost. (Note, we will discuss the various phases of an activity when we discuss activity lifecycle). So what if you wanted to save user data so when the app opens again you don't have to renter the data -- which, you'd agree would be a royal pain. Well android allows you to do this in a number of ways. You can use a simple SharedPreference object to store small amounts of user data. For more sophisticated data storage we will use databases and particular SQLite -- we will build an app that uses SQLite later in the course. But for now let's assume we want to save a small amount of user data between invocations of our layout app.</p>
+<p><strong>Try the demo</strong> Click on SharedPereference button and check it out. Try inputting data and then destroying and starting the app again. You should see your data.</p>
+<div class="figure">
+<img src="images/saved.png" />
+</div>
+<p>The XML snippet of <a href="lecture06.txt"><code>shared_preferences_layout.xml</code></a> below shows presents nothing new for you -- it's clear, right. OK, onto the code. The XML includes to onClick callbacks to <code>Save</code> or <code>Cancel</code>. If save is selected by the user the input data is stored in the SharedPrefence object. If cancel is clicked nothing is saved.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;LinearLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    xmlns:tools=<span class="st">&quot;http://schemas.android.com/tools&quot;</span>
+    android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;fill_parent&quot;</span>
+    android:orientation=<span class="st">&quot;vertical&quot;</span>&gt;
+ 
+    **snippet**
+ 
+    &lt;LinearLayout
+        android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+        android:layout_margin=<span class="st">&quot;5dp&quot;</span> &gt;
+ 
+        &lt;Button
+            android:id=<span class="st">&quot;@+id/btnSave&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+         android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_marginLeft=<span class="st">&quot;40dp&quot;</span>
+            android:layout_weight=<span class="st">&quot;1&quot;</span>
+            android:onClick=<span class="st">&quot;onSaveClicked&quot;</span>
+            android:text=<span class="st">&quot;@string/ui_button_save_title&quot;</span> &gt;
+        &lt;/Button&gt;
+ 
+        &lt;Button
+            android:id=<span class="st">&quot;@+id/btnCancel&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_marginRight=<span class="st">&quot;40dp&quot;</span>
+            android:layout_weight=<span class="st">&quot;1&quot;</span>
+            android:onClick=<span class="st">&quot;onCancelClicked&quot;</span>
+            android:text=<span class="st">&quot;@string/ui_button_cancel_title&quot;</span> &gt;
+        &lt;/Button&gt;
+    &lt;/LinearLayout&gt;
+ 
+&lt;/LinearLayout&gt;</code></pre>
+<p>The <a href="">SharedPreferencesActivity.java</a> code is divided up for easy of discussion below. We cluster the onCreate() and onClick callbacks. Following this we discuss two helper methods used to support the saving and restoring the user data -- <code>saveUserData()</code> and <code>loadUserData()</code>. Frist, note that SharedPreferencesActivity extends Activity. Let's discuss how the code works. onCreate() simply set the view and calls the helper to load any stored data. Note, the first time the app runs there is no stored data so this is an edge case that needs to be taken care of in the code -- we will discuss this edge case when we discuss the helper methods.</p>
+<p>Let's assume the user inputs some data and clicks the<code>Save</code> button. The onSaveClicked() callback calls saveUserData() and then displays some toast informing the user that their data is saved -- it's important to keep the user in the loop. If the user clicked the <code>Cancel</code> button then nothing happens in the callback other than displaying toast and returning to the MainLayoutActivity (main menu) using an Intent. Note, we will discuss intents in much more detail in this course but for now let's go with the flow regarding the magic on intents.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> SharedPreferencesActivity <span class="kw">extends</span> Activity {
+ 
+            <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String TAG = <span class="st">&quot;CS65&quot;</span>;
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> String PREFS_MYRUNS = <span class="st">&quot;MyPrefs&quot;</span>;
+ 
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">shared_preferences_layout</span>);
+ 
+                        <span class="co">// Load user data to screen using the private helper function</span>
+                        <span class="co">// loadProfile</span>
+ 
+                        <span class="fu">loadUserData</span>();
+ 
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSaveClicked</span>(View v) {
+ 
+                        <span class="co">// Save all information from the screen into a &quot;shared preferences&quot;</span>
+                        <span class="co">// using private helper function</span>
+ 
+                        <span class="fu">saveUserData</span>();
+ 
+                        Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">save_message</span>), Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+ 
+                        Intent mIntent = <span class="kw">new</span> <span class="fu">Intent</span>(SharedPreferencesActivity.<span class="fu">this</span>,
+                                                MainLayoutActivity.<span class="fu">class</span>);
+                        <span class="fu">startActivity</span>(mIntent);
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCancelClicked</span>(View v) {
+ 
+                        Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">cancel_message</span>), Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+ 
+                        Intent mIntent = <span class="kw">new</span> <span class="fu">Intent</span>(SharedPreferencesActivity.<span class="fu">this</span>,
+                                                MainLayoutActivity.<span class="fu">class</span>);
+                        <span class="fu">startActivity</span>(mIntent);
+            }
+ </code></pre>
+<p>Let's assume that onCreate() invokes the loadUserData() helper when the app starts or resumes. To start with let's assume that no user data is stored in the activities SharedPreference object.</p>
+<h2 id="helper-functions---loaduserdata-and-saveuserdata">Helper functions - loadUserData() and saveUserData()</h2>
+<p>loadUserData() first gets the key for the preference name which is used to obtain an instance of the SharedPreferences class. This is the object what we will store data using key/data pairs to save and restore (using the other helper function). Specifically, getSharedPreferences() has two parameters:</p>
+<ul>
+<li>name: the preferences file (mKey in our case). If a preferences file by this name does not exist, it will be created when you retrieve an editor (SharedPreferences.edit()) and then commit changes (Editor.commit()).</li>
+<li>mode:the operating mode. The <code>MODE_PRIVATE</code> specifies that the preference file can only be accessed by the application that created it.</li>
+</ul>
+<p>The getSharedPreferences() method retrieve the contents of the preferences file 'name', returning a SharedPreferences (i.e., mPrefs) through which you can retrieve and modify its values. Only one instance of the SharedPreferences object is returned to any callers for the same name, meaning they will see each other's edits as soon as they are made.</p>
+<p>To update the value of preference we first use getString() to get the key -- for example, <code>preference_key_profile_email</code> -- and then get the string value for the email using the mKey in this case. Note, if there is nothing stored for that key (i.e., no email details have been saved) then we use the default of an empty string. Once we have the value we update the EditText view on the screen by getting the view and then setting the restored value.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            ((EditText) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editEmail</span>)).<span class="fu">setText</span>(mValue);</code></pre>
+<p>This is repeated for all views in the <code>shared_preferences_layout.xml</code> file, as shown above. The RadioButtons do not store strings but an integer value where <code>-1</code> is the default used if nothing has already been saved and 0/1 for the gender buttons female/male from the order of the widgets in the RadioGroup. Finally, the helper function displays some toast with the RadioGroup value.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// ****************** private helper functions ***************************//</span>
+ 
+            <span class="co">// load the user data from shared preferences if there is no data make sure</span>
+            <span class="co">// that we set it to something reasonable</span>
+            <span class="kw">private</span> <span class="dt">void</span> <span class="fu">loadUserData</span>() {
+ 
+                        <span class="co">// We can also use log.d to print to the LogCat</span>
+ 
+                        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;loadUserData()&quot;</span>);
+ 
+                        <span class="co">// Load and update all profile views</span>
+ 
+                        <span class="co">// Get the shared preferences - create or retrieve the activity</span>
+                        <span class="co">// preference object</span>
+ 
+                        String mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_name</span>);
+                        SharedPreferences mPrefs = <span class="fu">getSharedPreferences</span>(mKey, MODE_PRIVATE);
+ 
+                        <span class="co">// Load the user email</span>
+ 
+                        mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_email</span>);
+                        String mValue = mPrefs.<span class="fu">getString</span>(mKey, <span class="st">&quot; &quot;</span>);
+                        ((EditText) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editEmail</span>)).<span class="fu">setText</span>(mValue);
+ 
+                        <span class="co">// Please Load gender info and set radio box</span>
+ 
+                        mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_gender</span>);
+ 
+                        <span class="dt">int</span> mIntValue = mPrefs.<span class="fu">getInt</span>(mKey, -<span class="dv">1</span>);
+                        <span class="co">// In case there isn&#39;t one saved before:</span>
+                        <span class="kw">if</span> (mIntValue &gt;= <span class="dv">0</span>) {
+                                    <span class="co">// Find the radio button that should be checked.</span>
+                                    RadioButton radioBtn = (RadioButton) ((RadioGroup) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">radioGender</span>))
+                                                            .<span class="fu">getChildAt</span>(mIntValue);
+                                    <span class="co">// Check the button.</span>
+                                    radioBtn.<span class="fu">setChecked</span>(<span class="kw">true</span>);
+                                    Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                            <span class="st">&quot;number of the radioButton is : &quot;</span> + mIntValue,
+                                                            Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+                        }
+ 
+            }</code></pre>
+<p>Once the loadUserData() is complete the screen is updated with any stored data. Now, assume the user has changed these values (email and gender) and clicked the <code>Save</code> button. The following happens. The callback calls the saveUserData() helper function. The helper function gets the preference file key and gets the reference to the SharedPeference object. While same key/value pairs are used to store data in the object the difference here is that an editor is needed to update the values. We first create (SharedPreferences.Editor object) and clear an editor through the mPrefs.edit() method. Following this we get the key of the value we want to update and then use mEditor.putString() to change the value. To save all the changes to the preference file we use mEditor.commit(). Finally, the helper displays the toast informing the user that their email address and gender information has been successfully saved.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// load the user data from shared preferences if there is no data make sure</span>
+            <span class="co">// that we set it to something reasonable</span>
+            <span class="kw">private</span> <span class="dt">void</span> <span class="fu">saveUserData</span>() {
+ 
+                        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;saveUserData()&quot;</span>);
+ 
+                        <span class="co">// Getting the shared preferences editor</span>
+ 
+                        String mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_name</span>);
+                        SharedPreferences mPrefs = <span class="fu">getSharedPreferences</span>(mKey, MODE_PRIVATE);
+ 
+                        SharedPreferences.<span class="fu">Editor</span> mEditor = mPrefs.<span class="fu">edit</span>();
+                        mEditor.<span class="fu">clear</span>();
+ 
+                        <span class="co">// Save email information</span>
+ 
+                        mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_email</span>);
+                        String mValue = (String) ((EditText) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editEmail</span>))
+                                                .<span class="fu">getText</span>().<span class="fu">toString</span>();
+                        mEditor.<span class="fu">putString</span>(mKey, mValue);
+ 
+                        <span class="co">// Read which index the radio is checked.</span>
+ 
+                        <span class="co">// edit this out and use as a debug example</span>
+                        <span class="co">// interesting bug because you try and write an int to a string</span>
+ 
+                        mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_gender</span>);
+ 
+                        RadioGroup mRadioGroup = (RadioGroup) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">radioGender</span>);
+                        <span class="dt">int</span> mIntValue = mRadioGroup.<span class="fu">indexOfChild</span>(<span class="fu">findViewById</span>(mRadioGroup
+                                                .<span class="fu">getCheckedRadioButtonId</span>()));
+                        mEditor.<span class="fu">putInt</span>(mKey, mIntValue);
+ 
+                        <span class="co">// Commit all the changes into the shared preference</span>
+                        mEditor.<span class="fu">commit</span>();
+ 
+                        Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(), <span class="st">&quot;saved name: &quot;</span> + mValue,
+                                                Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+ 
+            }</code></pre>
+<h2 id="storage-options">Storage options</h2>
+<p>As discussed above there are a number of options of storing persistent application data in Android:</p>
+<ul>
+<li>using Shared Preferences for primitive data such as Int, strings, etc.</li>
+<li>using internal or external device storage; and</li>
+<li>using SQLite databases for storing structured data.</li>
+</ul>
+<p>The type of storage depends on what your application is trying to achieve. We will discuss storage later in the class but read the relevant bood chapter on storage and the Android developers notes on <a href="http://developer.android.com/guide/topics/data/data-storage.html">storage options</a></p>
+<h2 id="higher-level-ui-components">Higher level UI components</h2>
+<p>We have covered a lot of ground in this first set of UI lectures. Please make sure you go through the code provided and extend it. For example, note when you flip to landscape mode for some of the layouts the layout gets truncated -- can you fix this. The UI described so far is fairly low level and comprises important but small building blocks. Fortunately, you don't have to build your UI from low level views and widgets like we did here. App designers can use higher level pre-made UI components to build UIs. We will discuss these later -- examples of these high level components include ActionBar, Dialogs and Status Notification. We will use all of these components in the UI we build. That should be fun. But is good to understand the weeds first, forgive the poorly chosen metaphor.</p>
+</body>
+</html>

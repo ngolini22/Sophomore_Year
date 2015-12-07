@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/arackaparambil-clock-skew.html
+3
+<HTML>
+<HEAD>
+ <TITLE>arackaparambil:clock-skew</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Chrisil Arackaparambil, Sergey Bratus, Anna Shubina, and David Kotz.
+<b>On the Reliability of Wireless Fingerprinting using Clock Skews</b>.
+In
+<i>Proceedings of the ACM Conference on Wireless Network Security
+(WiSec)</i>,
+March,
+2010.
+DOI <a href="http://dx.doi.org/10.1145/1741866.1741894">10.1145/1741866.1741894</a>.
+<p><b>Abstract:</b> Determining whether a client station should trust an access point
+is a known problem in wireless security. Traditional approaches to solving
+this problem resort to cryptography. But cryptographic exchange protocols are
+complex and therefore induce potential vulnerabilities in themselves. We show
+that measurement of clock skews of access points in an 802.11 network can be
+useful in this regard, since it provides fingerprints of the devices. Such
+fingerprints can be used to establish the first point of trust for client
+stations wishing to connect to an access point. Fingerprinting can also be
+used in the detection of fake access points. <P> We demonstrate deficiencies
+of previously studied methods that measure clock skews in 802.11 networks by
+means of an attack that spoofs clock skews. We then provide means to overcome
+those deficiencies, thereby improving the reliability of fingerprinting.
+Finally, we show how to perform the clock-skew arithmetic that enables
+network providers to publish clock skews of their access points for use by
+clients.</p>
+<p><a href="bibtex/arackaparambil-clock-skew.bib">BibTeX</a></p>
+<p><a target=_top href = "././arackaparambil-clock-skew.pdf">PDF</a> (167K)</p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/arackaparambil-clock-skew-tr.html">arackaparambil:clock-skew-tr</a></b>.</p>
+</BODY>
+</HTML>

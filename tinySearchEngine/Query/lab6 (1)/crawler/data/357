@@ -1,0 +1,55 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan L. Bredin.
+<b>Market-based Control of Mobile-agent Systems</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+June,
+2001.
+Available as Dartmouth Computer Science Technical Report TR2001-408.
+<p><b>Abstract:</b> Modern distributed systems scatter sensors, storage, and
+computation throughout the environment. Ideally these devices communicate and
+share resources, but there is seldom motivation for a device's owner to yield
+control to another user. We establish markets for computational resources to
+motivate principals to share resources with arbitrary users, to enforce
+priority in distributed systems, to provide flexible and rational limitations
+on the potential of an application, and to provide a lightweight structure to
+balance the workload over time and between devices. As proof of concept, we
+implement a structure software agents can use to discover and negotiate
+access to networked resources. The structure separates discovery,
+authentication, and consumption enforcement as separate orthogonal issues to
+give system designers flexibility. <P> Mobile agents represent informational
+and computational flow. We develop mechanisms that distributively allocate
+computation among mobile agents in two settings. The first models a situation
+where users collectively own networked computing resources and require
+priority enforcement. We extend the allocation mechanism to allow resource
+reservation to mitigate utility volatility. The second, more general model
+relaxes the ownership assumption. We apply our computational market to an
+open setting where a principal's chief concern is revenue maximization. <P>
+Our simulations compare the performance of market-based allocation policies
+to traditional policies and relate the cost of ownership and consumption
+separation. We observe that our markets effectively prioritize applications'
+performance, can operate under uncertainty and network delay, provide metrics
+to balance network load, and allow measurement of market-participation risk
+versus reservation-based computation. <P> In addition to allocation
+problems, we investigate resource selection to optimize execution time. The
+problem is NP-complete if the costs and latencies are constant. Both metrics'
+dependence on the chosen set complicates matters. We study how a greedy
+approach, a novel heuristic, and a shortest-constrained-path strategy perform
+in mobile-agent applications. <P> Market-based computational-resource
+allocation fertilizes applications where previously there was a dearth of
+motive for or means of cooperation. The rationale behind mobile-agent
+performance optimization is also useful for resource allocation in general
+distributed systems where an application has a sequence of dependent tasks or
+when data collection is expensive.</p>
+<p><a href="bibtex/bredin-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2001-408.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2001 by Jonathan L. Bredin.</b></p>
+</BODY>
+</HTML>

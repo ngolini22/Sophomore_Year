@@ -1,0 +1,22 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-throughput.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:throughput</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Throughput of Existing Multiprocessor File Systems</b>.
+Technical Report
+PCS-TR93-190,
+Dept. of Math and Computer Science, Dartmouth College,
+May,
+1993.
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-throughput.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-throughput.pdf">PDF</a> (134K)</p>
+<p><b>Copyright &#169;&nbsp;1993 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

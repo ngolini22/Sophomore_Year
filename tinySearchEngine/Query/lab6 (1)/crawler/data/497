@@ -1,0 +1,49 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/ap-enwrich-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>ap:enwrich-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Apratim Purakayastha, Carla Schlatter Ellis, and David Kotz.
+<b>ENWRICH: A Compute-Processor Write Caching Scheme for Parallel
+File Systems</b>.
+Technical Report
+CS-1995-22,
+Dept. of Computer Science, Duke University,
+October,
+1995.
+<p><b>Abstract:</b> Many parallel scientific applications need high-performance I/O.
+Unfortunately, end-to-end parallel-I/O performance has not been able to keep
+up with substantial improvements in parallel-I/O hardware because of poor
+parallel file-system software. Many radical changes, both at the interface
+level and the implementation level, have recently been proposed. One such
+proposed interface is  collective I/O, which allows parallel jobs to
+request transfer of large contiguous objects in a single request, thereby
+preserving useful semantic information that would otherwise be lost if the
+transfer were expressed as per-processor non-contiguous requests. Kotz has
+proposed  disk-directed I/O as an efficient implementation technique for
+collective-I/O operations, where the compute processors make a single
+collective data-transfer request, and the I/O processors thereafter take full
+control of the actual data transfer, exploiting their detailed knowledge of
+the disk-layout to attain substantially improved performance. <P> Recent
+parallel file-system usage studies show that writes to write-only files are a
+dominant part of the workload. Therefore, optimizing writes could have a
+significant impact on overall performance. In this paper, we propose ENWRICH,
+a compute-processor write-caching scheme for write-only files in parallel
+file systems. ENWRICH combines low-overhead write caching at the compute
+processors with high performance disk-directed I/O at the I/O processors to
+achieve both low latency and high bandwidth. This combination facilitates the
+use of the powerful disk-directed I/O technique independent of any particular
+choice of interface. By collecting writes over many files and applications,
+ENWRICH lets the I/O processors optimize disk I/O over a large pool of
+requests. We evaluate our design via simulated implementation and show that
+ENWRICH achieves high performance for various configurations and workloads.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/ap-enwrich-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././ap-enwrich-tr.pdf">PDF</a> (399K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/ap-enwrich.html">ap:enwrich</a></b>.</p>
+</BODY>
+</HTML>

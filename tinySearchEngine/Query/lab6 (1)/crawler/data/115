@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-diskmodel.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:diskmodel</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Song Bac Toh, and Sriram Radhakrishnan.
+<b>A Detailed Simulation Model of the HP&nbsp;97560 Disk Drive</b>.
+Technical Report
+PCS-TR94-220,
+Dartmouth Computer Science,
+July,
+1994.
+<p><b>Abstract:</b> We implemented a detailed model of the HP&nbsp;97560 disk drive, to
+replicate a model devised by Ruemmler and Wilkes (both of Hewlett-Packard,
+HP). Our model simulates one or more disk drives attached to one or more SCSI
+buses, using a small discrete-event simulation module included in our
+implementation. The design is broken into three components: a test driver,
+the disk model itself, and the discrete-event simulation support. Thus, the
+disk model can be easily extracted and used in other simulation environments.
+We validated our model using traces obtained from HP, using the same
+``demerit'' measure as Ruemmler and Wilkes. We obtained a demerit figure of
+3.9\%, indicating that our model was extremely accurate. This paper describes
+our implementation, and is meant for those wishing to understand our model or
+to implement their own.</p>
+<p><b>Keywords:</b> file system</p>
+<p><a href="bibtex/kotz-diskmodel.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-diskmodel.pdf">PDF</a> (293K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by the authors.</b></p>
+</BODY>
+</HTML>

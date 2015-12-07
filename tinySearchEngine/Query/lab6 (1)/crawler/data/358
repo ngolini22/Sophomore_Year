@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-fitbit.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:fitbit</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad, Jacob Sorber, Timothy Stablein, Denise Anthony, and David Kotz.
+<b>Understanding Sharing Preferences and Behavior for mHealth
+Devices</b>.
+In
+<i>Workshop on Privacy in the Electronic Society (WPES)</i>,
+pages 117-128,
+October,
+2012.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/2381966.2381983">10.1145/2381966.2381983</a>.
+<p><b>Abstract:</b> mHealth devices offer many potential benefits to patients, health
+providers and others involved in the patients' healthcare. If patients are
+not in control of the collection and sharing of their personal health
+information, they will have privacy concerns even while enjoying the benefits
+of the devices. We investigated patients' willingness to share their personal
+health information, collected using mHealth devices, with their family,
+friends, third parties and the public. Our findings are based on a user study
+conducted with 41 participants. The best way to understand people's privacy
+concerns is to give them the opportunity to use the device and actually share
+the information, and to the best of our knowledge, ours is the first study
+that does so. We discovered that patients want to share, selectively, their
+health information with people other than their doctors. We also show that
+privacy concerns are not static; patients may change their sharing decisions
+over time. Based on our findings, we suggest that privacy controls for
+mHealth systems should be flexible to allow patients to choose different
+settings for different recipients, and to change their sharing settings at
+any time.</p>
+<p><a href="bibtex/prasad-fitbit.bib">BibTeX</a></p>
+<p><a target=_top href = "././prasad-fitbit.pdf">PDF</a> (1670K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/prasad-msthesis.html">prasad:msthesis</a></b>.</p>
+<p>See also later version <b><a href="abstracts/prasad-bfitbit.html">prasad:bfitbit</a></b>.</p>
+</BODY>
+</HTML>

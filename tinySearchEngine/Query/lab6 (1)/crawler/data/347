@@ -1,0 +1,49 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory T. Cornelius.
+<b>Usable Security for Wireless Body-Area Networks</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+September,
+2013.
+Available as Dartmouth Computer Science Technical Report TR2011-741.
+<p><b>Abstract:</b> We expect wireless body-area networks of pervasive wearable
+devices will enable in situ health monitoring, personal assistance,
+entertainment personalization, and home automation. As these devices become
+ubiquitous, we also expect them to interoperate. That is, instead of closed,
+end-to-end body-worn sensing systems, we envision standardized sensors that
+wirelessly communicate their data to a device many people already carry
+today, the smart phone. However, this ubiquity of wireless sensors combined
+with the characteristics they sense present many security and privacy
+problems.<P> In this thesis we describe solutions to two of these problems.
+First, we evaluate the use of bioimpedance for recognizing who is wearing
+these wireless sensors and show that bioimpedance is a feasible biometric.
+Second, we investigate the use of accelerometers for verifying whether two of
+these wireless sensors are on the same person and show that our method is
+successful as distinguishing between sensors on the same body and on
+different bodies. We stress that any solution to these problems must be
+usable, meaning the user should not have to do anything but attach the sensor
+to their body and have them just work. <P> These methods solve
+interesting problems in their own right, but it is the combination of these
+methods that shows their true power. Combined together they allow a network
+of wireless sensors to cooperate and determine whom they are sensing even
+though only one of the wireless sensors might be able to determine this fact.
+If all the wireless sensors know they are on the same body as each other and
+one of them knows which person it is on, then they can each exploit the
+transitive relationship to know that they must all be on that person's body.
+We show how these methods can work together in a prototype system. This
+ability to operate unobtrusively, collecting in situ data and
+labeling it properly without interrupting the wearer's activities of daily
+life, will be vital to the success of these wireless sensors.</p>
+<p><a href="bibtex/cornelius-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-thesis.pdf">PDF</a> (11989K)</p>
+<p><b>Copyright &#169;&nbsp;2013 by Cory T. Cornelius.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

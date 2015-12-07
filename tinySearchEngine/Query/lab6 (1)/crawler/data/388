@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-jsolar.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:jsolar</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen, Ming Li, and David Kotz.
+<b>Data-centric middleware for context-aware pervasive computing</b>.
+<i>Pervasive and Mobile Computing</i>,
+4(2):216-253,
+April,
+2008.
+DOI <a href="http://dx.doi.org/10.1016/j.pmcj.2007.10.001">10.1016/j.pmcj.2007.10.001</a>.
+<p><b>Abstract:</b> The complexity of developing and deploying context-aware
+pervasive-computing applications calls for distributed software
+infrastructures that assist applications to collect, aggregate, and
+disseminate contextual data. In this paper, we motivate a data-centric design
+for such an infrastructure to support context-aware applications. Our
+middleware system, Solar, treats contextual data sources as stream
+publishers. The core of Solar is a scalable and self-organizing peer-to-peer
+overlay to support data-driven services. We describe how different services
+can be systematically integrated on top of the Solar overlay and evaluate the
+resource discovery and data-dissemination services. We also discuss our
+experience and lessons learned when using Solar to support several
+implemented scenarios. We conclude that a data-centric infrastructure is
+necessary to facilitate both the development and deployment of context-aware
+pervasive-computing applications.</p>
+<p><b>Keywords:</b> mobile computing, distributed computing, ubicomp</p>
+<p><a href="bibtex/chen-jsolar.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-jsolar.pdf">PDF</a> (919K)</p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/chen-jsolar.pdf">PDF</a> (ask me)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Elsevier.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

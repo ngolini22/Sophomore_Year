@@ -1,0 +1,124 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture02/lecture02.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>The wonderful world of Android - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-2---the-wonderful-world-of-android">Lecture 2 - The wonderful world of Android</h1>
+<p>The Android experience revolves around the design of a beautiful UI that users find intuitive, easy to use and navigate through, and simple. The design of a great looking UI is an art and requires exceptionally good UI design skills. We will not teach that in this class but we will gain skills of putting together a nice, clean and simple UI.</p>
+<p>What this lecture will teach you:</p>
+<ul>
+<li>Quick tour of the phone and user interface</li>
+<li>Development cycle</li>
+<li>Android framework</li>
+</ul>
+<h2 id="standard-ui-screens">Standard UI Screens</h2>
+<p>There are many parts of the UI that you are already using; that is the home, all apps and recent app screens.</p>
+<h2 id="home-screen">Home screen</h2>
+<p>When you unlock the phone or touch the home button on the navigation bar you will be directed to the home screen, as shown below. Above the system bar you can see the the favorites tray with various icons of your favorite apps (e.g., phone, mail, all apps button, messaging and web).</p>
+<div class="figure">
+<img src="images/homescreen.png" />
+</div>
+<h2 id="all-app-screen">All app screen</h2>
+<p>If you touch on the all apps button (circled above) in the favorite tray on the home screen you will come to the all apps screen. Users can swipe through multiple app and widget screens and drag and drop items to customize the all app screens.</p>
+<div class="figure">
+<img src="images/allappsscreen.png" />
+</div>
+<h2 id="recent-apps-screen">Recent apps screen</h2>
+<p>Apps that have been used and are currently stopped can be viewed by touching the recent app button on the navigation bar, as circled in the screen above. You can switch back to an app that you have previously used by simply touching it. Note that applications are stacked in reverse chronological order with the most recently used app at the bottom.</p>
+<div class="figure">
+<img src="images/recentappsscreen.png" />
+</div>
+<h2 id="status-bar-and-notification-screen">Status bar and notification screen</h2>
+<p>As denoted in the screen above, the status bar displays notifications on the left and status on the right. Status includes time, battery, cell signal strength, bluetooth enabled. Notifications on the right show wifi, mail, bewell, voicemail, usb active, music. The phone informs me that there is stuff for me to look at -- mail to read, voicemail, etc. These are pending notification of events that the user should take a peek at.</p>
+<p>If you drag or swipe down the status bar it provides a whole lot more information on these notifications -- they are expanded from the simple icons in the status bar. Some of the notifications can be dismissed by a swipe, others cannot. We will use the status bar to notify the user of events in the code we write in this course. In the following screenshot, you can see that the expanded notification shade tells me my phone is in low battery, there is a screenshot I recently took, and that the BeWell app is currently running in the background. If I click the circled clear button, the phone will dismiss all the notifications that are dismissible.</p>
+<div class="figure">
+<img src="images/notificationsscreen.png" />
+</div>
+<p>If you drag the notification shade further down, you will see a menu with many quick toggle buttons to change settings. You can also adjust the screen light here.</p>
+<div class="figure">
+<img src="images/notificationsscreen2.png" />
+</div>
+<h2 id="facebook-ui">Facebook UI</h2>
+<p>Android allows you to design UIs using graphical tools and xml. It also provides a number of widgets and standard layouts for the design of simple clean UIs. Here is an example that shows some standard UI components that you will use.</p>
+<p>Consider the Facebook app. It uses the action bar -- in fact it uses a <a href="http://developer.android.com/guide/topics/ui/actionbar.html#SplitBar">split action bar</a> with a main action bar -- as shown in the figure below. When the page is running on a narrow screen and you have a lot of action items to load, you can use a split action bar at the bottom of the screen. You are use to using this navigation scheme as a Facebook user.</p>
+<div class="figure">
+<img src="images/facebook.png" />
+</div>
+<h2 id="action-bar">Action bar</h2>
+<p>A quick note on the action bar. The action bar is configurable from app to app and provides a semi-standard way to build out a simple and clean app UI to handle user action and app navigation.</p>
+<p>The action bar provides a common and consistent interface for Android users. It can be used and adapted by many apps. We will show the email app below. We will use action bars and the ActionBar APIs to set up some clean UIs.</p>
+<h2 id="gmail-ui">Gmail UI</h2>
+<p>The second app is the gmail UI --shown below. This time the main action bar is a lot simpler, with a hamburger icon to the left serving as a navigation drawer. Many actions are hidden there.</p>
+<div class="figure">
+<img src="images/email.png" />
+</div>
+<p>This allows users to switch between different views of the gmail such as the outbox, recent, drafts, sent, started and show all labels. Check it out on your phone.</p>
+<div class="figure">
+<img src="images/email2.png" />
+</div>
+<h2 id="app-development-cycle">App development cycle</h2>
+<p>As coders you are aware of the development cycle of any software but the unique part of Android is the publishing part -- see the development cycle below.</p>
+<div class="figure">
+<img src="images/developmentcycle.png" />
+</div>
+<h2 id="some-factoids-on-androids">Some factoids on Androids</h2>
+<ul>
+<li><p>Java: Android applications are written in Java</p></li>
+<li><p>filename.apk: The Android SDK tools compile the code—along with any data and resource files (layouts, strings)—into an <strong>Android PacKage</strong> (filename.apk). When you download an app from Google Play or install it yourself (from email, using ADB) you are installing the apk file.</p></li>
+<li><p>UI design: Android separates the UI design from the program so they can be developed independently. In this manner you could theoretically completely change the UI without changing a line of Java code (not true in reality). The UI is designed using a graphical tool or <a href="http://en.wikipedia.org/wiki/XML"><strong>Extensible Markup Language - XML</strong></a>:``XML is is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable''</p></li>
+</ul>
+<h2 id="whats-in-an-app-application-components">What's in an app: application components</h2>
+<p>When you develop apps you will be using five key building blocks -- some apps may have all these components and others not -- really depends on what type of app you are planning on building:</p>
+<ul>
+<li><strong>activities</strong>: An activity is the key execution component. You need at least one activity in an app that deals with the UI but you probably will have multiple activity. This is the entry point to the application -- think of main() in C. An activity might handle one or more screens in terms of UI control. For example, the camera app might have one activity to allow you to focus and take a photo and the start another activity to manage the storage locally and presentation of the photo to view. Each activity is independent of each other but could be coupled by control or data.</li>
+</ul>
+<p>MyRuns comprises many activities. We will implement a number of activities. An activity you create is implemented as a subclass of <a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a>.</p>
+<ul>
+<li><strong>fragments</strong>: Fragments are new to Android but very important in programming the UI. I think of them as mini-activities. In implementation there are considerable differences; for example, an activity has to be specified in the <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">manifest</a>, while fragments do not because they can only exist in the context of an activity and are coupled to the activity state. While fragments are strongly integrated into the UI you can use fragments without a view or UI components. Fragments can implement a number of application behaviors, such as, code to handle listeners, files, database, etc. These types of fragments can be thought of as invisible worker for the activity -- more later on this. For now we will just consider fragments when applied to the UI.</li>
+</ul>
+<p>Some of the MyRuns activities that deal with the UI have a number of fragments -- we will implement a lot of fragments. A fragment you create is implemented as a subclass of <a href="http://developer.android.com/reference/android/app/Fragment.html">Fragment</a>.</p>
+<ul>
+<li><strong>services</strong>: MyRuns need to read the location (e.g., GPS, WiFi, cellular) periodically and pass the location to an activity. The code that periodically interacts with the location manager is a service: a component that runs in the background detached from the main application activities -- sort of does its own thing that wants to sync to exchange information. Typically services are long running programs that don't need to interact with the UI. Other examples of services could be music which the user is listening to while reading CS65 notes, the Dartmouth Biorhythm Project code runs as a service in the background. Typically an activity will control a service -- that is, start it, pause it, bind and get data from it.</li>
+</ul>
+<p>A service you create is implemented as a subclass of <a href="http://developer.android.com/reference/android/app/Service.html">Service</a>.</p>
+<ul>
+<li><strong>content providers</strong>: Apps share data. The nice thing about Android is you can not only call internal apps such as the camera but you can get data from apps that you might need for your application. For example, I want to develop an app that reads your contact lists and add them to your social networks (not always a good idea). To do this you need to interact with the content provider of the contacts information. And assuming the user give you permission (at the time of install) you can interact with the content provider to get the data. Not only can apps get data (send query get response) but they can update the data -- add a contact for example.</li>
+</ul>
+<p>A content provider is implemented as a subclass of <a href="http://developer.android.com/reference/android/content/ContentProvider.html">ContentProvider</a>.</p>
+<ul>
+<li><strong>broadcast receivers</strong>: If an service for example (the MyRuns location service) has data it can initiate broadcasts (something like ``I got the location for anyone interested''). The other end of that are components (e.g., an activity) that are broadcast receivers. Typically, broadcast receivers don't interact with the UI but commonly create a status bar notification to alert the user when a broadcast event occurs. So the broadcast announcement/receiver infrastructure is a way to delegate a task and the make sure components interested in an event (e.g., download completed, email to read, missed call) get that event to process.</li>
+</ul>
+<p>A broadcast receiver is implemented as a subclass of <a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a> and each broadcast is delivered as an <a href="http://developer.android.com/reference/android/content/Intent.html">Intent</a> object.</p>
+<h2 id="android-software-framework">Android software framework</h2>
+<p>Android has a complex and deep set of components in its framework. The best way to understand this abstract stack is to use it.</p>
+<p>Each Android app runs in its own security sandbox:</p>
+<p>The Android operating system is a multi-user Linux system in which each application is a different user.</p>
+<p>By default, the system assigns each application a unique Linux user ID (the ID is used only by the system and is unknown to the application). The system sets permissions for all the files in an application so that only the user ID assigned to that application can access them.</p>
+<p>Each process has its own virtual machine (VM), so an application's code runs in isolation from other applications.</p>
+<p>By default, every application runs in its own Linux process. Android starts the process when any of the application's components need to be executed, then shuts down the process when it's no longer needed or when the system must recover memory for other applications. Note that the following diagram is taken from the <a href="http://en.wikipedia.org/wiki/Android_operating_system#Software_stack">Android wiki page</a>, and since Android 5.0 Lollipop system, the Dalvik VM has been officially replaced by a new runtime called ART (Android RunTime).</p>
+<div class="figure">
+<img src="images/s-framework.png" />
+</div>
+</body>
+</html>

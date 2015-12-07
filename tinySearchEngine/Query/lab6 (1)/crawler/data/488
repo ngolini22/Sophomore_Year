@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-flexibility.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:flexibility</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Nils Nieuwejaar.
+<b>Flexibility and Performance of Parallel File Systems</b>.
+<i>ACM Operating Systems Review</i>,
+30(2):63-73,
+April,
+1996.
+DOI <a href="http://dx.doi.org/10.1145/232302.232314">10.1145/232302.232314</a>.
+<p><b>Abstract:</b> Many scientific applications for high-performance multiprocessors
+have tremendous I/O requirements. As a result, the I/O system is often the
+limiting factor of application performance. Several new parallel file systems
+have been developed in recent years, each promising better performance for
+some class of parallel applications. As we gain experience with parallel
+computing, and parallel file systems in particular, it becomes increasingly
+clear that a single solution does not suit all applications. For example, it
+appears to be impossible to find a single appropriate interface, caching
+policy, file structure, or disk management strategy. Furthermore, the
+proliferation of file-system interfaces and abstractions make application
+portability a significant problem. <P> We propose that the traditional
+functionality of parallel file systems be separated into two components: a
+fixed core that is standard on all platforms, encapsulating only primitive
+abstractions and interfaces, and a set of high-level libraries to provide a
+variety of abstractions and application-programmer interfaces (APIs). We
+think of this approach as the ``RISC'' of parallel file-system design. <P>
+We present our current and next-generation file systems as examples of this
+structure. Their features, such as a three-dimensional file structure,
+strided read and write interfaces, and I/O-node programs, are specifically
+designed with the flexibility and performance necessary to support a wide
+range of applications.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-flexibility.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-flexibility.pdf">PDF</a> (322K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-flexibility2.html">kotz:flexibility2</a></b>.</p>
+</BODY>
+</HTML>

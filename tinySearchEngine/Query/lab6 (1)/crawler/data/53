@@ -1,0 +1,271 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture04/lecture04.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Activity Lifecycle - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-5---a-very-cool-activity-lifecycle-app-to-play-with">Lecture 5 - A very cool activity lifecycle app to play with</h1>
+<p>The app we have been using to illustrate the lifecycle is written by Google and available here or on the Android development pages. I would like to delve into the code because it nicely illustrates a bunch of interesting things:</p>
+<ul>
+<li>you can see the lifecycle in action</li>
+<li>an app with multiple activities -- 4 in this case</li>
+<li>the use of intents to start activities</li>
+</ul>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Can you workout what happened here?</li>
+<li>The manifest for multiple activities</li>
+<li>Activity A: Launcher activity</li>
+<li>Dialog activity</li>
+<li>UI: The design mode</li>
+<li>UI: Snippet of the xml</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li>Activity lifecycle demonstrator <a href="../code/activitya.zip">activita.zip</a></li>
+</ul>
+<p>This code is taken form android developers <a href="http://developer.android.com/training/basics/activity-lifecycle/index.html">demo</a>. You can download it from our webpage or <a href="http://developer.android.com/training/basics/activity-lifecycle/index.html">Google's Android developers</a>.</p>
+<p>Please import the project into your environment and study the code. Then load it on to your phone and play with it. Isn't it a cool app. A bit geeky granted but cool. It illustrates the theory we discussed in the last lecture beautifully.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Android developers: <a href="http://developer.android.com/training/basics/activity-lifecycle/index.html">Managing the activity lifecycle</a></li>
+<li>Course book section on <a href="http://commonsware.com/Android/">Activities and Their Lifecycles</a></li>
+</ul>
+<h2 id="can-you-workout-what-happened-here">Can you workout what happened here?</h2>
+<p>Activity A is the launcher activity. After which point any activity can start another one. The code activities A, B and C are identical. The dialog activity is different. The project also includes a utility that prints the activity status to the <em>lifecycle method list</em>, which captures the various activity states in terms of transitions for example from</p>
+<pre><code>         * onCreate() -&gt; onStart() -&gt; onResume() -&gt; onStop()</code></pre>
+<p>Take a look at the figure below. You can see that activity B is in focus and activity C was stopped to resume activity B. Can you work out the sequence of buttons the user clicked to get to this output for the activity lifecycle method list and activity status shown below? Mail me your answer.</p>
+<div class="figure">
+<img src="images/guess.png" />
+</div>
+<h2 id="the-manifest-for-multiple-activities">The manifest for multiple activities</h2>
+<pre class="sourceCode java"><code class="sourceCode java">        &lt;activity android:name=<span class="st">&quot;.ActivityA&quot;</span>
+            android:launchMode=<span class="st">&quot;singleTask&quot;</span>&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=<span class="st">&quot;android.intent.action.MAIN&quot;</span> /&gt;
+                &lt;category android:name=<span class="st">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+ 
+        &lt;activity android:name=<span class="st">&quot;.ActivityB&quot;</span> /&gt;
+ 
+        &lt;activity android:name=<span class="st">&quot;.ActivityC&quot;</span> /&gt;
+ 
+        &lt;activity android:name=<span class="st">&quot;.DialogActivity&quot;</span>
+                  android:theme=<span class="st">&quot;@android:style/Theme.Dialog&quot;</span>&gt;
+        &lt;/activity&gt;</code></pre>
+<h2 id="activity-a-launcher-activity">Activity A: Launcher activity</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package com.example.android.lifecycle;</span>
+ 
+<span class="kw">import android.app.Activity;</span>
+<span class="kw">import android.content.Intent;</span>
+<span class="kw">import android.os.Bundle;</span>
+<span class="kw">import android.view.View;</span>
+<span class="kw">import android.widget.TextView;</span>
+ 
+<span class="kw">import com.example.android.lifecycle.util.StatusTracker;</span>
+<span class="kw">import com.example.android.lifecycle.util.Utils;</span>
+ 
+<span class="co">/**</span>
+<span class="co"> * Example Activity to demonstrate the lifecycle callback methods.</span>
+<span class="co"> */</span>
+<span class="kw">public</span> <span class="kw">class</span> ActivityA <span class="kw">extends</span> Activity {
+ 
+    <span class="kw">private</span> String mActivityName;
+    <span class="kw">private</span> TextView mStatusView;
+    <span class="kw">private</span> TextView mStatusAllView;
+    <span class="kw">private</span> StatusTracker mStatusTracker = StatusTracker.<span class="fu">getInstance</span>();
+ 
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">activity_a</span>);
+        mActivityName = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">activity_a</span>);
+        mStatusView = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">status_view_a</span>);
+        mStatusAllView = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">status_view_all_a</span>);
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_create</span>));
+        Utils.<span class="fu">printStatus</span>(mStatusView, mStatusAllView);
+    }
+ 
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onStart</span>() {
+        <span class="kw">super</span>.<span class="fu">onStart</span>();
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_start</span>));
+        Utils.<span class="fu">printStatus</span>(mStatusView, mStatusAllView);
+    }
+ 
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onRestart</span>() {
+        <span class="kw">super</span>.<span class="fu">onRestart</span>();
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_restart</span>));
+        Utils.<span class="fu">printStatus</span>(mStatusView, mStatusAllView);
+    }
+ 
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onResume</span>() {
+        <span class="kw">super</span>.<span class="fu">onResume</span>();
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_resume</span>));
+        Utils.<span class="fu">printStatus</span>(mStatusView, mStatusAllView);
+    }
+ 
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onPause</span>() {
+        <span class="kw">super</span>.<span class="fu">onPause</span>();
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_pause</span>));
+        Utils.<span class="fu">printStatus</span>(mStatusView, mStatusAllView);
+    }
+ 
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onStop</span>() {
+        <span class="kw">super</span>.<span class="fu">onStop</span>();
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_stop</span>));
+    }
+ 
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onDestroy</span>() {
+        <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+        mStatusTracker.<span class="fu">setStatus</span>(mActivityName, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">on_destroy</span>));
+        mStatusTracker.<span class="fu">clear</span>();
+    }
+ 
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">startDialog</span>(View v) {
+        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(ActivityA.<span class="fu">this</span>, DialogActivity.<span class="fu">class</span>);
+        <span class="fu">startActivity</span>(intent);
+    }
+ 
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">startActivityB</span>(View v) {
+        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(ActivityA.<span class="fu">this</span>, ActivityB.<span class="fu">class</span>);
+        <span class="fu">startActivity</span>(intent);
+    }
+ 
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">startActivityC</span>(View v) {
+        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(ActivityA.<span class="fu">this</span>, ActivityC.<span class="fu">class</span>);
+        <span class="fu">startActivity</span>(intent);
+    }
+ 
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">finishActivityA</span>(View v) {
+        ActivityA.<span class="fu">this</span>.<span class="fu">finish</span>();
+    }
+ 
+}</code></pre>
+<p>For most callbacks the the StatusTracker keeps track of the current status and the calls <code>Utils.printStatus(mStatusView, mStatusAllView)</code> to update the method list and activity status. We do not explain or highlight the code in the <code>com.example.android.lifecycle.util</code> package. Feel free to look at it. As java programmers you might make sense of it. But don't worry if you don't.</p>
+<h2 id="dialog-activity">Dialog activity</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package com.example.android.lifecycle;</span>
+ 
+<span class="kw">import android.app.Activity;</span>
+<span class="kw">import android.os.Bundle;</span>
+<span class="kw">import android.view.View;</span>
+<span class="kw">import android.view.Window;</span>
+ 
+<span class="kw">public</span> <span class="kw">class</span> DialogActivity <span class="kw">extends</span> Activity {
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">requestWindowFeature</span>(Window.<span class="fu">FEATURE_NO_TITLE</span>);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">activity_dialog</span>);
+    }
+ 
+    <span class="co">/**</span>
+<span class="co">    * Callback method defined by the View</span>
+<span class="co">    * </span><span class="kw">@param v</span>
+<span class="co">    */</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">finishDialog</span>(View v) {
+        DialogActivity.<span class="fu">this</span>.<span class="fu">finish</span>();
+    }
+}</code></pre>
+<p>If you open the layout folder and click on activity_a.xml you will see the layout for the activity UI. You can look at the UI in graphical or xml mode. The graphical mode is drag and drop widgets but once you get use to designing UIs you start to feel more comfortable editing the xml source directly.</p>
+<h2 id="ui-the-design-mode">UI: The design mode</h2>
+<p>You can toggle between the design and xml text layouts by clicking on the respective buttons, as shown in the figure.</p>
+<div class="figure">
+<img src="images/layout.png" />
+</div>
+<h2 id="ui-snippet-of-the-xml">UI: Snippet of the xml</h2>
+<pre class="sourceCode java"><code class="sourceCode java">    &lt;RelativeLayout
+        xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+        android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+        android:layout_gravity=<span class="st">&quot;center_horizontal&quot;</span>
+        android:orientation=<span class="st">&quot;vertical&quot;</span> &gt;
+ 
+        &lt;Button
+            android:id=<span class="st">&quot;@+id/btn_start_b&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:onClick=<span class="st">&quot;startActivityB&quot;</span>
+            android:text=<span class="st">&quot;@string/btn_start_b_label&quot;</span> /&gt;
+ 
+        &lt;Button
+            android:id=<span class="st">&quot;@+id/btn_start_c&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_toRightOf=<span class="st">&quot;@id/btn_start_b&quot;</span>
+            android:onClick=<span class="st">&quot;startActivityC&quot;</span>
+            android:text=<span class="st">&quot;@string/btn_start_c_label&quot;</span> /&gt;
+ 
+        &lt;Button
+            android:id=<span class="st">&quot;@+id/btn_finish_a&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_toRightOf=<span class="st">&quot;@id/btn_start_c&quot;</span>
+            android:onClick=<span class="st">&quot;finishActivityA&quot;</span>
+            android:text=<span class="st">&quot;@string/btn_finish_a_label&quot;</span> /&gt;
+ 
+        &lt;Button
+            android:id=<span class="st">&quot;@+id/btn_start_dialog&quot;</span>
+            android:layout_width=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_height=<span class="st">&quot;wrap_content&quot;</span>
+            android:layout_toRightOf=<span class="st">&quot;@id/btn_finish_a&quot;</span>
+            android:onClick=<span class="st">&quot;startDialog&quot;</span>
+            android:text=<span class="st">&quot;@string/btn_start_dialog_label&quot;</span> /&gt;
+    &lt;/RelativeLayout&gt;</code></pre>
+<p>The definition of a button in xml is as follows:</p>
+<ul>
+<li>android:id=&quot;@+id/btn_start_dialog&quot; This is an id for the button to you can reference it in the code</li>
+<li>android:layout_width=&quot;wrap_content&quot; The width of the button</li>
+<li>android:layout_height=&quot;wrap_content&quot; The height of the button</li>
+<li>android:layout_toRightOf=&quot;@id/btn_finish_a&quot;</li>
+<li>android:onClick=&quot;startDialog&quot; If the user clicks on this button then this callback is invoked</li>
+<li>android:text=&quot;@string/btn_start_dialog_label&quot; This is the name defined in values/strings.xml</li>
+</ul>
+</body>
+</html>

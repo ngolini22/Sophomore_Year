@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-mHealth-threats.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:mHealth-threats</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>A threat taxonomy for mHealth privacy</b>.
+In
+<i>Proceedings of the Workshop on Networked Healthcare Technology
+(NetHealth)</i>,
+January,
+2011.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2011.5716518">10.1109/COMSNETS.2011.5716518</a>.
+<p><b>Abstract:</b> Networked mobile devices have great potential to enable
+individuals (and their physicians) to better monitor their health and to
+manage medical conditions. In this paper, we examine the privacy-related
+threats to these so-called mHealth technologies. We develop a
+taxonomy of the privacy-related threats, and discuss some of the technologies
+that could support privacy-sensitive mHealth systems. We conclude with a
+brief summary of research challenges.</p>
+<p><a href="bibtex/kotz-mHealth-threats.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-mHealth-threats.pdf">PDF</a> (101K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

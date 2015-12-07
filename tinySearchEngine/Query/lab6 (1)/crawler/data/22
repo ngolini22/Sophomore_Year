@@ -1,0 +1,201 @@
+http://www.cs.dartmouth.edu/%7Eniclane
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nic Lane</title>
+
+<meta name="keywords" content="keywords" />
+
+<meta name="description" content="A little something about Nic Lane." />
+
+<link href="stylesheet.css" rel="stylesheet" type="text/css"  />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32165484-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+<!-- begin background wrapper -->
+<div class="wrapper-background">
+
+<!-- begin main content wrapper -->
+<div class="wrapper-main-content">
+
+
+
+<!-- ################################################################################## -->
+<!-- begin header -->
+<div class="header"><br/><br/>
+
+<!-- begin spaces to align links -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<!-- end spaces to align links -->
+
+<!-- begin links -->
+<!--[<a href="" target="_parent">projects</a>] &nbsp;  [<a href="" target="_parent">publications</a>] &nbsp;  [<a href="" target="_parent">cv</a>] &nbsp; [<a href="" target="_parent">meetings</a>] &nbsp; [<a href="" target="_parent">talks</a>] &nbsp; [<a href="" target="_parent">press</a>]-->
+<!--<div class="top_links">-->
+[<a href="index.html">home</a>] &nbsp;  [<a href="news.html">news</a>] &nbsp; [<a href="papers.html">publications</a>] &nbsp; [<a href="resume_150215.pdf">resume</a>] &nbsp; [<a href="talks.html">talks</a>] &nbsp; [<a href="service.html">service</a>] 
+<!-- </div> -->
+<!-- end links -->
+</div>
+<!-- end header -->
+
+
+<!-- ################################## LEFT COLUMN ################################################ -->
+<!-- ******************* BIO ********************** -->
+
+<!-- begin left main column bio, news, service etc. -->
+<div class="left-column">
+
+<!-- begin vertical spacer for bio -->
+<div style="height:25px"></div>
+<!-- end vertical spacer for bio -->
+
+<!-- begin bio table -->
+<table cellpadding="0px" cellspacing="0px" width="625px">
+<tr>
+<td width="170px"></td>
+<td width"430px" align="justify">
+Since January 2015, I have been a Principal Scientist at <a href='https://www.bell-labs.com'>Bell Labs</a> where I drive the mobile sensing agenda of the broader Internet of Things research activity directed by <a href='http://www.fahim-kawsar.net'>Fahim Kawsar</a>. Before joining Bell Labs, I spent four years at <a href='http://research.microsoft.com/'>Microsoft Research</a> based in Beijing. There I was a Lead Researcher within the <a href='http://research.microsoft.com/en-us/groups/mass/'>Mobile and Sensing Systems group</a> (MASS) led by <a href='http://research.microsoft.com/en-us/um/people/zhao/'>Feng Zhao</a>. In March 2011, I received a Ph.D. from <a href='http://dartmouth.edu'>Dartmouth College</a> under the supervision of <a href='http://www.cs.dartmouth.edu/~campbell/'>Andrew T. Campbell</a> and <a href='http://www.cs.cornell.edu/~tanzeem/'>Tanzeem Choudhury</a>. 
+<p>
+My dissertation pioneered community-guided techniques for learning models of human behavior that enable mobile systems to better cope with diverse user populations encountered in the real-world. More broadly, my research interests revolving around the systems and modelling challenges that arise when computers collect and reason about people-centric sensor data. At heart, I am an experimentalist who likes to build prototype mobile sensing systems based on well-founded computational models. 
+</p>
+<p>
+Please visit my <a href='papers.html'>publications page</a> or <a href='http://scholar.google.com/citations?user=IleoLUgAAAAJ&hl=en'><u>google scholar profile</u></a> to learn more about my work.</p><p> I can be reached at: niclane at acm dot org
+</p>
+</td>
+
+<td width="25px"></td>
+</tr>
+</table>
+<!-- end bio table -->
+
+<!-- begin vertical spacer for bio bottom -->
+<div style="height:20px"></div>
+<!-- end vertical spacer for bio bottom -->
+
+<!-- ******************* NEWS ********************** -->
+
+<div class="acticle-news">
+
+<!-- begin vertical spacer for news -->
+<div style="height:10px"></div>
+<!-- end vertical spacer for bio -->
+
+<!-- begin news table -->
+<table cellpadding="0px" cellspacing="0px" height="*" width="625px">
+<tr>
+	
+<td width="175px"></td>
+<td width"430px">
+	
+<table>				
+			<tr valign='top'>
+			<td width="70px"><b>Mar '15</b></td>
+			<td>
+			ZOE accepted at MobiSyS -- '<a href='pubs/zoe_mobisys.pdf'>ZOE: A Cloud-less Dialog-enabled Continuous Sensing Wearable Exploiting Heterogeneous Computation</a>', collaboration with Cambridge University and Intel Research.
+			</td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr valign='top'>
+			<td width="70px"><b></b></td>
+			<td>
+			Happy to be serving on the PC for <a href='http://sensys.acm.org/2015/'>SenSys 2015</a>. Looking forward to seeing the best in sensing systems in Seoul later in the year. Also Fernando and I (co-PC chairs) want to remind everyone that there are only a few days remaining to submit to <a href='http://mobiquitous.org/2015/show/home'>Mobiquitous 2015</a>! (Due Date: March 13th.) 
+			</td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr valign='top'>
+			<td width="70px"><b>Feb '15</b></td>
+			<td>
+			<a href='http://www.technologyreview.com/news/534736/deep-learning-squeezed-onto-a-phone/'>'Deep Learning Squeezed Onto a Phone'</a> -- MIT Technology Review has featured our on-going work into deep learning for mobile sensing using wearables and smartphones. Article references our preliminary <a href='pubs/lane_hotmobile15.pdf'>HotMobile paper</a>; I can't wait to share our latest work once it is public.
+			</td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr valign='top'>
+			<td width="70px"><b></b></td>
+			<td>
+			I am serving on the PC for two exciting workshops at MobiSys this year: <a href='http://www.ares.smu.edu.sg/wpa15/'>2nd Workshop on Physical Analytics</a> and <a href='https://sites.google.com/site/futuremobileui/'>Future Mobile User Interfaces</a>. Please consider submitting!
+			</td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+
+			<tr valign='top'>
+			<td width="70px"><b>Jan '15</b></td>
+			<td>
+			New changes for the new year: I am delighted to be joining Bell Labs as a Principal Scientist. I will be reporting to <a href='http://www.fahim-kawsar.net'>Fahim Kawsar</a> and shaping the mobile sensing directions of the on-going IoT research activity within the lab. 
+			</td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+
+					<tr valign='top'>
+							<td width="70px"><b></b></td>
+						<td>
+						Two papers accepted into <a href='http://ipsn.acm.org/2015/'>IPSN 2015</a>, the outcome of some of my final projects at MSR: '<a href='pubs/cacs_ipsn.pdf'>Cost-Aware Compressive Sensing for Networked Sensing Systems</a>' and '<a href='pubs/sift_ipsn.pdf'>SIFT: Building an Internet of Safe Things</a>'. Really love the direction of both these pieces of work.
+						</td>
+						</tr>
+						<tr><td></td></tr>
+						<tr><td></td></tr>	
+	
+</table>
+
+</td>
+<td width="25px"></td>
+
+</tr>
+</table>
+<!-- end news table -->
+
+<!-- begin vertical spacer for news bottom -->
+<div style="height:20px"></div>
+<!-- end vertical spacer for news bottom -->
+</div>
+
+<!-- ******************* SERVICE ********************** -->
+
+
+
+</div>
+<!-- end left main  column -->
+
+<!-- #################################### RIGHT COLUMN ############################################## -->
+
+<!-- begin right main column photo and widgets -->
+<div class="right-column"><img src="images/photos/portrait.jpg" />
+
+
+
+</div>
+<!-- end right main column -->
+
+<!-- ################################################################################## -->
+
+<div class="page-bottom-spacer"></div>
+
+</div>
+<!-- end main content wrapper -->
+</div>
+<!-- end background wrapper -->
+
+</body>
+</html>

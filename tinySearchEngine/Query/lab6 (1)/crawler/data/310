@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotay-agents.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotay:agents</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Keith D. Kotay and David Kotz.
+<b>Transportable Agents</b>.
+In
+<i>Proceedings of the CIKM Workshop on Intelligent Information
+Agents, Third International Conference on Information and Knowledge
+Management</i>,
+Gaithersburg, Maryland,
+December,
+1994.
+<p><b>Abstract:</b> As network information resources grow in size, it is often most
+efficient to process queries and updates at the site where the data is
+located. This processing can be accomplished by using a traditional
+client-server network interface, which constrains the client to the set of
+queries supported by the server, or requires the server to send all data to
+the client for processing. The former is inflexible; the latter is
+inefficient. Transportable agents, which support the movement of the client
+computation to the location of the remote resource, have the potential to be
+more flexible and more efficient. Transportable agents are capable of
+suspending their execution, transporting themselves to another host on a
+network, and resuming execution from the point at which they were suspended.
+Transportable agents consume fewer network resources and can support systems
+that do not have permanent network connections, such as mobile computers and
+personal digital assistants. We describe a prototype transportable-agent
+implementation that facilitates research in this area. Agents are written in
+a script language that supports agent relocation, and the language is
+processed at each host by an agent interpreter. Electronic mail is the
+current transport mechanism and we plan to explore others. We present a
+technical-report searching agent as a demonstration of the capabilities of
+our prototype implementation.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/kotay-agents.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotay-agents.pdf">PDF</a> (277K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by the authors.</b></p>
+</BODY>
+</HTML>

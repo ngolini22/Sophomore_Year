@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-dwta-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:dwta-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Robert Gray, and Daniela Rus.
+<b>Future Directions for Mobile-Agent Research</b>.
+Technical Report
+TR2002-415,
+Dartmouth Computer Science,
+January,
+2002.
+Based on a conversation with Jeff Bradshaw, Colin Harrison, Guenter
+Karjoth, Amy Murphy, Gian Pietro Picco, M. Ranganathan, Niranjan Suri, and
+Christian Tschudin.
+<p><b>Abstract:</b> During a discussion in September 2000 the authors examined the
+future of research on mobile agents and mobile code. (A mobile agent is a
+running program that can move from host to host in network at times and to
+places of its own choosing.) In this paper we summarize and reflect on that
+discussion. It became clear that the field should shift its emphasis toward
+mobile code, in all its forms, rather than to continue its narrow focus on
+mobile agents. Furthermore, we encourage the development of modular
+components, so that application designers may take advantage of code mobility
+without needing to rewrite their application to fit in a monolithic
+mobile-agent system. There are many potential applications that may
+productively use mobile code, but there is no ``killer application'' for
+mobile agents. Finally, we note that although security is an important and
+challenging problem, there are many applications and environments with
+security requirements well within the capability of existing mobile-code and
+mobile-agent frameworks.</p>
+<p><b>Keywords:</b> mobile-agent, security, mobile computing</p>
+<p><a href="bibtex/kotz-dwta-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-dwta-tr.pdf">PDF</a> (211K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-dwta.html">kotz:dwta</a></b>.</p>
+</BODY>
+</HTML>

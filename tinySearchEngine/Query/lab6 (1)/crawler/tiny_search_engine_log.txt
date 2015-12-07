@@ -1,0 +1,7 @@
+TEST 1 - wrong number of arguments - OUTPUT:
+Incorrect user input. Either too many or too few arguments. Please try again in the following format:
+[SEED_URL] [TARGET_DIRECTORY] [CRAWL_DEPTH]
+TEST 2 - wrong directory - OUTPUT:
+The directory you chose is not available.
+Running crawler at depth 3...
+Building index from crawler data...

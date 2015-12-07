@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/johnson-metrosec-challenges-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>johnson:metrosec-challenges-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Peter Johnson, Apu Kapadia, David Kotz, and Nikos Triandopoulos.
+<b>People-Centric Urban Sensing: Security Challenges for the New
+Paradigm</b>.
+Technical Report
+TR2007-586,
+Dartmouth Computer Science,
+February,
+2007.
+<p><b>Abstract:</b> We study the security challenges that arise in 
+people-centric urban sensing, a new sensor-networking paradigm that
+leverages humans as part of the sensing infrastructure. Most prior work on
+sensor networks has focused on collecting and processing ephemeral data about
+the environment using a static topology and an application-aware
+infrastructure. People-centric urban sensing, however, involves collecting,
+storing, processing and fusing large volumes of data related to every-day
+human activities. Sensing is performed in a highly dynamic and mobile
+environment, and supports (among other things) pervasive computing
+applications that are focused on enhancing the user's experience. In such a
+setting, where humans are the central focus, there are new challenges for
+information security; not only because of the complex and dynamic
+communication patterns, but also because the data originates from sensors
+that are carried by a person--not a tiny sensor thrown in the forest or
+mounted on the neck of an animal. In this paper we aim to instigate
+discussion about this critical issue--because people-centric sensing will
+never succeed without adequate provisions for security and privacy. To that
+end, we outline several important challenges and suggest general solutions
+that hold promise in this new paradigm of sensor networks.</p>
+<p><b>Keywords:</b> security, privacy, anonymity, sensors, ubicomp</p>
+<p><a href="bibtex/johnson-metrosec-challenges-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././johnson-metrosec-challenges-tr.pdf">PDF</a> (165K)</p>
+<p><b>Copyright &#169;&nbsp;2007 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kapadia-metrosec-challenges.html">kapadia:metrosec-challenges</a></b>.</p>
+</BODY>
+</HTML>

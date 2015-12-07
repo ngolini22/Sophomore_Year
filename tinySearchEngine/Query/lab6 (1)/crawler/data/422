@@ -1,0 +1,54 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-reserv.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:reserv</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song, Udayan Deshpande, Ulas C. Kozat, David Kotz, and Ravi Jain.
+<b>Predictability of WLAN Mobility and its Effects on Bandwidth
+Provisioning</b>.
+In
+<i>Proceedings of the 25th Annual Joint Conference of the IEEE
+Computer and Communications Societies (INFOCOM)</i>,
+Barcelona, Spain,
+April,
+2006.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/INFOCOM.2006.171">10.1109/INFOCOM.2006.171</a>.
+<p><b>Abstract:</b> Wireless local area networks (WLANs) are emerging as a popular
+technology for access to the Internet and enterprise networks. In the long
+term, the success of WLANs depends on services that support mobile network
+clients. <P> Although other researchers have explored mobility prediction in
+hypothetical scenarios, evaluating their predictors analytically or with
+synthetic data, few studies have been able to evaluate their predictors with
+real user mobility data. As a first step towards filling this fundamental
+gap, we work with a large data set collected from the Dartmouth College
+campus-wide wireless network that hosts more than 500 access points and 6,000
+users. Extending our earlier work that focuses on predicting the next-visited
+access point (i.e., location), in this work we explore the predictability of
+the time of user mobility. Indeed, our contributions are two-fold. First, we
+evaluate a series of predictors that reflect possible dependencies across
+time and space while benefiting from either individual or group mobility
+behaviors. Second, as a case study we examine voice applications and the use
+of handoff prediction for advance bandwidth reservation. Using
+application-specific performance metrics such as call drop and call block
+rates, we provide a picture of the potential gains of prediction. <P> Our
+results indicate that it is difficult to predict handoff time accurately,
+when applied to real campus WLAN data. However, the findings of our case
+study also suggest that application performance can be improved significantly
+even with predictors that are only moderately accurate. The gains depend on
+the applications' ability to use predictions and tolerate inaccurate
+predictions. In the case study, we combine the real mobility data with
+synthesized traffic data. The results show that intelligent prediction can
+lead to significant reductions in the rate at which active calls are dropped
+due to handoffs with marginal increments in the rate at which new calls are
+blocked.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/song-reserv.bib">BibTeX</a></p>
+<p><a target=_top href = "././song-reserv.pdf">PDF</a> (735K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

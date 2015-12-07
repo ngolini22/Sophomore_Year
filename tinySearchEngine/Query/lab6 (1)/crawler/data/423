@@ -1,0 +1,52 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-predict.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:predict</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song, David Kotz, Ravi Jain, and Xiaoning He.
+<b>Evaluating location predictors with extensive Wi-Fi mobility
+data</b>.
+In
+<i>Proceedings of the 23rd Annual Joint Conference of the IEEE
+Computer and Communications Societies (INFOCOM)</i>,
+pages 1414-1424,
+March,
+2004.
+DOI <a href="http://dx.doi.org/10.1145/965732.965747">10.1145/965732.965747</a>.
+<p><b>Abstract:</b> Location is an important feature for many applications, and
+wireless networks can better serve their clients by anticipating client
+mobility. As a result, many location predictors have been proposed in the
+literature, though few have been evaluated with empirical evidence. This
+paper reports on the results of the first extensive empirical evaluation of
+location predictors, using a two-year trace of the mobility patterns of over
+6,000 users on Dartmouth's campus-wide Wi-Fi wireless network. <P> We
+implemented and compared the prediction accuracy of several location
+predictors drawn from two major families of domain-independent predictors,
+namely Markov-based and compression-based predictors. We found that low-order
+Markov predictors performed as well or better than the more complex and more
+space-consuming compression-based predictors. Predictors of both families
+fail to make a prediction when the recent context has not been previously
+seen. To overcome this drawback, we added a simple fallback feature to each
+predictor and found that it significantly enhanced its accuracy in exchange
+for modest effort. Thus the Order-2 Markov predictor with fallback was the
+best predictor we studied, obtaining a median accuracy of about 72\% for
+users with long trace lengths. We also investigated a simplification of the
+Markov predictors, where the prediction is based not on the most frequently
+seen context in the past, but the most recent, resulting in significant space
+and computational savings. We found that Markov predictors with this recency
+semantics can rival the accuracy of standard Markov predictors in some cases.
+Finally, we considered several seemingly obvious enhancements, such as
+smarter tie-breaking and aging of context information, and discovered that
+they had little effect on accuracy. The paper ends with a discussion and
+suggestions for further work.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/song-predict.bib">BibTeX</a></p>
+<p><a target=_top href = "././song-predict.pdf">PDF</a> (1910K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/song-predict-tr.html">song:predict-tr</a></b>.</p>
+</BODY>
+</HTML>

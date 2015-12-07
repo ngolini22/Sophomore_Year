@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-market-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:market-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, David Kotz, and Daniela Rus.
+<b>Market-based Resource Control for Mobile Agents</b>.
+Technical Report
+PCS-TR97-326,
+Dartmouth Computer Science,
+December,
+1997.
+<p><b>Abstract:</b> Mobile agents are programs that can migrate from machine to
+machine in a heterogeneous, partially disconnected network. As mobile agents
+move across a network, they consume resources. We discuss a system for
+controlling the activities of mobile agents that uses electronic cash, a
+banking system, and a set of resource managers. We describe protocols for
+transactions between agents. We present fixed-pricing and dynamic-pricing
+policies for resources. We focus on and analyze the sealed-bid second-price
+auction as a mechanism for dynamic pricing.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/bredin-market-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-market-tr.pdf">PDF</a> (344K)</p>
+<p><b>Copyright &#169;&nbsp;1997 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/bredin-market.html">bredin:market</a></b>.</p>
+</BODY>
+</HTML>

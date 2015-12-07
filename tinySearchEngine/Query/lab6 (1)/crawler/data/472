@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-dapple.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:dapple</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>A DAta-Parallel Programming Library for Education
+\mbox(DAPPLE)</b>.
+In
+<i>Proceedings of the Twenty-sixth SIGCSE Technical Symposium on
+Computer Science Education</i>,
+pages 76-81,
+March,
+1995.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/199688.199730">10.1145/199688.199730</a>.
+<p><b>Abstract:</b> In the context of our overall goal to bring the concepts of
+parallel computing into the undergraduate curriculum, we set out to find a
+parallel-programming language for student use. To make it accessible to
+students at all levels, and to be independent of any particular hardware
+platform, we chose to design our own language, based on a data-parallel model
+and on C++. The result, DAPPLE, is a C++ class library designed to provide
+the illusion of a data-parallel programming language on conventional hardware
+and with conventional compilers. DAPPLE defines  Vectors and 
+Matrices as basic classes, with all the usual C++ operators overloaded to
+provide elementwise arithmetic. In addition, DAPPLE provides typical
+data-parallel operations like scans, permutations, and reductions. Finally,
+DAPPLE provides a parallel if-then-else statement to restrict the scope of
+the above operations to partial vectors or matrices.</p>
+<p><b>Keywords:</b> parallel computing, education</p>
+<p><a href="bibtex/kotz-dapple.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-dapple.pdf">PDF</a> (304K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-dapple-tr.html">kotz:dapple-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-jdapple.html">kotz:jdapple</a></b>.</p>
+</BODY>
+</HTML>

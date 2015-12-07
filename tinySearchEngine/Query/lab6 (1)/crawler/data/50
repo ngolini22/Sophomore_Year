@@ -1,0 +1,542 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture15/lecture15.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SQLite Database - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="lecture-15---sqlite-database">Lecture 15 - SQLite Database</h2>
+<p>There are many ways to handle data on mobile devices. Unstructured data such as a jpeg file or html page is best stored in files. Structured or relational data such as your list of contacts is best stored and managed using relational databases. Android supports the very simple and very cool SQLite. In this lecture, we will discuss how to use Android SQLite database through a simple demo project example. We will relate this simple example to the SQLite database you need to design and implement as part of MyRuns3.</p>
+<p>If you've not used SQLite (an industry standard and great for mobiles) before then this should be cool. I have tried to describe the software architecture around three layers: the app layer, data storage layer, and the SQLite layer. Abstraction is heavily leverage in use of SQLite on mobiles such as Android. I love abstraction -- it's a powerful idea and allows you to hide the unnecessary details from the app designer.</p>
+<p>We will also tie databases to Content Providers -- another important tool in the Android toolbox.</p>
+<p>OK. Let's get going...</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Databases and Content Providers</li>
+<li>Database demo app</li>
+<li>Content Values</li>
+<li>Layered architecture</li>
+<li>Cursors</li>
+<li>Performance issues: CursorLoader and asynchronously to cursor data</li>
+<li>The app layer: TestDatabaseActivity</li>
+<li>The data storage layer: CommentsDataSource</li>
+<li>The SQLite layer: finally the SQLiteOpenHelper plumbing exposed!</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li>Simple use of the camera <a href="../code/databasedemo.zip">databasedemo.zip</a>. This demo code is taken from Lars Voglel's tutorial on <a href="http://www.vogella.com/articles/AndroidSQLite/article.html">SQLite</a> and slightly modified to include the delate all option.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>Some excellent references.</p>
+<ul>
+<li><a href="http://www.vogella.com/articles/AndroidSQLite/article.html">Android SQLite Database and ContentProvider Tutorial</a></li>
+<li>Android developers <a href="http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html">sqlite</a>. Contains the SQLite database management classes that an application would use to manage its own private database.</li>
+<li><a href="http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html">SQLiteOpenHelper</a> a helper class to manage database creation and version management.</li>
+<li>Course book section on <a href="http://commonsware.com/Android/">SQLite Databases</a> page 453</li>
+<li><a href="http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html">SQLite Tutorial</a></li>
+</ul>
+<h2 id="databases-and-content-providers">Databases and Content Providers</h2>
+<p>Every Android app that wants to store structured data (e.g., contact information, march madness bracket) needs to create its own <em>private</em> database that the app creates and manages by itself. The database access is restricted to the app that created it. If any application wanted to share SQLite its data (e.g., contact list) with other applications running in your phone it would use <a href="http://developer.android.com/guide/topics/providers/content-providers.html">Content Providers</a> -- content providers provide a uniform way to store, share and consume structured between applications but also within a single application (yes you set up an SQLite database and wrap it in a content provider to manage data). Importantly, content providers provide a generic interface to a data source by decoupling the data storage layer (the app's database) from the application layer. So the application talks content provider language and is unaware of how data is stored or the internals of the database -- it abstracts the data source and provides management APIs to the data. The database plumbing is of little interest to applications, they just want to get the data and manage it in the app domain. More on content providers in the next lecture; let's get back to databases.</p>
+<p>SQLite is a transactional database engine which is lightweight: in overhead, fast performance, small footprint and implemented as a c library. When an application creates a private database it is stored in the following folder on your phone -- but you have to root your phone to see it:</p>
+<pre><code>    /data/data/&lt;package-name&gt;/database</code></pre>
+<h2 id="database-demo-app">Database demo app</h2>
+<p>The application simply allows the user to add canned comments to the database and display them to the UI. Comments can be added one at a time, deleted (from the top) one at a time or all comments can be deleted. So <em>comment</em> is the main object that the user deals with.</p>
+<p>The application is very simple but allows us to understand how the database is set up and accessed. When the application first starts up there is not existing database so it displays no items. As the user adds and deletes items (i.e., comment) the UI reflects that. Finally, the user can delete all items in the data base. These various steps are shown in the screen dumps below of the app.</p>
+<div class="figure">
+<img src="images/app.png" />
+</div>
+<p>The first image represents the app when it is first installed and started. No database items have been stored. The next iteration is when the user has tapped the <strong>add new</strong> button a number of times and as a result a number of items have been (randomly selected) <em>inserted</em> in the database and rendered to a listview from the array below. Next, the user tapped on <strong>delete first</strong> once and the top item is <em>deleted</em> from the database and removed from the listview.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            String[] comments = <span class="kw">new</span> String[] { <span class="st">&quot;England&quot;</span>, <span class="st">&quot;Dartmouth&quot;</span>, <span class="st">&quot;CS65&quot;</span>,
+                    <span class="st">&quot;is&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;best&quot;</span>, <span class="st">&quot;coolest&quot;</span>, <span class="st">&quot;place&quot;</span>, <span class="st">&quot;in&quot;</span>, <span class="st">&quot;the&quot;</span>,
+                    <span class="st">&quot;universe!&quot;</span> };</code></pre>
+<p>Next, the app is destroyed and then restarted. When the app is started again it shows the state of the database when it was last closed. In this case there are a number of items still in the database.</p>
+<div class="figure">
+<img src="images/app2.png" />
+</div>
+<h2 id="systems-design">Systems Design</h2>
+<p>While the app is very simple the plumbing around constructing a database is complex at first. The layered architecture is shown i the figure below. The operation on the SQLite database is wrapped in a few layers of abstraction. I view these layers as follows:</p>
+<ul>
+<li><strong>app layer</strong> -- just deals with comments and the UI</li>
+<li><strong>data storage layer</strong> -- application specific and deals with creating the database and operations on it but these are still database independent.</li>
+<li><strong>SQLIte layer</strong> -- this deals with all the plumbing and database</li>
+<li>specific operations through a <strong>db helper</strong></li>
+</ul>
+<p>You won't see these layers necessarily like this in the literature but I think it helps explain the architecture and operations. There is a separation of concerns: the app deals with objects that matter to it, i.e., comments; and the lower layers deal with storage of data, and eventually the detail operations of an SQL database. You want to hide these details from the user. For example, I'm sure you are thinking -- why make this so hard? Why not have the app reach down into the SQLite code and just leave it like that. But we use abstraction -- of layering -- to hid the grubby details from the app layer.</p>
+<div class="figure">
+<img src="images/design.png" />
+</div>
+<h2 id="content-values-and-cursors">Content Values and Cursors</h2>
+<p>The Android framework provides two classes that support database interaction -- helps with the plumbing; these are content values and cursors.</p>
+<p>Typically an app with want to store relational data -- a set of data such a contact information (e.g., name, phone number, email address). This relational information will be stored as a row with three columns for each entry. One can view the table as a bunch of rows and columns:</p>
+<pre><code>ID  NAME            PHONE               EMAIL
+01 Andy Campbell    603 717 1111        campbell@cs.dartmouth.edu
+02 Fred Campbell    603 717 1111        campbell@cs.dartmouth.edu
+03 Jane Campbell    603 717 1111        campbell@cs.dartmouth.edu
+04 Bill Campbell    603 717 1111        campbell@cs.dartmouth.edu
+</code></pre>
+<p>The ID is not part of the contact necessarily but used to index the data -- not important at the app layer, but at the data storage layer. Wow that is a lot of Campbells.</p>
+<p><a href="http://developer.android.com/reference/android/content/ContentValues.html">Content values</a> are used to insert a new row into the data base: 5 Mary Campbell 603 717 2479 campbell@cs.dartmouth.edu. So the resulting database would look like this:</p>
+<pre><code>ID  NAME            PHONE               EMAIL
+01 Andy Campbell    603 717 1111        campbell@cs.dartmouth.edu
+02 Fred Campbell    603 717 1111        campbell@cs.dartmouth.edu
+03 Jane Campbell    603 717 1111        campbell@cs.dartmouth.edu
+04 Bill Campbell    603 717 1111        campbell@cs.dartmouth.edu
+05 Mary Campbell    603 717 1111        campbell@cs.dartmouth.edu
+</code></pre>
+<h2 id="content-values">Content Values</h2>
+<p>Importantly each content value object represents a single table row and maps the column names to values. For example, if we jump a head into the data storage layer we'd see the following code that uses <em>ContentValues</em> and <em>Cursors</em>. In the code below the application wants to insert a new row into the database -- in the case of our application this is an application specific <em>comment</em>.</p>
+<p>createComment() is called with a single comment (e.g., Dartmouth). A ContentValues object is created to store the complete row which includes the comment only -- but in our contact example above would be NAME, PHONE, EMAIL -- they'd all be loaded into <em>values</em> below.</p>
+<p><strong>Tip:</strong> Note, in MyRuns3 where you build a database. It will have a table of exercises. Each row will include a number of different items (under some column) -- for example: activityType, dateTime, duration, distance, avgPace, avgSpeed, calorie, heart rate, comment. Consider this row an <em>ExerciseEntry</em> -- which compares in this simple example to the Comment object. When you insert in the database you will be adding an ExerciseEntry object. When you query you might get one or more ExerciseEntry objects. Point is: your database code will be much more complex than this simple example. But it will use content values and cursors in the same manner as discussed here.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> Comment <span class="fu">createComment</span>(String comment) {
+        ContentValues values = <span class="kw">new</span> <span class="fu">ContentValues</span>();
+        values.<span class="fu">put</span>(MySQLiteHelper.<span class="fu">COLUMN_COMMENT</span>, comment);
+        <span class="dt">long</span> insertId = database.<span class="fu">insert</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>, <span class="kw">null</span>,
+                values);
+        Cursor cursor = database.<span class="fu">query</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>,
+                allColumns, MySQLiteHelper.<span class="fu">COLUMN_ID</span> + <span class="st">&quot; = &quot;</span> + insertId, <span class="kw">null</span>,
+                <span class="kw">null</span>, <span class="kw">null</span>, <span class="kw">null</span>);
+        cursor.<span class="fu">moveToFirst</span>();
+        Comment newComment = <span class="fu">cursorToComment</span>(cursor);
+
+        cursor.<span class="fu">close</span>();
+        <span class="kw">return</span> newComment;
+    }</code></pre>
+<p>Once the comment is loaded into the content values the insert operation is called on the SQLite layer.</p>
+<h2 id="cursors">Cursors</h2>
+<p>As you can see from the snippet of code above the code inserts a comment -- the parameters passed include <em>values</em>, which is the content values object) -- and the immediately reads back what is written (paranoid code). The query on the database returns a <strong>cursor</strong> which includes the comment object inserted. Note, the insertId returned by the database.insert() is passed as part of the database.query(). A general comment on cursors: they can contain a single row or the complete table (all rows). In addition, cursors are not copies of the database but serve as pointers to the results set provided by the underlying layer.</p>
+<p>As you see from the snippet there is control over navigation of the cursor -- see <em>cursor.moveToFirst()</em> in the code. This method provides a managed way to move to the first element in the cursor -- recall there could be many rows returned and cursor.moveToFirst() moves the position of the cursor to the first row. There are a number of <a href="http://developer.android.com/reference/android/database/Cursor.html">navigation methods</a> but here are some commonly used ones:</p>
+<ul>
+<li>move(int offset) - move the cursor by a relative amount, forward or backward, from the current position.</li>
+<li>moveToFirst() - move the cursor to the first row</li>
+<li>moveToLast() - move the cursor to the last row.</li>
+<li>moveToNext() - move the cursor to the next row.</li>
+<li>moveToPosition(int position) - move the cursor to an absolute position.</li>
+<li>moveToPrevious() - move the cursor to the previous row.</li>
+</ul>
+<p>Other important methods very useful for interacting with cursor objects include:</p>
+<ul>
+<li>getPosition() - returns the current position of the cursor in the row set.</li>
+<li>getCount() - returns the numbers of rows in the cursor.</li>
+<li>getColumnNames() - returns a string array holding the names of all of the columns in the result set in the order in which they were listed in the result.</li>
+<li>getColumnIndexOrThrow(String columnName) - returns the zero-based index for the given column name, or throws IllegalArgumentException if the column doesn't exist.</li>
+<li>getColumnCount() - return total number of columns</li>
+</ul>
+<p>And finally important control methods on the object:</p>
+<ul>
+<li>close() - closes the Cursor, releasing all of its resources and making it completely invalid.</li>
+</ul>
+<p>In our code snippet we simply move the cursor to the first row (cursor.moveToFirst()) and the call a helper function that extracts the cursor information and instantiates an comment object that includes the now application specific information.</p>
+<h2 id="performance-issues-cursorloader-and-asynchronously-to-cursor-data">Performance issues: CursorLoader and asynchronously to cursor data</h2>
+<p>Because it takes time to interact with a database in storage and you <em>do not</em> want to block the UI (while the code gets a potentially large amount of data back from the database) there are some clever optimizations that relate to creating threads to go off and wait for the data to be loaded into the cursor -- and only when the data is available in the cursor does the main UI code step back in. Android provides the means to <em>asynchronously</em> read from the database. The <a href="http://developer.android.com/reference/android/content/CursorLoader.html">CursorLoader</a> associated with the Load Manager provides such an asynchronous mechanism.</p>
+<p>In short, the CursorLoader uses a <a href="http://developer.android.com/reference/android/content/ContentResolver.html">ContentResolver</a> and returns a Cursor. The CursorLoader implements the loader protocol in a standard way for querying cursors, building on AsyncTaskLoader to perform the cursor query on a background thread so that it does not block the application's UI. ContentResolver are a mechanism accessing shared content associated with Content Providers. We will discuss this in the next lecture -- or so.</p>
+<h2 id="the-app-layer-testdatabaseactivity">The App Layer: TestDatabaseActivity</h2>
+<p>In what follows we describe the top level app that drives the UI (and therefore user input) and interacts with a database created in the onCreate() method. We discuss the user IO and lifecycle methods associated with the launched activity that drives and managed the user interaction and the data store (at an abstract level: note, there is not exposure to the details of the database structure, it could be any sort of database -- file, SQL, something else). So the key design issue here is that the details of the database implementation (storage layer) is abstracted from the app layer. This is cool because you could, if you wanted, completely replace the database implementation defined by the storage layer.</p>
+<h3 id="creating-the-database">Creating the database</h3>
+<p>TestDatabaseActivity is the application code and the UI (shown above) simply provides three buttons and a listview which is mapped to a simple_list_item_1. When the activity is launched it's onCreate() method creates the database and then opens it. All items (in this case comments) are then read from the database into a list. The list is then bound to the listview using an adapter. The comments are then rendered to the view when the list adapter is set.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> TestDatabaseActivity <span class="kw">extends</span> ListActivity {
+    <span class="kw">private</span> CommentsDataSource datasource;
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+
+        datasource = <span class="kw">new</span> <span class="fu">CommentsDataSource</span>(<span class="kw">this</span>);
+        datasource.<span class="fu">open</span>();
+
+        List&lt;Comment&gt; values = datasource.<span class="fu">getAllComments</span>();
+
+        <span class="co">// Use the SimpleCursorAdapter to show the</span>
+        <span class="co">// elements in a ListView</span>
+        ArrayAdapter&lt;Comment&gt; adapter = <span class="kw">new</span> ArrayAdapter&lt;Comment&gt;(<span class="kw">this</span>,
+                android.<span class="fu">R</span>.<span class="fu">layout</span>.<span class="fu">simple_list_item_1</span>, values);
+        <span class="fu">setListAdapter</span>(adapter);
+    }</code></pre>
+<h3 id="setting-up-the-ui-and-onclick-callback">Setting up the UI and onClick() callback</h3>
+<p>All the buttons in the UI use the same onClick() callback. There is a switch statement for each of the three buttons: add, delete and delete all.</p>
+<p>In the case of &quot;add new&quot; the app randomly selects a comment and adds the new comment to the database using datasource.createComment(comments[nextInt]). The datasource.createComment method returns the comment that was successfully written to the database. The code then adds the new comment to the adapter. The adapter is notify that the data set if changed and updates the UI using the adapter.notifyDataSetChanged() method.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(View view) {
+        @<span class="fu">SuppressWarnings</span>(<span class="st">&quot;unchecked&quot;</span>)
+        ArrayAdapter&lt;Comment&gt; adapter = (ArrayAdapter&lt;Comment&gt;) <span class="fu">getListAdapter</span>();
+        Comment comment = <span class="kw">null</span>;
+        <span class="kw">switch</span> (view.<span class="fu">getId</span>()) {
+        <span class="kw">case</span> R.<span class="fu">id</span>.<span class="fu">add</span>:
+            String[] comments = <span class="kw">new</span> String[] { <span class="st">&quot;England&quot;</span>, <span class="st">&quot;Dartmouth&quot;</span>, <span class="st">&quot;CS65&quot;</span>,
+                    <span class="st">&quot;is&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;best&quot;</span>, <span class="st">&quot;coolest&quot;</span>, <span class="st">&quot;place&quot;</span>, <span class="st">&quot;in&quot;</span>, <span class="st">&quot;the&quot;</span>,
+                    <span class="st">&quot;universe!&quot;</span> };
+            <span class="dt">int</span> nextInt = <span class="kw">new</span> Random().<span class="fu">nextInt</span>(<span class="dv">9</span>);
+            <span class="co">// Save the new comment to the database</span>
+            comment = datasource.<span class="fu">createComment</span>(comments[nextInt]);
+            adapter.<span class="fu">add</span>(comment);
+            <span class="kw">break</span>;
+        <span class="kw">case</span> R.<span class="fu">id</span>.<span class="fu">delete</span>:
+            <span class="kw">if</span> (<span class="fu">getListAdapter</span>().<span class="fu">getCount</span>() &gt; <span class="dv">0</span>) {
+                comment = (Comment) <span class="fu">getListAdapter</span>().<span class="fu">getItem</span>(<span class="dv">0</span>);
+                datasource.<span class="fu">deleteComment</span>(comment);
+                adapter.<span class="fu">remove</span>(comment);
+            }
+            <span class="kw">break</span>;
+        <span class="kw">case</span> R.<span class="fu">id</span>.<span class="fu">deleteall</span>:
+            <span class="kw">if</span> (<span class="fu">getListAdapter</span>().<span class="fu">getCount</span>() &gt; <span class="dv">0</span>) {
+                datasource.<span class="fu">deleteAllComments</span>();
+                adapter.<span class="fu">clear</span>();
+            }
+            <span class="kw">break</span>;
+        }
+        adapter.<span class="fu">notifyDataSetChanged</span>();
+    }</code></pre>
+<p>In the case of &quot;delete first&quot; the app will delete the first item in the database. The delete code simply checks that the database is not empty and then gets the first comment from the list adapter and calls datasource.deleteComment(comment) to remove the comment from the database. Finally, the comment is removed from the adapter. Again, adapter.notifyDataSetChanged() updates the UI.</p>
+<p>In the case of &quot;delete all&quot; the code simply checks the database is not empty and then issues a datasource.deleteAllComments(). The adapter is then cleared and notified on the change.</p>
+<h3 id="activity-lifecycle-processing">Activity lifecycle processing</h3>
+<p>The final part if the TestDatabaseActivity app code includes code for the onResume() and onPause() lifecycle events. In the case of onPause() the database is closed. In the case of onResume() the database is opened. Recall that onPause/onResume are used to release resources used by the application and then reinitialize when the application is brought back into focus.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onResume</span>() {
+        datasource.<span class="fu">open</span>();
+        <span class="kw">super</span>.<span class="fu">onResume</span>();
+    }
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onPause</span>() {
+        datasource.<span class="fu">close</span>();
+        <span class="kw">super</span>.<span class="fu">onPause</span>();    
+      }</code></pre>
+<h3 id="app-specific-data-storage-object-comment">App specific data storage object: comment</h3>
+<p>The application simply allows the user to add canned comments to the database and display them to the UI. Comments can be added one at a time, deleted (from the top) one at a time or all comments can be deleted. So <em>comment</em> is the main object that the user deals with. The Comment class includes getters/setters for id and comment. Every time a comment needs to be added a Comment is instantiated. The Comment class is the app model and contains the data that is inserted, queried and deleted in the database. Comments are also shown in the UI.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Comment {
+    <span class="kw">private</span> <span class="dt">long</span> id;
+    <span class="kw">private</span> String comment;
+
+    <span class="kw">public</span> <span class="dt">long</span> <span class="fu">getId</span>() {
+        <span class="kw">return</span> id;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setId</span>(<span class="dt">long</span> id) {
+        <span class="kw">this</span>.<span class="fu">id</span> = id;
+    }
+
+    <span class="kw">public</span> String <span class="fu">getComment</span>() {
+        <span class="kw">return</span> comment;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setComment</span>(String comment) {
+        <span class="kw">this</span>.<span class="fu">comment</span> = comment;
+    }
+
+    <span class="co">// Will be used by the ArrayAdapter in the ListView</span>
+    @Override
+    <span class="kw">public</span> String <span class="fu">toString</span>() {
+        <span class="kw">return</span> comment;
+    }
+}</code></pre>
+<h2 id="the-data-storage-layer-commentsdatasource">The data storage layer: CommentsDataSource</h2>
+<p>CommentsDataSource maintains the database connection and supports adding, fetching and deleting comments. CommentsDataSource creates the MySQLiteHelper class which details with the actual SQLite database. Very little of the internal details of the SQLite layer are exposed to the data storage layer, as you can see in the code below. The database constants such as the column names are exposed; in our case just one column name: COLUMN_COMMENT and the column ID: COLUMN_ID. These database constants are made public by the SQLite layer discussed in the next section. These public constants are needed for inserting and querying comment objects in the database.</p>
+<h3 id="constructor">Constructor</h3>
+<p>The CommentsDataSource constructor creates the database. It first creates a db helper MySQLiteOpenHelper to deal with operations on the database. After the db helper is created the constructor opens the database, as shown the code below.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">open</span>() <span class="kw">throws</span> SQLException {
+        database = dbHelper.<span class="fu">getWritableDatabase</span>();
+    }</code></pre>
+<p>The database is a <a href="http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html">SQLiteDatabase</a> object, exposing methods to manage a SQLite database. SQLiteDatabase has methods to create, delete, execute SQL commands, and perform other common database management tasks.</p>
+<p>The code calls <em>getWritableDatabase()</em> to open and obtain a writable instance of the underlying database using the db helper implemented in the SQLite layer. If the database does not exist the helper executes its onCreate() handler -- see MySQLiteHelper code. Whether the database has already been created or not the getWritableDatabase() returns a reference to the database.</p>
+<p>When a database has been opened successfully for the first time it will be cached by the MySQLiteHelper within MySQLiteHelper. If there is an exception in trying to open the database due to an error with SQL parsing or execution then an <a href="http://developer.android.com/reference/java/sql/SQLException.html">SQLException</a> is thrown.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> CommentsDataSource {
+
+    <span class="co">// Database fields</span>
+    <span class="kw">private</span> SQLiteDatabase database;
+    <span class="kw">private</span> MySQLiteHelper dbHelper;
+    <span class="kw">private</span> String[] allColumns = { MySQLiteHelper.<span class="fu">COLUMN_ID</span>,
+            MySQLiteHelper.<span class="fu">COLUMN_COMMENT</span> };
+
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String TAG = <span class="st">&quot;DBDEMO&quot;</span>;
+
+    <span class="kw">public</span> <span class="fu">CommentsDataSource</span>(Context context) {
+        dbHelper = <span class="kw">new</span> <span class="fu">MySQLiteHelper</span>(context);
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">open</span>() <span class="kw">throws</span> SQLException {
+        database = dbHelper.<span class="fu">getWritableDatabase</span>();
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">close</span>() {
+        dbHelper.<span class="fu">close</span>();
+    }</code></pre>
+<h3 id="app-specific-operations-on-storage-insert-and-deleting-comments">App specific operations on storage: insert and deleting comments</h3>
+<p>The data storage layer also provides the key operations on the database in terms of the application specific data object, in our case: comments. These operations are:</p>
+<ul>
+<li>createComment(String comment), which inserts a comment in the database as a content values. This method also issues a query to read back what was written.</li>
+<li>deleteComment(Comment comment), which deletes a comment</li>
+<li>deleteAllComments(), empties the database.</li>
+<li>getAllComments() , which gets all the comments</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> Comment <span class="fu">createComment</span>(String comment) {
+        ContentValues values = <span class="kw">new</span> <span class="fu">ContentValues</span>();
+        values.<span class="fu">put</span>(MySQLiteHelper.<span class="fu">COLUMN_COMMENT</span>, comment);
+        <span class="dt">long</span> insertId = database.<span class="fu">insert</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>, <span class="kw">null</span>,
+                values);
+        Cursor cursor = database.<span class="fu">query</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>,
+                allColumns, MySQLiteHelper.<span class="fu">COLUMN_ID</span> + <span class="st">&quot; = &quot;</span> + insertId, <span class="kw">null</span>,
+                <span class="kw">null</span>, <span class="kw">null</span>, <span class="kw">null</span>);
+        cursor.<span class="fu">moveToFirst</span>();
+        Comment newComment = <span class="fu">cursorToComment</span>(cursor);
+
+        <span class="co">// Log the comment stored</span>
+        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;comment = &quot;</span> + <span class="fu">cursorToComment</span>(cursor).<span class="fu">toString</span>()
+                + <span class="st">&quot; insert ID = &quot;</span> + insertId);
+
+        cursor.<span class="fu">close</span>();
+        <span class="kw">return</span> newComment;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">deleteComment</span>(Comment comment) {
+        <span class="dt">long</span> id = comment.<span class="fu">getId</span>();
+        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;delete comment = &quot;</span> + id);
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Comment deleted with id: &quot;</span> + id);
+        database.<span class="fu">delete</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>, MySQLiteHelper.<span class="fu">COLUMN_ID</span>
+                + <span class="st">&quot; = &quot;</span> + id, <span class="kw">null</span>);
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">deleteAllComments</span>() {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Comment deleted all&quot;</span>);
+        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;delete all = &quot;</span>);
+        database.<span class="fu">delete</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>, <span class="kw">null</span>, <span class="kw">null</span>);
+    }   </code></pre>
+<p>Each of these application specific operations translate to specific operations on the database including relating to a single comment:</p>
+<ul>
+<li>database.insert(MySQLiteHelper.TABLE_COMMENTS, null, values);</li>
+<li>database.query(MySQLiteHelper.TABLE_COMMENTS, allColumns, MySQLiteHelper.COLUMN_ID + &quot; = &quot; + insertId, null, null, null, null);</li>
+<li>database.delete(MySQLiteHelper.TABLE_COMMENTS, MySQLiteHelper.COLUMN_ID + &quot; = &quot; + id, null);</li>
+</ul>
+<p>and an operation on the complete database, in this case delete all comments and get all comments (as shown in the snippet code below):</p>
+<ul>
+<li>database.delete(MySQLiteHelper.TABLE_COMMENTS, null, null);</li>
+<li>database.query(MySQLiteHelper.TABLE_COMMENTS, allColumns, null, null, null, null, null);</li>
+</ul>
+<p>The code snippet below reads all comments from the database. The cursorToComment() method simply creates a comment from a cursor object and copies the string over. The getAllComments() is called by the launched activity -- TestDatabaseActivity -- to render the comments in the database to the UI when the activity is restarted after being destroyed or resumed.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> List&lt;Comment&gt; <span class="fu">getAllComments</span>() {
+        List&lt;Comment&gt; comments = <span class="kw">new</span> ArrayList&lt;Comment&gt;();
+
+        Cursor cursor = database.<span class="fu">query</span>(MySQLiteHelper.<span class="fu">TABLE_COMMENTS</span>,
+                allColumns, <span class="kw">null</span>, <span class="kw">null</span>, <span class="kw">null</span>, <span class="kw">null</span>, <span class="kw">null</span>);
+
+        cursor.<span class="fu">moveToFirst</span>();
+        <span class="kw">while</span> (!cursor.<span class="fu">isAfterLast</span>()) {
+            Comment comment = <span class="fu">cursorToComment</span>(cursor);
+            Log.<span class="fu">d</span>(TAG, <span class="st">&quot;get comment = &quot;</span> + <span class="fu">cursorToComment</span>(cursor).<span class="fu">toString</span>());
+            comments.<span class="fu">add</span>(comment);
+            cursor.<span class="fu">moveToNext</span>();
+        }
+        <span class="co">// Make sure to close the cursor</span>
+        cursor.<span class="fu">close</span>();
+        <span class="kw">return</span> comments;
+    }
+
+    <span class="kw">private</span> Comment <span class="fu">cursorToComment</span>(Cursor cursor) {
+        Comment comment = <span class="kw">new</span> Comment();
+        comment.<span class="fu">setId</span>(cursor.<span class="fu">getLong</span>(<span class="dv">0</span>));
+        comment.<span class="fu">setComment</span>(cursor.<span class="fu">getString</span>(<span class="dv">1</span>));
+        <span class="kw">return</span> comment;
+    }
+}</code></pre>
+<h3 id="database-operations">Database operations</h3>
+<p>The definition of the operations discussed above can be found in the <a href="http://developer.android.com/reference/android/database/sqlite/SQLiteDatabase.html#queryjava.lang.String,%20java.lang.String[],%20java.lang.String,%20java.lang.String[],%20java.lang.String,%20java.lang.String,%20java.lang.String">SQLiteDatabase</a>. For example consider:</p>
+<p><strong>database.query(MySQLiteHelper.TABLE_COMMENTS, allColumns, null, null, null, null, null);</strong></p>
+<p>The definition of the method and the parameters are as follows:</p>
+<p><strong>public Cursor query (String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy)</strong></p>
+<p>Query the given table, returning a Cursor over the result set. The definition of the parameters are as follows:</p>
+<ul>
+<li><strong>table</strong> The table name to compile the query against.</li>
+<li><strong>columns</strong> A list of which columns to return. Passing null will return all columns, which is discouraged to prevent reading data from storage that isn't going to be used.</li>
+<li><strong>selection</strong> A filter declaring which rows to return, formatted as an SQL WHERE clause (excluding the WHERE itself). Passing null will return all rows for the given table.</li>
+<li><strong>selectionArgs</strong> You may include ?s in selection, which will be replaced by the values from selectionArgs, in order that they appear in the selection. The values will be bound as Strings.</li>
+<li><strong>groupBy</strong> A filter declaring how to group rows, formatted as an SQL GROUP BY clause (excluding the GROUP BY itself). Passing null will cause the rows to not be grouped.</li>
+<li><strong>having</strong> A filter declare which row groups to include in the cursor, if row grouping is being used, formatted as an SQL HAVING clause (excluding the HAVING itself). Passing null will cause all row groups to be included, and is required when row grouping is not being used.</li>
+<li><strong>orderBy</strong> How to order the rows, formatted as an SQL ORDER BY clause (excluding the ORDER BY itself). Passing null will use the default sort order, which may be unordered.</li>
+<li><strong>limit</strong> Limits the number of rows returned by the query, formatted as LIMIT clause. Passing null denotes no LIMIT clause.</li>
+</ul>
+<p>Here is another what to view the <a href="http://www.vogella.com/tutorials/AndroidSQLite/article.html">schema syntax</a> that I think is clean:</p>
+<div class="figure">
+<img src="images/table.png" />
+</div>
+<p>The limit argument is not shown in the table but is shown in the code below and <a href="http://www.mysamplecode.com/2011/10/android-sqlite-query-example-selection.html">described here</a>. In the example below the &quot;where&quot; statement is: &quot;run_Id=10&quot;. Because we specify placeholder values in the where clause using ``?'' we have to pass the selectionArgs parameter as well -- that is, new String[]{ String.valueOf(id) }</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String COLUMN_LOCATION_RUN_ID = <span class="st">&quot;run_id&quot;</span>;
+    <span class="fu">query</span>(<span class="dv">10</span>); <span class="co">// only hard coded for illustration</span>
+    .....
+
+    <span class="kw">public</span> RunCursor <span class="fu">queryRun</span>(<span class="dt">long</span> id) {
+        Cursor wrapped = <span class="fu">getReadableDatabase</span>().<span class="fu">query</span>(TABLE_RUN, 
+                <span class="kw">null</span>, <span class="co">// all columns </span>
+                COLUMN_RUN_ID + <span class="st">&quot; = ?&quot;</span>, <span class="co">// look for a run ID</span>
+                <span class="kw">new</span> String[]{ String.<span class="fu">valueOf</span>(id) }, <span class="co">// with this value</span>
+                <span class="kw">null</span>, <span class="co">// group by</span>
+                <span class="kw">null</span>, <span class="co">// having</span>
+                <span class="kw">null</span>, <span class="co">// Order by</span>
+                <span class="st">&quot;1&quot;</span>); <span class="co">// limit 1 row</span>
+        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">RunCursor</span>(wrapped);
+    }</code></pre>
+<h2 id="the-sqlite-layer-finally-the-sqliteopenhelper-plumbing-exposed">The SQLite layer: finally the SQLiteOpenHelper plumbing exposed!</h2>
+<p>The MySQLiteHelper (which extends SQLiteOpenHelper) implements the helper class to manage database creation and version management. It implements onCreate() and onUpgrade() to take care of opening the database if it exists, creating it if it does not, and upgrading it as necessary. Transactions are used to make sure the database is always in a sensible state (e.g., database.execSQL(DATABASE_CREATE)).</p>
+<h3 id="creating-the-sqlite-database">Creating the SQLite database</h3>
+<p>Specifically the methods are:</p>
+<ul>
+<li>onCreate(SQLiteDatabase database) is called when the database is created for the first time. This is where the creation of tables and the initial population of the tables should happen.</li>
+<li>onUpgrade(SQLiteDatabse database, int oldVersion, int newVersion) is invoked when we make a major modification to the database such drop tables, add tables, or do anything else it needs to upgrade to the new schema version.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(SQLiteDatabase database) {
+        database.<span class="fu">execSQL</span>(DATABASE_CREATE);
+    }</code></pre>
+<p>The onCreate() method is invoked when the database is created for the <em>first time</em>. It calls database.execSQL(DATABASE_CREATE) to create the database. Note that the DATABASE_CREATE captures the SQL database schema for this app:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="co">// Database creation sql statement</span>
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String DATABASE_CREATE = <span class="st">&quot;create table &quot;</span>
+            + TABLE_COMMENTS + <span class="st">&quot;(&quot;</span> + COLUMN_ID
+            + <span class="st">&quot; integer primary key autoincrement, &quot;</span> + COLUMN_COMMENT
+            + <span class="st">&quot; text not null);&quot;</span>;</code></pre>
+<p>We create the table and specify the columns which is simply ID and a comment. Importantly, this method is invoked when the database does not exist on the disk. Therefore it is only ever called once. After that the database only needs to be opened and not created each time the app runs -- make sense.</p>
+<h3 id="sqlite-create-table-syntax">SQLite create table syntax</h3>
+<p>The syntax for the SQLite create table looks a little odd first time you see it. The &quot;CREATE TABLE&quot; command is used to create a new table in an SQLite database -- see <a href="http://www.sqlite.org/lang_createtable.html">create table</a> for details. I am looking for a better reference that explains the table.</p>
+<ul>
+<li>&quot;create table &quot; is the command issued</li>
+<li>TABLE_COMMENTS is the name of the table</li>
+</ul>
+<p>for each column we need to specify</p>
+<ol style="list-style-type: decimal">
+<li>The name of each column in the table.</li>
+<li>The declared type of each column in the table.</li>
+</ol>
+<p>In our example, we have two columns only the first is the</p>
+<p>COLUMN_ID and we declare the type as &quot;integer primary key autoincrement&quot; meaning it starts from 0 and increments up as we add entries to the table. Similarly each COLUMN_ID will have a COLUMN_COMMENT and we declared type of the column to be &quot;text not null&quot;</p>
+<p>If you notice the syntax for the column information is surrounded by ( ..).</p>
+<p><strong>Tip:</strong> MyRuns3 will have a more complex database table than the simple example in this demo. In the code below the table is called CREATE_TABLE_ENTRIES and includes exercise objects. This code will be given out as part of the MyRuns3. The onCreate() and onUpgrade() methods are also detailed. The code in the methods looks very similar to this comment demo code but the database is considerable different. <strong>You need to get started early on this weeks lab to build the database</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="co">// SQL query to create the table for the first time</span>
+            <span class="co">// Data types are defined below</span>
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> String CREATE_TABLE_ENTRIES = <span class="st">&quot;CREATE TABLE IF NOT EXISTS &quot;</span>
+                    + TABLE_NAME_ENTRIES
+                    + <span class="st">&quot; (&quot;</span>
+                    + KEY_ROWID
+                    + <span class="st">&quot; INTEGER PRIMARY KEY AUTOINCREMENT, &quot;</span>
+                    + KEY_INPUT_TYPE
+                    + <span class="st">&quot; INTEGER NOT NULL, &quot;</span>
+                    + KEY_ACTIVITY_TYPE
+                    + <span class="st">&quot; INTEGER NOT NULL, &quot;</span>
+                    + KEY_DATE_TIME
+                    + <span class="st">&quot; DATETIME NOT NULL, &quot;</span>
+                    + KEY_DURATION
+                    + <span class="st">&quot; INTEGER NOT NULL, &quot;</span>
+                    + KEY_DISTANCE
+                    + <span class="st">&quot; FLOAT, &quot;</span>
+                    + KEY_AVG_PACE
+                    + <span class="st">&quot; FLOAT, &quot;</span>
+                    + KEY_AVG_SPEED
+                    + <span class="st">&quot; FLOAT,&quot;</span>
+                    + KEY_CALORIES
+                    + <span class="st">&quot; INTEGER, &quot;</span>
+                    + KEY_CLIMB
+                    + <span class="st">&quot; FLOAT, &quot;</span>
+                    + KEY_HEARTRATE
+                    + <span class="st">&quot; INTEGER, &quot;</span>
+                    + KEY_COMMENT
+                    + <span class="st">&quot; TEXT, &quot;</span>
+                    + KEY_PRIVACY
+                    + <span class="st">&quot; INTEGER, &quot;</span> + KEY_GPS_DATA + <span class="st">&quot; BLOB &quot;</span> + <span class="st">&quot;);&quot;</span>;    
+
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">onCreate</span>(SQLiteDatabase database) {
+                database.<span class="fu">execSQL</span>(CREATE_TABLE_ENTRIES);
+              }
+
+              <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">onUpgrade</span>(SQLiteDatabase database, <span class="dt">int</span> oldVersion,
+                  <span class="dt">int</span> newVersion) {
+                Log.<span class="fu">w</span>(HistoryTable.<span class="fu">class</span>.<span class="fu">getName</span>(), <span class="st">&quot;Upgrading database from version &quot;</span>
+                    + oldVersion + <span class="st">&quot; to &quot;</span> + newVersion
+                    + <span class="st">&quot;, which will destroy all old data&quot;</span>);
+                database.<span class="fu">execSQL</span>(<span class="st">&quot;DROP TABLE IF EXISTS &quot;</span>);
+                <span class="fu">onCreate</span>(database);
+              }     </code></pre>
+<h3 id="constructor-1">Constructor</h3>
+<p>This MySQLiteHelper includes the constructor and two methods to deal with the database. The constructor is:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> <span class="fu">MySQLiteHelper</span>(Context context) {
+        <span class="kw">super</span>(context, DATABASE_NAME, <span class="kw">null</span>, DATABASE_VERSION);
+    }</code></pre>
+<p>This creates the MySQLiteHelper (which extends <a href="http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html">SQLiteOpenHelper</a>) object to create, open, and manage a database. This method always returns very quickly. The database is not actually created or opened until getWritableDatabase() (see CommentsDataSource). The parameters past in the super class are as follows:</p>
+<ul>
+<li>context to use to open or create the database;</li>
+<li>name of the database file; commments.db is our case.</li>
+<li>factory to use for creating cursor objects, or null for the default; null in our case.</li>
+<li>version number of the database (starting at 1); if the database is older, onUpgrade(SQLiteDatabase, int, int) will be used to upgrade the database; if the database is newer, onDowngrade(SQLiteDatabase, int, int) will be used to downgrade the database. We do not use downgrade in our case. In addition, upgrade is unlikely to be called for this and MyRuns project.</li>
+</ul>
+<p>Note that the TABLE_COMMENTS, COLUMN_ID and COLUMN_COMMENT are made public and therefore accessible to the database storage layer, as discussed earlier.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MySQLiteHelper <span class="kw">extends</span> SQLiteOpenHelper {
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> String TABLE_COMMENTS = <span class="st">&quot;comments&quot;</span>;
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> String COLUMN_ID = <span class="st">&quot;_id&quot;</span>;
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> String COLUMN_COMMENT = <span class="st">&quot;comment&quot;</span>;
+
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String DATABASE_NAME = <span class="st">&quot;commments.db&quot;</span>;
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> DATABASE_VERSION = <span class="dv">1</span>;
+
+    <span class="co">// Database creation sql statement</span>
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String DATABASE_CREATE = <span class="st">&quot;create table &quot;</span>
+            + TABLE_COMMENTS + <span class="st">&quot;(&quot;</span> + COLUMN_ID
+            + <span class="st">&quot; integer primary key autoincrement, &quot;</span> + COLUMN_COMMENT
+            + <span class="st">&quot; text not null);&quot;</span>;
+
+    <span class="kw">public</span> <span class="fu">MySQLiteHelper</span>(Context context) {
+        <span class="kw">super</span>(context, DATABASE_NAME, <span class="kw">null</span>, DATABASE_VERSION);
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(SQLiteDatabase database) {
+        database.<span class="fu">execSQL</span>(DATABASE_CREATE);
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onUpgrade</span>(SQLiteDatabase db, <span class="dt">int</span> oldVersion, <span class="dt">int</span> newVersion) {
+        Log.<span class="fu">w</span>(MySQLiteHelper.<span class="fu">class</span>.<span class="fu">getName</span>(),
+                <span class="st">&quot;Upgrading database from version &quot;</span> + oldVersion + <span class="st">&quot; to &quot;</span>
+                        + newVersion + <span class="st">&quot;, which will destroy all old data&quot;</span>);
+        db.<span class="fu">execSQL</span>(<span class="st">&quot;DROP TABLE IF EXISTS &quot;</span> + TABLE_COMMENTS);
+        <span class="fu">onCreate</span>(db);
+    }
+
+}</code></pre>
+<p>Both onCreate() and onUpgrade() methods receive an SQLiteDatabase object as parameter which represents the database. SQLiteOpenHelper provides the methods getWriteableDatabase() to get access to an SQLiteDatabase object; either in read or write mode. See <a href="http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html">SQLiteOpenHelper</a> for a description of the getWriteableDatabase() method.The database tables should use the identifier &quot;_id&quot; (as shown above) for the primary key of the table.</p>
+</body>
+</html>

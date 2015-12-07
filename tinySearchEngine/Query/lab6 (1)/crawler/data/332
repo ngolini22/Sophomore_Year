@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/henderson-problems.html
+3
+<HTML>
+<HEAD>
+ <TITLE>henderson:problems</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Tristan Henderson and David Kotz.
+<b>Problems with the Dartmouth wireless SNMP data collection</b>.
+Technical Report
+TR2003-480,
+Dartmouth Computer Science,
+December,
+2003.
+<p><b>Abstract:</b> The original Dartmouth wireless network study used SNMP to query
+the college's Cisco 802.11b access points. The perl scripts that performed
+the SNMP queries suffered from some problems, in that they queried
+inappropriate SNMP values, or misunderstood the meaning of other values. This
+data was also used in a subsequent analysis. The same scripts were used to
+collect data for a subsequent study of another wireless network. This
+document outlines these problems and indicates which of the data collected by
+the original scripts may be invalid.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/henderson-problems.bib">BibTeX</a></p>
+<p><a target=_top href = "././henderson-problems.pdf">PDF</a> (56K)</p>
+<p><b>Copyright &#169;&nbsp;2003 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/kotz-jcampus.html">kotz:jcampus</a></b>.</p>
+</BODY>
+</HTML>

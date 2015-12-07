@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-mobile.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:mobile</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert Gray, David Kotz, Saurab Nog, Daniela Rus, and George Cybenko.
+<b>Mobile Agents: The Next Generation in Distributed Computing</b>.
+In
+<i>Proceedings of the Second Aizu International Symposium on
+Parallel Algorithms and Architectures Synthesis (pAs&nbsp;'97)</i>,
+pages 8-24,
+Fukushima, Japan,
+March,
+1997.
+IEEE Computer Society Press.
+Invited paper.
+DOI <a href="http://dx.doi.org/10.1109/AISPAS.1997.581620">10.1109/AISPAS.1997.581620</a>.
+<p><b>Abstract:</b>  Mobile agents are programs that can move through a
+network under their own control, migrating from host to host and interacting
+with other agents and resources on each. We argue that these mobile,
+autonomous agents have the potential to provide a convenient, efficient and
+robust programming paradigm for distributed applications, particularly when
+partially connected computers are involved. Partially connected computers
+include mobile computers such as laptops and personal digital assistants as
+well as modem-connected home computers, all of which are often disconnected
+from the network. In this paper, we describe the design and implementation of
+our mobile-agent system, Agent Tcl, and the specific features that support
+mobile computers and disconnected operation. These features include
+network-sensing tools and a  docking system that allows an agent to
+transparently move between mobile computers, regardless of when the computers
+connect to the network.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/gray-mobile.bib">BibTeX</a></p>
+<p><a target=_top href = "././gray-mobile.pdf">PDF</a> (1326K)</p>
+<p><b>Copyright &#169;&nbsp;1997 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>Identical to <b><a href="abstracts/gray-mobile-tr.html">gray:mobile-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-jmobile.html">kotz:jmobile</a></b>.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-explore-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:explore-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Ting Cai.
+<b>Exploring the use of I/O Nodes for Computation in a MIMD
+Multiprocessor</b>.
+Technical Report
+PCS-TR94-232,
+Dartmouth Computer Science,
+October,
+1994.
+Revised 2/20/95.
+<p><b>Abstract:</b> Most MIMD multiprocessors today are configured with two distinct
+types of processor nodes: those that have disks attached, which are dedicated
+to file I/O, and those that do not have disks attached, which are used for
+running applications. Several architectural trends have led some to propose
+configuring systems so that all processors are used for application
+processing, even those with disks attached. We examine this idea
+experimentally, focusing on the impact of remote I/O requests on local
+computational processes. We found that in an efficient file system the I/O
+processors can transfer data at near peak speeds with little CPU overhead,
+leaving substantial CPU power for running applications. On the other hand, we
+found that some complex file-system features could require substantial CPU
+overhead. Thus, for a multiprocessor system to obtain good I/O and
+computational performance on a mix of applications, the file system (both
+operating system and libraries) must be prepared to adapt their policies to
+changing conditions.</p>
+<p><b>Keywords:</b> parallel-IO, file system, parallel computing</p>
+<p><a href="bibtex/kotz-explore-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-explore-tr.pdf">PDF</a> (293K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-explore.html">kotz:explore</a></b>.</p>
+</BODY>
+</HTML>

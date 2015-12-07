@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-mobisys-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:mobisys-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad, Xiaohui Liang, and David Kotz.
+<b>Poster: Balancing Disclosure and Utility of Personal Infomation</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+pages 380-381,
+June,
+2014.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/2594368.2601448">10.1145/2594368.2601448</a>.
+<p><b>Abstract:</b> The ubiquity of smartphones and mobile and wearable devices allow
+people to collect information about their health, wellness and lifestyle and
+share with others. If it is not clear what they need to share to receive
+benefits, subjects (people whose information is collected) might share
+too much, thus disclosing unnecessary private information. On the other hand,
+concerned about disclosing personal information, subjects might share less
+than what the recipient needs and lose the opportunity to enjoy the benefits.
+This balance of disclosure and utility is important when the subject wants to
+receive some benefits, but is concerned about disclosing private information.
+<P> We address this problem of balancing disclosure and utility of personal
+information collected by mobile technologies. We believe subjects can decide
+how best to share their information if they are aware of the benefits and
+risks of sharing. We developed ShareBuddy, a privacy-aware architecture that
+allows recipients to request information and specify the benefits the
+subjects will receive for sharing each piece of requested information; the
+architecture displays these benefits and warns subjects about the risks of
+sharing. We describe the ShareBuddy architecture in this poster.</p>
+<p><a href="bibtex/prasad-mobisys-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././prasad-mobisys-poster.pdf">PDF</a> (621K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

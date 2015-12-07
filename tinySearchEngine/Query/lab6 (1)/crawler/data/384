@@ -1,0 +1,44 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kapadia-walls.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kapadia:walls</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Apu Kapadia, Tristan Henderson, Jeffrey Fielding, and David Kotz.
+<b>Virtual Walls: Protecting Digital Privacy in Pervasive
+Environments</b>.
+In
+<i>Proceedings of the Fifth International Conference on Pervasive
+Computing (Pervasive)</i>,
+pages 162-179,
+May,
+2007.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/978-3-540-72037-9_10">10.1007/978-3-540-72037-9_10</a>.
+<p><b>Abstract:</b> As pervasive environments become more commonplace, the privacy of
+users is placed at an increased risk. The numerous and diverse sensors in
+these environments can record contextual information about users, leading to
+users unwittingly leaving ``digital footprints.'' Users must therefore be
+allowed to control how their digital footprints are reported to third
+parties. While a significant amount of prior work has focused on location
+privacy, location is only one specific type of footprint, and we expect most
+users to be incapable of specifying fine-grained policies for a multitude of
+footprints. In this paper we present a policy language based on the metaphor
+of physical walls, and posit that users will find this to be an intuitive way
+to control access to their digital footprints. For example, users understand
+the physical privacy implications of conducting a meeting in a room enclosed
+by physical walls. By allowing users to deploy ``virtual walls,'' they can
+control the privacy of their digital footprints much in the same way they
+control their privacy in the physical world. We present a policy framework
+and model for virtual walls with three levels of transparency that correspond
+to intuitive levels of privacy. We also describe the results of a user study
+(N = 23) that indicates that our model is easy to understand and use.</p>
+<p><b>Keywords:</b> security, privacy, ubicomp, hci</p>
+<p><a href="bibtex/kapadia-walls.bib">BibTeX</a></p>
+<p><a target=_top href = "././kapadia-walls.pdf">PDF</a> (1188K)</p>
+<p><b>Copyright &#169;&nbsp;2007 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

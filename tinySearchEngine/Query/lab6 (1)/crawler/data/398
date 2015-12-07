@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen.
+<b>Solar: Building A Context Fusion Network for Pervasive Computing</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+August,
+2004.
+Available as Dartmouth Computer Science Technical Report TR2004-514.
+<p><b>Abstract:</b> The complexity of developing context-aware pervasive-computing
+applications calls for distributed software infrastructures that assist
+applications to collect, aggregate, and disseminate contextual data. In this
+dissertation, we present a Context Fusion Network (CFN), called Solar, which
+is built with a scalable and self-organized service overlay. Solar is
+flexible and allows applications to select distributed data sources and
+compose them with customized data-fusion operators into a directed acyclic
+information flow graph. Such a graph represents how an application computes
+high-level understandings of its execution context from low-level sensory
+data. To manage application-specified operators on a set of overlay nodes
+called Planets, Solar provides several unique services such as
+application-level multicast with policy-driven data reduction to handle
+buffer overflow, context-sensitive resource discovery to handle environment
+dynamics, and proactive monitoring and recovery to handle common failures.
+Experimental results show that these services perform well on a typical
+DHT-based peer-to-peer routing substrate. In this dissertation, we also
+discuss experience, insights, and lessons learned from our quantitative
+analysis of the input sensors, a detailed case study of a Solar application,
+and development of other applications in different domains.</p>
+<p><a href="bibtex/chen-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2004-514.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2004 by Guanling Chen.</b></p>
+</BODY>
+</HTML>

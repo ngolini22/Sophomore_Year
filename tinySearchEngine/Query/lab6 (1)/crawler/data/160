@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-lu.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:lu</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Disk-directed I/O for an Out-of-core Computation</b>.
+In
+<i>Proceedings of the Fourth IEEE International Symposium on High
+Performance Distributed Computing (HPDC)</i>,
+pages 159-166,
+August,
+1995.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/HPDC.1995.518706">10.1109/HPDC.1995.518706</a>.
+<p><b>Abstract:</b> New file systems are critical to obtain good I/O performance on
+large multiprocessors. Several researchers have suggested the use of 
+collective file-system operations, in which all processes in an
+application cooperate in each I/O request. Others have suggested that the
+traditional low-level interface (\tt read, write, seek) be augmented with
+various higher-level requests (e.g.,  read matrix). Collective,
+high-level requests permit a technique called  disk-directed I/O to
+significantly improve performance over traditional file systems and
+interfaces, at least on simple I/O benchmarks. In this paper, we present the
+results of experiments with an ``out-of-core'' LU-decomposition program.
+Although its collective interface was awkward in some places, and forced
+additional synchronization, disk-directed I/O was able to obtain much better
+overall performance than the traditional system.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-lu.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-lu.pdf">PDF</a> (394K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-lu-tr.html">kotz:lu-tr</a></b>.</p>
+</BODY>
+</HTML>

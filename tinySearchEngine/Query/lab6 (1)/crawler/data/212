@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/newport-axioms.html
+3
+<HTML>
+<HEAD>
+ <TITLE>newport:axioms</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Calvin Newport, David Kotz, Yougu Yuan, Robert&nbsp;S. Gray, Jason Liu, and Chip Elliott.
+<b>Experimental Evaluation of Wireless Simulation Assumptions</b>.
+<i>SIMULATION: Transactions of The Society for Modeling and
+Simulation International</i>,
+83(9):643-661,
+September,
+2007.
+DOI <a href="http://dx.doi.org/10.1177/0037549707085632">10.1177/0037549707085632</a>.
+<p><b>Abstract:</b> All analytical and simulation research on ad hoc wireless
+networks must necessarily model radio propagation using simplifying
+assumptions. A growing body of research, however, indicates that the behavior
+of the protocol stack may depend significantly on these underlying
+assumptions. The standard response to this problem is a call for more realism
+in designing radio models. But how much realism is enough? This study is the
+first to approach this question by validating simulator performance (both at
+the physical and application layers) with the results of real-world data.
+Referencing an extensive set of measurements from a large outdoor routing
+experiment, we start by evaluating the relative realism of common assumptions
+made in radio model design, identifying those which provide a reasonable
+approximation of reality. Although several such investigations have been made
+for static sensor networks, radio behavior in mobile network deployments is a
+much less-studied topic. We then reproduce our experimental setup in our
+simulator, and generate the same application-layer metrics under
+progressively smaller sets of these assumptions. By comparing the simulated
+outcome to the outcome of our experiment, we are able to discern at what
+point our balance of simplification and realism captures the real behavior of
+our target environment.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/newport-axioms.bib">BibTeX</a></p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/newport-axioms.pdf">PDF</a> (ask me)</p>
+<p><b>Copyright &#169;&nbsp;2007 by Simulation Councils Inc..</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-axioms.html">kotz:axioms</a></b>.</p>
+</BODY>
+</HTML>

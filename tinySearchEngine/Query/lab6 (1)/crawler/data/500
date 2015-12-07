@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-int-ddio.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:int-ddio</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Interfaces for Disk-Directed I/O</b>.
+Technical Report
+PCS-TR95-270,
+Dartmouth Computer Science,
+September,
+1995.
+<p><b>Abstract:</b> In other papers I propose the idea of disk-directed I/O for
+multiprocessor file systems. Those papers focus on the performance advantages
+and capabilities of disk-directed I/O, but say little about the
+application-programmer's interface or about the interface between the compute
+processors and I/O processors. In this short note I discuss the requirements
+for these interfaces, and look at many existing interfaces for parallel file
+systems. I conclude that many of the existing interfaces could be adapted for
+use in a disk-directed I/O system.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-int-ddio.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-int-ddio.pdf">PDF</a> (187K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

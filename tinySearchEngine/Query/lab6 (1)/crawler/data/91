@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-risk.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:risk</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, David Kotz, and Daniela Rus.
+<b>Trading Risk in Mobile-Agent Computational Markets</b>.
+In
+<i>the Sixth International Conference on Computing in Economics and
+Finance</i>,
+Barcelona, Spain,
+July,
+2000.
+No proceedings available.
+<p><b>Abstract:</b> Mobile-agent systems allow user programs to autonomously relocate
+from one host site to another. This autonomy provides a powerful, flexible
+architecture on which to build distributed applications. The asynchronous,
+decentralized nature of mobile-agent systems makes them flexible, but also
+hinders their deployment. We argue that a market-based approach where agents
+buy computational resources from their hosts solves many problems faced by
+mobile-agent systems. <P> In our earlier work, we propose a policy for
+allocating general computational priority among agents posed as a competitive
+game for which we derive a unique computable Nash equilibrium. Here we
+improve on our earlier approach by implementing resource guarantees where
+mobile-agent hosts issue call options on computational resources. Call
+options allow an agent to reserve and guarantee the cost and time necessary
+to complete its itinerary before the agent begins execution. <P> We present
+an algorithm based upon the binomial options-pricing model that estimates
+future congestion to allow hosts to evaluate call options; methods for agents
+to measure the risk associated with their performance and compare their
+expected utility of competing in the computational spot market with utilizing
+resource options; and test our theory with simulations to show that option
+trade reduces variance in agent completion times.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/bredin-risk.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-risk.pdf">PDF</a> (440K)</p>
+<p><b>Copyright &#169;&nbsp;2000 by Kluwer.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

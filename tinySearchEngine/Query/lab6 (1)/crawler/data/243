@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-spe.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:spe</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert S. Gray, George Cybenko, David Kotz, Ronald A. Peterson, and Daniela Rus.
+<b>D'Agents: Applications and Performance of a Mobile-Agent System</b>.
+<i>Software-- Practice and Experience</i>,
+32(6):543-573,
+May,
+2002.
+Invited paper.
+DOI <a href="http://dx.doi.org/10.1002/spe.449">10.1002/spe.449</a>.
+<p><b>Abstract:</b> D'Agents is a mobile-agent system that is used primarily for
+information-retrieval applications. In this paper, we first examine two such
+applications, where mobile agents greatly simplify the task of providing
+efficient but application-specific access to remote information resources.
+Then we describe the D'Agents system, which supports multiple languages, Tcl,
+Java and Scheme, and strong mobility for Tcl and Java. After considering the
+D'Agents implementation, we present some recent performance and scalability
+experiments that compare D'Agent mobile agents with traditional client/server
+approaches. The experiments show that mobile agents often outperform
+client/server solutions, but also demonstrate the deep interaction between
+environmental and application parameters. The mobile-agent performance space
+as a whole is complex, and significant additional experiments are needed to
+characterize it. Finally, after discussing current and future experiments, we
+explore the differences between D'Agents and other mobile-agent systems.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/gray-spe.bib">BibTeX</a></p>
+<p><a target=_top href = "././gray-spe.pdf">PDF</a> (433K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by John Wiley &amp; Sons.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

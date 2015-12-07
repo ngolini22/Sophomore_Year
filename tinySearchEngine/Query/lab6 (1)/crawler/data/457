@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-scalability.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:scalability</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert S. Gray, David Kotz, Ronald A. Peterson, Jr., Joyce Barton, Daria Chac&oacute;n, Peter Gerken, Martin Hofmann, Jeffrey Bradshaw, Maggie Breedy, Renia Jeffers, and Niranjan Suri.
+<b>Mobile-Agent versus Client/Server Performance: Scalability in an
+Information-Retrieval Task</b>.
+In
+<i>Proceedings of the Fifth IEEE International Conference on Mobile
+Agents</i>,
+pages 229-243,
+Atlanta, Georgia,
+December,
+2001.
+Springer-Verlag.
+A corrected version of this paper is available on the Dartmouth web
+site.
+DOI <a href="http://dx.doi.org/10.1007/3-540-45647-3_16">10.1007/3-540-45647-3_16</a>.
+<p><b>Abstract:</b> Building applications with mobile agents often reduces the
+bandwidth required for the application, and improves performance. The cost is
+increased server workload. There are, however, few studies of the scalability
+of mobile-agent systems. We present scalability experiments that compare four
+mobile-agent platforms with a traditional client/server approach. The four
+mobile-agent platforms have similar behavior, but their absolute performance
+varies with underlying implementation choices. Our experiments demonstrate
+the complex interaction between environmental, application, and system
+parameters.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/gray-scalability.bib">BibTeX</a></p>
+<p><a target=_top href = "././gray-scalability.pdf">PDF</a> (340K)</p>
+<p><b>Copyright &#169;&nbsp;2001 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/gray-scalability-tr.html">gray:scalability-tr</a></b>.</p>
+</BODY>
+</HTML>

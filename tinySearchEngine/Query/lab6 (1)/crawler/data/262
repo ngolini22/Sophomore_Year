@@ -1,0 +1,180 @@
+http://www.cs.dartmouth.edu/~shrirang
+3
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Shrirang Mare</title>
+
+  <script language="javascript" src="scripts/email.js"></script>
+
+</head>
+
+<body>
+
+<br><br>
+
+<h1> Shrirang Mare </h1>
+
+
+I'm a PhD student in the <a href="http://www.cs.dartmouth.edu/">Computer Science Department</a> at Dartmouth College.
+I work with <a href="http://www.cs.dartmouth.edu/~dfk">Prof. David Kotz</a>.
+I am interested in security and privacy issues in pervasive computing, particularly in healthcare, usable security, and continuous authentication.
+You can contact me at <script>mail2()</script>. (CV available on request.)
+
+<br><br>
+
+<h2>Publications</h2>
+
+<h3> Referred Papers </h3>
+
+<ul>
+  <li>
+    Shrirang Mare, Andrés Molina-Markham, Cory Cornelius, Ronald Peterson and David Kotz.
+    <b>ZEBRA: Zero-Effort Bilateral Recurring Authentication</b>.
+    In
+    <i>Proceedings of the IEEE Symposium on Security and Privacy (S&P)</i>,
+    May 2014.
+    DOI <a href="http://dx.doi.org/10.1109/SP.2014.51">10.1109/SP.2014.51</a>.
+    [<a href="papers/mare-zebra14.pdf">PDF</a>]
+  </li>
+  <p>
+
+  <li>
+    Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+    <b>Hide-n-Sense: preserving privacy efficiently in wireless mHealth</b>.
+    In
+    <i>Mobile Networks and Applications (MONET)</i>,
+    pages 1-14,
+    June 2013.
+    Special issue on Wireless Technology for Pervasive Healthcare.
+    DOI <a href="http://dx.doi.org/10.1007/s11036-013-0447-x">10.1007/s11036-013-0447-x</a>.
+  </li>
+  <p>
+
+  <li>
+    Aarathi Prasad, Ronald Peterson, Shrirang Mare, Jacob Sorber, Kolin Paul, and David Kotz.
+    <b>Provenance framework for mHealth</b>.
+    In
+    <i>Proceedings of the Workshop on Networked Healthcare Systems (NetHealth)</i>,
+    January 2013.
+    IEEE Computer Society Press.
+    Accepted for publication.
+  </li>
+  <p>
+
+  <LI>
+    Jacob Sorber, Minho Shin, Ronald Peterson, Cory Cornelius, Shrirang Mare, Aarathi Prasad, Zachary Marois, Emma Smithayer, and David Kotz.
+    <b>An Amulet for trustworthy wearable mHealth</b>.
+    In
+    <i>Proceedings of the Workshop on Mobile Computing Systems and Applications (HotMobile)</i>,
+    pages 7:1-7:6,
+    February 2012.
+    DOI <a href="http://dx.doi.org/10.1145/2162081.2162092">10.1145/2162081.2162092</a>.
+    [<a href="papers/sorber-hotmobile12.pdf">pdf</a>]
+  </LI>
+  <p>
+
+  <LI>
+    Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+    <b>Adapt-lite: Privacy-aware, secure, and efficient mHealth
+    sensing</b>.
+    In
+    <i>Proceedings of the Workshop on Privacy in the Electronic Society (WPES)</i>,
+    pages 137-142,
+    October 2011.
+    DOI <a href="http://dx.doi.org/10.1145/2046556.2046574">10.1145/2046556.2046574</a>.
+    [<a href="papers/mare-wpes11.pdf">pdf</a>]
+  </LI>
+  <p>
+
+  <LI>
+    Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+    <b>Adaptive security and privacy for mHealth sensing</b>.
+    In
+    <i>Proceedings of the USENIX Workshop on Health Security (HealthSec)</i>,
+    August 2011.
+    Short paper.
+    [<a href="papers/mare-healthsec11.pdf">pdf</a>]
+  </LI>
+  <p>
+
+  <LI>
+    Shrirang Mare and David Kotz.
+    <b>Is Bluetooth the right technology for mHealth?</b>
+    In
+    <i>Proceedings of the USENIX Workshop on Health Security (HealthSec)</i>,
+    August 2010.
+    Position paper.
+    [<a href="papers/mare-healthsec10.pdf">pdf</a>]
+  </LI>
+  <p>
+
+  <LI>
+    Shrirang Mare, David Kotz, and Anurag Kumar.
+    <b>Experimental Validation of Analytical Performance Models for IEEE
+    802.11 Networks</b>.
+    In
+    <i>Proceedings of the Workshop on WIreless Systems: Advanced Research and Development (WISARD)</i>,
+    pages 1-8,
+    January 2010.
+    IEEE Computer Society Press.
+    DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2010.5431957">10.1109/COMSNETS.2010.5431957</a>.
+    [<a href="papers/mare-models10.pdf">pdf</a>]
+  </LI>
+  <p>
+
+</ul>
+
+<h3> Posters, Tech Reports, Work in Progress, etc </h3>
+
+<ul>
+
+  <li>
+    Shrirang Mare, Andrés Molina-Markham, Cory Cornelius, Ronald Peterson and David Kotz.
+    <b>ZEBRA: Zero-Effort Bilateral Recurring Authentication (Companion report)</b>.
+    Dartmouth Computer Science Technical Report TR2014-748, May 2014.
+    [<a href="http://www.cs.dartmouth.edu/reports/TR2014-748.pdf">PDF</a>]
+  </li>
+  <p>
+
+  <LI>
+    Cory Cornelius, Zachary Marois, Jacob Sorber, Ron Peterson, Shrirang Mare, and David Kotz.
+    <b>Passive Biometrics for Pervasive Wearable Devices (Poster paper)</b>.
+    In
+    <i>Proceedings of the Workshop on Mobile Computing Systems and Applications (HotMobile)</i>,
+    February 2012.
+    ACM Press.
+    [<a href="papers/cornelius-hotmobile12.pdf">pdf</a>]
+  </LI>
+  <p>
+
+  <LI>
+    Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+    <b>Hide-n-Sense: Privacy-aware secure mHealth sensing</b>.
+    Technical Report
+    TR2011-702,
+    Dartmouth Computer Science,
+    September 2011.
+    [<a href="http://www.cs.dartmouth.edu/reports/TR2011-702.pdf">pdf</a>]
+  </LI>
+  <p>
+
+</ul>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25937216-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

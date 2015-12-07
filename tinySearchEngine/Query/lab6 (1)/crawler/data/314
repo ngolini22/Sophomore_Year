@@ -1,0 +1,26 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-healthsec11.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:healthsec11</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad, Jacob Sorber, Timothy Stablein, Denise Anthony, and David Kotz.
+<b>Exposing privacy concerns in mHealth</b>.
+In
+<i>USENIX Workshop on Health Security (HealthSec)</i>,
+August,
+2011.
+Position paper.
+<p><b>Abstract:</b> We conducted several exploratory focus groups to understand what
+privacy concerns Patients might have with the collection, storage and sharing
+of their personal health information, when using mHealth devices. We found
+that Patients want control over their health information, and we noticed
+privacy trends that were particular to Patients in the same age group and
+with similar health experiences.</p>
+<p><a href="bibtex/prasad-healthsec11.bib">BibTeX</a></p>
+<p><a target=_top href = "././prasad-healthsec11.pdf">PDF</a> (55K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by the authors.</b></p>
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/tan-survey.html
+3
+<HTML>
+<HEAD>
+ <TITLE>tan:survey</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Keren Tan, Jihwang Yeo, Michael&nbsp;E. Locasto, and David Kotz.
+<b>Catch, Clean, and Release: A Survey of Obstacles and Opportunities
+for Network Trace Sanitization</b>.
+In
+Francesco Bonchi and Elena Ferrari.
+editors, 
+<i>Privacy-Aware Knowledge Discovery: Novel Applications and New
+Techniques</i>,
+chapter 5,
+Chapman and Hall/CRC Press,
+January,
+2011.
+<p><b>Abstract:</b> Network researchers benefit tremendously from access to traces of
+production networks, and several repositories of such network traces exist.
+By their very nature, these traces capture sensitive business and personal
+activity. Furthermore, network traces contain significant operational
+information about the target network, such as its structure, identity of the
+network provider, or addresses of important servers. To protect private or
+proprietary information, researchers must ``sanitize'' a trace before sharing
+it. <P> In this chapter, we survey the growing body of research that
+addresses the risks, methods, and evaluation of network trace sanitization.
+Research on the risks of network trace sanitization attempts to extract
+information from published network traces, while research on sanitization
+methods investigates approaches that may protect against such attacks.
+Although researchers have recently proposed both quantitative and qualitative
+methods to evaluate the effectiveness of sanitization methods, such work has
+several shortcomings, some of which we highlight in a discussion of open
+problems. Sanitizing a network trace, however challenging, remains an
+important method for advancing network-based research.</p>
+<p><a href="bibtex/tan-survey.bib">BibTeX</a></p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/tan-survey.pdf">PDF</a> (ask me)</p>
+<p>Other: <a target=_top href="http://www.crcpress.com/product/isbn/9781439803653">http://www.crcpress.com/product/isbn/9781439803653</a></p>
+<p><b>Copyright &#169;&nbsp;2011 by Chapman and Hall/CRC Press.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

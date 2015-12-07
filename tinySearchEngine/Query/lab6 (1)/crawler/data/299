@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/yeo-crawdad-ccr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>yeo:crawdad-ccr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jihwang Yeo, David Kotz, and Tristan Henderson.
+<b>CRAWDAD: A Community Resource for Archiving Wireless Data at
+Dartmouth</b>.
+<i>ACM SIGCOMM Computer Communication Review</i>,
+36(2):21-22,
+April,
+2006.
+Project overview.
+DOI <a href="http://dx.doi.org/10.1145/1129582.1129588">10.1145/1129582.1129588</a>.
+<p><b>Abstract:</b> Wireless network researchers are seriously starved for data about
+how real users, applications, and devices use real networks under real
+network conditions. CRAWDAD, a Community Resource for Archiving Wireless Data
+at Dartmouth, is a new NSF-funded project to build a wireless network data
+archive for the research community. We host wireless data, and provide tools
+and documents to make it easy to collect and use wireless network data. We
+hope that this resource will help researchers identify and evaluate real and
+interesting problems in mobile and pervasive computing. This report outlines
+the CRAWDAD project, the kick-off workshop that was held at MobiCom 2005, and
+the latest news.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/yeo-crawdad-ccr.bib">BibTeX</a></p>
+<p><a target=_top href = "././yeo-crawdad-ccr.pdf">PDF</a> (95K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

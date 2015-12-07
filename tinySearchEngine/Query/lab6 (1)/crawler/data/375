@@ -1,0 +1,46 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/sriram-ecg.html
+3
+<HTML>
+<HEAD>
+ <TITLE>sriram:ecg</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Janani Sriram, Minho Shin, Tanzeem Choudhury, and David Kotz.
+<b>Activity-aware ECG-based patient authentication for remote health
+monitoring</b>.
+In
+<i>Proceedings of the International Conference on Multimodal
+Interfaces and Workshop on Machine Learning for Multi-modal Interaction
+(ICMI-MLMI)</i>,
+pages 297-304,
+November,
+2009.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1647314.1647378">10.1145/1647314.1647378</a>.
+<p><b>Abstract:</b> Mobile medical sensors promise to provide an efficient, accurate,
+and economic way to monitor patients' health outside the hospital. Patient
+authentication is a necessary security requirement in remote health
+monitoring scenarios. The monitoring system needs to make sure that the data
+is coming from the right person before any medical or financial decisions are
+made based on the data. Credential-based authentication methods (e.g.,
+passwords, certificates) are not well-suited for remote healthcare as
+patients could hand over credentials to someone else. Furthermore, one-time
+authentication using credentials or trait-based biometrics (e.g., face,
+fingerprints, iris) do not cover the entire monitoring period and may lead to
+unauthorized post-authentication use. Recent studies have shown that the
+human electrocardiogram (ECG) exhibits unique patterns that can be used to
+discriminate individuals. However, perturbation of the ECG signal due to
+physical activity is a major obstacle in applying the technology in
+real-world situations. In this paper, we present a novel ECG and
+accelerometer-based system that can authenticate individuals in an ongoing
+manner under various activity conditions. We describe the probabilistic
+authentication system we have developed and present experimental results from
+17 individuals.</p>
+<p><b>Keywords:</b> mhealth, healthcare, sensors, mobile computing</p>
+<p><a href="bibtex/sriram-ecg.bib">BibTeX</a></p>
+<p><a target=_top href = "././sriram-ecg.pdf">PDF</a> (657K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

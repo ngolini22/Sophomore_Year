@@ -1,0 +1,46 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-pack-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:pack-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Application-Controlled Loss-Tolerant Data Dissemination</b>.
+Technical Report
+TR2004-488,
+Dartmouth Computer Science,
+February,
+2004.
+<p><b>Abstract:</b> Reactive or proactive mobile applications require continuous
+monitoring of their physical and computational environment to make
+appropriate decisions in time. These applications need to monitor data
+streams produced by sensors and react to changes. When mobile sensors and
+applications are connected by low-bandwidth wireless networks, sensor data
+rates may overwhelm the capacity of network links or of the applications. In
+traditional networks and distributed systems, flow-control and
+congestion-control policies either drop data or force the sender to pause.
+When the data sender is sensing the physical environment, however, a pause is
+equivalent to dropping data. Arbitrary data drops are not necessarily
+acceptable to the reactive mobile applications receiving sensor data. Data
+distribution systems must support application-specific policies that
+selectively drop data objects when network or application buffers overflow.
+<P> In this paper we present a data-dissemination service, PACK, which
+allows applications to specify customized data-reduction policies. These
+policies define how to discard or summarize data flows wherever buffers
+overflow on the dissemination path, notably at the mobile hosts where
+applications often reside. The PACK service provides an overlay
+infrastructure to support mobile data sources and sinks, using
+application-specific data-reduction policies where necessary along the data
+path. We uniformly apply the data-stream ``packing'' abstraction to buffer
+overflow caused by network congestion, slow receivers, and the temporary
+disconnections caused by end-host mobility. We demonstrate the effectiveness
+of our approach with an application example and experimental measurements.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-pack-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-pack-tr.pdf">PDF</a> (272K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/chen-pack.html">chen:pack</a></b>.</p>
+</BODY>
+</HTML>

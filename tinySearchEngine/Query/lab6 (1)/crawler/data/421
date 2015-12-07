@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-dtn.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:dtn</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song and David Kotz.
+<b>Evaluating Opportunistic Routing Protocols with Large Realistic
+Contact Traces</b>.
+In
+<i>ACM MobiCom workshop on Challenged Networks (CHANTS 2007)</i>,
+pages 35-42,
+September,
+2007.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1287791.1287799">10.1145/1287791.1287799</a>.
+<p><b>Abstract:</b> Traditional mobile ad&nbsp;hoc network (MANET) routing protocols
+assume that contemporaneous end-to-end communication paths exist between data
+senders and receivers. In some mobile ad&nbsp;hoc networks with a sparse node
+population, an end-to-end communication path may break frequently or may not
+exist at any time. Many routing protocols have been proposed in the
+literature to address the problem, but few were evaluated in a realistic
+``opportunistic'' network setting. We use simulation and contact traces
+(derived from logs in a production network) to evaluate and compare five
+existing protocols: direct-delivery, epidemic, random, PRoPHET, and
+Link-State, as well as our own proposed routing protocol. We show that the
+direct delivery and epidemic routing protocols suffer either low delivery
+ratio or high resource usage, and other protocols make tradeoffs between
+delivery ratio and resource usage.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/song-dtn.bib">BibTeX</a></p>
+<p><a target=_top href = "././song-dtn.pdf">PDF</a> (386K)</p>
+<p><b>Copyright &#169;&nbsp;2007 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

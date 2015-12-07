@@ -1,0 +1,50 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/henderson-voice.html
+3
+<HTML>
+<HEAD>
+ <TITLE>henderson:voice</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Tristan Henderson, David Kotz, and Ilya Abyzov.
+<b>The Changing Usage of a Mature Campus-wide Wireless Network</b>.
+In
+<i>Proceedings of the Tenth Annual International Conference on
+Mobile Computing and Networking (MobiCom)</i>,
+pages 187-201,
+September,
+2004.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1023720.1023739">10.1145/1023720.1023739</a>.
+<p><b>Abstract:</b> Wireless Local Area Networks (WLANs) are now commonplace on many
+academic and corporate campuses. As ``Wi-Fi'' technology becomes ubiquitous,
+it is increasingly important to understand trends in the usage of these
+networks. <P> This paper analyzes an extensive network trace from a mature
+802.11 WLAN, including more than 550 access points and 7000 users over
+seventeen weeks. We employ several measurement techniques, including syslogs,
+telephone records, SNMP polling and tcpdump packet sniffing. This is the
+largest WLAN study to date, and the first to look at a large, mature WLAN and
+consider geographic mobility. We compare this trace to a trace taken after
+the network's initial deployment two years ago. <P> We found that the
+applications used on the WLAN changed dramatically. Initial WLAN usage was
+dominated by Web traffic; our new trace shows significant increases in
+peer-to-peer, streaming multimedia, and voice over IP (VoIP) traffic.
+On-campus traffic now exceeds off-campus traffic, a reversal of the situation
+at the WLAN's initial deployment. Our study indicates that VoIP has been used
+little on the wireless network thus far, and most VoIP calls are made on the
+wired network. Most calls last less than a minute. <P> We saw greater
+heterogeneity in the types of clients used, with more embedded wireless
+devices such as PDAs and mobile VoIP clients. We define a new metric for
+mobility, the ``session diameter.'' We use this metric to show that embedded
+devices have different mobility characteristics than laptops, and travel
+further and roam to more access points. Overall, users were surprisingly
+non-mobile, with half remaining close to home about 98\% of the time.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/henderson-voice.bib">BibTeX</a></p>
+<p><a target=_top href = "././henderson-voice.pdf">PDF</a> (587K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/henderson-voice-tr.html">henderson:voice-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/henderson-jvoice.html">henderson:jvoice</a></b>.</p>
+</BODY>
+</HTML>

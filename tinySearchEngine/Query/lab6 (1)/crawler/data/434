@@ -1,0 +1,46 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/deshpande-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>deshpande:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Udayan Deshpande.
+<b>A Dynamically Refocusable Sampling Infrastructure for 802.11
+Networks</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+May,
+2008.
+Available as Dartmouth Computer Science Technical Report TR2008-620.
+<p><b>Abstract:</b> The edge of the Internet is increasingly wireless. Enterprises
+large and small, homeowners, and even whole cities have deployed Wi-Fi
+networks for their users, and many users never need to-- or never bother
+to-- use the wired network. With the advent of high-throughput wireless
+networks (such as 802.11n) some new construction, even of large enterprise
+build- ings, may no longer be wired for Ethernet. To understand Internet
+traffic, then, we need to understand the wireless edge. Measuring Wi-Fi
+traffic, however, is challenging. It is insufficient to capture traffic in
+the access points, or upstream of the access points, because the activity of
+neighboring networks, ad hoc networks, and physical interference cannot be
+seen at that level. To truly understand the MAC-layer behavior, we need to
+capture frames from the air using Air Monitors (AMs) placed in the vicinity
+of the network. Such a capture is always a sample of the network activity,
+since it is physically impossible to capture a full trace: all frames from
+all channels at all times in all places. We have built a monitoring
+infrastructure that captures frames from the 802.11 network. This
+infrastructure includes several "channel sampling" strategies that will
+capture repre- sentative traffic from the network. Further, the monitoring
+infrastructure needs to modify its behavior according to feedback received
+from the downstream consumers of the captured traffic in case the analysis
+needs traffic of a certain type. We call this technique "refocusing". The
+"coordinated sampling" technique improves the efficiency of the monitoring by
+utilizing the AMs intelligently. Finally, we deployed this measurement
+infrastructure within our Computer Science building to study the performance
+of the system with real network traffic.</p>
+<p><a href="bibtex/deshpande-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2008-620.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Udayan Deshpande.</b></p>
+</BODY>
+</HTML>

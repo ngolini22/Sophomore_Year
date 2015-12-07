@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nog-rpc-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nog:rpc-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Saurab Nog, Sumit Chawla, and David Kotz.
+<b>An RPC Mechanism for Transportable Agents</b>.
+Technical Report
+PCS-TR96-280,
+Dartmouth Computer Science,
+March,
+1996.
+<p><b>Abstract:</b> Transportable agents are autonomous programs that migrate from
+machine to machine, performing complex processing at each step to satisfy
+client requests. As part of their duties agents often need to communicate
+with other agents. We propose to use remote procedure call (RPC) along with a
+flexible interface definition language (IDL), to add structure to inter-agent
+communication. The real power of our Agent RPC comes from a client-server
+binding mechanism based on flexible IDL matching and from support for
+multiple simultaneous bindings. Our agents are programmed in Agent Tcl; we
+describe how the Tcl implementation made RPC particularly easy to implement.
+Finally, although our RPC is designed for Agent Tcl programs, the concepts
+would also work for standard Tcl programs.</p>
+<p><b>Keywords:</b> network, mobile computing, mobile-agent</p>
+<p><a href="bibtex/nog-rpc-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././nog-rpc-tr.pdf">PDF</a> (324K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by the authors.</b></p>
+</BODY>
+</HTML>

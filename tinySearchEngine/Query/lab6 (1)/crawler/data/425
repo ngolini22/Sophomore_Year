@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mills-tettey-mvoip.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mills-tettey:mvoip</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+G. Ayorkor Mills-Tettey and David Kotz.
+<b>Mobile Voice Over IP (MVOIP): An Application-level Protocol for
+Call Hand-off in Real Time Applications</b>.
+In
+<i>Proceedings of the Twenty-first IEEE International Performance,
+Computing, and Communications Conference (IPCCC)</i>,
+pages 271-279,
+April,
+2002.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/IPCCC.2002.995160">10.1109/IPCCC.2002.995160</a>.
+<p><b>Abstract:</b> This paper presents Mobile Voice Over IP, an application-level
+protocol to support terminal mobility in real-time applications such as voice
+over IP, on a wireless local area network. We describe our MVOIP
+implementation based on the ITU-T H.323 protocol stack, present experimental
+results on call hand-off latency, and discuss various implementation issues,
+including the task of quickly and accurately determining when call hand-off
+is necessary. We also discuss how MVOIP relates to other proposed mobility
+support schemes, and how it can be generalized to provide application-level
+mobility support in a wide range of real and non real-time applications.</p>
+<p><a href="bibtex/mills-tettey-mvoip.bib">BibTeX</a></p>
+<p><a target=_top href = "././mills-tettey-mvoip.pdf">PDF</a> (335K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/sorber-pnt.html
+3
+<HTML>
+<HEAD>
+ <TITLE>sorber:pnt</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jacob Sorber, Minho Shin, Ron Peterson, and David Kotz.
+<b>Plug-n-Trust: Practical trusted sensing for mHealth</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+pages 309-322,
+June,
+2012.
+DOI <a href="http://dx.doi.org/10.1145/2307636.2307665">10.1145/2307636.2307665</a>.
+<p><b>Abstract:</b> Mobile computing and sensing technologies present exciting
+opportunities for healthcare. Prescription wireless sensors worn by patients
+can automatically deliver medical data to care providers, dramatically
+improving their ability to diagnose, monitor, and manage a range of medical
+conditions. Using the mobile phones that patients already carry to provide
+connectivity between sensors and providers is essential to keeping costs low
+and deployments simple. Unfortunately, software-based attacks against phones
+are also on the rise, and successful attacks on privacy-sensitive and
+safety-critical applications can have significant consequences for patients.
+<P> In this paper, we describe Plug-n-Trust (PnT), a novel approach to
+protecting both the confidentiality and integrity of safety-critical medical
+sensing and data processing on vulnerable mobile phones. With PnT, a plug-in
+smart card provides a trusted computing environment, keeping data safe even
+on a compromised mobile phone. By design, PnT is simple to use and deploy,
+while providing a flexible programming interface amenable to a wide range of
+applications. We describe our implementation, designed for Java-based smart
+cards and Android phones, in which we use a split-computation model with a
+novel path hashing technique to verify proper behavior without exposing
+confidential data. Our experimental evaluation demonstrates that PnT achieves
+its security goals while incurring acceptable overhead.</p>
+<p><a href="bibtex/sorber-pnt.bib">BibTeX</a></p>
+<p><a target=_top href = "././sorber-pnt.pdf">PDF</a> (1203K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

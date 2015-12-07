@@ -1,0 +1,26 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/oldfield-emulab-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>oldfield:emulab-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ron Oldfield and David Kotz.
+<b>Using the Emulab network testbed to evaluate the Armada I/O
+framework for computational grids</b>.
+Technical Report
+TR2002-433,
+Dartmouth Computer Science,
+September,
+2002.
+<p><b>Abstract:</b> This short report describes our experiences using the Emulab
+network testbed at the University of Utah to test performance of the Armada
+framework for parallel I/O on computational grids.</p>
+<p><b>Keywords:</b> parallel computing, parallel-IO, file system, distributed
+computing</p>
+<p><a href="bibtex/oldfield-emulab-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././oldfield-emulab-tr.pdf">PDF</a> (90K)</p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

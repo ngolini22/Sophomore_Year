@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-reserv-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:reserv-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song, Udayan Deshpande, Ulas C. Kozat, David Kotz, and Ravi Jain.
+<b>MobiCom Poster Abstract: Bandwidth Reservation using WLAN Handoff
+Prediction</b>.
+<i>ACM SIGMOBILE Mobile Computing and Communication Review</i>,
+10(4):22-23,
+October,
+2006.
+Poster presented at Mobicom 2005.
+DOI <a href="http://dx.doi.org/10.1145/1215976.1215987">10.1145/1215976.1215987</a>.
+<p><b>Abstract:</b> Many network services may be improved or enabled by successful
+predictions of users' future mobility. The success of predictions depend on
+how much accuracy can be achieved on real data and on the sensitivity of
+particular applications to this achievable accuracy. We investigate these
+issues for the case of advanced bandwidth reservation using real WLAN traces
+collected on the Dartmouth College campus.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/song-reserv-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././song-reserv-poster.pdf">PDF</a> (115K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

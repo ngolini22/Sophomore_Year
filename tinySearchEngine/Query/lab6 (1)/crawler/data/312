@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/minami-aclprop-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>minami:aclprop-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kazuhiro Minami and David Kotz.
+<b>Controlling access to pervasive information in the ``Solar''
+system</b>.
+Technical Report
+TR2002-422,
+Dartmouth Computer Science,
+February,
+2002.
+<p><b>Abstract:</b> Pervasive-computing infrastructures necessarily collect a lot of
+context information to disseminate to their context-aware applications. Due
+to the personal or proprietary nature of much of this context information,
+however, the infrastructure must limit access to context information to
+authorized persons. In this paper we propose a new access-control mechanism
+for event-based context-distribution infrastructures. The core of our
+approach is based on a conservative information-flow model of access control,
+but users may express discretionary relaxation of the resulting
+access-control list (ACL) by specifying relaxation functions. This
+combination of automatic ACL derivation and user-specified ACL relaxation
+allows access control to be determined and enforced in a decentralized,
+distributed system with no central administrator or central policy maker. It
+also allows users to express their personal balance between functionality and
+privacy. Finally, our infrastructure allows access-control policies to depend
+on context-sensitive roles, allowing great flexibility. <P> We describe our
+approach in terms of a specific context-dissemination framework, the Solar
+system, although the same principles would apply to systems with similar
+properties.</p>
+<p><b>Keywords:</b> ubicomp, security, privacy, distributed computing</p>
+<p><a href="bibtex/minami-aclprop-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././minami-aclprop-tr.pdf">PDF</a> (149K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by the authors.</b></p>
+</BODY>
+</HTML>

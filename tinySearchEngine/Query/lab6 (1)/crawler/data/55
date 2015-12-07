@@ -1,0 +1,605 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture19/lecture19.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Services, BroadcastReceivers, Notifications - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="lecture-18---services-broadcastreceivers-and-notifications">Lecture 18 - Services, BroadcastReceivers and Notifications</h2>
+<p>In this lecture, we discuss a number of building blocks for MyRunds and any complex Android app:</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://developer.android.com/guide/components/services.html">Services</a>: are part of the application and run on a different thread in the background and supports some long-running operation, such as, handling location updates from the LocationManager as in the case of MyRuns. Typically, services operate outside of the user interface.</li>
+<li><a href="http://developer.android.com/guide/topics/ui/notifiers/notifications.html">Notification</a> allows apps or services associated with an app to inform the user of an event.</li>
+<li><a href="http://developer.android.com/guide/components/bound-services.html">Bound Services</a>. A bound service is the server in a client-server interface. A bound service allows components (such as activities) to bind to the service, send requests, receive responses such as data.</li>
+<li>As part of binding <a href="http://developer.android.com/reference/android/content/ServiceConnection.html">ServiceConnections</a> are established between two components (i.e., the client and server). The connection allows both the client and service to exchange messages across the connection.</li>
+<li><a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">BroadcastReceivers</a> are used to receive events that are announced by other components. For example, activities or other Android components can register for a specific BroadcastReceivers. Receivers that registers will receive intents when other components issue sendBroadcast().</li>
+</ol>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Interacting with the status bar</li>
+<li>Notify Demo: creates a service that notifies the status bar</li>
+<li>Bind Demo: starts/stops and bing/unbinds to a service. A <a href="http://developer.android.com/reference/android/content/ServiceConnection.html">ServiceConnection</a> is set up to exchange messages across the connection.</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li>We will use the <a href="../code/notifydemo.zip">notifydemo.zip</a> app to demonstrate how to interact with the status bar. This demo is a slighted modified version from <a href="http://android-er.blogspot.com/2011/04/start-service-to-send-notification.html?m=1">here</a>.</li>
+<li>We will use the <a href="../code/binddemo.zip">binddemo.zip</a> app to demonstrate how to an activity binds to a service and them interacts through a connection. The binding demo comes from <a href="http://stackoverflow.com/questions/4300291/example-communication-between-activity-and-service-using-messaging">here</a>.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>Some excellent references.</p>
+<ul>
+<li>The course book has sections of all the Android programming components discussed in this lecture for example for <a href="http://commonsware.com/Android/">Introducing Notifications</a> page 405.</li>
+<li>Checkout the Android Developers discussion on:</li>
+<li><a href="http://developer.android.com/guide/topics/ui/notifiers/notifications.html">Notifications</a></li>
+<li><a href="http://developer.android.com/guide/components/bound-services.html">Bound Services</a>.</li>
+<li><a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html">BroadcastReceivers</a></li>
+</ul>
+<h2 id="interacting-with-the-status-bar">Interacting with the status bar</h2>
+<p>Android supports a number of different ways to inform the user including:</p>
+<ol style="list-style-type: decimal">
+<li>Staus bar at the top of the UI, owned and managed by the Android system but apps can display messages or icon in the notification area.</li>
+<li>Play sounds, uses lights and vibrate the phone to inform the user of an app related event</li>
+<li>Notification tray or drawer which allows the app to present more information and certain control elements such as navigating back to the main app, that is, bring the app back into focus if its paused.</li>
+</ol>
+<p>We will focus on the status bar notification in this lecture. You will need to implement this type of notification for MyRuns4.</p>
+<p>Typically a programmer develops an app and needs to inform the user of an event that is outside of the normal UI. For example if we consider MyRuns4 that you are coding right now. When the user starts an exercise using the GPS mode (or automatic) the code creates a service to process location updates. When this service starts on an independent thread in the background it informs the user that it is running by display first message (i.e., &quot;MyRuns is recording your path&quot; ) and then an icon (i.e., the D icon) in the <strong>notification area</strong>. We can see this below</p>
+<div class="figure">
+<img src="images/status.png" />
+</div>
+<p>To see the details of the MyRuns4 notification, the user needs to wipe down on the status bar (i.e., notification area) to open the <strong>notification drawer</strong>. The system controls the notification area and drawer and allows the user to view and interact with it at any point. For example, in the case of MyRuns4 notification in the drawer the user can wipe down the status bar and click on the MyRuns notification in the drawer and it bring the app back into focus, as shown in the image below.</p>
+<div class="figure">
+<img src="images/drawer.png" />
+</div>
+<h2 id="notify-demo-app">Notify demo app</h2>
+<p>The simple notification app used in this lecture uses the status bar to inform the user that a service has been started (we will discuss services next). When the user starts the service an icon is displayed in the status bar. If you wipe down the status bar you will see that the notification drawer for the service displays an icon and text (i.e., Demo of Notification! course website). If you click on this notification the service will launch a browser to display the class webpage.</p>
+<p>When the app starts up there is no service running and nothing in the status bar associated with the notify app, as shown below.</p>
+<div class="figure">
+<img src="images/notify1.png" />
+</div>
+<p>When the user starts the service the icon shows up in the status bar or notification area, as shown in the image below.</p>
+<div class="figure">
+<img src="images/notify3.png" />
+</div>
+<p>The user can wipe down the status bar and click on the notification which triggers the service to start the browser with the course page, as illustrated in the digram below.</p>
+<div class="figure">
+<img src="images/notify2.png" />
+</div>
+<p>In addition, the user could mindlessly ;-) start and stop the service and see the icon come and go -- be mindless, just do it.</p>
+<p>This simple application introduces a number of new things. Importantly a background service is started to interact with the status bar. In MyRuns4 we will implement a service to manage location updated from the LocationManager.</p>
+<p>Let's look at the code.</p>
+<h2 id="notify-activity">Notify activity</h2>
+<p>The activity simply takes input from the user and starts and stops the service.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> NotifyActivity <span class="kw">extends</span> Activity {
+    <span class="co">/** Called when the activity is first created. */</span>
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+        Button buttonStartService = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">startservice</span>);
+        Button buttonStopService = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">stopservice</span>);
+        
+        buttonStartService.<span class="fu">setOnClickListener</span>(<span class="kw">new</span> Button.<span class="fu">OnClickListener</span>(){
+
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(View arg0) {
+            
+                Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(NotifyActivity.<span class="fu">this</span>, NotifyService.<span class="fu">class</span>);
+                NotifyActivity.<span class="fu">this</span>.<span class="fu">startService</span>(intent);
+            }});
+        
+        buttonStopService.<span class="fu">setOnClickListener</span>(<span class="kw">new</span> Button.<span class="fu">OnClickListener</span>(){
+
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(View arg0) {
+            
+                Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>();
+                intent.<span class="fu">setAction</span>(NotifyService.<span class="fu">ACTION</span>);
+                intent.<span class="fu">putExtra</span>(NotifyService.<span class="fu">STOP_SERVICE_BROADCAST_KEY</span>, 
+                            NotifyService.<span class="fu">RQS_STOP_SERVICE</span>);
+
+                    <span class="co">// Broadcast the given intent to all interested BroadcastReceivers</span>
+                <span class="fu">sendBroadcast</span>(intent);
+
+            }});
+        
+    }
+}</code></pre>
+<h2 id="service-lifecycle">Service Lifecycle</h2>
+<p>Checkout a detailed discussion of servers at the <a href="http://developer.android.com/reference/android/app/Service.html">Android developers site.</a>. The notes below are taken from that site.</p>
+<p>There are two reasons that a service can be run by the system. If someone calls Context.startService() then the system will retrieve the service (creating it and calling its onCreate() method if needed) and then call its onStartCommand(Intent, int, int) method with the arguments supplied by the client. The service will at this point continue running until Context.stopService() or stopSelf() is called. Note that multiple calls to Context.startService() do not nest (though they do result in multiple corresponding calls to onStartCommand()), so no matter how many times it is started a service will be stopped once Context.stopService() or stopSelf() is called; however, services can use their stopSelf(int) method to ensure the service is not stopped until started intents have been processed.</p>
+<p>For started services, there are two additional major modes of operation they can decide to run in, depending on the value they return from onStartCommand(): START_STICKY is used for services that are explicitly started and stopped as needed, while START_NOT_STICKY or START_REDELIVER_INTENT are used for services that should only remain running while processing any commands sent to them. See the linked documentation for more detail on the semantics.</p>
+<p>Clients can also use Context.bindService() to obtain a persistent connection to a service. This likewise creates the service if it is not already running (calling onCreate() while doing so), but does not call onStartCommand(). The client will receive the IBinder object that the service returns from its onBind(Intent) method, allowing the client to then make calls back to the service. The service will remain running as long as the connection is established (whether or not the client retains a reference on the service's IBinder). Usually the IBinder returned is for a complex interface that has been written in Android Interface Definition Language (AIDL).</p>
+<p>A service can be both started and have connections bound to it. In such a case, the system will keep the service running as long as either it is started or there are one or more connections to it with the Context.BIND_AUTO_CREATE flag. Once neither of these situations hold, the service's onDestroy() method is called and the service is effectively terminated. All cleanup (stopping threads, unregistering receivers) should be complete upon returning from onDestroy().</p>
+<h2 id="notify-service">Notify Service</h2>
+<p>The activity starts and stops in the service. A broadcast is used to stop the service; that is, the activity sends an intent to all interested BroadcastReceivers with stop command. In our example, on the service is listening on this broadcast and implements a <strong>BroadcastReceiver</strong></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> NotifyService <span class="kw">extends</span> Service {
+    
+    <span class="dt">final</span> <span class="dt">static</span> String ACTION = <span class="st">&quot;NotifyServiceAction&quot;</span>;
+    <span class="dt">final</span> <span class="dt">static</span> String STOP_SERVICE_BROADCAST_KEY=<span class="st">&quot;StopServiceBroadcastKey&quot;</span>;
+    <span class="dt">final</span> <span class="dt">static</span> <span class="dt">int</span> RQS_STOP_SERVICE = <span class="dv">1</span>;
+    
+    NotifyServiceReceiver notifyServiceReceiver;
+    
+
+
+    <span class="kw">private</span> <span class="dt">final</span> String myBlog = <span class="st">&quot;http://www.cs.dartmouth.edu/~campbell/cs65/cs65.html&quot;</span>;
+    
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>() {
+        
+        notifyServiceReceiver = <span class="kw">new</span> <span class="fu">NotifyServiceReceiver</span>();
+        <span class="kw">super</span>.<span class="fu">onCreate</span>();
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">onStartCommand</span>(Intent intent, <span class="dt">int</span> flags, <span class="dt">int</span> startId) {
+    
+        
+        IntentFilter intentFilter = <span class="kw">new</span> <span class="fu">IntentFilter</span>();
+        intentFilter.<span class="fu">addAction</span>(ACTION);
+        <span class="fu">registerReceiver</span>(notifyServiceReceiver, intentFilter);
+        
+        <span class="co">// Send Notification</span>
+        String notificationTitle = <span class="st">&quot;Demo of Notification!&quot;</span>;
+        String notificationText = <span class="st">&quot;Course Website&quot;</span>;
+        Intent myIntent = <span class="kw">new</span> <span class="fu">Intent</span>(Intent.<span class="fu">ACTION_VIEW</span>, Uri.<span class="fu">parse</span>(myBlog));
+        PendingIntent pendingIntent 
+                = PendingIntent.<span class="fu">getActivity</span>(<span class="fu">getBaseContext</span>(), 
+                        <span class="dv">0</span>, myIntent, 
+                        Intent.<span class="fu">FLAG_ACTIVITY_NEW_TASK</span>);
+        
+        
+        
+        
+        Notification notification = <span class="kw">new</span> Notification.<span class="fu">Builder</span>(<span class="kw">this</span>)
+        .<span class="fu">setContentTitle</span>(notificationTitle)
+        .<span class="fu">setContentText</span>(notificationText).<span class="fu">setSmallIcon</span>(R.<span class="fu">drawable</span>.<span class="fu">icon</span>)
+        .<span class="fu">setContentIntent</span>(pendingIntent).<span class="fu">build</span>();
+        NotificationManager notificationManager = 
+                  (NotificationManager) <span class="fu">getSystemService</span>(NOTIFICATION_SERVICE);
+        notification.<span class="fu">flags</span> = notification.<span class="fu">flags</span>
+                | Notification.<span class="fu">FLAG_ONGOING_EVENT</span>;
+        notification.<span class="fu">flags</span> |= Notification.<span class="fu">FLAG_AUTO_CANCEL</span>;
+        
+        notificationManager.<span class="fu">notify</span>(<span class="dv">0</span>, notification); 
+        
+        <span class="kw">return</span> <span class="kw">super</span>.<span class="fu">onStartCommand</span>(intent, flags, startId);
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroy</span>() {
+    
+        <span class="kw">this</span>.<span class="fu">unregisterReceiver</span>(notifyServiceReceiver);
+        <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+    }
+
+    @Override
+    <span class="kw">public</span> IBinder <span class="fu">onBind</span>(Intent arg0) {
+        
+        <span class="kw">return</span> <span class="kw">null</span>;
+    }
+
+    <span class="kw">public</span> <span class="kw">class</span> NotifyServiceReceiver <span class="kw">extends</span> BroadcastReceiver{
+
+        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onReceive</span>(Context arg0, Intent arg1) {
+        
+            <span class="dt">int</span> rqs = arg1.<span class="fu">getIntExtra</span>(STOP_SERVICE_BROADCAST_KEY, <span class="dv">0</span>);
+            
+            <span class="kw">if</span> (rqs == RQS_STOP_SERVICE){
+                <span class="fu">stopSelf</span>();
+                ((NotificationManager) <span class="fu">getSystemService</span>(NOTIFICATION_SERVICE))
+                .<span class="fu">cancelAll</span>();
+            }
+        }
+    }
+    
+}</code></pre>
+<h2 id="service-defined-in-manifest">Service defined in Manifest</h2>
+<p>A service needs to be defined in the manifest as shown below.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;manifest xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+      <span class="kw">package</span>=&quot;edu.dartmouth.cs.notifydemo&quot;
+      android:versionCode=<span class="st">&quot;1&quot;</span>
+      android:versionName=<span class="st">&quot;1.0&quot;</span>&gt;
+    &lt;uses-sdk android:minSdkVersion=<span class="st">&quot;17&quot;</span> /&gt;
+
+    &lt;application android:icon=<span class="st">&quot;@drawable/icon&quot;</span> android:label=<span class="st">&quot;@string/app_name&quot;</span>&gt;
+        &lt;activity android:name=<span class="st">&quot;edu.dartmouth.cs.notifydemo.NotifyActivity&quot;</span>
+                  android:label=<span class="st">&quot;@string/app_name&quot;</span>&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=<span class="st">&quot;android.intent.action.MAIN&quot;</span> /&gt;
+                &lt;category android:name=<span class="st">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+        &lt;service android:name=<span class="st">&quot;edu.dartmouth.cs.notifydemo.NotifyService&quot;</span>/&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;</code></pre>
+<h2 id="binddemo-app-binding-to-a-client-to-a-service">BindDemo app: Binding to a client to a service</h2>
+<p>In this application the activity binds to a service and creates a ServiceConnection that is used to exchange messages between the activity and service. The activity creates and stops the service based on user input as well as binds and unbinds from the service. The user can input a increment value which is send to the server and reflected in the UI.</p>
+<h2 id="binddemo-design">BindDemo Design</h2>
+<p>In the design diagram shown below shows the key component and interactions for the BindDemo app. The key components are the client and the service. The UI allows the user to star and stop the service, and allow the client to bind and unbind to the service using buttons.</p>
+<p>The status on the UI shows the state of the binding: attached, unbinding. The count field shows the value of the count sent periodically via a message from the service to the client, as shown below</p>
+<div class="figure">
+<img src="images/bindui.png" />
+</div>
+<p>The client-service communicate via a serviceConnection. Messaging flows in both directions. The client can register (MSG_REGISTER_VALUE) to receive count values (MSG_SET_INT_VALUE) from the service over the</p>
+<div class="figure">
+<img src="images/binddemo.png" />
+</div>
+<h2 id="activity-side-of-the-binding-and-service-interaction">Activity side of the binding and service interaction</h2>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MainActivity <span class="kw">extends</span> Activity <span class="kw">implements</span> View.<span class="fu">OnClickListener</span>, ServiceConnection {
+    <span class="kw">private</span> Button btnStart, btnStop, btnBind, btnUnbind, btnUpby1, btnUpby10;
+    <span class="kw">private</span> TextView textStatus, textIntValue, textStrValue;
+    <span class="kw">private</span> Messenger mServiceMessenger = <span class="kw">null</span>;
+    <span class="dt">boolean</span> mIsBound;
+
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String LOGTAG = <span class="st">&quot;MainActivity&quot;</span>;
+    <span class="kw">private</span> <span class="dt">final</span> Messenger mMessenger = <span class="kw">new</span> <span class="fu">Messenger</span>(<span class="kw">new</span> <span class="fu">IncomingMessageHandler</span>());
+
+    <span class="kw">private</span> ServiceConnection mConnection = <span class="kw">this</span>;
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+        btnStart = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnStart</span>);
+        btnStop = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnStop</span>);
+        btnBind = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnBind</span>);
+        btnUnbind = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnUnbind</span>);
+        textStatus = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">textStatus</span>);
+        textIntValue = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">textIntValue</span>);
+        textStrValue = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">textStrValue</span>);
+        btnUpby1 = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnUpby1</span>);
+        btnUpby10 = (Button)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnUpby10</span>);
+
+        btnStart.<span class="fu">setOnClickListener</span>(<span class="kw">this</span>);
+        btnStop.<span class="fu">setOnClickListener</span>(<span class="kw">this</span>);
+        btnBind.<span class="fu">setOnClickListener</span>(<span class="kw">this</span>);
+        btnUnbind.<span class="fu">setOnClickListener</span>(<span class="kw">this</span>);
+        btnUpby1.<span class="fu">setOnClickListener</span>(<span class="kw">this</span>);
+        btnUpby10.<span class="fu">setOnClickListener</span>(<span class="kw">this</span>);
+
+        <span class="fu">automaticBind</span>();
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Check if the service is running. If the service is running </span>
+<span class="co">     * when the activity starts, we want to automatically bind to it.</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">automaticBind</span>() {
+        <span class="kw">if</span> (MyService.<span class="fu">isRunning</span>()) {
+            <span class="fu">doBindService</span>();
+        }
+    }
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onSaveInstanceState</span>(Bundle outState) {
+        <span class="kw">super</span>.<span class="fu">onSaveInstanceState</span>(outState);
+        outState.<span class="fu">putString</span>(<span class="st">&quot;textStatus&quot;</span>, textStatus.<span class="fu">getText</span>().<span class="fu">toString</span>());
+        outState.<span class="fu">putString</span>(<span class="st">&quot;textIntValue&quot;</span>, textIntValue.<span class="fu">getText</span>().<span class="fu">toString</span>());
+        outState.<span class="fu">putString</span>(<span class="st">&quot;textStrValue&quot;</span>, textStrValue.<span class="fu">getText</span>().<span class="fu">toString</span>());
+    }
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onRestoreInstanceState</span>(Bundle savedInstanceState) {
+        <span class="kw">if</span> (savedInstanceState != <span class="kw">null</span>) {
+            textStatus.<span class="fu">setText</span>(savedInstanceState.<span class="fu">getString</span>(<span class="st">&quot;textStatus&quot;</span>));
+            textIntValue.<span class="fu">setText</span>(savedInstanceState.<span class="fu">getString</span>(<span class="st">&quot;textIntValue&quot;</span>));
+            textStrValue.<span class="fu">setText</span>(savedInstanceState.<span class="fu">getString</span>(<span class="st">&quot;textStrValue&quot;</span>));
+        }
+        <span class="kw">super</span>.<span class="fu">onRestoreInstanceState</span>(savedInstanceState);
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Send data to the service</span>
+<span class="co">     * </span><span class="kw">@param intvaluetosend </span><span class="co">The data to send</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">sendMessageToService</span>(<span class="dt">int</span> intvaluetosend) {
+        <span class="kw">if</span> (mIsBound) {
+            <span class="kw">if</span> (mServiceMessenger != <span class="kw">null</span>) {
+                <span class="kw">try</span> {
+                    Message msg = Message.<span class="fu">obtain</span>(<span class="kw">null</span>, MyService.<span class="fu">MSG_SET_INT_VALUE</span>, intvaluetosend, <span class="dv">0</span>);
+                    msg.<span class="fu">replyTo</span> = mMessenger;
+                    mServiceMessenger.<span class="fu">send</span>(msg);
+                } <span class="kw">catch</span> (RemoteException e) {
+                }
+            }
+        }
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Bind this Activity to TimerService</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">doBindService</span>() {
+        <span class="fu">bindService</span>(<span class="kw">new</span> <span class="fu">Intent</span>(<span class="kw">this</span>, MyService.<span class="fu">class</span>), mConnection, Context.<span class="fu">BIND_AUTO_CREATE</span>);
+        mIsBound = <span class="kw">true</span>;
+        textStatus.<span class="fu">setText</span>(<span class="st">&quot;Binding.&quot;</span>);
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Un-bind this Activity to TimerService</span>
+<span class="co">     */</span> 
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">doUnbindService</span>() {
+        <span class="kw">if</span> (mIsBound) {
+            <span class="co">// If we have received the service, and hence registered with it, then now is the time to unregister.</span>
+            <span class="kw">if</span> (mServiceMessenger != <span class="kw">null</span>) {
+                <span class="kw">try</span> {
+                    Message msg = Message.<span class="fu">obtain</span>(<span class="kw">null</span>, MyService.<span class="fu">MSG_UNREGISTER_CLIENT</span>);
+                    msg.<span class="fu">replyTo</span> = mMessenger;
+                    mServiceMessenger.<span class="fu">send</span>(msg);
+                } <span class="kw">catch</span> (RemoteException e) {
+                    <span class="co">// There is nothing special we need to do if the service has crashed.</span>
+                }
+            }
+            <span class="co">// Detach our existing connection.</span>
+            <span class="fu">unbindService</span>(mConnection);
+            mIsBound = <span class="kw">false</span>;
+            textStatus.<span class="fu">setText</span>(<span class="st">&quot;Unbinding.&quot;</span>);
+        }
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Handle button clicks</span>
+<span class="co">     */</span>
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(View v) {
+        <span class="kw">if</span>(v.<span class="fu">equals</span>(btnStart)) {
+            <span class="fu">startService</span>(<span class="kw">new</span> <span class="fu">Intent</span>(MainActivity.<span class="fu">this</span>, MyService.<span class="fu">class</span>));
+        }
+        <span class="kw">else</span> <span class="kw">if</span>(v.<span class="fu">equals</span>(btnStop)) {
+            <span class="fu">doUnbindService</span>();
+            <span class="fu">stopService</span>(<span class="kw">new</span> <span class="fu">Intent</span>(MainActivity.<span class="fu">this</span>, MyService.<span class="fu">class</span>));
+        }
+        <span class="kw">else</span> <span class="kw">if</span>(v.<span class="fu">equals</span>(btnBind)) {
+            <span class="fu">doBindService</span>();
+        }
+        <span class="kw">else</span> <span class="kw">if</span>(v.<span class="fu">equals</span>(btnUnbind)) {
+            <span class="fu">doUnbindService</span>();
+        }
+        <span class="kw">else</span> <span class="kw">if</span>(v.<span class="fu">equals</span>(btnUpby1)) {
+            <span class="fu">sendMessageToService</span>(<span class="dv">1</span>);
+        }
+        <span class="kw">else</span> <span class="kw">if</span>(v.<span class="fu">equals</span>(btnUpby10)) {
+            <span class="fu">sendMessageToService</span>(<span class="dv">10</span>);
+        }
+    }</code></pre>
+<p>Note, when the client calls bindService() the onBind() method in the service returns the IBinder object. The IBinder is returned to the client's onServiceConnected(). This interaction is not obvious when reading the code. The service is used to send msgs to the service as shown in onServiceConnected() below.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onServiceConnected</span>(ComponentName name, IBinder service) {
+        mServiceMessenger = <span class="kw">new</span> <span class="fu">Messenger</span>(service);
+        textStatus.<span class="fu">setText</span>(<span class="st">&quot;Attached.&quot;</span>);
+        <span class="kw">try</span> {
+            Message msg = Message.<span class="fu">obtain</span>(<span class="kw">null</span>, MyService.<span class="fu">MSG_REGISTER_CLIENT</span>);
+            msg.<span class="fu">replyTo</span> = mMessenger;
+            mServiceMessenger.<span class="fu">send</span>(msg);
+        } 
+        <span class="kw">catch</span> (RemoteException e) {
+            <span class="co">// In this case the service has crashed before we could even do anything with it</span>
+        } 
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onServiceDisconnected</span>(ComponentName name) {
+        <span class="co">// This is called when the connection with the service has been unexpectedly disconnected - process crashed.</span>
+        mServiceMessenger = <span class="kw">null</span>;
+        textStatus.<span class="fu">setText</span>(<span class="st">&quot;Disconnected.&quot;</span>);
+    }
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onDestroy</span>() {
+        <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+        <span class="kw">try</span> {
+            <span class="fu">doUnbindService</span>();
+        } <span class="kw">catch</span> (Throwable t) {
+            Log.<span class="fu">e</span>(LOGTAG, <span class="st">&quot;Failed to unbind from the service&quot;</span>, t);
+        }
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Handle incoming messages from TimerService</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="kw">class</span> IncomingMessageHandler <span class="kw">extends</span> Handler {      
+        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">handleMessage</span>(Message msg) {
+            <span class="co">// Log.d(LOGTAG,&quot;IncomingHandler:handleMessage&quot;);</span>
+            <span class="kw">switch</span> (msg.<span class="fu">what</span>) {
+            <span class="kw">case</span> MyService.<span class="fu">MSG_SET_INT_VALUE</span>:
+                textIntValue.<span class="fu">setText</span>(<span class="st">&quot;Int Message: &quot;</span> + msg.<span class="fu">arg1</span>);
+                <span class="kw">break</span>;
+            <span class="kw">case</span> MyService.<span class="fu">MSG_SET_STRING_VALUE</span>:
+                String str1 = msg.<span class="fu">getData</span>().<span class="fu">getString</span>(<span class="st">&quot;str1&quot;</span>);
+                textStrValue.<span class="fu">setText</span>(<span class="st">&quot;Str Message: &quot;</span> + str1);
+                <span class="kw">break</span>;
+            <span class="kw">default</span>:
+                <span class="kw">super</span>.<span class="fu">handleMessage</span>(msg);
+            }
+        }
+    }   
+}</code></pre>
+<h2 id="service-side-of-the-binding-and-activity-interaction">Service side of the binding and activity interaction</h2>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="kw">public</span> <span class="kw">class</span> MyService <span class="kw">extends</span> Service {
+    <span class="kw">private</span> NotificationManager mNotificationManager;
+    <span class="kw">private</span> Timer mTimer = <span class="kw">new</span> Timer();
+    <span class="kw">private</span> <span class="dt">int</span> counter = <span class="dv">0</span>, incrementBy = <span class="dv">1</span>;
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">boolean</span> isRunning = <span class="kw">false</span>;
+
+    <span class="kw">private</span> List&lt;Messenger&gt; mClients = <span class="kw">new</span> ArrayList&lt;Messenger&gt;(); <span class="co">// Keeps track of all current registered clients.</span>
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> MSG_REGISTER_CLIENT = <span class="dv">1</span>;
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> MSG_UNREGISTER_CLIENT = <span class="dv">2</span>;
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> MSG_SET_INT_VALUE = <span class="dv">3</span>;
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> MSG_SET_STRING_VALUE = <span class="dv">4</span>;
+
+    <span class="kw">private</span> <span class="dt">final</span> Messenger mMessenger = <span class="kw">new</span> <span class="fu">Messenger</span>(<span class="kw">new</span> <span class="fu">IncomingMessageHandler</span>()); <span class="co">// Target we publish for clients to send messages to IncomingHandler.</span>
+
+    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String LOGTAG = <span class="st">&quot;MyService&quot;</span>;
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>() {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>();
+        Log.<span class="fu">i</span>(LOGTAG, <span class="st">&quot;Service Started.&quot;</span>);
+        <span class="fu">showNotification</span>();
+        mTimer.<span class="fu">scheduleAtFixedRate</span>(<span class="kw">new</span> <span class="fu">MyTask</span>(), <span class="dv">0</span>, 100L);
+        isRunning = <span class="kw">true</span>;
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">onStartCommand</span>(Intent intent, <span class="dt">int</span> flags, <span class="dt">int</span> startId) {
+        Log.<span class="fu">i</span>(LOGTAG, <span class="st">&quot;Received start id &quot;</span> + startId + <span class="st">&quot;: &quot;</span> + intent);
+        <span class="kw">return</span> START_STICKY; <span class="co">// Run until explicitly stopped.</span>
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Display a notification in the notification bar.</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">showNotification</span>() {
+        
+        PendingIntent contentIntent = PendingIntent.<span class="fu">getActivity</span>(<span class="kw">this</span>, <span class="dv">0</span>, <span class="kw">new</span> <span class="fu">Intent</span>(<span class="kw">this</span>, MainActivity.<span class="fu">class</span>), <span class="dv">0</span>);
+        Notification notification = <span class="kw">new</span> Notification.<span class="fu">Builder</span>(<span class="kw">this</span>)
+        .<span class="fu">setContentTitle</span>(<span class="kw">this</span>.<span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">service_label</span>))
+        .<span class="fu">setContentText</span>(<span class="fu">getResources</span>().<span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">service_started</span>)).<span class="fu">setSmallIcon</span>(R.<span class="fu">drawable</span>.<span class="fu">ic_launcher</span>)
+        .<span class="fu">setContentIntent</span>(contentIntent).<span class="fu">build</span>();
+        mNotificationManager = 
+                  (NotificationManager) <span class="fu">getSystemService</span>(NOTIFICATION_SERVICE);
+        notification.<span class="fu">flags</span> = notification.<span class="fu">flags</span>
+                | Notification.<span class="fu">FLAG_ONGOING_EVENT</span>;
+        notification.<span class="fu">flags</span> |= Notification.<span class="fu">FLAG_AUTO_CANCEL</span>;
+        
+        mNotificationManager.<span class="fu">notify</span>(<span class="dv">0</span>, notification); 
+
+    }
+
+    @Override
+    <span class="kw">public</span> IBinder <span class="fu">onBind</span>(Intent intent) {
+        Log.<span class="fu">i</span>(LOGTAG, <span class="st">&quot;onBind&quot;</span>);
+        <span class="kw">return</span> mMessenger.<span class="fu">getBinder</span>();
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Send the data to all clients.</span>
+<span class="co">     * </span><span class="kw">@param intvaluetosend </span><span class="co">The value to send.</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">sendMessageToUI</span>(<span class="dt">int</span> intvaluetosend) {
+        Iterator&lt;Messenger&gt; messengerIterator = mClients.<span class="fu">iterator</span>();        
+        <span class="kw">while</span>(messengerIterator.<span class="fu">hasNext</span>()) {
+            Messenger messenger = messengerIterator.<span class="fu">next</span>();
+            <span class="kw">try</span> {
+                <span class="co">// Send data as an Integer              </span>
+                messenger.<span class="fu">send</span>(Message.<span class="fu">obtain</span>(<span class="kw">null</span>, MSG_SET_INT_VALUE, intvaluetosend, <span class="dv">0</span>));
+
+                <span class="co">// Send data as a String</span>
+                Bundle bundle = <span class="kw">new</span> <span class="fu">Bundle</span>();
+                bundle.<span class="fu">putString</span>(<span class="st">&quot;str1&quot;</span>, <span class="st">&quot;ab&quot;</span> + intvaluetosend + <span class="st">&quot;cd&quot;</span>);
+                Message msg = Message.<span class="fu">obtain</span>(<span class="kw">null</span>, MSG_SET_STRING_VALUE);
+                msg.<span class="fu">setData</span>(bundle);
+                messenger.<span class="fu">send</span>(msg);
+
+            } <span class="kw">catch</span> (RemoteException e) {
+                <span class="co">// The client is dead. Remove it from the list.</span>
+                mClients.<span class="fu">remove</span>(messenger);
+            }
+        }
+    }
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">boolean</span> <span class="fu">isRunning</span>()
+    {
+        <span class="kw">return</span> isRunning;
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroy</span>() {
+        <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+        <span class="kw">if</span> (mTimer != <span class="kw">null</span>) {mTimer.<span class="fu">cancel</span>();}
+        counter=<span class="dv">0</span>;
+        mNotificationManager.<span class="fu">cancelAll</span>(); <span class="co">// Cancel the persistent notification.</span>
+        Log.<span class="fu">i</span>(LOGTAG, <span class="st">&quot;Service Stopped.&quot;</span>);
+        isRunning = <span class="kw">false</span>;
+    }
+
+    <span class="co">//////////////////////////////////////////</span>
+    <span class="co">// Nested classes</span>
+    <span class="co">/////////////////////////////////////////</span>
+
+    <span class="co">/**</span>
+<span class="co">     * The task to run...</span>
+<span class="co">     */</span>
+    <span class="kw">private</span> <span class="kw">class</span> MyTask <span class="kw">extends</span> TimerTask {
+        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">run</span>() {
+            Log.<span class="fu">i</span>(LOGTAG, <span class="st">&quot;Timer doing work.&quot;</span> + counter);
+            <span class="kw">try</span> {
+                counter += incrementBy;
+                <span class="fu">sendMessageToUI</span>(counter);
+
+            } <span class="kw">catch</span> (Throwable t) { <span class="co">//you should always ultimately catch all exceptions in timer tasks.</span>
+                Log.<span class="fu">e</span>(<span class="st">&quot;TimerTick&quot;</span>, <span class="st">&quot;Timer Tick Failed.&quot;</span>, t);            
+            }
+        }       
+    }
+
+    <span class="co">/**</span>
+<span class="co">     * Handle incoming messages from MainActivity</span>
+<span class="co">     */</span>
+     <span class="kw">private</span> <span class="kw">class</span> IncomingMessageHandler <span class="kw">extends</span> Handler { <span class="co">// Handler of incoming messages from clients.</span>
+        @Override
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">handleMessage</span>(Message msg) {
+            Log.<span class="fu">d</span>(LOGTAG,<span class="st">&quot;handleMessage: &quot;</span> + msg.<span class="fu">what</span>);
+            <span class="kw">switch</span> (msg.<span class="fu">what</span>) {
+            <span class="kw">case</span> MSG_REGISTER_CLIENT:
+                mClients.<span class="fu">add</span>(msg.<span class="fu">replyTo</span>);
+                <span class="kw">break</span>;
+            <span class="kw">case</span> MSG_UNREGISTER_CLIENT:
+                mClients.<span class="fu">remove</span>(msg.<span class="fu">replyTo</span>);
+                <span class="kw">break</span>;
+            <span class="kw">case</span> MSG_SET_INT_VALUE:
+                incrementBy = msg.<span class="fu">arg1</span>;
+                <span class="kw">break</span>;
+            <span class="kw">default</span>:
+                <span class="kw">super</span>.<span class="fu">handleMessage</span>(msg);
+            }
+        }
+    }
+}</code></pre>
+</body>
+</html>

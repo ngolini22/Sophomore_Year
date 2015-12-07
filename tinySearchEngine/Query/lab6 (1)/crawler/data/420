@@ -1,0 +1,46 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song.
+<b>Evaluating Mobility Predictors in Wireless Networks for Improving
+Handoff and Opportunistic Routing</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+January,
+2008.
+Available as Dartmouth Computer Science Technical Report TR2008-611.
+<p><b>Abstract:</b> We evaluate mobility predictors in wireless networks. Handoff
+prediction in wireless networks has long been considered as a mechanism to
+improve the quality of service provided to mobile wireless users. Most prior
+studies, however, were based on theoretical analysis, simulation with
+synthetic mobility models, or small wireless network traces. We study the
+effect of mobility prediction for a large realistic wireless situation. We
+tackle the problem by using traces collected from a large production wireless
+network to evaluate several major families of handoff-location prediction
+techniques, a set of handoff-time predictors, and a predictor that jointly
+predicts handoff location and time. We also propose a fallback mechanism,
+which uses a lower-order predictor whenever a higher-order predictor fails to
+predict. We found that low-order Markov predictors, with our proposed
+fallback mechanisms, performed as well or better than the more complex and
+more space-consuming compression-based handoff-location predictors. Although
+our handoff-time predictor had modest prediction accuracy, in the context of
+mobile voice applications we found that bandwidth reservation strategies can
+benefit from the combined location and time handoff predictor, significantly
+reducing the call-drop rate without significantly increasing the call-block
+rate. We also developed a prediction-based routing protocol for mobile
+opportunistic networks. We evaluated and compared our protocol's performance
+to five existing routing protocols, using simulations driven by real mobility
+traces. We found that the basic routing protocols are not practical for
+large-scale opportunistic networks. Prediction-based routing protocols trade
+off the message delivery ratio against resource usage and performed well and
+comparable to each other.</p>
+<p><a href="bibtex/song-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2008-611.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Libo Song.</b></p>
+</BODY>
+</HTML>

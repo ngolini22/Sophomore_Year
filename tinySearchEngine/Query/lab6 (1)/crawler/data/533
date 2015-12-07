@@ -1,0 +1,156 @@
+http://www.cs.dartmouth.edu/~liang
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><!-- saved from url=(0057)http://engineering.dartmouth.edu/templates/01/events.html -->
+
+
+
+
+
+
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+  
+  <link rel="stylesheet" type="text/css" href="./files/global_style.css" media="all" />
+
+  
+  <link rel="stylesheet" type="text/css" href="./files/local_style.css" media="all" />
+
+  
+  <link rel="stylesheet" type="text/css" href="./files/print_style.css" media="print" /><title>Xiaohui's Homepage</title></head><body>
+<div id="header">
+<div id="utilitynav">
+<div id="stripe">
+<div style="text-align: left;"><big><big><big><big>&nbsp;&nbsp; WELCOME TO XIAOHUI
+LIANG'S HOMEPAGE<br />
+</big></big></big></big></div>
+</div>
+</div>
+</div>
+
+<div id="mastercontainer">
+<div id="navigation">
+<ul>
+  <li><a href="index.html" class="current_page">Home</a></li>
+  <li><a href="projects.html">Research
+Projects</a></li>
+  <li><a href="publications.html">Publications</a></li>
+  <li><a href="activities.html">Professional
+activities</a></li>
+  <li><a href="honors.html">honors &amp; awards </a></li>
+  <li><a href="resources.html">Resources</a></li>
+  <li><a href="gallery.html">Gallery</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div id="content_positioning"><!-- EDITABLE: This is the content of the page, standard editing will not break the layout -->
+<div id="content">
+<table border="0" width="204">
+  <tbody>
+    <tr valign="top">
+      <td class="twocolumn_left" width="150">
+      <h1 style="margin-top: 0pt; margin-bottom: 0pt;">Xiaohui Liang</h1>
+      <br />
+      <span style="font-weight: bold;">Postdoctoral Researcher</span><br style="font-weight: bold;" />
+      <p style="font-weight: bold;">Institute for Security, Technology,
+and
+Society<br />
+Department of Computer Science, Dartmouth College</p>
+      <p><span style="font-weight: bold;">Address: 6211 Sudikoff
+Laboratory,<br />
+Dartmouth College, Hanover, NH, 03755-3510, USA, </span><br style="font-weight: bold;" />
+      <span style="font-weight: bold;">Office Phone: 1(603)-646-3266 </span><br style="font-weight: bold;" />
+      <span style="font-weight: bold;">Email:
+Xiaohui.Liang~at~dartmouth.edu</span> <span style="font-weight: bold;"><br />
+      </span></p>
+      </td>
+      <td class="twocolumn_right" style="text-align: center;" width="50"><img style="width: 248px; height: 206px;" src="./pics/Xiaohui.JPG" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<p>My research interests lie in areas of Security, Privacy, and
+Trustworthiness for
+Mobile Healthcare, Mobile Social Networks, Internet of Things, and
+Cloud Computing. My research has been supported by <a href="http://thaw.org/">THaW</a> from National Science
+Foundation. According to Google Scholar, my <a href="http://scholar.google.com/citations?user=fzX2e3sAAAAJ&amp;hl=en" target="_blank"><span style="background-color: white; font-weight: bold;">H-Index</span></a> is
+24 as of August, 2014. Please check my CV for more details [<a href="pdf/Xiaohui_CV.pdf">PDF</a>].</p>
+<hr />
+<h2>Updates</h2>
+<ul>
+  
+  <li><span style="font-weight: bold;">March 24, 2015<br />
+    </span>Xiaohui has joined the Technical Program Committee of <span style="font-weight: bold;">IEEE INFOCOM</span> 2016.<span style="font-weight: bold;"><br />
+    </span></li>
+  <li><span style="font-weight: bold;">Februray 19, 2015</span><br />
+Our paper "Enabling Fine-grained Multi-keyword Search Supporting
+Classified Sub-dictionaries over Encrypted Cloud Data" has been
+accepted by <span style="font-weight: bold;">IEEE Transactions on Dependable and Secure Computing</span>, 2015.<br />
+  </li>
+
+  <li><span style="font-weight: bold;">January 5, 2015</span><br />
+Xiaohui attended the National Science Foundation Secure and
+Trustworthy Cyberspace (SaTC) Principal Investigators' Meeting and presented a poster on
+January 5-7, 2015 in Arlington, Virginia.<br />
+    <span style="font-weight: bold;" /></li>
+
+  <li><span style="font-weight: bold;">December 1, 2014</span><br />
+Xiaohui received the "<a target="_blank" href="pics/Statement%202014.pdf">Statement of Accomplishment with Distinction</a>"
+from Vanderbilt University's course "An Introduction to Evidence-Based
+Undergraduate STEM Teaching". (196 out of 5908 participants, 3.3%)</li>
+  <li><span style="font-weight: bold;">November 16, 2014</span><br />
+Our paper "Exploiting Mobile Social Behaviors for Sybil Detection" has been accepted by <span style="font-weight: bold;">IEEE</span> <span style="font-weight: bold;">INFOCOM</span> 2015 (Acceptance ratio 19%)<br />
+</li>
+  <li><b>August 19, 2014</b><br />
+Xiaohui gave a presentation
+on "Securely Connecting Wearable Health Devices to External Displays,"
+USENIX Summit on Health Information Technologies, August, 2014. <a href="https://www.usenix.org/conference/healthtech14/summit-program/presentation/liang">Program</a></li>
+
+
+  <li><span style="font-weight: bold;">July 21, 2014</span><br />
+Our recent SpringerBriefs book "Security and Privacy in Mobile Social
+Networks", was reviewed in July&#8217;s ACM Computing Reviews. <a href="pdf/ACM_Review_Liang.pdf">Review</a><br />
+  </li>
+  <li><b>June 16-19, 2014</b><br />
+Xiaohui attended Mobisys 2014
+held in Bretton Woods, US, and presented a poster "Balancing
+Disclosure and Utility of Personal Infomation".</li>
+  <li><b>April 27 - May 2, 2014</b><br />
+Xiaohui attended Infocom 2014 held in Toronto, Canada.&nbsp;</li>
+  <li><span style="font-weight: bold;">January 23, 2014</span><br />
+Xiaohui joined the Department of Computer Science at Dartmouth College
+as a Postdoctoral Researcher, funded by Trustworthy Health and Wellness
+(THaW).</li>
+  <li><span style="font-weight: bold;">December, 2014</span><br />
+Xiaohui attended the Trustworthy Health and Wellness (THaW) Kick-off
+meeting.</li>
+  <li><span style="font-weight: bold;">November</span>, <span style="font-weight: bold;">2013</span><br />
+Our SpringerBriefs book "Mobile Social Network: Challenges and
+Solutions of Security and Privacy" has been submitted and accepted.</li>
+  <li><span style="font-weight: bold;">August, 2013</span><br />
+Xiaohui received the "Outstanding Achievement in Graduate Studies"
+honour from University of Waterloo.</li>
+  <li><span style="font-weight: bold;">June, 2013</span><br />
+Our paper "EPS: An Efficient and Privacy-Preserving Service Searching
+Scheme for Smart Community" has been accepted by IEEE Sensor Journal.</li>
+  <li><span style="font-weight: bold;">May, 2013</span><br />
+Xiaohui received the Doctoral Thesis Completion Award, University of
+Waterloo.</li>
+  <li><span style="font-weight: bold;">January, 2013</span><br />
+Our paper "Fully Anonymous Profile Matching in Mobile Social Networks"
+has been accepted by IEEE Journal on Selected Areas in Communications.</li>
+</ul>
+</div>
+<div id="footer">
+<div align="left">
+<script type="text/javascript" language="JavaScript" src="http://codice.shinystat.com/cgi-bin/getcod.cgi?USER=Roddy" />
+<noscript> <a href="http://www.shinystat.com" target="_top"> <img src="http://www.shinystat.com/cgi-bin/shinystat.cgi?USER=Roddy" alt="Free hit counter" border="0" /></a> </noscript>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

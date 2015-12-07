@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-position.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:position</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, David Kotz, and Daniela Rus.
+<b>Economic Markets as a Means of Open Mobile-Agent Systems</b>.
+In
+<i>Proceedings of the Workshop ``Mobile Agents in the Context of
+Competition and Cooperation (MAC3)'' at Autonomous Agents&nbsp;'99</i>,
+pages 43-49,
+May,
+1999.
+<p><b>Abstract:</b> Mobile-agent systems have gained popularity in use because they
+ease the application design process by giving software engineers greater
+flexibility. Although the value of any network is dependent on both the
+number of users and the number of sites participating in the network, there
+is little motivation for systems to donate resources to arbitrary agents. We
+propose to remedy the problem by imposing an economic market on mobile-agent
+systems where agents purchase resources from host sites and sell services to
+users and other agents. Host sites accumulate revenues, which are distributed
+to users to be used to launch more agents. We argue for the use of markets to
+regulate mobile-agent systems and discuss open issues in implementing
+market-based mobile-agent systems.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/bredin-position.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-position.pdf">PDF</a> (122K)</p>
+<p><b>Copyright &#169;&nbsp;1999 by the authors.</b></p>
+</BODY>
+</HTML>

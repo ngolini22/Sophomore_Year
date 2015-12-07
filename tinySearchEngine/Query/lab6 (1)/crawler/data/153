@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-diskdir.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:diskdir</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Disk-directed I/O for MIMD Multiprocessors</b>.
+In
+<i>Proceedings of the 1994 Symposium on Operating Systems Design
+and Implementation (OSDI)</i>,
+pages 61-74,
+November,
+1994.
+USENIX Association.
+Updated as Dartmouth TR PCS-TR94-226 on November 8, 1994.
+<p><b>Abstract:</b> Many scientific applications that run on today's multiprocessors
+are bottlenecked by their file I/O needs. Even if the multiprocessor is
+configured with sufficient I/O hardware, the file-system software often fails
+to provide the available bandwidth to the application. Although libraries and
+improved file-system interfaces can make a significant improvement, we
+believe that fundamental changes are needed in the file-server software. We
+propose a new technique,  disk-directed I/O, that flips the usual
+relationship between server and client to allow the disks (actually, disk
+servers) to determine the flow of data for maximum performance. Our
+simulations show that tremendous performance gains are possible. Indeed,
+disk-directed I/O provided consistent high performance that was largely
+independent of data distribution, and close to the maximum disk bandwidth.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-diskdir.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-diskdir.pdf">PDF</a> (485K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/kotz-diskdir-tr.html">kotz:diskdir-tr</a></b>.</p>
+</BODY>
+</HTML>

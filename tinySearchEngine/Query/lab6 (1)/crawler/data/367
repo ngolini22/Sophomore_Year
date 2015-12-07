@@ -1,0 +1,27 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-healthsec10.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:healthsec10</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius and David Kotz.
+<b>On Usable Authentication for Wireless Body Area Networks</b>.
+In
+<i>USENIX Workshop on Health Security (HealthSec)</i>,
+August,
+2010.
+Position paper.
+<p><b>Abstract:</b> We examine a specific security problem in wireless body area
+networks (WBANs), what we call the \it one body authentication problem.
+That is, how can we ensure that the wireless sensors in a WBAN are collecting
+data about one individual and not several individuals. We explore existing
+solutions to this problem and provide some analysis why these solutions are
+inadequate. Finally, we provide some direction towards a promising solution
+to the problem and how it can be used to create a usably secure WBAN.</p>
+<p><a href="bibtex/cornelius-healthsec10.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-healthsec10.pdf">PDF</a> (71K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by the authors.</b></p>
+</BODY>
+</HTML>

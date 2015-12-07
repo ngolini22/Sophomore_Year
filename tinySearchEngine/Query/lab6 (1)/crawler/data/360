@@ -1,0 +1,61 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/minami-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>minami:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kazuhiro Minami.
+<b>Secure Context-sensitive Authorization</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+February,
+2006.
+Available as Dartmouth Computer Science Technical Report TR2006-571.
+<p><b>Abstract:</b> Pervasive computing leads to an increased integration between the
+real world and the computational world, and many applications in pervasive
+computing adapt to the user's context, such as the location of the user and
+relevant devices, the presence of other people, light or sound conditions, or
+available network bandwidth, to meet a user's continuously changing
+requirements without taking explicit input from the users. <P> We consider a
+class of applications that wish to consider a user's context when deciding
+whether to authorize a user's access to important physical or information
+resources. Such a context-sensitive authorization scheme is necessary when a
+mobile user moves across multiple administrative domains where they are not
+registered in advance. Also, users interacting with their environment need a
+non-intrusive way to access resources, and clues about their context may be
+useful input into authorization policies for these resources. Existing
+systems for context-sensitive authorization take a logic-based approach,
+because a logical language makes it possible to define a context model where
+a contextual fact is expressed with a boolean predicate and to derive
+higher-level context information and authorization decisions from contextual
+facts. <P> However, those existing context-sensitive authorization systems
+have a central server that collects context information, and evaluates
+policies to make authorization decisions on behalf of a resource owner. A
+centralized solution assumes that all resource owners trust the server to
+make correct decisions, and all users trust the server not to disclose
+private context information. In many realistic applications of pervasive
+computing, however, the resources, users, and sources of context information
+are inherently distributed among many organizations that do not necessarily
+trust each other. Resource owners may not trust the integrity of context
+information produced by another domain, and context sensors may not trust
+others with the confidentiality of data they provide about users. <P> In
+this thesis, we present a secure distributed proof system for
+context-sensitive authorization. Our system enables multiple hosts to
+evaluate an authorization query in a peer-to-peer way, while preserving the
+confidentiality and integrity policies of mutually untrusted principals
+running those hosts. We also develop a novel caching and revocation mechanism
+to support context-sensitive policies that refer to information in dozens of
+different administrative domains. Contributions of this thesis include the
+definition of fine-grained security policies that specify trust relations
+among principals in terms of information confidentiality and integrity, the
+design and implementation of a secure distributed proof system, a proof for
+the correctness of our algorithm, and a performance evaluation showing that
+the amortized performance of our system scales to dozens of servers in
+different domains.</p>
+<p><a href="bibtex/minami-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2006-571.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2006 by Kazuhiro Minami.</b></p>
+</BODY>
+</HTML>

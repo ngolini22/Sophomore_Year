@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-msthesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:msthesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad.
+<b>Exposing Privacy Concerns in mHealth Data Sharing</b>.
+Masters Thesis,
+Dartmouth College Computer Science,
+February,
+2012.
+Available as Technical Report TR2012-711.
+<p><b>Abstract:</b> Mobile health (mHealth) has become important in the field of
+healthcare information technology, as patients begin to use mobile devices to
+record their daily activities and vital signs. These devices can record
+personal health information even outside the hospital setting, while the
+patients are at home or at their workplace. However, the devices might record
+sensitive information that might not be relevant for medical purposes and in
+some cases may be misused. Patients need expressive privacy controls so that
+they can trade potential health benefits of the technology with the privacy
+risks. To provide such privacy controls, it is important to understand what
+patients feel are the benefits and risks associated with the technology and
+what controls they want over the information. <P> We conducted focus groups
+to understand the privacy concerns that patients have when they use mHealth
+devices. We conducted a user study to understand how willing patients are to
+share their personal health information that was collected using an mHealth
+device. To the best of our knowledge, ours is the first study that explores
+users' privacy concerns by giving them the opportunity to actually share the
+information collected about them using mHealth devices. We found that
+patients tend to share more information with third parties than the public
+and prefer to keep certain information from their family and friends.
+Finally, based on these discoveries, we propose some guidelines to developing
+defaults for sharing settings in mHealth systems.</p>
+<p><a href="bibtex/prasad-msthesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2012-711.pdf">PDF</a> (remote)</p>
+<p>See also later version <b><a href="abstracts/prasad-fitbit.html">prasad:fitbit</a></b>.</p>
+</BODY>
+</HTML>

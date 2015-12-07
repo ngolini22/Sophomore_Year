@@ -1,0 +1,339 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture08/lecture08.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Fragments and Action Bars - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<title>
+help
+</title>
+
+<h1 id="lecture-9---fragments-and-actionbars">Lecture 9 - Fragments and ActionBars</h1>
+<p>The Android framework contains a number of UI components that allow a common feel to design simple UIs -- one is the ActionBar. These UI components integrate <code>fragments</code> which are associated with a view. Fragments let us build reusable and extensible UIs.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>How to build the ActionTab app, which uses ActionBar and fragments</li>
+<li>Creating the ActionBar with Tabs</li>
+<li>Setting up Menus</li>
+<li>Fragments, Fragment lifecycle and fragment layouts</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Android developers <a href="http://developer.android.com/guide/topics/ui/actionbar.html">Action Bar</a></li>
+<li>Android Official Code Sample <a href="http://developer.android.com/samples/SlidingTabsBasic/index.html">SlidingTabsBasic</a></li>
+<li>Google DevByte <a href="https://www.youtube.com/watch?v=tRg_eDfQ8fk">Sliding Tabs</a></li>
+<li>Android developers <a href="http://developer.android.com/guide/components/fragments.html">Fragments</a></li>
+<li>Course book <a href="http://commonsware.com/Android/">The Tactics of Fragments</a> page 279</li>
+<li>Iconography resources: <a href="http://developer.android.com/design/style/iconography.html">a bunch of icons to beautify your app.</a></li>
+</ul>
+<h2 id="checkout-the-demo-project">Checkout the demo project</h2>
+<ul>
+<li>Download the demo the <a href="../code/actiontabs.zip">actiontabs.zip</a> app specifically designed to go with these notes.</li>
+</ul>
+<h2 id="actiontab-app">ActionTab app</h2>
+<p>ActionTab is a simple application used to demonstrate the use on the ActionBar and fragments. If you click through the tabs you will find to answer to the question - why Dartmouth.</p>
+<p>Fragments are associated with the UI. We will develop the ActionTab app to best illustrate how fragments can use Android UI components such as ActionBar (more on that in a moment). The ActionTab app will combine multiple fragments (four in all) in a single activity to build a multi-pane UI. These fragments can be considered self-contained components and could be reused by multiple activities potentially across multiple applications.</p>
+<p>The app is made up of 4 tabs and 4 corresponding fragments.</p>
+<p>Note, that when the app is shown in landscape the ActionBar is configured differently from the normal portrait view -- Android rearranges the icons visible in the actionbar; that is, in landscape the &quot;add&quot; option is shown as an icon on the actionbar rather than in the drop down, as is the case in portrait mode; we show the landscape below:</p>
+<div class="figure">
+<img src="images/actiontab.png" />
+</div>
+<p>Play with the app to get a feel for the UI -- cool hey? Simple, compact and a nice way to build up the features and services offered by your app. We will use this ActionBar and fragment combination as part of Lab2.</p>
+<p>There is one activity and four fragments in this project:</p>
+<ul>
+<li>activity: MainActivity.java</li>
+<li>fragments: ChatFragment.java, FindFragment.java, MeetFragment.java, PartyFragment.java</li>
+<li>layouts: each activity and fragment has a layout</li>
+<li>menu: this is <strong>new</strong> the action bar has a menu that is in res/menu/main.xml</li>
+</ul>
+<p>The systems design diagram (below) captures the main components and their interaction. This is not meant to be a detailed diagram. Rather, it shows the main activity, the four fragments and their layouts. The menu and manifest are also shown.</p>
+<div class="figure">
+<img src="images/s_sysdiagram.png" />
+</div>
+<h2 id="actionbar">ActionBar</h2>
+<p>ActionBar is a simple UI component that can be used by many different applications -- it gives a common feel that can be customized to the specific needs on different applications. Let's take a closer look at the action bar of our app -- now shown in portrait mode, as shown below. The action bar shows the application icon on the left -- the CS logo, followed by the activity title -- ActionTab. Our activity defines a number of &quot;action items&quot; (in menu/main.xml). Selected items can be made visible on the action bar such as search and send (which are directly accessible as icons defined in the menu/main.xml). If a menu item does not appear as an action item (for example add, share, feedback) then the action bar places it in the overflow menu -- the action item icons and the overflow menu are down in the figure(left). The overflow menu button is shown on far right of the figure -- 3 dots stacked. If we click on that we see the hidden menu options -- shown in the figure (right).</p>
+<div class="figure">
+<img src="images/menuitem.png" />
+</div>
+<h2 id="tabs">Tabs</h2>
+<p><a href="http://developer.android.com/design/building-blocks/tabs.html">Tabs</a> in the action bar are often where you put titles for different pages in your app. They make it easy to explore and switch between different views or functional aspects of your app, or to browse categorized data sets. Check out the Google Play app on your phone for a quick demonstration of scrollable tabs, where tab strip indicators move smoothly from tab to tab. Users can gain continuous touch feedback as they swipe between pages.</p>
+<div class="figure">
+<img src="images/play.png" />
+</div>
+<h2 id="developing-sliding-tabs-with-slidingtablayout-and-viewpager">Developing sliding tabs with SlidingTabLayout and ViewPager</h2>
+<p>Add SlidingTabLayout and ViewPager to the main.xml file. We put them into a RelativeLayout where ViewPager is below the SlidingTabLayout. At onCreate(), the MainActivity will load these two components to render the sliding tabs and swipeable pages. To use the ViewPager class, you need to import support library v4 to your project. Check a <a href="https://piazza.com/class/i4inyeqim7262d?cid=10">previous post</a> on how to import the library in Android Studio.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;RelativeLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    xmlns:tools=<span class="st">&quot;http://schemas.android.com/tools&quot;</span> android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+    tools:context=<span class="st">&quot;.MainActivity&quot;</span>&gt;
+
+    &lt;edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">actiontabs</span>.<span class="fu">view</span>.<span class="fu">SlidingTabLayout</span>
+        android:id=<span class="st">&quot;@+id/tab&quot;</span>
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>/&gt;
+
+    &lt;android.<span class="fu">support</span>.<span class="fu">v4</span>.<span class="fu">view</span>.<span class="fu">ViewPager</span>
+        android:id=<span class="st">&quot;@+id/viewpager&quot;</span>
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_below=<span class="st">&quot;@+id/tab&quot;</span>/&gt;
+&lt;/RelativeLayout&gt; </code></pre>
+<h2 id="creating-the-actionbar-and-tabs">Creating the ActionBar and Tabs</h2>
+<p>Our design uses <a href="http://developer.android.com/reference/android/support/v4/view/ViewPager.html">ViewPager</a> to switch between Fragment objects, and each Fragment is titled by one sliding tab, as shown in the code snippet. ViewPager is most often used in conjunction with Fragment, which is a convenient way to supply and manage the lifecycle of each page. There are standard adapters implemented for using fragments with the ViewPager, which cover the most common use cases. These are FragmentPagerAdapter and FragmentStatePagerAdapter; each of these classes have simple code showing how to build a full user interface with them. In Android, adapters are a bridge between Adapter View (e.g., ViewPager, ListView, etc.) and the underlying data sources for that view (e.g., arraylists, databases, fragments, etc.). We will revisit the concept of adapter in the week 4.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MainActivity <span class="kw">extends</span> Activity {
+
+<span class="co">/** Called when the activity is first created. */</span>
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+
+        <span class="co">// Define SlidingTabLayout (shown at top) </span>
+        <span class="co">// and ViewPager (shown at bottom) in the layout. </span>
+        <span class="co">// Get their instances. </span>
+        slidingTabLayout = (SlidingTabLayout) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">tab</span>);
+        viewPager = (ViewPager) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">viewpager</span>);
+
+        <span class="co">// create a fragment list in order. </span>
+        fragments = <span class="kw">new</span> ArrayList&lt;Fragment&gt;();
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">FindFragment</span>());
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">ChatFragment</span>());
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">MeetFragment</span>());
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">PartyFragment</span>());
+
+        <span class="co">// use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles) and ViewPager (different pages of fragment) together. </span>
+        myViewPagerAdapter =<span class="kw">new</span> <span class="fu">ActionTabsViewPagerAdapter</span>(<span class="fu">getFragmentManager</span>(),
+                fragments);
+        viewPager.<span class="fu">setAdapter</span>(myViewPagerAdapter);
+        slidingTabLayout.<span class="fu">setDistributeEvenly</span>(<span class="kw">true</span>);
+        slidingTabLayout.<span class="fu">setViewPager</span>(viewPager);
+
+    }
+ </code></pre>
+<p>We use the SlidingTabLayout and SlidingTabStrip in the official code <a href="http://developer.android.com/samples/SlidingTabsBasic/index.html">sample</a> to render tabs, and call setDistributeEvenly to make sure the tabs are evenly distributed rather than dynamically distributed as default. We put these two files under the view folder of our app package, as they are specifically created for rendering tasks.</p>
+<div class="figure">
+<img src="images/view.png" />
+</div>
+<p>Once the tabs are set up we create 4 new fragments; we simply use the new key word in front of the class names for each of the fragments created in the files:</p>
+<ul>
+<li>ChatFragment.java</li>
+<li>FindFragment.java</li>
+<li>MeetFragment.java</li>
+<li>PartyFragment.java</li>
+</ul>
+<p>These are all pretty much identical code. Each fragment inflates its own layout (e.g., R.layout.chatfragment) in onCreateView().</p>
+<p>Next, in our customized ActionTabsViewPagerAdapter we set up the titles for each of the created tabs.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">public</span> CharSequence <span class="fu">getPageTitle</span>(<span class="dt">int</span> position) {
+        <span class="kw">switch</span> (position) {
+            <span class="kw">case</span> CHAT:
+                <span class="kw">return</span> UI_TAB_CHAT;
+            <span class="kw">case</span> FIND:
+                <span class="kw">return</span> UI_TAB_FIND;
+            <span class="kw">case</span> MEET:
+                <span class="kw">return</span> UI_TAB_MEET;
+            <span class="kw">case</span> PARTY:
+                <span class="kw">return</span> UI_TAB_PARTY;
+            <span class="kw">default</span>:
+                <span class="kw">break</span>;
+        }
+        <span class="kw">return</span> <span class="kw">null</span>;
+    }</code></pre>
+<h2 id="setting-up-the-menu-with-action-items">Setting up the menu with action Items</h2>
+<p>The menu declares all of the menu items. We show a few items below. The object ID is set up; note Android has a number of nice icons we can use and in the case below we use the search and send icons from @android:drawable; regards &quot;ifRoom&quot;: You can specify that a menu item appear as an action item in the XML file by using <code>android:showAsAction=&quot;ifRoom&quot;</code> as shown above in our menu for each of the <item> element. Depending on space (could be a tablet or phone, or could be a phone flipping between portrait and landscape) the item might be in the actionbar or if there is no room it will appear in the overflow menu. The final of the item set up is a title @string/ui_menu_send that can be used in the overflow menu if it can't be accommodated in the action bar.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;menu xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span> &gt;
+ 
+    &lt;item
+        android:id=<span class="st">&quot;@+id/menuitem_search&quot;</span>
+        android:icon=<span class="st">&quot;@android:drawable/ic_menu_search&quot;</span>
+        android:showAsAction=<span class="st">&quot;ifRoom&quot;</span>
+        android:title=<span class="st">&quot;@string/ui_menu_search&quot;</span>&gt;
+    &lt;/item&gt;
+    &lt;item
+        android:id=<span class="st">&quot;@+id/menuitem_send&quot;</span>
+        android:icon=<span class="st">&quot;@android:drawable/ic_menu_send&quot;</span>
+        android:showAsAction=<span class="st">&quot;ifRoom&quot;</span>
+        android:title=<span class="st">&quot;@string/ui_menu_send&quot;</span>&gt;
+    &lt;/item&gt;
+ 
+    **snippet**
+&lt;/menu&gt;</code></pre>
+<h2 id="inflating-the-menu">Inflating the menu</h2>
+<p>The onCreateOptionsMenu() callback is invoked when the activity is created to inflate the main.xml in the menu folder as discussed above -- this inflates the XML menu resources that populates the he action bar and overflow menu. You can add menu items to the menu programmatically using onCreateOptionsMenu() but in our example we simply inflate the items set up in main.xml.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">onCreateOptionsMenu</span>(Menu menu) {
+                        MenuInflater inflater = <span class="fu">getMenuInflater</span>();
+                        inflater.<span class="fu">inflate</span>(R.<span class="fu">menu</span>.<span class="fu">main</span>, menu);
+                        <span class="kw">return</span> <span class="kw">true</span>;
+            }</code></pre>
+<h2 id="selecting-menu-items">Selecting menu items</h2>
+<p>If you added the menu item from a fragment, via the Fragment class's onCreateOptionsMenu callback, then the system calls the respective onOptionsItemSelected() method for that fragment when the user selects one of the fragment's items. When any of the options are selected by the user the onOptionsItemSelected is called with the reference to the related MenuItem. In most cases the callback justs displays toast but in the case of quit we call <code>finish()</code> to close the app.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">onOptionsItemSelected</span>(MenuItem item) {
+                        <span class="kw">switch</span> (item.<span class="fu">getItemId</span>()) {
+                        <span class="kw">case</span> R.<span class="fu">id</span>.<span class="fu">menuitem_search</span>:
+                                    Toast.<span class="fu">makeText</span>(<span class="kw">this</span>, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">ui_menu_search</span>),
+                                                            Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+                                    <span class="kw">return</span> <span class="kw">true</span>;
+                        <span class="kw">case</span> R.<span class="fu">id</span>.<span class="fu">menuitem_send</span>:
+                                    Toast.<span class="fu">makeText</span>(<span class="kw">this</span>, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">ui_menu_send</span>),
+                                                            Toast.<span class="fu">LENGTH_LONG</span>).<span class="fu">show</span>();
+ 
+                        ** snippet**
+ 
+                        <span class="kw">case</span> R.<span class="fu">id</span>.<span class="fu">menuitem_quit</span>:
+                                    Toast.<span class="fu">makeText</span>(<span class="kw">this</span>, <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">ui_menu_quit</span>),
+                                                            Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+                                    <span class="fu">finish</span>(); <span class="co">// close the activity</span>
+                                    <span class="kw">return</span> <span class="kw">true</span>;
+                        }
+                        <span class="kw">return</span> <span class="kw">false</span>;
+            }
+ </code></pre>
+<h2 id="fragments">Fragments</h2>
+<p>Up until now we have used activities as drivers to display views to the screen. The previous example each screen is associated with an activity that is used to render and manage the user interaction with the view. All that changes in this lecture. We move away from activities and start to use fragments -- a fragment is now used to render and manager a particular UI view. Think of fragments as lightweight activities for now. Your application still needs activities but we don't use them to solely render views. Most applications, and ones we will develop, include one or more activity and fragments.</p>
+<p>What are fragments?</p>
+<ul>
+<li>Fragments are parts of application's UI or behavior that are integrated into activities -- a fragment needs an activity to run.</li>
+<li>Fragments are flexible and reusable components defined by the programmer</li>
+<li>each fragment has its own lifecycle and associated UI (for example, a fragment for the user to enter profile information, another one to render maps).</li>
+<li>Fragments present a consistent UI across different apps and devices; fragments are flexible in adapting the user experience across these different environments.</li>
+</ul>
+<p>In implementation there are considerable differences; for example, an activity has to be specified in the manifest, while fragments do not because they can only exist in the context of an activity and are coupled to the activity state. While fragments are strongly integrated into the UI you can use fragments without a view or UI components. Fragments can implement a number of application behaviors, such as, code to handle listeners, files, database, etc. These types of fragments can be thought of as invisible worker for the activity -- more later on this. For now we will just consider fragments when applied to the UI.</p>
+<h2 id="why-use-fragments-over-activities">Why use fragments over activities?</h2>
+<p>A fragment is a modular part of an activity. It has its own lifecycle and receives its own input events. Fragments can created, added or removed while the activity is running. Consider a fragment a &quot;sub activity&quot; that you can reuse in different activities. But you could ignore fragments and just use activities if you wish -- but not recommend. Why use fragments over activities? Well fragments are wired to create reusable Android user inferences components -- however, it is true to say you can implement similar application UIs with a pure activity solution, which might be confusing for students. Here are some reasons why you should use fragments as a designer:</p>
+<ul>
+<li>Consider the diagram below. You are designing a cool new app that you want gazillions of people to use on all sorts of phones and tablets with different sized screens. The figure shows how your UI based on fragment design could run on a tablet and phone UI; in the case of the tablet with larger screen real estate the UI fragment components are rendered side by side but on the phone with a smaller form factor the two fragments are treated differently and brought into focus at different times. The activity that handles the UI is smart enough to adapt the UI to the type of device.</li>
+</ul>
+<div class="figure">
+<img src="images/fragments.png" />
+</div>
+<ul>
+<li>As we will see in the sample project code ActionTab fragments have been integrated into UI components such as ActionBar which is a the recommend way to build a common UI feel across different apps. We will discuss ActionBar later in these notes where we <em>bind</em> tabs (to navigate your app) on the ActionBar to fragments. When we look at the callback (i.e., ActionBar.TabListener interface) for handling the event when the user taps a tab the interface passes a <code>FragmentTransaction</code> as an input argument to the onTabSelected method. In brief, many UI components assume you are using fragments and not activities -- as a result, fragments are wired into the UI and activities are not.</li>
+</ul>
+<h2 id="fragment-and-activities-akin-to-processes-and-threads">Fragment and activities akin to processes and threads</h2>
+<p>Fragments are reusable UI but can also be considered lightweight in how they handle operations on the UI. As I mentioned before you can do most things with activities that fragments do but consider for the moment (if you did this) the relationship between design using all processes or threaded design. Fragments can be considered to be threads in such a choice, as shown below.</p>
+<div class="figure">
+<img src="images/sthreads.png" />
+</div>
+<h2 id="fragment-lifecycle">Fragment Lifecycle</h2>
+<p>Though Fragment defines its own lifecycle, that lifecycle is dependent on its activity: if the activity is stopped, no fragments inside of it can be started; when the activity is destroyed, all fragments will be destroyed.</p>
+<p>A fragment runs with in the activity and the activity lifecycle that we discussed. So it an activity is stopped so are all its fragments. Similarly if the activity is destroyed so are all the associated fragments. However, when an activity is <code>running</code> (i.e., onResume() state) fragments can be independently managed -- added, replaced or removed. As we will see what we discuss the ActionTab application we will use <em>fragment transactions</em> to remove and replace fragments associated with the action bar tabs: such as:</p>
+<ul>
+<li>ft.remove(fragment); remove a fragment from the UI</li>
+<li>ft.replace(R.id.fragment_container, fragment); replace one fragment (or view) with another.</li>
+</ul>
+<p>These fragment transactions allow the activity to manage the <code>back stack</code> - a back stack entry in the activity is a record of the fragment transaction that occurred. This, for example, allows the user to reverse a fragment transaction (navigate backwards), by pressing the back button.</p>
+<p>The <a href="http://developer.android.com/guide/components/fragments.html">fragment lifecycle</a> diagram shown below looks complicated but as we discuss it consider that this set of fragment states run inside of the running state of the activity lifecycle diagram we discussed in earlier lecture on activity lifecycle. Therefore the state diagram shown below is only valid when the activity associated with the fragment</p>
+<div class="figure">
+<img src="images/fragment-lifecycle.png" />
+</div>
+<p>Like the activity lifecycle the fragment lifecycle is represented by a bunch of states and associated event handlers, which are triggered when a fragment is:</p>
+<ul>
+<li>created</li>
+<li>resumed</li>
+<li>paused</li>
+<li>stopped</li>
+<li>destroyed</li>
+</ul>
+<p>In addition there are a number of callbacks associated with a number of fragment specific events, such as, 1) binding and unbinding a fragment from its activity; 2) when a fragment is created and destroyed. If you look at the core states shown in the figure you see:</p>
+<ul>
+<li>fragment is added</li>
+<li>fragment is active</li>
+<li>fragment is destroyed</li>
+</ul>
+<h2 id="fragment-lifecycle-events">Fragment lifecycle events</h2>
+<p>Many events can occur between these states -- for example the user can hit the back button.</p>
+<ul>
+<li>onAttach() is called when the Fragment is attached to its parent activity</li>
+<li>onCreate() is called to initially create the fragment</li>
+<li>onCreateView() is called to created its user interface -- it inflates the fragment UI</li>
+<li>onActivityCreated() is called once the parent activity and the fragment UI are created.</li>
+<li>onStart() is called the start of the visible lifetime, any UI changes can be applied before the fragment goes visible</li>
+<li>onResume() is called at the start of the active lifetime such as resuming any paused UI updates needed by the fragment that were suspended when it became inactive.</li>
+<li>onPause() called at the end of the active lifetime; persist all edits or state changes, suspend UI updates, threads, or CPU intensive processes that don't need to be updated when the Activity isn't the active foreground activity</li>
+<li>onSaveInstanceState() called to save UI state changes at the end of the active lifecycle</li>
+<li>void onStop() called at the end of the visible lifetime</li>
+<li>onDestroyView() called when the fragment's view is detached</li>
+<li>onDestroy() called at the end of the full lifetime</li>
+<li>onDetach() called when the Fragment has been detached from its parent activity.</li>
+</ul>
+<p>If we consider the ActionTab app it has four fragments - one for each tab view. As the use taps through the tab options the fragment transitions through the states in the lifecycle diagram -- moving say from being in focus in onResume() to hidden in onPause(). But the complete fragment lifecycle is tightly coupled to the activity but also governed by the user interaction with the UI (as is the case with the ActionTab app). The activity can dynamically construct the UI and its associated fragments -- such as adding and removing fragments where each fragment transitions through its full, visible and active lifecycle several times within the lifetime of its parent activity -- for example as a fragment is added and removed from the view.</p>
+<p>See <a href="MySkeletonFragment.html">MySkeletonFragment.java</a> for an example of a skeleton fragment. There are many events and we will only use a few of these events in terms of populating code. So don't be overwhelmed -- at least, not yet ;-). Let's discuss some of the important events.</p>
+<h2 id="onattach-and-ondetach-events">onAttach() and onDetach() events</h2>
+<p>The lifecycle starts and ends when a fragment is attached and detached from its parent activity. The onAttach() event occurs before the fragment's UI is created and before the fragment or its parent activity have completed initialization. Keep this in mind when we are looking at the ActionTab activity's onCreate() when it creates its fragments. It is a good idea to create fragments in the activities onCreate() to ensure they are created only once in the fragment lifetime.</p>
+<h2 id="oncreateview-event">onCreateView() event</h2>
+<p>The fragment's UI is created and destroyed in onCreateView() and onDestroyView() callbacks, respectively. The onCreateView() method initializes the fragment by inflating the UI, getting references and binding any data to the views that it contains -- and then any addition initialization such as setting up services (we will talk about services later on in the course).</p>
+<h2 id="oncreateview-actiontab-example">onCreateView(): ActionTab example</h2>
+<p>The onCreateView()'s main job in code we will write is a one liner -- taken from FindFragment.java in the ActionTab app:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">return</span> inflater.<span class="fu">inflate</span>(R.<span class="fu">layout</span>.<span class="fu">findfragment</span>, container, <span class="kw">false</span>)</code></pre>
+<h2 id="an-example-of-a-fragment-layout">An example of a fragment layout</h2>
+<p>The R.layout.findfragment is the ID for an XML layout resource to load (e.g., R.layout.findfragment). This is defined in the res/layout/findfragment.xml of the ActionTab project. This specifies the UI for the fragment, which is just a simple image but could be a sophisticated view group.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;LinearLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+    android:orientation=<span class="st">&quot;vertical&quot;</span> &gt;
+ 
+    &lt;ImageView
+        android:id=<span class="st">&quot;@+id/imageViewOfGirl&quot;</span>
+        android:layout_width=<span class="st">&quot;fill_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;fill_parent&quot;</span>
+        android:contentDescription=<span class="st">&quot;@string/ui_love_picture&quot;</span>
+        android:orientation=<span class="st">&quot;horizontal&quot;</span>
+        android:src=<span class="st">&quot;@drawable/ic_eye&quot;</span> /&gt;
+ 
+&lt;/LinearLayout&gt;</code></pre>
+<h2 id="creating-fragments-and-inflating-meetfragment.java-example">Creating fragments and inflating: MeetFragment.java example</h2>
+<p>A fragment extends the Fragment class as shown below. When the MainActivity creates the fragments it calls onCreateView() for all fragments. All onCreateView() creates and returns the view hierarchy associated with the fragment-- essentially it returns the view for the fragment's UI. The code below overrides the onCreateView() handler into inflate and return the requires <em>view hierarchy</em>; that is, R.layout.meetfragment, as shown below. Note, if your fragment does not use a UI (such as providing the activity with background behavior) you do not inflate of course.</p>
+<p>Importantly, fragments do not have to be registered in the manifest like activities are. And, as the fragment lifecycle, fragments are tied to the state of the activity so this makes good sense; that is, they can't exist without an activity.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MeetFragment <span class="kw">extends</span> Fragment {
+            
+    @Override
+    <span class="kw">public</span> View <span class="fu">onCreateView</span>(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        <span class="co">// Inflate the layout for this fragment</span>
+        <span class="kw">return</span> inflater.<span class="fu">inflate</span>(R.<span class="fu">layout</span>.<span class="fu">meetfragment</span>, container, <span class="kw">false</span>);
+    }
+    
+}</code></pre>
+</body>
+</html>

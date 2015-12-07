@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/hirschl-agdb.html
+3
+<HTML>
+<HEAD>
+ <TITLE>hirschl:agdb</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Melissa Hirschl and David Kotz.
+<b>AGDB: A Debugger for Agent Tcl</b>.
+Technical Report
+PCS-TR97-306,
+Dartmouth Computer Science,
+February,
+1997.
+<p><b>Abstract:</b> The Agent Tcl language is an extension of Tcl/Tk that supports
+distributed programming in the form of transportable agents. AGDB is a
+debugger for the Agent Tcl language. AGDB mixes of traditional and
+distributed debugging facilities. Traditional debugging features include
+breakpoints (line-specific, conditional, and once-only), watch conditions and
+variables, and interrupts. Distributed-debugging features address issues
+inherent in distributed programming such as migration and communication.
+These capabilities make debugging distributed programs difficult because they
+add complexities like race conditions to the set of problems a program can
+encounter. This paper discusses how AGDB uses distributed debugging features
+to debug agents.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/hirschl-agdb.bib">BibTeX</a></p>
+<p><a target=_top href = "././hirschl-agdb.pdf">PDF</a> (245K)</p>
+<p><b>Copyright &#169;&nbsp;1997 by the authors.</b></p>
+</BODY>
+</HTML>

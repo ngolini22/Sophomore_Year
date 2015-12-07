@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kapadia-metrosec-challenges.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kapadia:metrosec-challenges</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Apu Kapadia, David Kotz, and Nikos Triandopoulos.
+<b>Opportunistic Sensing: Security Challenges for the New Paradigm</b>.
+In
+<i>Proceedings of the International Conference on COMmunication
+Systems and NETworkS (COMSNETS)</i>,
+January,
+2009.
+Invited paper.
+DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2009.4808850">10.1109/COMSNETS.2009.4808850</a>.
+<p><b>Abstract:</b> We study the security challenges that arise in
+opportunistic people-centric sensing, a new sensing paradigm
+leveraging humans as part of the sensing infrastructure. Most prior
+sensor-network research has focused on collecting and processing
+environmental data using a static topology and an application-aware
+infrastructure, whereas opportunistic sensing involves collecting, storing,
+processing and fusing large volumes of data related to everyday human
+activities. This highly dynamic and mobile setting, where humans are the
+central focus, presents new challenges for information security, because data
+originates from sensors carried by people-- not tiny sensors thrown in the
+forest or attached to animals. In this paper we aim to instigate discussion
+of this critical issue, because opportunistic people-centric sensing will
+never succeed without adequate provisions for security and privacy. To that
+end, we outline several important challenges and suggest general solutions
+that hold promise in this new sensing paradigm.</p>
+<p><b>Keywords:</b> security, privacy, anonymity, sensors, ubicomp</p>
+<p><a href="bibtex/kapadia-metrosec-challenges.bib">BibTeX</a></p>
+<p><a target=_top href = "././kapadia-metrosec-challenges.pdf">PDF</a> (134K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/johnson-metrosec-challenges-tr.html">johnson:metrosec-challenges-tr</a></b>.</p>
+</BODY>
+</HTML>

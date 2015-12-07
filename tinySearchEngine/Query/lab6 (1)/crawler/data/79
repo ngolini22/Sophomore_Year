@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/tan-saluki.html
+3
+<HTML>
+<HEAD>
+ <TITLE>tan:saluki</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Keren Tan and David Kotz.
+<b>Saluki: a High-Performance Wi-Fi Sniffing Program</b>.
+In
+<i>Proceedings of the International Workshop on Wireless Network
+Measurements (WiNMee)</i>,
+pages 591-596,
+May,
+2010.
+IEEE Computer Society Press.
+Invited paper.
+<p><b>Abstract:</b> Building a campus-wide wireless LAN measurement system faces many
+efficiency, scalability and security challenges. To address these challenges,
+we developed a distributed Wi-Fi sniffing program called Saluki. Compared to
+our previous implementation and to other available sniffing programs, Saluki
+has the following advantages: (1)&nbsp;its small footprint makes it suitable for a
+resource-constrained Linux platform, such as those in commercial Wi-Fi access
+points; (2)&nbsp;the frame-capture rate increased more than three-fold over
+tcpdump with minimal frame loss; (3)&nbsp;all traffic between this sniffer and the
+back-end server was secured using 128-bit encryption; and (4)&nbsp;the traffic
+load on the backbone network was reduced to only 30\% of that in our previous
+implementation. In this paper, we introduce the design and the implementation
+details of this high-performance sniffing program, along with preliminary
+evaluation results.</p>
+<p><a href="bibtex/tan-saluki.bib">BibTeX</a></p>
+<p><a target=_top href = "././tan-saluki.pdf">PDF</a> (356K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

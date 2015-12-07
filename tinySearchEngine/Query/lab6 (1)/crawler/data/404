@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-survey-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:survey-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>A Survey of Context-Aware Mobile Computing Research</b>.
+Technical Report
+TR2000-381,
+Dartmouth Computer Science,
+November,
+2000.
+<p><b>Abstract:</b> Context-aware computing is a mobile computing paradigm in which
+applications can discover and take advantage of contextual information (such
+as user location, time of day, nearby people and devices, and user activity).
+Since it was proposed about a decade ago, many researchers have studied this
+topic and built several context-aware applications to demonstrate the
+usefulness of this new technology. Context-aware applications (or the system
+infrastructure to support them), however, have never been widely available to
+everyday users. In this survey of research on context-aware systems and
+applications, we looked in depth at the types of context used and models of
+context information, at systems that support collecting and disseminating
+context, and at applications that adapt to the changing context. Through this
+survey, it is clear that context-aware research is an old but rich area for
+research. The difficulties and possible solutions we outline serve as
+guidance for researchers hoping to make context-aware computing a reality.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, survey</p>
+<p><a href="bibtex/chen-survey-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-survey-tr.pdf">PDF</a> (118K)</p>
+<p><b>Copyright &#169;&nbsp;2000 by the authors.</b></p>
+</BODY>
+</HTML>

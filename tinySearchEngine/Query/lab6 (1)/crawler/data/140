@@ -1,0 +1,256 @@
+http://www.cs.dartmouth.edu/%7Eniclane/papers.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nic Lane</title>
+
+<meta name="keywords" content="keywords" />
+
+<meta name="description" content="A little something about Nic Lane." />
+
+<link href="stylesheet.css" rel="stylesheet" type="text/css"  />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32165484-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+<!-- begin background wrapper -->
+<div class="wrapper-background">
+
+<!-- begin main content wrapper -->
+<div class="wrapper-main-content">
+
+
+
+<!-- ################################################################################## -->
+<!-- begin header -->
+<div class="header"><br/><br/>
+
+<!-- begin spaces to align links -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<!-- end spaces to align links -->
+
+<!-- begin links -->
+<!--[<a href="" target="_parent">projects</a>] &nbsp;  [<a href="" target="_parent">publications</a>] &nbsp;  [<a href="" target="_parent">cv</a>] &nbsp; [<a href="" target="_parent">meetings</a>] &nbsp; [<a href="" target="_parent">talks</a>] &nbsp; [<a href="" target="_parent">press</a>]-->
+[<a href="index.html">home</a>] &nbsp;  [<a href="news.html">news</a>] &nbsp; [<a href="papers.html">publications</a>] &nbsp; [<a href="resume_150215.pdf">resume</a>] &nbsp; [<a href="talks.html">talks</a>] &nbsp; [<a href="service.html">service</a>] 
+<!-- end links -->
+</div>
+<!-- end header -->
+
+<div class="papers">
+
+All my research papers are found below, in addition to being listed at my <a href='http://scholar.google.com/citations?user=IleoLUgAAAAJ&hl=en'>google scholar profile</a><BR><BR>
+
+<b>A. Refereed Conference Papers</b>
+<BR><BR>
+Nicholas D. Lane, Petko Georgiev, Cecilia Mascolo, Ying Gao, "ZOE: A Cloud-less Dialog-enabled Continuous Sensing Wearable Exploiting Heterogeneous Computation", 13th ACM Conference on Mobile Systems, Applications, and Services (MobiSys '15), May 2015
+<BR><BR>
+Liwen Xu, Xiaohong Hao, Nicholas D. Lane, Xin Liu, Thomas Moscibroda, "<a href="pubs/cacs_ipsn.pdf">Cost-Aware Compressive Sensing for Networked Sensing Systems</a>", 14th 
+International Conference on Information Processing in Sensor Networks (IPSN '15), April 2015
+<BR><BR>
+Chieh-Jan Mike Liang , B&ouml;rje Karlsson, Nicholas D. Lane, Feng Zhao, Junbei Zhang, Zheyi Pan, Zhao Li, Yong Yu, "<a href="pubs/sift_ipsn.pdf">SIFT: Towards an Internet of Safe Things</a>", 14th International Conference 
+on Information Processing in Sensor Networks (IPSN '15), April 2015
+<BR><BR>
+Petko Georgiev, Nicholas D. Lane, Kiran K. Rachuri, Cecilia Mascolo. "<a href="pubs/sensys_dspear.pdf">DSP.Ear: Leveraging Co-Processor Support for Continuous Audio Sensing on Smartphones</a>", 12th ACM Conference on Embedded Network Sensor Systems (SenSys '14), November 2014
+<BR><BR>
+Nicholas D. Lane, Li Pengyu, Lin Zhou, Feng Zhao. "<a href='pubs/ubicomp_ncb.pdf'>Connecting Personal-scale Sensing and Networked Community Behavior to Infer Human Activities</a>", 16th International Conference on Ubiquitous Computing (UbiComp ‘14), September 2014
+<BR><BR>
+Chieh-Jan Mike Liang, Nicholas D. Lane, Niels Brouwers, Li Zhang, B&ouml;rje F. Karlsson, Hao Liu, Yan Liu, Jun Tang, Xiang Shan, Ranveer Chandra, Feng Zhao. "<a href='pubs/mobicom_caiipa.pdf'>Caiipa: Automated Large-scale Mobile App Testing through Contextual Fuzzing</a>", 20th Annual International Conference on Mobile Computing and Networking (MobiCom '14), September 2014
+<BR><BR>
+Nicholas D. Lane, Yohan Chon, Lin Zhou, Yongzhe Zhang, Fan Li, Dongwon Kim, Guanzhong Ding, Feng Zhao, Hojung Cha. "<a href="pubs/lane_sensys13.pdf">Piggyback CrowdSensing (PCS): Energy Efficient Crowdsourcing of Mobile Sensor Data by Exploiting Smartphone App Opportunities</a>", 11th ACM Conference on Embedded Network Sensor Systems (SenSys '13), November 2013 
+<BR><BR>
+Yohan Chon, Nicholas D. Lane, Yunjong Kim, Feng Zhao, Hojung Cha. "<a href="pubs/ubicomp_crowdstudy.pdf">Understanding the Coverage and Scalability of Place-centric CrowdSensing</a>", 15th International Conference on Ubiquitous Computing (UbiComp '13), September 2013
+<BR><BR>
+Ye Xu, Mu Lin, Hong Lu, Giuseppe Cardone, Nicholas D. Lane, Zhenyu Chen, Andrew Campbell, Tanzeem Choudhury. "<a href="pubs/iswc_appr.pdf">	Preference, Context and Communities: A Multi-faceted Approach to Predicting Smartphone App Usage Patterns</a>", 17th International Symposium on Wearable Computers (ISWC '13), September 2013
+<BR><BR>
+Zhenyu Chen, Mu Lin, Fanglin Chen, Nicholas D. Lane, Giuseppe Cardone, Rui Wang, Tianxing Li, Yiqiang Chen, Tanzeem Choudhury, Andrew T. Campbell. "<a href="pubs/ph_bes.pdf">Unobtrusive Sleep Monitoring using Smartphones</a>", 7th International ICST Conference on Pervasive Computing Technologies for Healthcare (Pervasive Health '13), May 2013
+<BR><BR>
+Chuang-Wen You, Nicholas D. Lane, Fanglin Chen, Rui Wang, Zhenyu Chen, Thomas J. Bao, Yuting Cheng, Mu Lin, Lorenzo Torresani, Andrew T. Campbell. "<a href="pubs/mobisys_carsafe.pdf">CarSafe App: Alerting Drowsy and Distracted Drivers using Dual Cameras on Smartphones</a>", 11th ACM Conference on Mobile Systems, Applications, and Services (MobiSys '13), June 2013
+<BR><BR>
+Robert LiKamWa, Yunxin Liu, Nicholas D. Lane, Lin Zhong. "<a href="pubs/mobisys_moodscope.pdf">MoodScope: Building a Mood Sensor from Smartphone Usage Patterns</a>", 11th ACM Conference on Mobile Systems, Applications, and Services (MobiSys '13), June 2013
+<BR><BR>
+Yohan Chon, Nicholas D. Lane, Fan Li, Hojung Cha, Feng Zhao. "<a href="pubs/ubicomp_cps.pdf">Automatically Characterizing Places with Opportunistic CrowdSensing using Smartphones</a>", 14th International Conference on Ubiquitous Computing (UbiComp '12), September 2012
+<b><font color=red>[Best Paper Winner]</font></b>
+<BR><BR>
+Xiaochao Yang, Chuang-Wen You, Hong Lu, Mu Lin, Nicholas D. Lane, Andrew T. Campbell. "<a href="pubs/visage.pdf">The Visage Face Interpretation Engine for Mobile Phone Applications</a>", 4th International Conference on Mobile Computing Applications and Service (MobiCASE '12), October 2012 <b><font color=red>[Best Paper Winner]</font></b>
+<BR><BR>
+Mu Lin, Nicholas D. Lane, Mashfiqui Rabbi, Xiaochao Yang, Hong Lu, Giuseppe Cardone, Shahid Ali, Afsaneh Doryab, Ethan Berke, Andrew Campbell, Tanzeem Choudhury. "<a href="pubs/bewell_wh.pdf">BeWell+: Multi-dimensional Wellbeing Monitoring with Community-guided User Feedback and Energy Optimization</a>”, Wireless Health 2012, October 2012
+<BR><BR>
+Saeed Abdullah, Nicholas D. Lane, Tanzeem Choudhury. "<a href="pubs/aaai_popscale.pdf">Towards Population Scale Activity Recognition: A Scalable Framework for Handling Data Diversity</a>". 26th Conference on Artificial Intelligence (AAAI '12), July 2012
+<BR><BR>
+David Chu, Nicholas D. Lane, Ted Tsung-Te Lai, Cong Pang, Xiangying Meng, Qing Guo, Fan Li, Feng Zhao. "<a href="pubs/kobe_sensys.pdf">Balancing Energy, Latency and Accuracy for Mobile Sensor Data Classification</a>", 9th ACM Conference on Embedded Network Sensor Systems (SenSys '11), November 2011 
+<BR><BR>
+Nicholas D. Lane, Ye Xu , Hong Lu , Shaohan Hu, Tanzeem Choudhury, Andrew T. Campbell. "<a href="pubs/ubicomp_csn.pdf">Enabling Large-scale Human Activity Inference on Smartphones using Community Similarity Networks (CSN)</a>", 13th International Conference on Ubiquitous Computing (UbiComp '11), September 2011
+<b><font color=red>[Best Paper Nominee – 5 out of 300 papers selected]</font></b>
+<BR><BR>
+Nicholas D. Lane, Mashfiqui Mohammod, Mu Lin, Xiaochao Yang, Afsaneh Doryab, Hong Lu, Shahid Ali, Ethan Berke, Tanzeem Choudhury, Andrew T. Campbell. "<a href="pubs/bewell_ph.pdf">BeWell: A Smartphone Application to Monitor, Model and Promote Wellbeing</a>", 5th International ICST Conference on Pervasive Computing Technologies for Healthcare (Pervasive Health '11), May 2011
+<BR><BR>
+Hong Lu, Jun Yang, Zhigang Liu, Nicholas D. Lane, Tanzeem Choudhury, Andrew T. Campbell. "The Jigsaw Continuous Sensing Engine for Mobile Phone Applications", 8th ACM Conference on Embedded Networked Sensor Systems (SenSys '10), November 2010
+<BR><BR>
+Nicholas D. Lane, Dimitrios Lymberopoulos, Feng Zhao, Andrew T. Campbell. "Hapori: Context-based Local Search for Mobile Phones using Community Behavioral Modeling and Similarity", 12th International Conference on Ubiquitous Computing (UbiComp '10), September 2010
+<BR><BR>
+Daniel Peebles, Hong Lu, Nicholas D. Lane, Tanzeem Choudhury, Andrew T. Campbell. "Community-Guided Learning: Exploiting Mobile Sensor Users to Model Human Behavior", 24th Conference on Artificial Intelligence (AAAI '10) July 2010
+<BR><BR>
+Hong Lu, Wei Pan, Nicholas D. Lane, Tanzeem Choudhury, Andrew T. Campbell, "SoundSense: Scalable Sound Sensing for People-Centric Sensing Applications on Mobile Phones", 7th ACM Conference on Mobile Systems, Applications, and Services (MobiSys '09), June 2009
+<BR><BR>
+Emiliano Miluzzo, Nicholas D. Lane, Kristof Fodor, Ronald Peterson, Hong Lu, Mirco Musolesi, Shane B. Eisenman, Xiao Zheng, Andrew T. Campbell. "Sensing Meets Mobile Social Networks: The Design, Implementation and Evaluation of the CenceMe Application", 7thACM Conference on Embedded Network Sensor Systems (SenSys '08), November 2008
+<BR><BR>
+Emiliano Miluzzo, Nicholas D. Lane, Andrew T. Campbell, Reza Olfati-Saber. "CaliBree: a Self-Calibration System for Mobile Sensor Networks", International Conference on Distributed Computing in Sensor Networks (DCOSS '08), June 2008
+<BR><BR>
+Shane B. Eisenman, Nicholas D. Lane, Andrew T. Campbell. "Techniques for Improving Opportunistic Sensor Networking Performance", International Conference on Distributed Computing in Sensor Networks (DCOSS '08), June 2008
+<BR><BR>
+Nicholas D. Lane, Hong Lu, Shane B. Eiseman, Andrew T. Campbell. "Cooperative Techniques Supporting Sensor-based People-centric Inferencing", 6th International Conference on Pervasive Computing (Pervasive '08), May 2008
+<BR><BR>
+Emiliano Miluzzo, Nicholas D. Lane, Shane B. Eisenman, Andrew T. Campbell. "CenceMe - Injecting Sensing Presence into Social Networking Applications (Invited Paper)", 2nd European Conference on Smart Sensing and Context (EuroSSC '07), October 2007
+<BR><BR>
+Shane B. Eisenman, Emiliano Miluzzo, Nicholas D. Lane, Ronald A. Peterson, Gahng-Seop Ahn, Andrew T. Campbell. "The BikeNet Mobile Sensing System for Cyclist Experience Mapping", 6th ACM Conference on Embedded Network Sensor Systems (SenSys '07), November 2007
+<BR><BR>
+Andrew T. Campbell, Shane B. Eisenman, Nicholas D. Lane, Emiliano Miluzzo, Ronald Peterson. "People-Centric Urban Sensing (Invited Paper)", 2nd ACM/IEEE Annual International Wireless Internet Conference (WICON '06), August 2006
+<BR><BR>
+Masood Masoodian, Nicholas D. Lane. "An Empirical Study of Textual and Graphical Travel Itinerary Visualization using Mobile Phones", 4th Australasian User Interface Conference (AUIC '03), February 2003
+<BR><BR>
+Masood Masoodian, Nicholas D. Lane. "MATI: A System for Accessing Travel Itinerary Information using Mobile Phones", 16th British HCI Group Annual Conference, September 2002.
+<BR><BR>
+Masood Masoodian, Nicholas D. Lane. "Access to Personal Travel Itinerary Information Using Mobile Phones", 13th Annual Conference of the Computer-Human Interaction Special Interest  Group of the Ergonomics Society of Australia (OZCHI '01)  November 2001.
+<BR><BR>
+Masood Masoodian, Nicholas D. Lane. "Mobile Access to Travel Itinerary Information", 9th International Conference on Human-Computer Interaction, August 2001
+<BR><BR>
+
+<b>B. Refereed Workshop Papers</B>
+<BR><BR>
+Nicholas D. Lane and Petko Georgiev. "<a href='pubs/lane_hotmobile15.pdf'>Can Deep Learning Revolutionize Mobile 
+Sensing?</a>",16th Workshop on Mobile Computing Systems and Applications (HotMobile '15), February 2015
+<BR><BR>
+Stephen Voida, Tanzeem Choudhury, Geri Gay, Mark Matthews, Phil Adams, Mashfiqui Rabbi, JP Pollak, Mengxi (Chrissie) Chi, Matthew Green, Hong Lu, Nicholas D. Lane, Mu Lin, Andrew T. Campbell. "<a href="pubs/voida-chiworkshop13.pdf">Personal Informatics Can Be Stressful: Collecting, Reflecting, and Embedding Stress Data in Personal Informatics</a>", Personal Informatics in the Wild: Hacking Habits for Health and Happiness, April 2013
+<BR><BR>
+Nicholas D. Lane, Junyuan Xie,Thomas Moscibroda, Feng Zhao. "<a href="pubs/lane_phonesense.pdf">On the Feasibility of User De-Anonymization from Shared Mobile Sensor Data</a>", 3rd International Workshop on Sensing Applications on Mobile Phones (PhoneSense '12), November 2012
+<BR><BR>
+Robert LiKamWa, Yunxin Liu, Nicholas D. Lane, Lin Zhong. "<a href="pubs/likamwa_phonesense.pdf">Can Your Smartphone Infer Your Mood</a>", 2nd International Workshop on Sensing Applications on Mobile Phones (PhoneSense '11), November 2011 <b><font color=red>[Best Paper Winner]</font></b>
+<BR><BR>
+Emiliano Miluzzo, Michela Papandrea, Nicholas D. Lane, Andy M. Sarrovo, Silvia Giordano, Andrew T. Campbell. "<a href="pubs/vibn.pdf">Tapping into the Vibe of the City Using VibN</a>", 1st International Symposium on Social and Community Intelligence (SCI '11), September 2011
+<BR><BR>
+Emiliano Miluzzo, Michela Papandrea, Nicholas D. Lane, Hong Lu, Andrew T. Campbell, "Pocket, Bag, Hand, etc.- Automatically Detecting Phone Context through Discovery". 1st International Workshop on Sensing Applications on Mobile Phones (PhoneSense '10), November 2010
+<BR><BR>
+Emiliano Miluzzo, Nicholas D. Lane, Hong Lu, Andrew T. Campbell. "Research in the App Store Era: Experiences from the CenceMe App Deployment on the iPhone". 1st International Workshop	 Research in the Large: Using App Stores, Markets, and other Wide Distribution Channels in UbiComp Research, September 2010 
+<BR><BR>
+Emiliano Miluzzo, James M. H. Oakley, Hong Lu, Nicholas D. Lane, Ronald A. Peterson, Andrew T. Campbell. "Evaluating the iPhone as a Mobile Platform for People-Centric Sensing Applications", International Workshop on Urban, Community, and Social Applications of Networked Sensing Systems (UrbanSense '08). November 2008
+<BR><BR>
+Mirco Musolesi, Emiliano Miluzzo, Nicholas D. Lane, Shane B. Eisenman, Tanzeem Choudhury, Andrew T. Campbell. "The Second Life of a Sensor: Integrating Real-world Experience in Virtual Worlds using Mobile Phones", 5th Workshop on Embedded Networked Sensors (HotEmNets '08), June 2008
+<BR><BR>
+Hong Lu, Nicholas D. Lane, Shane B. Eisenman, Andrew T. Campbell. "Bubble-Sensing: A New Paradigm for Binding a Sensing Task to the Physical World using Mobile Phones", International Workshop on Mobile Devices and Urban Sensing (MODUS '08), April 2008
+<BR><BR>
+Nicholas D. Lane, Shane B. Eisenman, Mirco Musolesi, Emiliano Miluzzo, Andrew T. Campbell. "Urban Sensing Systems: Opportunistic or Participatory?", 9th Workshop on Mobile Computing Systems and Applications (HotMobile '08), February 2008
+<BR><BR>
+Nicholas D. Lane, Hong Lu, Andrew T. Campbell. "Ambient Beacon Localization: Using Sensed Characteristics of the Physical World to Localize Mobile Sensors", 4th IEEE Workshop on Embedded Networked Sensors (EmNets ‘07), June, 2007
+<BR><BR>
+Shane B. Eisenman, Nicholas D. Lane, Emiliano Miluzzo, Ronald A. Peterson, Gahng-Seop Ahn, and Andrew T. Campbell, "MetroSense Project: People-Centric Sensing at Scale". 1st Workshop on World-Sensor-Web: Mobile Device Centric Sensory Networks and Applications (WSW '06), October 2006
+<BR><BR>
+Nicholas D. Lane, Andrew T. Campbell. "The Influence of Microprocessor Instructions on the Energy Consumption of Wireless Sensor Networks”, 3rd IEEE Workshop on Embedded Networked Sensors (EmNets '06), May 2006
+<BR><BR>
+
+<b>C. Refereed Journal and Magazine Articles</b>
+<BR><BR>
+Nicholas D. Lane, Mu Lin, Mashfiqui Rabbi, Xiaochao Yang, Hong Lu, Giuseppe Cardone, Shahid Ali, Afsaneh Doryab, Ethan Berke, Andrew Campbell, Tanzeem Choudhury. "<a href='pubs/bewell_monet.pdf'>BeWell: Sensing Sleep, Physical Activities and Social Interactions to Promote 
+Wellbeing</a>", ACM/Springer Journal of Mobile Networks and Applications (MONET), January 2014: 1-15
+<BR><BR>
+Nicholas D. Lane, Ye Xu, Hong Lu, Shaohan Hu, Tanzeem Choudhury, Andrew T. Campbell, Feng Zhao. “<a href="pubs/puc_csn.pdf">Community Similarity Networks</a>", ACM/Springer Journal of Personal and Ubiquitous Computing (PUC), Special Issue of Cross-Community Mining, May 2013
+<BR><BR>
+Nicholas D. Lane. “<a href="pubs/lane_ic.pdf">Community-Aware Smartphone Sensing Systems</a>" Internet Computing IEEE 16 (3), 60-64, 2012
+<BR><BR>
+Nicholas D. Lane, Ye Xu, Hong Lu, Shane Eisenman, Tanzeem Choudhury, Andrew Campbell. “<a href="pubs/coco_pc.pdf">Cooperative Communities (CoCo): Exploiting Social Networks for Large scale Modeling of Human Behavior</a>", IEEE Pervasive Computing, Special Issue on Large-Scale Opportunistic Sensing, Volume 10 Issue 4, October, 2011
+<BR><BR>
+Nicholas D. Lane, Emiliano Miluzzo, Hong Lu, Daniel Peebles, Tanzeem Choudhury, Andrew T. Campbell. “Survey of Mobile Phone Sensing", IEEE Communications Magazine, September 2010
+<BR><BR>
+Hong Lu, Nicholas D. Lane, Shane B. Eisenman, Andrew T. Campbell. “Bubble-Sensing: Binding Sensing Tasks to the Physical World", Journal of Pervasive and Mobile Computing (PMC), 6 (1), 58-71, 2010
+<BR><BR>
+Shane Eisenman, Emiliano Miluzzo, Nicholas D. Lane, Ronald Peterson, Gahng Seop Ahn, Andrew T. Campbell. “BikeNet: A Mobile Sensing System for Cyclist Experience Mapping", ACM Transactions on Sensor Networks (TOSN), 6 (1), 2009.
+<BR><BR>
+Andrew T. Campbell, Shane B. Eisenman, Nicholas D. Lane, Emiliano Miluzzo, Ronald A. Peterson, Hong Lu, Xiao Zheng, Mirco Musolesi, Kristof Fodor, Gahng-Seop Ahn. “People Power - The Rise of People-Centric Sensing", IEEE Internet Computing, Special Issue on Mesh Networks, IEEE 12 (4), 12-21, 2008
+<BR><BR>
+
+<b>D. Refereed Posters</b>
+<BR><BR>
+Chuang-Wen You, Martha Montes-de-Oca, Thomas J. Bao, Nicholas D. Lane, Giuseppe Cardone, Lorenzo Torresani, and Andrew T. Campbell. "<a href="pubs/carsafe_poster_ubi.pdf">CarSafe: A Driver Safety App that Detects Dangerous Driving Behavior using Dual-Cameras on Smartphones</a>”. 14th International Conference on Ubiquitous Computing (UbiComp '12), September 2012
+<BR><BR>
+Emiliano Miluzzo, Nicholas D. Lane, and Andrew T. Campbell. "Virtual Sensing Range (poster abstract)", 6th ACM Conference on Embedded Network Sensor Systems (SenSys '06), November 2006
+<BR><BR>
+
+<b>E. Refereed Videos</b>
+<BR><BR>
+Chuang-Wen You, Nicholas D. Lane, Fanglin Chen, Rui Wang, Zhenyu Chen, Thomas J. Bao, Yuting Cheng, Mu Lin, Lorenzo Torresani, Andrew T. Campbell. "CarSafe App: Alerting Drowsy and Distracted Drivers using Dual Cameras on Smartphones", 11th ACM Conference on Mobile Systems, Applications, and Services (MobiSys '13), June 2013
+<BR><BR>
+Robert LiKamWa, Yunxin Liu, Nicholas D. Lane, Lin Zhong. "MoodScope: Building a Mood Sensor from Smartphone Usage Patterns", 11th ACM Conference on Mobile Systems, Applications, and Services (MobiSys '13), June 2013
+<BR><BR>
+
+<b>F. Refereed Demos</b>
+<BR><BR>
+Chuang-Wen You, Martha Montes-de-Oca, Thomas J. Bao, Nicholas D. Lane, Giuseppe Cardone, Lorenzo Torresani, and Andrew T. Campbell, "CarSafe Demo: Supporting Driver Safety using Dual-cameras on Smartphones”. 14th International Conference on Ubiquitous Computing (UbiComp '12), September 2012
+<BR><BR>
+Andrew T. Campbell, Shane B. Eisenman, Kristóf Fodor, Nicholas D. Lane, Hong Lu, Emiliano Miluzzo, Mirco Musolesi, Ronald A. Peterson and Xiao Zheng. "Transforming the Social Networking Experience with Sensing Presence from Mobile Phones (Demo Abstract)". 7th ACM Conference on Embedded Network Sensor Systems (SenSys '08), November 2008
+<BR><BR>
+Andrew T. Campbell, Shane B. Eisenman, Kristóf Fodor, Nicholas D. Lane, Hong Lu, Emiliano Miluzzo, Mirco Musolesi, Ronald A. Peterson, and Xiao Zheng. "CenceMe: Injecting Sensing Presence into Social Network Applications using Mobile Phones (Demo Abstract)",  9th ACM International Symposium on Mobile Ad Hoc Networking and Computing (MobiHoc '08), May 2008.
+<BR><BR>
+Andrew T. Campbell, Shane B. Eisenman, Kristof Fodor, Nicholas D. Lane, Hong Lu, Emiliano Miluzzo, Mirco Musolesi, Ronald A. Peterson, Xiao Zheng. "CenceMe: Injecting Sensing Presence into Social Network Applications using Mobile Phones (Demo Abstract)" 9th Workshop on Mobile Computing Systems and Applications (HotMobile '08), February 2008.
+<BR><BR>
+
+<b>G. Theses</b>
+<BR><BR>
+Nicholas D. Lane. "<a href="pubs/lane_thesis.pdf">Community-guided Mobile Phone Sensing Systems</a>" Ph.D. thesis, Dartmouth College, 2011.
+</div>
+
+<!-- ################################## LEFT COLUMN ################################################ -->
+<!-- ******************* BIO ********************** -->
+
+<!-- begin left main column bio, news, service etc. -->
+<!--<div class="left-column">
+
+<!-- begin vertical spacer for bio -->
+<!--<div style="height:25px"></div>
+<!-- end vertical spacer for bio -->
+
+
+<!-- begin vertical spacer for bio bottom -->
+<!--<div style="height:20px"></div>
+<!-- end vertical spacer for bio bottom -->
+
+<!--</div> -->
+<!-- end left main  column -->
+
+<!-- #################################### RIGHT COLUMN ############################################## -->
+
+<!-- begin right main column photo and widgets -->
+<!--<div class="right-column"><img src="images/photos/portrait.jpg" />
+
+
+</div>-->
+<!-- end right main column -->
+
+<!-- ################################################################################## -->
+
+
+<div class="page-bottom-spacer"></div>
+
+</div>
+<!-- end main content wrapper -->
+</div>
+<!-- end background wrapper -->
+
+</body>
+</html>

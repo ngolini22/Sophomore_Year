@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-hns-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:hns-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+<b>Hide-n-Sense: Privacy-aware secure mHealth sensing</b>.
+Technical Report
+TR2011-702,
+Dartmouth Computer Science,
+September,
+2011.
+<p><b>Abstract:</b> As healthcare in many countries faces an aging population and
+rising costs, mobile sensing technologies promise a new opportunity. Using
+mobile health (mHealth) sensing, which uses medical sensors to collect data
+about the patients, and mobile phones to act as a gateway between sensors and
+electronic health record systems, caregivers can continuously monitor the
+patients and deliver better care. Furthermore, individuals can become better
+engaged in monitoring and managing their own health. Although some work on
+mHealth sensing has addressed security, achieving strong privacy for
+low-power sensors remains a challenge. <P> We make three contributions.
+First, we propose an mHealth sensing protocol that provides strong security
+and privacy properties with low energy overhead, suitable for low-power
+sensors. The protocol uses three novel techniques: adaptive security, to
+dynamically modify transmission overhead; MAC striping, to make forgery
+difficult even for small-sized MACs; and an asymmetric resource requirement.
+Second, we demonstrate a prototype on a Chronos wrist device, and evaluate it
+experimentally. Third, we provide a security, privacy, and energy analysis of
+our system.</p>
+<p><a href="bibtex/mare-hns-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-hns-tr.pdf">PDF</a> (392K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/mare-healthsec11.html">mare:healthsec11</a></b>.</p>
+<p>See also later version <b><a href="abstracts/mare-hns-w.html">mare:hns-w</a></b>.</p>
+</BODY>
+</HTML>

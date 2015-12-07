@@ -1,0 +1,114 @@
+http://www.cs.dartmouth.edu/~traviswp
+3
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Travis Peters - Dartmouth College</title>
+
+        <!-- Meta Data -->
+        <meta charset="utf-8" />
+        <meta name="description" content="personal website" />
+        <meta name="keywords" content="travis, peters, resume, projects, school, western, washington, university, work, software" />
+        <meta name="author" content="Travis Peters">
+        <meta name="Copyright" content="Copyright Travis Peters 2013. All Rights Reserved.">
+
+        <!-- Stylesheet(s) -->
+        <link href="_/css/main.css" rel="stylesheet" type="text/css">
+
+        <!-- Browser compatability fixes -->
+        <!--[if lt IE 9]><script src="dist/html5shiv.js"></script><![endif]-->
+
+        <!-- Load javascript/jquery -->
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+
+    </head>
+
+    <!-- Header -->
+    <header>
+        <h1 id="title"><a href="http://www.linkedin.com/pub/travis-peters/2a/351/351" target="_blank" title="goto my linkedin">[ Travis W. Peters ]</a></h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="docs/resume.pdf" target="_blank">CV</a></li>
+                <li><a href="http://travisandmarypeters.blogspot.com/" target="_blank">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Header/Body Seperator -->
+    <br/><br/><hr/><br/>
+
+    <!-- Body -->
+    <body>
+        <div class="main shadow">
+
+            <figure>
+                <img class="shadow" src="images/dartmouth.jpg" alt="image"/>
+                <figcaption>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/travis.peters.144" target="_blank" title="goto facebook"><img src="images/facebook.jpg" alt="Facebook" class="icons" /></a>
+                <!-- LinkedIn -->
+                <a href="http://www.linkedin.com/pub/travis-peters/2a/351/351" target="_blank" title="goto linkedin"><img src="images/linkedin.jpg" alt="LinkedIn" class="icons" /></a>
+                <!-- Twitter -->
+                <a href="https://twitter.com/traviswpeters" target="_blank" title="goto twitter"><img src="images/twitter.jpg" alt="Twitter" class="icons" /></a>
+                </figcaption>
+            </figure>
+        
+            <p>
+            Hi! My name is Travis Peters and I am a second year Ph.D. student in the 
+            <a href="http://cs.dartmouth.edu/" target="_blank">Computer Science Department</a>
+            at <a href="http://dartmouth.edu/" target="_blank">Dartmouth College</a>. 
+
+            I completed my undergraduate studies in Washington State where I received my B.S. in 
+            <a href="http://www.cs.wwu.edu/" target="_blank">Computer Science</a> &amp 
+            <a href="http://www.wwu.edu/math/" target="_blank">Mathematics</a> from 
+            <a href="http://www.wwu.edu/" target="_blank">Western Washington University</a>. 
+            </p>
+
+            <p>
+            My advisor is <a href="http://www.cs.dartmouth.edu/~dfk/" target="_blank">Dr. David Kotz</a>. I am currently working on the <a href="http://amulet-project.org/" target="_blank">Amulet</a> project -- a collaborative effort between Dartmouth College and Clemson University to create a secure and low-power wearable device suitable for running mHealth applications. 
+            </p>
+
+            <p>
+            My current research interests include security and privacy issues in pervasive computing, particularly in an mHealth context, and wearable/mobile systems.
+            </p>
+
+            <p>
+                <b>Lab: </b>Sudikoff 241
+                <br/>
+                <b>Office: </b>Sudikoff 209
+                <br/>
+		<b>Teaching: </b><a href="http://www.cs.dartmouth.edu/~traviswp/cs10" target="_blank">CS10</a>
+		<br/>
+                <b>Office Hours: </b>(M) 1:00 – 3:00 pm | (Th) 1:00 – 2:00 pm | (F) 2:00 – 4:00 pm
+            </p>
+
+            <h1 id="news">News</h1>
+
+                <p><b>January 2015.</b> A Tech. Report of some of my summer work on <a href="http://www.cs.dartmouth.edu/~traviswp/papers/TR/peters_emg_14.pdf" target="_blank">gesture recognition using single-channel EMG</a> is up. Alternatively, this work can be found through the <a href="http://www.cs.dartmouth.edu/reports/abstracts/TR2015-767/" target="_blank">Dartmouth College Computer Science Technical Report series webpage</a>.</p>
+
+                <p><b>November 2014.</b> Our new workshop paper, <a href="https://amuletproject.files.wordpress.com/2014/10/molina-markham-wmmadd.pdf" target="_blank">Amulet: A secure architecture for mHealth applications for low-power wearable devices</a>, was presented at the Workshop on Mobile Medical Applications – Design and Development (WMMADD) at SenSys.</p>
+
+                <p><b>October 2014.</b> Our conference report on <a href="http://www.computer.org/csdl/mags/pc/2014/04/mpc2014040093.pdf" target="_blank">MobiSys 2014</a>, featured in IEEE Pervasive Computing, is out!</p>
+
+                <p><b>June 2014.</b> Accepted an offer to teach <a href="http://web.cs.dartmouth.edu/people/travis-peters" target="_blank">COSC 10: Problem Solving via Object Oriented Programming</a> in Winter 2015.</p>
+                
+                <p><b>June 2014.</b> Announced as 1 of 3 winners of the 2013-14 <a href="http://sites.dartmouth.edu/gradforum/2014/06/10/graduate-student-teaching-award-recipient-travis-peters/" target="_blank">outstanding graduate teaching assistant award</a> @ Dartmouth College.
+
+                <p><b>April 2014.</b> Recognized as an <a href="http://sites.dartmouth.edu/gradforum/2014/04/16/dcal-recognizes-students-for-outstanding-teaching/" target="_blank">outstanding graduate student teacher from an undergraduate perspective</a> during graduate appreciation week @ Dartmouth College.</p>
+
+                <p><b>September 2013.</b> Profiled as an <a href="http://sites.dartmouth.edu/gradforum/2013/09/23/welcome-incoming-cs-student-travis-peters/" target="_blank">incoming graduate student</a> @ Dartmouth College.</p>
+
+                <!-- <p><b></b> <a href=""></a> </p> -->
+        </div>
+    </body>
+
+    <!-- Footer -->
+    <footer>
+        Copyright &copy; Travis W. Peters 2013. All Rights Reserved.
+    </footer>
+
+</html>

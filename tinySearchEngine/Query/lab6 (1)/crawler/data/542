@@ -1,0 +1,258 @@
+http://www.cs.dartmouth.edu/reports/abstracts/TR2006-571
+3
+<HTML>
+<!-- WARNING! Do not modify this file; it is
+      automatically generated from a database in www/TRdata/. -->
+<link rel="alternate" type="application/rss+xml" title="Dartmouth Computer Science Technical Reports" href="http://www.cs.dartmouth.edu/reports/feed.xml"/>
+<HEAD>
+<TITLE> Dartmouth TR2006-571 </TITLE>
+<META NAME="description" CONTENT="Secure Context-sensitive Authorization ">
+<META NAME="number" CONTENT="TR2006-571">
+<META NAME="year" CONTENT="2006">
+<META NAME="title" CONTENT="Secure Context-sensitive Authorization ">
+<META NAME="abstract" CONTENT="Pervasive computing leads to an increased integration between the real world
+and the computational world, and many applications in pervasive computing adapt to
+the user's context, such as the location of the user and relevant devices, the
+presence of other people, light or sound conditions, or available network
+bandwidth, to meet a user's continuously changing requirements without taking
+explicit input from the users.
+	We consider a class of applications that wish to consider a user's context
+when deciding whether to authorize a user's access to important physical or
+information resources. Such a context-sensitive authorization scheme is
+necessary when a mobile user moves across multiple administrative domains
+where they are not registered in advance. Also, users interacting with their
+environment need a non-intrusive way to access resources, and clues about
+their context may be useful input into authorization policies for these
+resources.  Existing systems for context-sensitive authorization take a
+logic-based approach, because a logical language makes it possible to define a
+context model where a contextual fact is expressed with a boolean predicate
+and to derive higher-level context information and authorization decisions
+from contextual facts. 
+	However, those existing context-sensitive authorization systems have a central
+server that collects context information, and evaluates policies to make
+authorization decisions on behalf of a resource owner. A centralized solution
+assumes that all resource owners trust the server to make correct decisions,
+and all users trust the server not to disclose private context information.
+In many realistic applications of pervasive computing, however, the resources,
+users, and sources of context information are inherently distributed among
+many organizations that do not necessarily trust each other.  Resource owners
+may not trust the integrity of context information produced by another domain,
+and context sensors may not trust others with the confidentiality of data they
+provide about users. 
+	In this thesis, we present a secure distributed proof system for
+context-sensitive authorization. Our system enables multiple hosts to evaluate
+an authorization query in a peer-to-peer way, while preserving the
+confidentiality and integrity policies of mutually untrusted principals
+running those hosts. We also develop a novel caching and revocation mechanism
+to support context-sensitive policies that refer to information in dozens of
+different administrative domains. Contributions of this thesis include the
+definition of fine-grained security policies that specify trust relations
+among principals in terms of information confidentiality and integrity, the
+design and implementation of a secure distributed proof system, a proof for
+the correctness of our algorithm, and a performance evaluation showing
+that the amortized performance of our system scales to dozens of servers in
+different domains. ">
+<META NAME="author" CONTENT="Kazuhiro Minami">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<!-- Include file for abstracts/*.shtml, abstracts/*/*.shtml and authors/*.shtml -->
+<!-- See also footer.htmlf -->
+<!-- I use absolute pathnames here because this file is used from several directories. -->
+<table border=0 rules=none>
+<col width=85><col width=100%><col width=85>
+<tr valign=center  bgcolor=#003300 border=0>
+ <td>
+   <a href=/><img src=/reports/Dartmouth2.png alt="Dartmouth logo"
+   width=82 height=91 border=0></a>
+ </td>
+ <td>
+   <font color=#ffffff size=+3>
+     Dartmouth College Computer Science<br>
+     Technical Report series
+   </font>
+ </td>
+ <td>
+  <a href="/"><font color=#ffffff>CS&nbsp;home</font></a><br>
+  <a href="/reports"><font color=#ffffff>TR&nbsp;home</font></a><br>
+  <a href="/reports/#search"><font color=#ffffff>TR&nbsp;search</font></a>
+  <a href="/reports/updates.html"><font color=#ffffff>TR&nbsp;listserv</font></a>
+ </td>
+</tr>
+<tr>
+  <td align=right> By author:
+  </td>
+  <td colspan=2>
+    <a href="/reports/authors/index.shtml#A">A</a>
+    <a href="/reports/authors/index.shtml#B">B</a>
+    <a href="/reports/authors/index.shtml#C">C</a>
+    <a href="/reports/authors/index.shtml#D">D</a>
+    <a href="/reports/authors/index.shtml#E">E</a>
+    <a href="/reports/authors/index.shtml#F">F</a>
+    <a href="/reports/authors/index.shtml#G">G</a>
+    <a href="/reports/authors/index.shtml#H">H</a>
+    <a href="/reports/authors/index.shtml#I">I</a>
+    <a href="/reports/authors/index.shtml#J">J</a>
+    <a href="/reports/authors/index.shtml#K">K</a>
+    <a href="/reports/authors/index.shtml#L">L</a>
+    <a href="/reports/authors/index.shtml#M">M</a>
+    <a href="/reports/authors/index.shtml#N">N</a>
+    <a href="/reports/authors/index.shtml#O">O</a>
+    <a href="/reports/authors/index.shtml#P">P</a>
+    <a href="/reports/authors/index.shtml#Q">Q</a>
+    <a href="/reports/authors/index.shtml#R">R</a>
+    <a href="/reports/authors/index.shtml#S">S</a>
+    <a href="/reports/authors/index.shtml#T">T</a>
+    <a href="/reports/authors/index.shtml#U">U</a>
+    <a href="/reports/authors/index.shtml#V">V</a>
+    <a href="/reports/authors/index.shtml#W">W</a>
+    <a href="/reports/authors/index.shtml#X">X</a>
+    <a href="/reports/authors/index.shtml#Y">Y</a>
+    <a href="/reports/authors/index.shtml#Z">Z</a>
+   </td>
+</tr>
+<tr>
+  <td align=right> By number: 
+  </td>
+  <td colspan=2>
+    <font size=-1>
+      <a href="/reports/abstracts/2015.shtml">2015</a>,
+      <a href="/reports/abstracts/2014.shtml">2014</a>,
+      <a href="/reports/abstracts/2013.shtml">2013</a>,
+      <a href="/reports/abstracts/2012.shtml">2012</a>,
+      <a href="/reports/abstracts/2011.shtml">2011</a>,
+      <a href="/reports/abstracts/2010.shtml">2010</a>,
+      <a href="/reports/abstracts/2009.shtml">2009</a>,
+      <a href="/reports/abstracts/2008.shtml">2008</a>,
+      <a href="/reports/abstracts/2007.shtml">2007</a>,
+      <a href="/reports/abstracts/2006.shtml">2006</a>,
+      <a href="/reports/abstracts/2005.shtml">2005</a>,
+      <a href="/reports/abstracts/2004.shtml">2004</a>,
+      <a href="/reports/abstracts/2003.shtml">2003</a>,
+      <a href="/reports/abstracts/2002.shtml">2002</a>,
+      <a href="/reports/abstracts/2001.shtml">2001</a>,
+      <a href="/reports/abstracts/2000.shtml">2000</a>,
+      <a href="/reports/abstracts/1999.shtml">1999</a>,
+      <a href="/reports/abstracts/1998.shtml">1998</a>,
+      <a href="/reports/abstracts/1997.shtml">1997</a>,
+      <a href="/reports/abstracts/1996.shtml">1996</a>,
+      <a href="/reports/abstracts/1995.shtml">1995</a>,
+      <a href="/reports/abstracts/1994.shtml">1994</a>,
+      <a href="/reports/abstracts/1993.shtml">1993</a>,
+      <a href="/reports/abstracts/1992.shtml">1992</a>,
+      <a href="/reports/abstracts/1991.shtml">1991</a>,
+      <a href="/reports/abstracts/1990.shtml">1990</a>,
+      <a href="/reports/abstracts/1989.shtml">1989</a>,
+      <a href="/reports/abstracts/1988.shtml">1988</a>,
+      <a href="/reports/abstracts/1987.shtml">1987</a>,
+      <a href="/reports/abstracts/1986.shtml">1986</a>
+    </font>
+  </td>
+</tr>
+</table>
+<hr>
+<!-- <table bgcolor=#lightyellow width=100%><tr><td> set the page background color -->
+
+<font size=+2><b> Secure Context-sensitive Authorization  </b></font><br>
+<font size=+1><b>
+ <A HREF="../../authors/Minami,Kazuhiro.shtml">Kazuhiro Minami</A>
+<br>
+Dartmouth TR2006-571
+</b></font>
+<p><QUOTE>
+<b>Abstract:</b>
+Pervasive computing leads to an increased integration between the real world
+and the computational world, and many applications in pervasive computing adapt to
+the user's context, such as the location of the user and relevant devices, the
+presence of other people, light or sound conditions, or available network
+bandwidth, to meet a user's continuously changing requirements without taking
+explicit input from the users.
+</P><P>
+	We consider a class of applications that wish to consider a user's context
+when deciding whether to authorize a user's access to important physical or
+information resources. Such a context-sensitive authorization scheme is
+necessary when a mobile user moves across multiple administrative domains
+where they are not registered in advance. Also, users interacting with their
+environment need a non-intrusive way to access resources, and clues about
+their context may be useful input into authorization policies for these
+resources.  Existing systems for context-sensitive authorization take a
+logic-based approach, because a logical language makes it possible to define a
+context model where a contextual fact is expressed with a boolean predicate
+and to derive higher-level context information and authorization decisions
+from contextual facts. 
+</P><P>
+	However, those existing context-sensitive authorization systems have a central
+server that collects context information, and evaluates policies to make
+authorization decisions on behalf of a resource owner. A centralized solution
+assumes that all resource owners trust the server to make correct decisions,
+and all users trust the server not to disclose private context information.
+In many realistic applications of pervasive computing, however, the resources,
+users, and sources of context information are inherently distributed among
+many organizations that do not necessarily trust each other.  Resource owners
+may not trust the integrity of context information produced by another domain,
+and context sensors may not trust others with the confidentiality of data they
+provide about users. 
+</P><P>
+	In this thesis, we present a secure distributed proof system for
+context-sensitive authorization. Our system enables multiple hosts to evaluate
+an authorization query in a peer-to-peer way, while preserving the
+confidentiality and integrity policies of mutually untrusted principals
+running those hosts. We also develop a novel caching and revocation mechanism
+to support context-sensitive policies that refer to information in dozens of
+different administrative domains. Contributions of this thesis include the
+definition of fine-grained security policies that specify trust relations
+among principals in terms of information confidentiality and integrity, the
+design and implementation of a secure distributed proof system, a proof for
+the correctness of our algorithm, and a performance evaluation showing
+that the amortized performance of our system scales to dozens of servers in
+different domains. 
+</QUOTE></p>
+<p><QUOTE>
+<b>Note:</b>
+Doctoral dissertation.  Advisor: David Kotz
+</QUOTE></p>
+<HR>
+ <a href="http://www.cs.dartmouth.edu/reports/TR2006-571.pdf"><img align=center alt="PDF" width=29 height=32 border=0 src=../../pdf.gif></a>
+ PDF (832KB)
+<p>
+Bibliographic citation for this report:
+  [<a href="TR2006-571.ascii">plain text</a>]
+  [<a href="TR2006-571.bib">BIB</a>]
+  [<a href="TR2006-571.bibtex">BibTeX</a>]
+  [<a href="TR2006-571.refer">Refer</a>]
+</p>
+<p>Or copy and paste:<br>
+&nbsp;&nbsp;
+Kazuhiro Minami, 
+"Secure Context-sensitive Authorization ."
+Dartmouth Computer Science Technical Report TR2006-571,
+February 2006.
+</p>
+<!-- Include file for abstracts/*.html and authors/*.html -->
+<!-- See also header.htmlf -->
+<!-- I use absolute pathnames here because this file is used from several directories. -->
+<!-- </td></tr></table> -->
+<hr>
+
+<p><a href=/reports/updates.html>Notify me about new tech reports</a>.
+<a href=/reports/feed.xml><img src=/reports/rss.gif><a></p>
+<p><a href=/reports/index.shtml#search>Search the technical reports</a>.</p>
+<p>To receive paper copy of a report, by mail, 
+send your address and the TR number to <tt>reports</tt> AT <tt>cs.dartmouth.edu</tt>
+
+<hr>
+
+<p><font size=-1><b>Copyright notice</b>:	
+The documents contained in this server are included by the
+contributing authors as a means to ensure timely dissemination of
+scholarly and technical work on a non-commercial basis.  Copyright and
+all rights therein are maintained by the authors or by other copyright
+holders, notwithstanding that they have offered their works here
+electronically.  It is understood that all persons copying this
+information will adhere to the terms and constraints invoked by each
+author's copyright.  These works may not be reposted without the
+explicit permission of the copyright holder.
+</font></p> 
+<p><font size=-1><em>Technical reports collection maintained by David Kotz</em>.
+
+</BODY>
+</HTML>

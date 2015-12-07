@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/shin-senseright-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>shin:senseright-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius, Apu Kapadia, David Kotz, Dan Peebles, Minho Shin, and Patrick Tsang.
+<b>Poster Abstract: Reliable People-Centric Sensing with Unreliable
+Voluntary Carriers</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+June,
+2008.
+ACM Press.
+<p><b>Abstract:</b> As sensor technology becomes increasingly easy to integrate into
+personal devices such as mobile phones, clothing, and athletic equipment,
+there will be new applications involving opportunistic, people-centric
+sensing. These applications, which gather information about human activities
+and personal social context, raise many security and privacy challenges. In
+particular, data integrity is important for many applications, whether using
+traffic data for city planning or medical data for diagnosis. Although our
+AnonySense system (presented at MobiSys) addresses privacy in people-centric
+sensing, protecting data integrity in people-centric sensing still remains a
+challenge. Some mechanisms to protect privacy provide anonymity, and thus
+provide limited means for accountability; data integrity becomes even more
+difficult to protect. <P> We propose SenseRight, the first architecture for
+high-integrity people-centric sensing. The SenseRight approach, which extends
+and enhances AnonySense, assures integrity of both the sensor data (through
+use of tamper-resistant sensor devices) and the sensor context (through a
+time-constrained protocol), maintaining anonymity if desired.</p>
+<p><b>Keywords:</b> mobile computing, sensors, security, privacy, anonymity,
+ubicomp</p>
+<p><a href="bibtex/shin-senseright-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././shin-senseright-poster.pdf">PDF</a> (76K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by the authors.</b></p>
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/song-predict-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>song:predict-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Libo Song, David Kotz, Ravi Jain, and Xiaoning He.
+<b>Mobicom Poster: Evaluating location predictors with extensive
+Wi-Fi mobility data</b>.
+<i>ACM SIGMOBILE Mobile Computing and Communication Review</i>,
+7(4):64-65,
+October,
+2003.
+DOI <a href="http://dx.doi.org/10.1145/965732.965747">10.1145/965732.965747</a>.
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/song-predict-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././song-predict-poster.pdf">PDF</a> (166K)</p>
+<p><b>Copyright &#169;&nbsp;2003 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/song-predict-tr-old.html">song:predict-tr-old</a></b>.</p>
+<p>See also later version <b><a href="abstracts/song-predict.html">song:predict</a></b>.</p>
+</BODY>
+</HTML>

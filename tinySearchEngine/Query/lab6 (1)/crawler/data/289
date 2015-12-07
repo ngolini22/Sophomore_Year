@@ -1,0 +1,21 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/aslam-position.html
+3
+<HTML>
+<HEAD>
+ <TITLE>aslam:position</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jay Aslam, Marco Cremonini, David Kotz, and Daniela Rus.
+<b>Using Mobile Agents for Analyzing Intrusion in Computer Networks</b>.
+In
+<i>Proceedings of the Workshop on Mobile Object Systems at
+ECOOP&nbsp;2001</i>,
+July,
+2001.
+<p><b>Keywords:</b> mobile-agent, mobile computing, security, intrusion detection</p>
+<p><a href="bibtex/aslam-position.bib">BibTeX</a></p>
+<p><a target=_top href = "././aslam-position.pdf">PDF</a> (59K)</p>
+<p><b>Copyright &#169;&nbsp;2001 by the authors.</b></p>
+</BODY>
+</HTML>

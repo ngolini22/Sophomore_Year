@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-demand-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:demand-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, David Kotz, and Daniela Rus.
+<b>Utility Driven Mobile-Agent Scheduling</b>.
+Technical Report
+PCS-TR98-331,
+Dartmouth Computer Science,
+May,
+1998.
+Revised October 3, 1998.
+<p><b>Abstract:</b> Mobile agents are programs capable of migrating from one host
+machine to another. We propose that mobile agents purchase resource access
+rights from host machines thereby establishing a market for computational
+resources and giving agents a metric to evenly distribute themselves
+throughout the network. Market participation requires quantitative
+information about resource consumption to define demand and calculate
+utility. <P> We create a formal utility model to derive user-demand
+functions, allowing agents to efficiently plan expenditure and deal with
+price fluctuations. By quantifying demand and utility, resource owners can
+precisely set a value for a good. We simulate our model in a mobile agent
+scheduling environment and show how mobile agents may use server prices to
+distribute themselves evenly throughout a network.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/bredin-demand-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-demand-tr.pdf">PDF</a> (316K)</p>
+<p><b>Copyright &#169;&nbsp;1998 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/bredin-demand.html">bredin:demand</a></b>.</p>
+</BODY>
+</HTML>

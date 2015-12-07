@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kim-jclassify.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kim:jclassify</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minkyong Kim and David Kotz.
+<b>Periodic properties of user mobility and access-point popularity</b>.
+<i>Journal of Personal and Ubiquitous Computing</i>,
+11(6):465-479,
+August,
+2007.
+Invited paper; special issue of papers from LoCA 2005.
+DOI <a href="http://dx.doi.org/10.1007/s00779-006-0093-4">10.1007/s00779-006-0093-4</a>.
+<p><b>Abstract:</b> Understanding user mobility and its effect on access points (APs)
+is important in designing location-aware systems and wireless networks.
+Although various studies of wireless networks have provided useful insights,
+it is hard to apply them to other situations. Here we present a general
+methodology for extracting mobility information from wireless network traces,
+and for classifying mobile users and APs. We used the Fourier transform to
+reveal important periods and chose the two strongest periods to serve as
+parameters to a classification system based on Bayes' theory. Analysis of
+1-month traces shows that while a daily pattern is common among both users
+and APs, a weekly pattern is common only for APs. Analysis of 1-year traces
+revealed that both user mobility and AP popularity depend on the academic
+calendar. By plotting the classes of APs on our campus map, we discovered
+that their periodic behavior depends on their proximity to other APs.</p>
+<p><b>Keywords:</b> wireless, network, mobile computing</p>
+<p><a href="bibtex/kim-jclassify.bib">BibTeX</a></p>
+<p><a target=_top href = "././kim-jclassify.pdf">PDF</a> (1200K)</p>
+<p><b>Copyright &#169;&nbsp;2007 by Springer London.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kim-classify-tr.html">kim:classify-tr</a></b>.</p>
+</BODY>
+</HTML>

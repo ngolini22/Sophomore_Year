@@ -1,0 +1,47 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/minami-handbook.html
+3
+<HTML>
+<HEAD>
+ <TITLE>minami:handbook</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kazuhiro Minami and David Kotz.
+<b>Distributed proof systems for cross-domain authorization</b>.
+In
+<i>Information Assurance, Security and Privacy Services</i>,
+chapter 1,
+Handbooks in Information Systems,
+Emerald Group Publishing Limited,
+2009.
+<p><b>Abstract:</b> The ability to access information resources across organizational
+boundaries is vital for today's corporate, military, and educational
+organizations, which must be able to quickly pool their resources to respond
+to opportunities and threats. Since each organization protects its resources
+with its local authorization policies, we need mechanisms for cross-domain
+authorization to achieve information sharing among multiple organizations.
+Unfortunately, traditional identity-based authorization approaches are
+impractical, because the identity of a requester is not a useful clue for
+authorization in a decentralized environment. Many distributed authorization
+schemes, therefore, consider a requester's properties (e.g., employer and
+physical location) to make an authorization decision and use a logic-based
+approach to specify authorization policies in a flexible way. Such a
+distributed proof system makes an authorization decision by constructing a
+proof with information provided by different entities in a distributed
+environment. In this chapter, we provide an overview of distributed proof
+systems for cross-domain authorization, while covering major language
+constructs and proof-constructing algorithms, and introduce an emerging issue
+of protecting confidential policies and credentials (facts) in a distributed
+proof system involving multiple security domains since it is unlikely that a
+principal in one security domain is willing to release all its local
+information to any principal in other domains. We finally describe our
+distributed proof system for cross-domain authorization in detail and show
+how our cryptographic protocol allows mutually untrusted principals to
+construct a proof in a decentralized way while preserving each principal's
+security policies.</p>
+<p><b>Keywords:</b> security, privacy, ubicomp, distributed computing</p>
+<p><a href="bibtex/minami-handbook.bib">BibTeX</a></p>
+<p>Other: <a target=_top href="http://books.emeraldinsight.com/display.asp?K=9781848551947">http://books.emeraldinsight.com/display.asp?K=9781848551947</a></p>
+<p><b>Copyright &#169;&nbsp;2009 by Emerald Group Publishing Limited.</b></p>
+</BODY>
+</HTML>

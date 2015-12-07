@@ -1,0 +1,52 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/deshpande-coordinated.html
+3
+<HTML>
+<HEAD>
+ <TITLE>deshpande:coordinated</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Udayan Deshpande, Chris McDonald, and David Kotz.
+<b>Coordinated Sampling to Improve the Efficiency of Wireless Network
+Monitoring</b>.
+In
+<i>Proceedings of the Fifteenth IEEE International Conference on
+Networks (ICON)</i>,
+pages 353-358,
+November,
+2007.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/ICON.2007.4444112">10.1109/ICON.2007.4444112</a>.
+<p><b>Abstract:</b> Wireless networks are deployed in home, university, business,
+military and hospital environments, and are increasingly used for
+mission-critical applications like VoIP or financial applications. Monitoring
+the health of these networks, whether it is for failure, coverage or attacks,
+is important in terms of security, connectivity, cost, and performance. <P>
+Effective monitoring of wireless network traffic, using commodity hardware,
+is a challenging task due to the limitations of the hardware. IEEE 802.11
+networks support multiple channels, and a wireless interface can monitor only
+a single channel at one time. Thus, capturing all frames passing an interface
+on all channels is an impossible task, and we need strategies to capture the
+most representative sample. <P> When a large geographic area is to be
+monitored, several monitoring stations must be deployed, and these will
+typically overlap in their area of coverage. The competing goals of effective
+wireless monitoring are to capture as many frames as possible, while
+minimizing the number of those frames that are captured redundantly by more
+than one monitoring station. Both goals may be addressed with a sampling
+strategy that directs neighboring monitoring stations to different channels
+during any period. To be effective, such a strategy requires timely access to
+the nature of all recent traffic. <P> We propose a coordinated sampling
+strategy that meets these goals. Our implemented solution involves a central
+controller considering traffic characteristics from many monitoring stations
+to periodically develop specific sampling policies for each station. We
+demonstrate the effectiveness of our coordinated sampling strategy by
+comparing it with existing independent strategies. Our coordinated strategy
+enabled more distinct frames to be captured, providing a solid foundation for
+focused sampling and intrusion detection.</p>
+<p><b>Keywords:</b> wireless, network, security</p>
+<p><a href="bibtex/deshpande-coordinated.bib">BibTeX</a></p>
+<p><a target=_top href = "././deshpande-coordinated.pdf">PDF</a> (420K)</p>
+<p><b>Copyright &#169;&nbsp;2007 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/deshpande-sampling.html
+3
+<HTML>
+<HEAD>
+ <TITLE>deshpande:sampling</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Udayan Deshpande, Tristan Henderson, and David Kotz.
+<b>Channel Sampling Strategies for Monitoring Wireless Networks</b>.
+In
+<i>Proceedings of the Second International Workshop on Wireless
+Network Measurement (WiNMee)</i>,
+April,
+2006.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/WIOPT.2006.1666486">10.1109/WIOPT.2006.1666486</a>.
+<p><b>Abstract:</b> Monitoring the activity on an IEEE 802.11 network is useful for
+many applications, such as network management, optimizing deployment, or
+detecting network attacks. Deploying wireless sniffers to monitor every
+access point in an enterprise network, however, may be expensive or
+impractical. Moreover, some applications may require the deployment of
+multiple sniffers to monitor the numerous channels in an 802.11 network. In
+this paper, we explore sampling strategies for monitoring multiple channels
+in 802.11b/g networks. We describe a simple sampling strategy, where each
+channel is observed for an equal, predetermined length of time, and consider
+applications where such a strategy might be appropriate. We then introduce a
+sampling strategy that weights the time spent on each channel according to
+the number of frames observed on that channel, and compare the two strategies
+under experimental conditions.</p>
+<p><b>Keywords:</b> wireless, network, security, intrusion detection</p>
+<p><a href="bibtex/deshpande-sampling.bib">BibTeX</a></p>
+<p><a target=_top href = "././deshpande-sampling.pdf">PDF</a> (156K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

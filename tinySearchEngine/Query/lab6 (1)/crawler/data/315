@@ -1,0 +1,26 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-healthsec10.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:healthsec10</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare and David Kotz.
+<b>Is Bluetooth the right technology for mHealth?</b>In
+<i>USENIX Workshop on Health Security (HealthSec)</i>,
+August,
+2010.
+Position paper.
+<p><b>Abstract:</b> Many people believe mobile healthcare (mHealth) would help
+alleviate the rising cost of healthcare and improve the quality of service.
+Bluetooth, which is the most popular wireless technology for personal medical
+devices, is used for most of the mHealth sensing applications. In this paper
+we raise the question - Is Bluetooth the right technology for mHealth? To
+instigate the discussion we discuss some shortcomings of Bluetooth and also
+point out an alternative solution.</p>
+<p><a href="bibtex/mare-healthsec10.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-healthsec10.pdf">PDF</a> (88K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by the authors.</b></p>
+</BODY>
+</HTML>

@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/howell-end-to-end.html
+3
+<HTML>
+<HEAD>
+ <TITLE>howell:end-to-end</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jon Howell and David Kotz.
+<b>End-to-end authorization</b>.
+In
+<i>Proceedings of the 2000 Symposium on Operating Systems Design
+and Implementation (OSDI)</i>,
+pages 151-164,
+October,
+2000.
+USENIX Association.
+<p><b>Abstract:</b> Many boundaries impede the flow of authorization information,
+forcing applications that span those boundaries into hop-by-hop approaches to
+authorization. We present a unified approach to authorization. Our approach
+allows applications that span administrative, network, abstraction, and
+protocol boundaries to understand the end-to-end authority that justifies any
+given request. The resulting distributed systems are more secure and easier
+to audit. <P> We describe boundaries that can interfere with end-to-end
+authorization, and outline our unified approach. We describe the system we
+built and the applications we adapted to use our unified authorization
+system, and measure its costs. We conclude that our system is a practical
+approach to the desirable goal of end-to-end authorization.</p>
+<p><b>Keywords:</b> security, distributed computing, operating system</p>
+<p><a href="bibtex/howell-end-to-end.bib">BibTeX</a></p>
+<p><a target=_top href = "././howell-end-to-end.pdf">PDF</a> (317K)</p>
+<p><b>Copyright &#169;&nbsp;2000 by the authors.</b></p>
+</BODY>
+</HTML>

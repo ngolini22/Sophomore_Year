@@ -1,0 +1,48 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nanda-jmeshmon.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nanda:jmeshmon</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Soumendra Nanda and David Kotz.
+<b>Mesh-Mon: A Multi-Radio Mesh Monitoring and Management System</b>.
+<i>Computer Communications</i>,
+31(8):1588-1601,
+May,
+2008.
+DOI <a href="http://dx.doi.org/10.1016/j.comcom.2008.01.046">10.1016/j.comcom.2008.01.046</a>.
+<p><b>Abstract:</b> Mesh networks are a potential solution for providing
+communication infrastructure in an emergency. They can be rapidly deployed by
+first responders in the wake of a major disaster to augment an existing
+wireless or wired network. We imagine a mesh node with multiple radios
+embedded in each emergency vehicle arriving at the site to form the backbone
+of a mobile wireless mesh. The ability of such a mesh network to monitor
+itself, diagnose faults and anticipate problems are essential features for
+its sustainable operation. Typical SNMP-based centralized solutions introduce
+a single point of failure and are unsuitable for managing such a network.
+ Mesh-Mon is a decentralized monitoring and management system designed
+for such a mobile, rapidly-deployed, unplanned mesh network and works
+independently of the underlying mesh routing protocol. Mesh-Mon nodes are
+designed to actively cooperate and use localized algorithms to predict,
+detect, diagnose and resolve network problems in a scalable manner. Mesh-Mon
+is independent of the underlying routing protocol and can operate even if the
+mesh routing protocol completely fails. A novel aspect of our approach is
+that we employ mobile users of the mesh, running software called 
+Mesh-Mon-Ami to ferry management packets between physically-disconnected
+partitions in a delay-tolerant network manner. The main contributions of this
+paper are the design, implementation and evaluation of a comprehensive
+monitoring and management architecture that helps a network administrator
+proactively identify, diagnose and resolve a range of issues that can occur
+in a dynamic mesh network. In experiments on  Dart-Mesh, our 16-node
+indoor mesh testbed, we found Mesh-Mon to be effective in quickly diagnosing
+and resolving a variety of problems with high accuracy, without adding
+significant management overhead.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/nanda-jmeshmon.bib">BibTeX</a></p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/nanda-jmeshmon.pdf">PDF</a> (ask me)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Elsevier.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

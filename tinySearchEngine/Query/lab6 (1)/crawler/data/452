@@ -1,0 +1,227 @@
+http://www.cs.dartmouth.edu/%7Edfk/favorites.html
+3
+<HTML>
+<HEAD><TITLE>Dave's favorite papers </TITLE></HEAD>
+<BODY BGCOLOR=#FFFFFF>
+
+<h1>A few of my favorite things</h1>
+These are a few of my favorite papers and books, as general references
+for me and my students... as researchers, writers, and reviewers.
+And, some useful career advice as well!
+<br>
+-- <a href="index.html">David Kotz</a>
+<p>
+
+I really like <a
+href="http://pages.cpsc.ucalgary.ca/~locasto/studying.html">Mike
+Locasto's page about what it takes to be a good grad student, and
+links to other resources.</a>
+<p>
+
+Also useful is Nick Feamster's <a href="http://greatresearch.org">Great Research blog</a>.
+
+<p
+You can also grab the <a href="favorites.bib">BibTeX file</a>.
+<p>
+
+<DL>
+
+<!-- -------------------------------- -->
+<P>
+  <DT> <b>Experimental technique</b> </DT>
+  <P>
+  <DD> Vern Paxson.
+       <A NAME="paxson:strategies"
+       HREF="http://www.icir.org/vern/papers/meas-strategies-imc04.pdf">
+       <STRONG>Strategies for sound internet measurement</STRONG></A>.
+       In <EM>Proceedings of the Internet Measurement Conference</EM>, Taormina,
+       Sicily, Italy, October 2004.
+       <em>An excellent paper, worthy of reading by all experimentalists,
+       especially those that conduct measurements.</em></DD>
+       
+       <P>
+  <DD> Edward R. Tufte.
+       <STRONG>The Visual Display of Quantitative Information</STRONG>.
+       Graphics Press, 1983.  <em>Still the best book about visualizing data.</em></DD>
+       
+       <P>
+  <DD> Edward R. Tufte.
+       <STRONG>Envisioning Information</STRONG>.
+       Graphics Press, 1991. <em>Not quite as relevant to researchers.</em></DD>
+       
+<!-- -------------------------------- -->
+<P>
+  <DT> <b>Writing and reviewing</b> </DT>
+       <P>
+  <dd> Elizabeth Jakob, Adam Porter, Jeffrey Podos, Barry Braun,
+  Norman Johnson, and Stephen Vessey.
+       <strong>
+       <a href="http://chronicle.com/article/How-to-Fail-in-Grant-Writing/125620/">How to Fail in Grant Writing</a></strong>, Chronicle of Higher Education, 5
+       December 2010.
+    <p>
+  <DD> Robert A. Day.
+       <STRONG>How to write a scientific paper</STRONG>.
+       <EM>IEEE Transactions on Professional Communication</EM>, PC-20(1):32-37, June
+       1977.
+       <em>A fun read; although old and not specific to computer science, it
+       still has a lot to say.  He later wrote a full book on the subject,
+       which I have if you'd like to see it.</em></DD>
+       
+       <P>
+  <DD> Lyn Dupr&eacute;.
+       <STRONG>Bugs in Writing: A Guide to Debugging Your Prose</STRONG>.
+       Addison Wesley, 1995.
+       <em>One of the better books for general guidance to the English language,
+       and common mistakes we all make.</em></DD>
+       
+       <P>
+  <DD> Roy Levin and David D. Redell.
+       <STRONG><a href="http://doi.acm.org/10.1145/378267.378283">An evaluation of the ninth SOSP submissions; or, how (and how not) to
+       write a good systems paper</a></STRONG>.
+       <EM>ACM Operating Systems Review</EM>, 17(3):35-40, July 1983.
+       <em>Still a must-read for anyone writing a systems paper.</em></DD>
+       
+       <P>
+
+  <DD> Michael Ernst.
+       <strong><a
+       href="http://people.csail.mit.edu/mernst/advice/conferences-vs-journals.html">Choosing a venue: conference or journal?</a></strong>.
+       Online.
+       
+       <p>
+  <DD> Peter Gutmann
+       <strong><a href="http://www.cs.auckland.ac.nz/~pgut001/pubs/paper_howto.html">Common Problems with Conference/Journal Papers</a></strong>.
+       Online.
+       
+       <p>
+  <DD> Alan Jay Smith.
+       <A NAME="smith:referee"
+       HREF="http://ieeexplore.ieee.org/iel1/2/2004/00055470.pdf">
+       <STRONG>The task of the referee</STRONG></A>.
+       <EM>IEEE Computer</EM>, 23(4):65-71, April 1990.
+       <em>Read this before you review conference or journal papers.</em></DD>
+       
+       <P>
+  <DD> Harold S. Stone.
+       <STRONG><a href="http://ieeexplore.ieee.org/iel1/2/4492/00179116.pdf">Copyrights and author responsibilities</a></STRONG>.
+       <EM>IEEE Computer</EM>, 25(12):47-51, December 1992.
+       <em>Useful explanations and advice about copyright law and about
+       what you can and cannot use in your scientific papers.</em></DD>
+<p>
+       <dd>Should you review papers for journals from for-profit
+       publishers? Complicated question.
+	 <a href="http://chronicle.com/article/Want-to-Change-Academic/134546/"
+	 >Read this Chronicle editorial</a>.
+	 
+<!-- -------------------------------- -->
+<P>
+  <DT> <b>Speaking</b> </DT>
+       <P>
+  <DD> Patrick Winston.
+       <A NAME="winston:lecture"
+       HREF="http://isites.harvard.edu/icb/icb.do?keyword=k1985&topicid=icb.topic650252&panel=icb.topic650252%3Arwatch%248%3Fentry%3D18850&state=popup&view=watch.do&viewParam_entry=18850&viewParam_watchfull=t">
+       (or order the tape from <a href="http://www.amazon.com/How-Speak-Technically-Speaking-Teaching/dp/0470180188">Amazon</a>)
+       <STRONG>How to speak: Lecture tips from Patrick Winston</STRONG></A>.
+       Derek Bok Center for Teaching and Learning, Harvard University.
+       <em>A great resource for learning how to give a good
+       talk.</em></DD>
+<p>
+  <dd>PhD Comics on "<a
+  href="http://www.phdcomics.com/comics.php?f=1553">your conference
+  presentation</a>" </dd>
+       
+<!-- -------------------------------- -->
+<P>
+  <DT> <b>Careers</b> </DT>
+       
+       <p>
+    <DD> <b>Job search:</b>
+      Edward D. Lazowska,
+       <a href="http://lazowska.cs.washington.edu/jobs.pdf"><strong>The Ph.D. Job Hunt - Helping Students Find the Right Positions</strong></a>
+
+       <p>
+    <DD> <b>CV preparation:</b>
+      Julie Miller Vick and Jennifer S. Furlong,
+       <a
+       href="http://chronicle.com/article/The-CV-Doctor-Is-Back-/49086/"><strong>The
+       CV Doctor is Back</strong></a>: a brief discussion of how to
+       prepare a successful academic (or non-academic) c.v.</a>
+
+<p>
+    <DD> <b>Job interview:</b>
+    <a href="http://chronicle.com/article/Show-Them-You-Really-Want-the/132281/">
+    <em>Show them you really want the job</em></a>
+    -- advice on how to interview effectively for a faculty position.
+
+    
+<p>
+    <DD> <b>Graduate school:</b>
+      Marie desJardins,
+       <i>How to Succeed in Graduate School:
+       A Guide for Students and Advisors</i>
+       (<a href="http://dx.doi.org/10.1145/197149.197154">Part&nbsp;1</a>),
+       (<a href="http://dx.doi.org/10.1145/197892.197895">Part&nbsp;2</a>).
+       ACM Crossroads Magazine, Volume&nbsp;1
+       number&nbsp;2 (Winter 1994) and
+       number&nbsp;3 (Spring 1995).
+
+    <p>
+    <DD> <b>Graduate school:</b>
+      Karen Kelsky,
+       <a href="http://chronicle.com/article/Graduate-School-Is-a-Means-to/131316/"><em>Graduate School Is a Means to a Job</em></a>, March 2012.
+      Skewed toward academic careers, and maybe less oriented toward
+      the sciences than would be relevant to my students, but still
+      some good stuff here.
+
+       <P>
+  <DD> <b>Research career:</b>
+    David A. Patterson,
+       <A NAME="patterson:academia"
+       HREF="http://www.cs.utah.edu/~lepreau/osdi94/keynote/abstract.html">
+       <em>How to have a bad career in research/academia</em></A>.
+       Invited presentation at OSDI 1994, October 1994.
+       <em>Funny and informative.</em></DD>
+       
+       <P>
+  <DD> <b>Industry lab career:</b>
+    John Wilkes,
+       <A NAME="wilkes:work"
+       HREF="http://www.hpl.hp.com/research/ssp/papers/CMUemigrationCourse.2up.pdf">
+       <em>Is work hell? life in industrial research</em></A>.
+       Technical Report HPL-SSP-97-1, HP Laboratories, January 1997.
+       Slides for a presentation at CMU's `emigration course'.
+       <em>A great complement to Patterson's lecture.</em></DD>
+
+       <p>
+  <DD> <b>Tenure:</b>
+       <a href="http://sciencecareers.sciencemag.org/career_magazine/previous_issues/articles/2009_10_23/caredit.a0900128">
+    <em>Getting-- and not getting-- tenure</em></a>
+    -- An excellent series of articles.
+<p>
+    <dd> <b>Corporate research:</b>
+      <a href="http://cacm.acm.org/magazines/2012/7/151226-googles-hybrid-approach-to-research/fulltext">
+      <em>Google's Hybrid Approach to Research</em></a>
+    </DD>
+<p>
+    
+    <dd> <b>Advising:</b>
+      David A. Patterson, <a href="http://dx.doi.org/10.1145/1467247.1467259">
+      <em>Viewpoint: Your students are your legacy.</em></a>
+      Communications of the ACM, 52(3):30--33, March 2009, DOI 10.1145/1467247.1467259.
+<p>
+    <dd> <b>Advising:</b> 
+      Jeffrey D. Ullman, <a href="http://dx.doi.org/10.1145/1467247.1467260">
+      <em>Viewpoint: Advising students for success.</em></a>
+      Communications of the ACM, 52(3):34--37, March 2009, DOI 10.1145/1467247.1467260.
+      
+<!-- -------------------------------- -->
+<P>
+  <DT> <b>Other stuff</b> </DT>
+       
+       <p>
+  <DD> John Ousterhout's
+    <a href="http://www.stanford.edu/~ouster/cgi-bin/sayings.php">favorite sayings</a>
+
+</DL>
+</BODY>
+</HTML>

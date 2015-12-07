@@ -1,0 +1,31 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/henderson-citation-practices.html
+3
+<HTML>
+<HEAD>
+ <TITLE>henderson:citation-practices</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Tristan Henderson and David Kotz.
+<b>Data citation practices in the CRAWDAD wireless network data
+archive</b>.
+<i>D-Lib Magazine</i>,
+21(1/2),
+Jan/Feb,
+2015.
+DOI <a href="http://dx.doi.org/10.1045/january2015-henderson">10.1045/january2015-henderson</a>.
+<p><b>Abstract:</b> CRAWDAD (Community Resource for Archiving Wireless Data At
+Dartmouth) is a popular research data archive for wireless network data,
+archiving over 100 datasets used by over 6,500 users. In this paper we
+examine citation behaviour amongst 1,281 papers that use CRAWDAD datasets. We
+find that (in general) paper authors cite datasets in a manner that is
+sufficient for providing credit to dataset authors and also provides access
+to the datasets that were used. Only 11.5\% of papers did not do so; common
+problems included (1) citing the canonical papers rather than the dataset,
+(2) describing the dataset using unclear identifiers, and (3) not providing
+URLs or pointers to datasets.</p>
+<p><a href="bibtex/henderson-citation-practices.bib">BibTeX</a></p>
+<p><a target=_top href = "././henderson-citation-practices.pdf">PDF</a> (605K)</p>
+<p><b>Copyright &#169;&nbsp;2015 by the authors.</b></p>
+</BODY>
+</HTML>

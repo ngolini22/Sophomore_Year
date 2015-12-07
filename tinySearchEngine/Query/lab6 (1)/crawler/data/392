@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-dependency.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:dependency</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Dependency management in distributed settings (Poster Abstract)</b>.
+In
+<i>International Conference on Autonomic Computing (ICAC)</i>,
+May,
+2004.
+DOI <a href="http://dx.doi.org/10.1109/ICAC.2004.1301375">10.1109/ICAC.2004.1301375</a>.
+<p><b>Abstract:</b> Ubiquitous-computing environments are heterogeneous and volatile
+in nature. Systems that support ubicomp applications must be self-managed, to
+reduce human intervention. In this paper, we present a general service that
+helps distributed software components to manage their dependencies. Our
+service proactively monitors the liveness of components and recovers them
+according to supplied policies. Our service also tracks the state of
+components, on behalf of their dependents, and may automatically select
+components for the dependent to use based on evaluations of customized
+functions. We believe that our approach is flexible and abstracts away many
+of the complexities encountered in ubicomp environments. In particular, we
+show how we applied the service to manage dependencies of context-fusion
+operators and present some experimental results.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-dependency.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-dependency.pdf">PDF</a> (37K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/chen-dependency-tr.html">chen:dependency-tr</a></b>.</p>
+</BODY>
+</HTML>

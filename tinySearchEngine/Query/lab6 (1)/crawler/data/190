@@ -1,0 +1,69 @@
+http://www.cs.dartmouth.edu/~campbell/cs65/submit.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="detailed-submission-information">Detailed submission information</h2>
+<p>For each lab - for example there should be a <strong>Lab1_submission</strong> directory in the repo (repository) we should see three files: If I were to look into Lab1_submission I would see:</p>
+<pre><code>Lab1_submission/
+├── MyRuns1.apk
+├── README.txt
+└── myruns.zip</code></pre>
+<p>If you decide to use SVN for committing your source tree (strongly recommended) then there would be two sub directories per lab:</p>
+<pre><code>Lab1_submission/
+Lab1/ </code></pre>
+<p>where <strong>Lab1/</strong> would be the root of your complete project source tree. This would look exactly the the same as your project in ADT/Eclipse.</p>
+<p>There is a <a href="http://www.eclipse.org/subversive/">SVN plugin for Eclipse plugin</a> that might simplify the process.</p>
+<h2 id="how-to-prepare-the-three-files-to-commit">How to prepare the three files to commit</h2>
+<p>Assume we are discussing Lab1_submission. The following three files need to be submitted.</p>
+<h2 id="commit-myruns1.apk">Commit MyRuns1.apk</h2>
+<p>A complete zip of your project needs to be committed. Go to your workspace folder. e.g., in my case (and from the terminal)</p>
+<pre><code>$cd /Users/atc/Dropbox/teaching/cs65/workspace</code></pre>
+<p>You can list the project from there</p>
+<pre><code>$ ls MyRuns1
+AndroidManifest.xml gen res
+assets proguard.cfg src
+bin</code></pre>
+<p>Now zip it:</p>
+<pre><code>$zip -r myruns1.zip MyRuns1/</code></pre>
+<p>Then, you will see the zip file in your directory</p>
+<pre><code>$ ls *.zip
+myruns1.zip</code></pre>
+<p>commit this file.</p>
+<h2 id="commit-myruns1.apk-1">Commit MyRuns1.apk</h2>
+<p>You need to go into the bin directory of your project first</p>
+<pre><code>$ cd /Users/atc/Dropbox/teaching/cs65/workspace/MyRuns1/bin</code></pre>
+<p>List the files</p>
+<pre><code> $ ls
+ AndroidManifest.xml classes.dex resources.ap_
+ MyRuns1.apk dexedLibs
+ classes res</code></pre>
+<p>You see the apk MyRuns1.apk</p>
+<p>Now commit MyRuns1.apk</p>
+<h2 id="commit-readme.txt">Commit README.txt</h2>
+<p>The file should provide any additional information in plain text (no word files please) about your submission such as an extra credit</p>
+<h2 id="how-to-commit-files-and-source-trees">How to commit files and source trees</h2>
+<p>Read <a href="http://www.cs.dartmouth.edu/~campbell/cs50/svn.html">Subversion Version Control (SVN)</a></p>
+</body>
+</html>

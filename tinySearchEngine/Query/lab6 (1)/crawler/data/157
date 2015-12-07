@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/carter-vesta.html
+3
+<HTML>
+<HEAD>
+ <TITLE>carter:vesta</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Matthew P. Carter and David Kotz.
+<b>An Implementation of the Vesta Parallel File System API on the
+Galley Parallel File System</b>.
+Technical Report
+PCS-TR98-329,
+Dartmouth Computer Science,
+April,
+1998.
+<p><b>Abstract:</b> To demonstrate the flexibility of the Galley parallel file system
+and to analyze the efficiency and flexibility of the Vesta parallel file
+system interface, we implemented Vesta's application-programming interface on
+top of Galley. We implemented the Vesta interface using Galley's file-access
+methods, whose design arose from extensive testing and characterization of
+the I/O requirements of scientific applications for high-performance
+multiprocessors. We used a parallel CPU, parallel I/O, out-of-core
+matrix-multiplication application to test the Vesta interface in both its
+ability to specify data access patterns and in its run-time efficiency. In
+spite of its powerful ability to specify the distribution of regular,
+non-overlapping data access patterns across disks, we found that the Vesta
+interface has some significant limitations. We discuss these limitations in
+detail in the paper, along with the performance results.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/carter-vesta.bib">BibTeX</a></p>
+<p><a target=_top href = "././carter-vesta.pdf">PDF</a> (242K)</p>
+<p><b>Copyright &#169;&nbsp;1998 by the authors.</b></p>
+</BODY>
+</HTML>

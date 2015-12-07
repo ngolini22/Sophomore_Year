@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-compare.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:compare</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert S. Gray, David Kotz, Calvin Newport, Nikita Dubrovsky, Aaron Fiske, Jason Liu, Christopher Masone, Susan McGrath, and Yougu Yuan.
+<b>Outdoor Experimental Comparison of Four Ad Hoc Routing Algorithms</b>.
+In
+<i>Proceedings of the ACM/IEEE International Symposium on Modeling,
+Analysis and Simulation of Wireless and Mobile Systems (MSWiM)</i>,
+pages 220-229,
+October,
+2004.
+ACM Press.
+Finalist for Best Paper award.
+DOI <a href="http://dx.doi.org/10.1145/1023663.1023703">10.1145/1023663.1023703</a>.
+<p><b>Abstract:</b> Most comparisons of wireless ad hoc routing algorithms involve
+simulated or  indoor trial runs, or outdoor runs with only a small
+number of nodes, potentially leading to an incorrect picture of algorithm
+performance. In this paper, we report on an outdoor comparison of four
+different routing algorithms, APRL, AODV, ODMRP, and STARA, running on top of
+thirty-three 802.11-enabled laptops moving randomly through an athletic
+field. This comparison provides insight into the behavior of ad hoc routing
+algorithms at larger real-world scales than have been considered so far. In
+addition, we compare the outdoor results with both indoor (``tabletop'') and
+simulation results for the same algorithms, examining the differences between
+the indoor results and the outdoor reality. Finally, we describe the software
+infrastructure that allowed us to implement the ad hoc routing algorithms in
+a comparable way, and use the  same codebase for indoor, outdoor, and
+simulated trial runs.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/gray-compare.bib">BibTeX</a></p>
+<p><a target=_top href = "././gray-compare.pdf">PDF</a> (125K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/gray-compare-tr.html">gray:compare-tr</a></b>.</p>
+</BODY>
+</HTML>

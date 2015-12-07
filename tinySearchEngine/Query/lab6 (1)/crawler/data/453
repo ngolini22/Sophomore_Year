@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kumar-fbcast.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kumar:fbcast</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Rajnish Kumar, Arnab Paul, Umakishore Ramachandran, and David Kotz.
+<b>On improving wireless broadcast reliability of sensor networks using
+erasure codes</b>.
+In
+<i>Proceedings of the International Conference on Mobile Ad-hoc and
+Sensor Networks (MSN)</i>,
+pages 155-170,
+2006.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/11943952_14">10.1007/11943952_14</a>.
+<p><b>Abstract:</b> Efficient and reliable dissemination of information over a large
+area is a critical ability of a sensor network for various reasons such as
+software updates and transferring large data objects (e.g., surveillance
+images). Thus efficiency of wireless broadcast is an important aspect of
+sensor network deployment. In this paper, we study FBcast, a new broadcast
+protocol based on the principles of modern erasure codes. We show that our
+approach provides high reliability, often considered critical for
+disseminating codes. In addition FBcast offers limited data confidentiality.
+For a large network, where every node may not be reachable by the source, we
+extend FBcast with the idea of repeaters to improve reliable coverage.
+Simulation results on TOSSIM show that FBcast offers higher reliability with
+lower number of retransmissions than traditional broadcasts.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/kumar-fbcast.bib">BibTeX</a></p>
+<p><a target=_top href = "././kumar-fbcast.pdf">PDF</a> (345K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by Springer.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

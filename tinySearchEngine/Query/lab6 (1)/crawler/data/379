@@ -1,0 +1,48 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-anonysense.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:anonysense</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius, Apu Kapadia, David Kotz, Dan Peebles, Minho Shin, and Nikos Triandopoulos.
+<b>AnonySense: Privacy-Aware People-Centric Sensing</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+pages 211-224,
+June,
+2008.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1378600.1378624">10.1145/1378600.1378624</a>.
+<p><b>Abstract:</b> Personal mobile devices are increasingly equipped with the
+capability to sense the physical world (through cameras, microphones, and
+accelerometers, for example) and the network world (with Wi-Fi and Bluetooth
+interfaces). Such devices offer many new opportunities for cooperative
+sensing applications. For example, users' mobile phones may contribute data
+to community-oriented information services, from city-wide pollution
+monitoring to enterprise-wide detection of unauthorized Wi-Fi access points.
+This people-centric mobile-sensing model introduces a new security challenge
+in the design of mobile systems: protecting the privacy of participants while
+allowing their devices to reliably contribute high-quality data to these
+large-scale applications. <P> We describe AnonySense, a privacy-aware
+architecture for realizing pervasive applications based on collaborative,
+opportunistic sensing by personal mobile devices. AnonySense allows
+applications to submit sensing tasks that will be distributed across
+anonymous participating mobile devices, later receiving verified, yet
+anonymized, sensor data reports back from the field, thus providing
+the first secure implementation of this participatory sensing model. We
+describe our trust model, and the security properties that drove the design
+of the AnonySense system. We evaluate our prototype implementation through
+experiments that indicate the feasibility of this approach, and through two
+applications: a Wi-Fi rogue access point detector and a lost-object finder.</p>
+<p><b>Keywords:</b> mobile computing, sensors, security, privacy, anonymity,
+ubicomp</p>
+<p><a href="bibtex/cornelius-anonysense.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-anonysense.pdf">PDF</a> (588K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/shin-anonysense.html">shin:anonysense</a></b>.</p>
+</BODY>
+</HTML>

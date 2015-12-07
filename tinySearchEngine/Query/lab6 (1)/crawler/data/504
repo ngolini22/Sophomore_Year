@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-practical.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:practical</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Carla Schlatter Ellis.
+<b>Practical Prefetching Techniques for Parallel File Systems</b>.
+In
+<i>Proceedings of the First International Conference on Parallel
+and Distributed Information Systems (PDIS)</i>,
+pages 182-189,
+December,
+1991.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/PDIS.1991.183101">10.1109/PDIS.1991.183101</a>.
+<p><b>Abstract:</b> Parallel disk subsystems have been proposed as one way to close
+the gap between processor and disk speeds. In a previous paper we showed that
+prefetching and caching have the potential to deliver the performance
+benefits of parallel file systems to parallel applications. In this paper we
+describe experiments with practical prefetching policies, and show that
+prefetching can be implemented efficiently even for the more complex parallel
+file access patterns. We test these policies across a range of architectural
+parameters.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-practical.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-practical.pdf">PDF</a> (213K)</p>
+<p><b>Copyright &#169;&nbsp;1991 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-thesis.html">kotz:thesis</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-jpractical.html">kotz:jpractical</a></b>.</p>
+</BODY>
+</HTML>

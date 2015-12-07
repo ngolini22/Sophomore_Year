@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/liu-jdirex.html
+3
+<HTML>
+<HEAD>
+ <TITLE>liu:jdirex</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jason Liu, Yougu Yuan, David M. Nicol, Robert S. Gray, Calvin C. Newport, David Kotz, and Luiz Felipe Perrone.
+<b>Empirical Validation of Wireless Models in Simulations of Ad&nbsp;Hoc
+Routing Protocols</b>.
+<i>Simulation: Transactions of The Society for Modeling and
+Simulation International</i>,
+81(4):307-323,
+April,
+2005.
+``Best of PADS 2004'' special issue.
+DOI <a href="http://dx.doi.org/10.1177/0037549705055017">10.1177/0037549705055017</a>.
+<p><b>Abstract:</b> Computer simulation has been used extensively as an effective
+tool in the design and evaluation of systems. One should not, however,
+underestimate the importance of validation-- the process of ensuring whether
+a simulation model is an appropriate representation of the real-world system.
+Validation of wireless network simulations is difficult due to strong
+interdependencies among protocols at different layers and uncertainty in the
+wireless environment. The authors present an approach of coupling
+direct-execution simulation and traces from real outdoor experiments to
+validating simple wireless models that are used commonly in simulations of
+wireless ad hoc networks. This article documents a common testbed that
+supports direct execution of a set of ad hoc routing protocol implementations
+in a wireless network simulator. By comparing routing behavior measured in
+the real experiment with behavior computed by the simulation, the authors
+validate the models of radio behavior upon which protocol behavior depends.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/liu-jdirex.bib">BibTeX</a></p>
+<p><a target=_top href = "././liu-jdirex.pdf">PDF</a> (370K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by Simulation Councils Inc..</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/liu-direx.html">liu:direx</a></b>.</p>
+</BODY>
+</HTML>

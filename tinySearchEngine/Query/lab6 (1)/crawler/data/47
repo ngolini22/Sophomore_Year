@@ -1,0 +1,200 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture01/lecture01.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Getting Started - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-1---getting-started-with-android">Lecture 1 - Getting Started with Android</h1>
+<p>Before we can run a simple Hello World App we need to install the programming environment. We will run Hello World on the Android Emulator (which runs very slowly) and on the phone (which is super fast). The best resource for developing Android apps is <a href="http://developer.android.com/index.html">Android Developers</a>. We will use developers as a source for material for parts of this course.</p>
+<h2 id="get-the-android-studio">Get the Android Studio</h2>
+<p>Android Studio is the official Integrated Development Environment (IDE) for Android development. It includes everything you need to begin developing Android apps.</p>
+<p>After installing Android Studio, you have:</p>
+<ul>
+<li>IntelliJ IDE + Android Studio plugin</li>
+<li>Android SDK Tools</li>
+<li>Android Platform-tools</li>
+<li>A version of the Android platform</li>
+<li>A version of the Android system image for the emulator</li>
+</ul>
+<p>Click on <a href="http://developer.android.com/sdk/index.html">Download Android Studio and SDK Tools</a> to get started.</p>
+<p>It will automatically detects your operating system and gives the correct Android Studio download link.</p>
+<h2 id="install-android-studio">Install Android Studio</h2>
+<p>Open <code>android-studio-ide-1641136.dmg</code> (assuming Mac OS X is the target) and drag &quot;Android Studio&quot; to &quot;Applications&quot;, as shown below. Go to Launchpad or your applications directory, open Android Studio to complete installation. First, it asks you to import your settings from a previous version of Android Studio. If you have a previous version, specify config folder or installation home of the previous version of Android Studio. After you click &quot;OK&quot;, it shows a welcome message. After you click &quot;Next&quot;, select &quot;Standard&quot; as the type of setup you want for Android Studio. Next, Android Studio will automatically install the Android SDK. Accept all licenses to continue. After installing the Android SDK, you are ready to build and run the Hello World app.</p>
+<div class="figure">
+<img src="images/as_setup.png" />
+</div>
+<h3 id="what-is-in-the-android-sdk">What is in the Android SDK?</h3>
+<p>There are several packages associated with the Android SDK. If you look in the directory <em>~/Library/Android/sdk</em> you will see a number of sub directories associated with these packages. For more information of what's in these directories checkout <a href="http://developer.android.com/tools/help/index.html">exploring the SDK</a></p>
+<h2 id="creating-a-new-android-project">Creating a New Android Project</h2>
+<p>To start a new Android app project for HelloWorld follow the wizard input; that is:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Click &quot;Start a new Android Studio project&quot; as shown below.</li>
+</ol>
+</blockquote>
+<div class="figure">
+<img src="images/new_prj_0.png" />
+</div>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Fill in the application name, package name, and project location as as shown below. The package name is the reverse of the company domain. If you want to customize the package name, click <em>edit</em> on the right of <em>Package name</em>. The project location is where your project files reside.You can choose any location you want. Click <em>next</em> when you are done.</li>
+</ol>
+</blockquote>
+<div class="figure">
+<img src="images/new_prj_1.png" />
+</div>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>For Minimum Required SDK, just accept the default and click <em>next</em></li>
+</ol>
+</blockquote>
+<div class="figure">
+<img src="images/new_prj_2.png" />
+</div>
+<blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Create activity. Here you select an activity template for your app. Select BlankActivity and click Next.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li>New blank activity. Again, just click through accepting the default settings then click <em>finish</em></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Once you have clicked finished you are presented with the project and all its files as shown below.</p>
+</blockquote>
+<div class="figure">
+<img src="images/new_prj_6.png" />
+</div>
+<h2 id="mainactivity.java">MainActivity.java</h2>
+<p>Open the <code>app/java</code> folder and look at the <code>MainActivity.java</code> code.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package edu.dartmouth.cs.helloworld.helloworld;</span>
+
+<span class="kw">import android.support.v7.app.ActionBarActivity;</span>
+<span class="kw">import android.os.Bundle;</span>
+<span class="kw">import android.view.Menu;</span>
+<span class="kw">import android.view.MenuItem;</span>
+
+
+<span class="kw">public</span> <span class="kw">class</span> MainActivity <span class="kw">extends</span> ActionBarActivity {
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">activity_main</span>);
+    }
+
+
+    @Override
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">onCreateOptionsMenu</span>(Menu menu) {
+        <span class="co">// Inflate the menu; this adds items to the action bar if it is present.</span>
+        <span class="fu">getMenuInflater</span>().<span class="fu">inflate</span>(R.<span class="fu">menu</span>.<span class="fu">menu_main</span>, menu);
+        <span class="kw">return</span> <span class="kw">true</span>;
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">onOptionsItemSelected</span>(MenuItem item) {
+        <span class="co">// Handle action bar item clicks here. The action bar will</span>
+        <span class="co">// automatically handle clicks on the Home/Up button, so long</span>
+        <span class="co">// as you specify a parent activity in AndroidManifest.xml.</span>
+        <span class="dt">int</span> id = item.<span class="fu">getItemId</span>();
+
+        <span class="co">//noinspection SimplifiableIfStatement</span>
+        <span class="kw">if</span> (id == R.<span class="fu">id</span>.<span class="fu">action_settings</span>) {
+            <span class="kw">return</span> <span class="kw">true</span>;
+        }
+
+        <span class="kw">return</span> <span class="kw">super</span>.<span class="fu">onOptionsItemSelected</span>(item);
+    }
+}</code></pre>
+<h1 id="running-helloworld-app">Running HelloWorld App</h1>
+<p>How you run your app depends on two things: whether you have a real Android-powered device and whether you're using Android emulator. This lesson shows you how to install and run your app on a real device and on the Android emulator.</p>
+<h2 id="running-helloworld-on-your-phone">Running HelloWorld on your phone</h2>
+<p>Let's run our program directly on the phone. The big advantage of using the phone to develop is that it is fast to load and run programs. In contrast the emulator discussed next runs slowly in comparison and is irritating to use for a course -- but it is a good back up. Before we get started plug your phone into your laptop using the USB port, as shown below. Android Studio installs the Hello World app on your connected phone and starts it.</p>
+<div class="figure">
+<img src="images/smallphone.png" />
+</div>
+<p>Next, go to settings on your phone and select <strong>Developer option</strong> and then select USB debugging -- this will allow Android Studio to communicate with the phone to program it.</p>
+<p><img src="images/smallusbdebug.png" /> <img src="images/smalldevelopers.png" /></p>
+<p>If you do not see developer option (circled on the image above) watch this <a href="http://www.androidcentral.com/how-enable-developer-settings-android-42">video</a> and it mystery will be revealed.</p>
+<p>Basically the vendors and providers don't want that option accessible without enabling it -- for good reason. So as the video shows if you cannot see the developer options button, you should tap on the <em>About phone</em> button (under settings) and the click the <em>Build number'</em> button 7~8 times and voila -- now you see developer option. Now go in to developer option and select USB debugging.</p>
+<ul>
+<li>Click on Run button circled in the toolbar below.</li>
+</ul>
+<div class="figure">
+<img src="images/smallrun.png" />
+</div>
+<ul>
+<li>Select Android Application and click OK.</li>
+</ul>
+<div class="figure">
+<img src="images/run_android.png" />
+</div>
+<ul>
+<li>The app is downloaded, installed and run on the phone -- you'll see the following Hello World on your phone.</li>
+</ul>
+<div class="figure">
+<img src="images/smallhelloworld.png" />
+</div>
+<h2 id="if-you-app-did-not-run">If you app did not run</h2>
+<p>If for some reason you do not see the app running on the phone check that you see USB enabled in the status bar as indicated below</p>
+<div class="figure">
+<img src="images/usbenabled.png" />
+</div>
+<p>If it is not go make sure you clicked and enabled the USB debugging option, as discussed above.</p>
+<p>If it did not work, unplug the USB cable and then plug it in again. See if a dialog shows up on your phone. If it does, check &quot;Always allow from this computer&quot; and click <strong>OK</strong>, as shown below.</p>
+<div class="figure">
+<img src="images/allow_debug.png" />
+</div>
+<p>Now after re-launch the app, you should see you HelloWorld on the phone.</p>
+<h2 id="running-helloworld-on-the-android-emulator">Running HelloWorld on the Android Emulator</h2>
+<p>Now let's run the program on the emulator -- that's right it emulates the functionality of the phone as best it can. And for developers without a phone it allows them to run code, test and debug code. Code that runs on the emulator runs unchanged on the real device.</p>
+<p>To run the app, disconnect your phone first, then click the <strong>run</strong> button in Android Studio. In <strong>Choose Device</strong> dialog, check <strong>Launch emulator</strong> and click <strong>OK</strong> as shown below. A device window will pop up. Android Studio will installs the app (the HelloWorld.apk) on your AVD and starts it. <strong>this could take sometime, so go for a coffee ;-)</strong></p>
+<div class="figure">
+<img src="images/run_emulator.png" />
+</div>
+<p><img src="images/sphone1.png" /> <img src="images/sphone2.png" /></p>
+<p>It can take sometime to run the emulator. There are faster emulators out there but overall the one that comes with the ADT is just to slow to be useful.</p>
+<p>Overall it took 5 minutes to start the emulator and run the app.</p>
+</body>
+</html>

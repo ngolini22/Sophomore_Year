@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-mhealth-spimacs.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:mhealth-spimacs</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Sasikanth Avancha, and Amit Baxi.
+<b>A privacy framework for mobile health and home-care systems</b>.
+In
+<i>Workshop on Security and Privacy in Medical and Home-Care
+Systems (SPIMACS)</i>,
+pages 1-12,
+November,
+2009.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1655084.1655086">10.1145/1655084.1655086</a>.
+<p><b>Abstract:</b> In this paper, we consider the challenge of preserving patient
+privacy in the context of mobile healthcare and home-care systems, that is,
+the use of mobile computing and communications technologies in the delivery
+of healthcare or the provision of at-home medical care and assisted living.
+This paper makes three primary contributions. First, we compare existing
+privacy frameworks, identifying key differences and shortcomings. Second, we
+identify a privacy framework for mobile healthcare and home-care systems.
+Third, we extract a set of privacy properties intended for use by those who
+design systems and applications for mobile healthcare and home-care systems,
+linking them back to the privacy principles. Finally, we list several
+important research questions that the community should address. We hope that
+the privacy framework in this paper can help to guide the researchers and
+developers in this community, and that the privacy properties provide a
+concrete foundation for privacy-sensitive systems and applications for mobile
+healthcare and home-care systems.</p>
+<p><b>Keywords:</b> mobile computing, sensors, healthcare, security, privacy, survey,
+ubicomp, mhealth</p>
+<p><a href="bibtex/kotz-mhealth-spimacs.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-mhealth-spimacs.pdf">PDF</a> (481K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

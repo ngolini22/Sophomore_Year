@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-models.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:models</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare, David Kotz, and Anurag Kumar.
+<b>Experimental Validation of Analytical Performance Models for IEEE
+802.11 Networks</b>.
+In
+<i>Proceedings of the Workshop on WIreless Systems: Advanced
+Research and Development (WISARD)</i>,
+pages 1-8,
+January,
+2010.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2010.5431957">10.1109/COMSNETS.2010.5431957</a>.
+<p><b>Abstract:</b> We consider the simplest IEEE&nbsp;802.11 WLAN networks for which
+analytical models are available and seek to provide an experimental
+validation of these models. Our experiments include the following cases:
+(i)&nbsp;two nodes with saturated queues, sending fixed-length UDP packets to each
+other, and (ii)&nbsp;a TCP-controlled transfer between two nodes. Our experiments
+are based entirely on Aruba AP-70 access points operating under Linux.
+We report our observations on certain non-standard behavior of the devices.
+In cases where the devices adhere to the standards, we find that the results
+from the analytical models estimate the experimental data with a mean error
+of 3-5\%.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/mare-models.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-models.pdf">PDF</a> (277K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

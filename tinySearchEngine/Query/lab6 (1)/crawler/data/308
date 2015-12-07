@@ -1,0 +1,26 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-social-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:social-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Structural Analysis of Social Networks with Wireless Users</b>.
+Technical Report
+TR2005-549,
+Dartmouth Computer Science,
+July,
+2005.
+<p><b>Abstract:</b> Online interactions between computer users form Internet-based
+social networks. In this paper we present a structural analysis of two such
+networks with wireless users. In one network the wireless users participate
+in a global file-sharing system, and in the other they interact with each
+other through a local music-streaming application.</p>
+<p><b>Keywords:</b> wireless, network, mobile computing</p>
+<p><a href="bibtex/chen-social-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-social-tr.pdf">PDF</a> (100K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by the authors.</b></p>
+</BODY>
+</HTML>

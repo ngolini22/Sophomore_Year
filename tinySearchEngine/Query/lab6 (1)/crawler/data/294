@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/henderson-esm.html
+3
+<HTML>
+<HEAD>
+ <TITLE>henderson:esm</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Tristan Henderson, Denise Anthony, and David Kotz.
+<b>Measuring wireless network usage with the experience sampling
+method</b>.
+In
+<i>Proceedings of the First Workshop on Wireless Network
+Measurements (WiNMee)</i>,
+April,
+2005.
+International Communications Sciences and Technology Association
+(ICST).
+<p><b>Abstract:</b> Measuring wireless local area networks has proven useful for
+characterizing, modeling and provisioning these networks. These measurements
+are typically taken passively from a vantage point on the network itself.
+Client devices, or users, are never actively queried. These measurements can
+indicate  what is happening on the network, but it can be difficult to
+infer  why a particular behavior is occurring. In this paper we use the
+Experience Sampling Method (ESM) to study wireless network users. We
+monitored 29 users remotely for one week, and signaled them to fill out a
+questionnaire whenever interesting wireless behavior was observed. We find
+ESM to be a useful method for collecting data about wireless network usage
+that cannot be provided by network monitoring, and we present a list of
+recommendations for network researchers who wish to conduct an ESM study.</p>
+<p><b>Keywords:</b> wireless, network, mobile computing</p>
+<p><a href="bibtex/henderson-esm.bib">BibTeX</a></p>
+<p><a target=_top href = "././henderson-esm.pdf">PDF</a> (64K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by International Communications Sciences and Technology Association
+(ICST).</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

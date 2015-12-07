@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/smithayer-bp.html
+3
+<HTML>
+<HEAD>
+ <TITLE>smithayer:bp</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Emma N. Smithayer.
+<b>Sensor-based system for verifying blood-pressure measurement
+position</b>.
+Technical Report
+TR2012-720,
+Dartmouth Computer Science,
+June,
+2012.
+<p><b>Abstract:</b> Mobile maternal-health programs send workers door to door to
+visit pregnant women in rural India and collect data such as blood pressure
+or weight, then send that data to doctors for review. Since the doctors do
+not see the data collection, ensuring correct collection methods is crucial
+to allow them to make good treatment decisions. However, blood-pressure
+measurements are sometimes taken with the patient's arm in the wrong
+position, which can cause inaccurate readings. This paper describes a system
+consisting of an automatic blood pressure cuff with an accelerometer and
+force sensors attached to determine whether the arm is at the correct angle,
+held still, and properly supported. A user study indicated that the prototype
+was effective in helping untrained users take a measurement in the correct
+position.</p>
+<p><a href="bibtex/smithayer-bp.bib">BibTeX</a></p>
+<p><a target=_top href = "././smithayer-bp.pdf">PDF</a> (2777K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by the author.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

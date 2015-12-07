@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/wang-meeting-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>wang:meeting-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jue Wang, Guanling Chen, and David Kotz.
+<b>A meeting detector and its applications</b>.
+Technical Report
+TR2004-486,
+Dartmouth Computer Science,
+March,
+2004.
+<p><b>Abstract:</b> In this paper we present a context-sensing component that
+recognizes meetings in a typical office environment. Our prototype detects
+the meeting start and end by combining outputs from pressure and motion
+sensors installed on the chairs. We developed a telephone controller
+application that transfers incoming calls to voice-mail when the user is in a
+meeting. Our experiments show that it is feasible to detect high-level
+context changes with ``good enough'' accuracy, using low-cost, off-the-shelf
+hardware, and simple algorithms without complex training. We also note the
+need for better metrics to measure context detection performance, other than
+just accuracy. We propose several metrics appropriate for our application in
+this paper. It may be useful, however, for the community to define a set of
+general metrics as a basis to compare different approaches of context
+detection.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, sensors</p>
+<p><a href="bibtex/wang-meeting-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././wang-meeting-tr.pdf">PDF</a> (344K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/wang-meeting.html">wang:meeting</a></b>.</p>
+</BODY>
+</HTML>

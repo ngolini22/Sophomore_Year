@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/oldfield-armada.html
+3
+<HTML>
+<HEAD>
+ <TITLE>oldfield:armada</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ron Oldfield and David Kotz.
+<b>Armada: A parallel file system for computational grids</b>.
+In
+<i>Proceedings of the First IEEE/ACM International Symposium on
+Cluster Computing and the Grid (ccGrid)</i>,
+pages 194-201,
+Brisbane, Australia,
+May,
+2001.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/CCGRID.2001.923193">10.1109/CCGRID.2001.923193</a>.
+<p><b>Abstract:</b> High-performance distributed computing appears to be shifting
+away from tightly-connected supercomputers to computational grids composed of
+heterogeneous systems of networks, computers, storage devices, and various
+other devices that collectively act as a single geographically distributed
+virtual computer. One of the great challenges for this environment is
+providing efficient parallel data access to remote distributed datasets. In
+this paper, we discuss some of the issues associated with parallel I/O and
+computatational grids and describe the design of a flexible parallel file
+system that allows the application to control the behavior and functionality
+of virtually all aspects of the file system.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/oldfield-armada.bib">BibTeX</a></p>
+<p><a target=_top href = "././oldfield-armada.pdf">PDF</a> (466K)</p>
+<p><b>Copyright &#169;&nbsp;2001 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

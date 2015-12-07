@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/minami-csa.html
+3
+<HTML>
+<HEAD>
+ <TITLE>minami:csa</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kazuhiro Minami and David Kotz.
+<b>Secure Context-sensitive Authorization</b>.
+In
+<i>Proceedings of the Third IEEE International Conference on
+Pervasive Computing and Communications (PerCom)</i>,
+pages 257-268,
+Kauai, Hawaii,
+March,
+2005.
+DOI <a href="http://dx.doi.org/10.1109/PERCOM.2005.37">10.1109/PERCOM.2005.37</a>.
+<p><b>Abstract:</b> There is a recent trend toward rule-based authorization systems
+to achieve flexible security policies. Also, new sensing technologies in
+pervasive computing make it possible to define context-sensitive rules, such
+as ``allow database access only to staff who are currently located in the
+main office.'' However, these rules, or the facts that are needed to verify
+authority, often involve sensitive context information. This paper presents a
+secure context-sensitive authorization system that protects confidential
+information in facts or rules. Furthermore, our system allows multiple hosts
+in a distributed environment to perform the evaluation of an authorization
+query in a collaborative way; we do not need a universally trusted central
+host that maintains all the context information. The core of our approach is
+to decompose a proof for making an authorization decision into a set of
+sub-proofs produced on multiple different hosts, while preserving the
+integrity and confidentiality policies of the mutually untrusted principals
+operating these hosts.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, security, privacy, distributed
+computing</p>
+<p><a href="bibtex/minami-csa.bib">BibTeX</a></p>
+<p><a target=_top href = "././minami-csa.pdf">PDF</a> (259K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/minami-csa-tr.html">minami:csa-tr</a></b>.</p>
+</BODY>
+</HTML>

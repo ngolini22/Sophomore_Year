@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kim-hotspots.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kim:hotspots</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minkyong Kim and David Kotz.
+<b>Modeling users' mobility among WiFi access points</b>.
+In
+<i>Proceedings of the International Workshop on Wireless Traffic
+Measurements and Modeling (WiTMeMo&nbsp;'05)</i>,
+pages 19-24,
+June,
+2005.
+USENIX Association.
+<p><b>Abstract:</b> Modeling movements of users is important for simulating wireless
+networks, but current models often do not reflect real movements. Using real
+mobility traces, we can build a mobility model that reflects reality. In
+building a mobility model, it is important to note that while the number of
+handheld wireless devices is constantly increasing, laptops are still the
+majority in most cases. As a laptop is often disconnected from the network
+while a user is moving, it is not feasible to extract the exact path of the
+user from network messages. Thus, instead of modeling individual user's
+movements, we model movements in terms of the influx and outflux of users
+between access points (APs). We first counted the hourly visits to APs in the
+syslog messages recorded at APs. We found that the hourly number of visits
+has a periodic repetition of 24 hours. Based on this observation, we
+aggregated the visits of multiple days into a single day. We then clustered
+APs based on the different peak hour of visits. We found that this approach
+of clustering is effective; we ended up with four distinct clusters and a
+cluster of stable APs. We then computed the average arrival rate and the
+distribution of the daily arrivals for each cluster. Using a standard method
+(such as  thinning) for generating non-homogeneous Poisson processes,
+synthetic traces can be generated from our model.</p>
+<p><b>Keywords:</b> wireless, network, mobile computing</p>
+<p><a href="bibtex/kim-hotspots.bib">BibTeX</a></p>
+<p><a target=_top href = "././kim-hotspots.pdf">PDF</a> (970K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by the authors.</b></p>
+</BODY>
+</HTML>

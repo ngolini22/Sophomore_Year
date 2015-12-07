@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/li-quality.html
+3
+<HTML>
+<HEAD>
+ <TITLE>li:quality</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ming Li and David Kotz.
+<b>Quality-managed Group-aware Stream Filtering</b>.
+In
+<i>Proceedings of the Second International Conference on
+Distributed Event-Based Systems (DEBS)</i>,
+pages 59-70,
+July,
+2008.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1385989.1385998">10.1145/1385989.1385998</a>.
+<p><b>Abstract:</b> We consider a distributed system that disseminates high-volume
+event streams to many simultaneous monitoring applications over a
+low-bandwidth network. For bandwidth efficiency, we propose a
+\textitgroup-aware stream filtering approach, used together with
+multicasting, that exploits two overlooked, yet important, properties of
+monitoring applications: 1)&nbsp;many of them can tolerate some degree of
+``slack'' in their data quality requirements, and 2)&nbsp;there may exist multiple
+subsets of the source data satisfying the quality needs of an application. We
+can thus choose the ``best alternative'' subset for each application to
+maximize the data overlap within the group to best benefit from multicasting.
+Here we provide a general framework for the group-aware stream filtering
+problem, which we prove is NP-hard. We introduce a suite of heuristics-based
+algorithms that ensure data quality (specifically, granularity and
+timeliness) while preserving bandwidth. Our evaluation shows that group-aware
+stream filtering is effective in trading CPU time for bandwidth savings,
+compared with self-interested filtering.</p>
+<p><b>Keywords:</b> distributed computing</p>
+<p><a href="bibtex/li-quality.bib">BibTeX</a></p>
+<p><a target=_top href = "././li-quality.pdf">PDF</a> (1797K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/li-ijcnds.html">li:ijcnds</a></b>.</p>
+</BODY>
+</HTML>

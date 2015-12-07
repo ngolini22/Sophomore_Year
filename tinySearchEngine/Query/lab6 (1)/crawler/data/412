@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/howell-snowflake.html
+3
+<HTML>
+<HEAD>
+ <TITLE>howell:snowflake</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jon Howell and David Kotz.
+<b>Snowflake: A Worldwide Virtual Computer For Every User</b>.
+January,
+1997.
+Unpublished manuscript.
+<p><b>Abstract:</b> A system that allows users to access a distributed collection of
+resources transparently, as if they were all part of a single computer
+system, is said to have a single-system "image." The best current
+single-system-image designs do not span administrative boundaries, and thus
+still impose multiple system images on users who have accounts at sites in
+several administrative domains. In this paper, we propose a system that
+allows each computer user to aggregate resources from multiple sites into his
+own single distributed virtual computer. Another difference between our
+design and typical single-system-image cluster designs is that almost all of
+the aggregation and abstraction functions in our design are implemented in
+the user's environment, so the end user can replace and reconfigure them at
+will.</p>
+<p><b>Keywords:</b> distributed computing, operating system</p>
+<p><a href="bibtex/howell-snowflake.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;1997 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/howell-snowflake2-tr.html">howell:snowflake2-tr</a></b>.</p>
+</BODY>
+</HTML>

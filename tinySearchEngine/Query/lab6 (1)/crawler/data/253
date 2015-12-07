@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-hns-j.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:hns-j</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+<b>Hide-n-Sense: preserving privacy efficiently in wireless
+mHealth</b>.
+<i>Mobile Networks and Applications (MONET)</i>,
+19(3):331-344,
+June,
+2014.
+Special issue on Wireless Technology for Pervasive Healthcare.
+DOI <a href="http://dx.doi.org/10.1007/s11036-013-0447-x">10.1007/s11036-013-0447-x</a>.
+<p><b>Abstract:</b> As healthcare in many countries faces an aging population and
+rising costs, mobile sensing technologies promise a new opportunity. Using
+mobile health (mHealth) sensing, which uses medical sensors to collect data
+about the patients, and mobile phones to act as a gateway between sensors and
+electronic health record systems, caregivers can continuously monitor the
+patients and deliver better care. Furthermore, individuals can become better
+engaged in monitoring and managing their own health. Although some work on
+mHealth sensing has addressed security, achieving strong privacy for
+low-power sensors remains a challenge. We make three contributions. First, we
+propose an mHealth sensing protocol that provides strong security and privacy
+properties at the link layer, with low energy overhead, suitable for
+low-power sensors. The protocol uses three novel techniques: adaptive
+security, to dynamically modify transmission overhead; MAC striping, to make
+forgery difficult even for small-sized Message Authentication Codes; and
+asymmetric resource requirements, in recognition of the limited resources in
+tiny mHealth sensors. Second, we demonstrate its feasibility by implementing
+a prototype on a Chronos wrist device, and evaluating it experimentally.
+Third, we provide a security, privacy, and energy analysis of our system.</p>
+<p><a href="bibtex/mare-hns-j.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-hns-j.pdf">PDF</a> (370K)</p>
+<p><a target=_top href = "file:///u/dfk/public_html/papers/./private/mare-hns-j.pdf">PDF</a> (ask me)</p>
+<p><b>Copyright &#169;&nbsp;2014 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/mare-hns-w.html">mare:hns-w</a></b>.</p>
+</BODY>
+</HTML>

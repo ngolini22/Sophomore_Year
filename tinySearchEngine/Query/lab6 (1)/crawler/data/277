@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-prefetch.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:prefetch</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David F. Kotz and Carla Schlatter Ellis.
+<b>Prefetching in File Systems for MIMD Multiprocessors</b>.
+<i>IEEE Transactions on Parallel and Distributed Systems</i>,
+1(2):218-230,
+April,
+1990.
+DOI <a href="http://dx.doi.org/10.1109/71.80133">10.1109/71.80133</a>.
+<p><b>Abstract:</b> The problem of providing file I/O to parallel programs has been
+largely neglected in the development of multiprocessor systems. There are two
+essential elements of any file system design intended for a highly parallel
+environment: parallel I/O and effective caching schemes. This paper
+concentrates on the second aspect of file system design and specifically, on
+the question of whether prefetching blocks of the file into the block cache
+can effectively reduce overall execution time of a parallel computation, even
+under favorable assumptions. <P> Experiments have been conducted with an
+interleaved file system testbed on the Butterfly Plus multiprocessor. Results
+of these experiments suggest that 1) the hit ratio, the accepted measure in
+traditional caching studies, may not be an adequate measure of performance
+when the workload consists of parallel computations and parallel file access
+patterns, 2) caching with prefetching can significantly improve the hit ratio
+and the average time to perform an I/O operation, and 3) an improvement in
+overall execution time has been observed in most cases. In spite of these
+gains, prefetching sometimes results in increased execution times (a negative
+result, given the optimistic nature of the study). <P> We explore why is it
+not trivial to translate savings on individual I/O requests into consistently
+better overall performance and identify the key problems that need to be
+addressed in order to improve the potential of prefetching techniques in this
+environment.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-prefetch.bib">BibTeX</a></p>
+<p><b>Copyright &#169;&nbsp;1990 by IEEE.</b></p>
+<p>See also earlier version <b><a href="abstracts/ellis-prefetch.html">ellis:prefetch</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-thesis.html">kotz:thesis</a></b>.</p>
+</BODY>
+</HTML>

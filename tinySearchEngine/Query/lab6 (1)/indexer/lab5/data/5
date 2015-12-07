@@ -1,0 +1,192 @@
+http://www.cs.dartmouth.edu/%7Exia
+1
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://www.w3.org/2006/03/hcard">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link href="xz.css" rel="stylesheet" type="text/css" />
+
+    <title>Xia Zhou, Dartmouth</title>
+</head>
+
+<body>
+    <div class="container700 vcard">
+        <div class="titletext fn">
+            Xia Zhou
+        </div>
+
+        <div id="section-links">
+            <div class="sectionContainer">
+                <div class="section selected">
+                    Home »
+                </div>
+
+                <div class="section">
+                    <a href="publications.html">Publications</a>
+                </div>
+
+                <div class="section">
+                    <a href="http://dartnets.cs.dartmouth.edu/">DartNets Lab</a>
+                </div>
+
+                <div class="section">Teaching:
+                    <ul>
+                        <li><a href="cs60/index.html">CS60 (Spring 2015)</a></li>
+                        <li><a href="cs50/index.html">CS 50 (Winter 2015)</a></li>
+                        <li><a href="cs69/index.html">CS69/169 (Fall 2014)</a></li>
+                        <li>CS60 (Spring 2014)</li>
+                        <li>CS69/169 (Fall 2013)</li>
+                    </ul>
+                </div>
+
+                <div class="section">Students:
+                    <ul>
+                        <li><a href="http://www.cs.dartmouth.edu/~chuankai/">Chuankai An</a></li>
+                        <li><a href="http://www.cs.dartmouth.edu/~ltx/">Tianxing Li</a></li>
+                        <li><a href="http://www.cs.dartmouth.edu/~tianzhao/">Zhao Tian</a></li>
+                    </ul>
+                </div><br/>
+
+                <div class="section">
+                    <a href="xz-cv.pdf">CV</a>
+                </div>
+
+                <div class="section">
+                    <a href="http://scholar.google.com/citations?user=t_DFZvgAAAAJ&amp;hl=en">
+                    Google Scholar</a>
+                </div><br />
+
+                <div class="section">
+                    <div>Timeline:</div>
+                    <table class="talk">
+                        <tbody>
+                            <td class="date">3/30</td>
+                            <td>Spring term starts</td> 
+                            <tr/>
+                            <td class="date">4/9</td>
+                            <td>Tufts</td> 
+                            <tr/>
+                            <td class="date">5/18-5/22</td>
+                            <td>Travel: MobiSys'15</td>
+                        </tbody>
+                    </table>
+                </div><br />
+
+                <div class="section">Contact:<br/>
+                    6211 Sudikoff Lab, office 208<br/>
+                    Dartmouth College<br/>
+                    Hanover, NH 03755<br/>
+                    <br/>
+                    xia AT cs.dartmouth.edu</p>
+                </div>
+
+                <div class="section">
+                    <a href="http://www.dartmouth.edu/~reg/calendar/academic/">Dartmouth Calendar</a>
+                </div>
+            </div>
+        </div><img class="picture-border photo" src="xz.jpg" width="200px" />
+
+        <div class="content">
+            <p style="margin-top: 0px;">I am an Assistant Professor in <a href= "http://www.cs.dartmouth.edu/">the Department of Computer Science</a> at <a href="http://www.dartmouth.edu/">Dartmouth College</a>. I co-direct the <a href="http://dartnets.cs.dartmouth.edu/">DartNets (Dartmouth Networking and Ubiquitous Systems) Lab</a> with <a href= "http://www.cs.dartmouth.edu/~campbell/">Prof. Andrew T. Campbell</a>. I received my <span class="title">PhD</span> in <a href= "http://www.cs.ucsb.edu/">Computer Science</a> at <a href= "http://www.ucsb.edu/"><span class="org">UC Santa Barbara</span></a> in June, 2013. I worked under the supervision of <a href="http://www.cs.ucsb.edu/~htzheng">Prof. Heather Zheng</a>.</p>
+
+            <p>My research interest lies in mobile systems and wireless networking, dynamic spectrum access, and data centers. My earlier work designed network systems to handle the volume and unpredictable nature of today's data traffic. I have designed dynamic spectrum auction systems to support dynamic traffic demands in wireless networks, and a new wireless primitive to address dynamic traffic hotspots in data centers.</p>
+
+            <p>I am looking for motivated students on mobile systems and wireless networking. Please email me with your CV if you are
+            interested. Before you apply, please take a look at <a href="http://web.cs.dartmouth.edu/graduate/programs">this website</a> to know more about Dartmouth PhD program.</p>
+
+            <div>
+                Recent publications:
+            </div>
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">Real-Time Screen-Camera Communication Behind Any Scene</span><br/>  
+                        <span class="author">T. Li, C. An, X. Xiao, A. Campbell, and X. Zhou</span><br/>
+                        <span class="venue">MobiSys 2015.</span> <a href="papers/mobisys15-hilight.pdf">[PDF]</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">Energy and Performance of Smartphone Radio Bundling in Outdoor Environments</span><br/>  
+                        <span class="author">A. Nika, Y. Zhu, N. Ding, A. Jindal, Y. Charlie Hu, X. Zhou, B. Zhao and H. Zheng</span><br/>
+                        <span class="venue">WWW 2015.</span>  <a href="papers/www15-wifilte.pdf">[PDF]</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">StudentLife: Assessing Mental Health, Academic Performance and Behavioral Trends of College Students using Smartphones</span><br/>  
+                        <span class="author">R. Wang, F. Chen, Z. Chen, T. Li, G. Harari, S. Tigno, X. Zhou, D. Ben-Zeev, and A. Campbell</span><br/>
+                        <span class="venue">UbiComp 2014.</span>  <a href="http://studentlife.cs.dartmouth.edu/studentlife.pdf">[PDF]</a><br/>
+                        <b class="award"><span><span>Best Paper Nominee</span></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">Visible Light Networking and Sensing</span><br/>  
+                        <span class="author">X. Zhou and A. Campbell</span><br/>
+                        <span class="venue">The 1st ACM Workshop on Hot Topics in Wireless (HotWireless), 2014.</span> <a href=
+                        "papers/hotw14-ivlc.pdf">[PDF]</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">Towards Commoditized Real-time Spectrum Monitoring</span><br/>  
+                        <span class="author">A. Nika, Z. Zhang, X. Zhou, B. Zhao, and H. Zheng</span><br/>
+                        <span class="venue">The 1st ACM Workshop on Hot Topics in Wireless (HotWireless), 2014.</span> <a href=
+                        "papers/hotw14-specmonitor.pdf">[PDF]</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">HiLight: Hiding Bits in Pixel Translucency Changes</span><br/>  
+                        <span class="author">T. Li, C. An, A. Campbell, and X. Zhou</span><br/>
+                        <span class="venue">The 1st ACM Workshop on Visible Light Communication Systems (VLCS), 2014.</span> <a href=
+                        "papers/vlcs14-hilight.pdf">[PDF]</a><br/>
+                        <b class="award"><span><span>Best Paper Award</span></span> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">Cutting the Cord: a Robust Wireless Facilities Network for Data Centers</span><br/>  
+                        <span class="author">Y. Zhu, X. Zhou, Z. Zhang, L. Zhou, A. Vahdat, B. Zhao and H. Zheng</span><br/>
+                        <span class="venue">MobiCom 2014.</span> <a href=
+                        "papers/mobicom14-angora.pdf">[PDF]</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="frontpage-paper-container">
+                <tbody>
+                    <tr>
+                        <td><span class="paper-title">My Smartphone Knows I am Hungry</span><br/>  
+                        <span class="author">F. Chen, R. Wang, X. Zhou, and A. Campbell</span><br/>
+                        <span class="venue">The 1st ACM Workshop on Physical Analytics, 2014.</span> <a href=
+                        "papers/wpa14.pdf">[PDF]</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>

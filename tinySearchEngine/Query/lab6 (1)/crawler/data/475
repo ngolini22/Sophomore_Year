@@ -1,0 +1,44 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-game-book.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:game-book</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, David Kotz, Daniela Rus, Rajiv T. Maheswaran, &Ccedil;agri Imer, and Tamer Basar.
+<b>A Market-Based Model for Resource Allocation in Agent Systems</b>.
+In
+Franco Zambonelli.
+editor, 
+<i>Coordination of Internet Agents Models, Technologies, and
+Applications</i>,
+chapter 17,
+Springer-Verlag,
+2001.
+<p><b>Abstract:</b> In traditional computational systems, resource owners have no
+incentive to subject themselves to additional risk and congestion associated
+with providing service to arbitrary agents, but there are applications that
+benefit from open environments. We argue for the use of markets to regulate
+agent systems. With market mechanisms, agents have the abilities to assess
+the cost of their actions, behave responsibly, and coordinate their resource
+usage both temporally and spatially. <P> We discuss our market structure and
+mechanisms we have developed to foster secure exchange between agents and
+hosts. Additionally, we believe that certain agent applications encourage
+repeated interactions that benefit both agents and hosts, giving further
+reason for hosts to fairly accommodate agents. We apply our ideas to create a
+resource-allocation policy for mobile-agent systems, from which we derive an
+algorithm for a mobile agent to plan its expenditure and travel. With perfect
+information, the algorithm guarantees the agent's optimal completion time.
+<P> We relax the assumptions underlying our algorithm design and simulate
+our planning algorithm and allocation policy to show that the policy
+prioritizes agents by endowment, handles bursty workloads, adapts to
+situations where network resources are overextended, and that delaying
+agents' actions does not catastrophically affect agents' performance.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/bredin-game-book.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-game-book.pdf">PDF</a> (426K)</p>
+<p><b>Copyright &#169;&nbsp;2001 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

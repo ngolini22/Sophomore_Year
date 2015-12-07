@@ -1,0 +1,128 @@
+http://www.cs.dartmouth.edu/~aarathi
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Aarathi Prasad</title>
+<script type="text/javascript"
+        src="script.js"></script><link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body><div id="left" border=1 style="border-color:red"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div id="bottom"></div><table style="margin-left:1%; margin-top:2%"><tr><td style="padding-left:1%"><img border=1 src="images/me_250.jpg" /></td><td style="padding-left:10px"><font
+ size="+3">Aarathi Prasad</font></label><br/><font size="+1">PhD Student, Computer Science, <b>Advisor:</b> <a href="http://cs.dartmouth.edu/~dfk">David Kotz</a></b></font> <br/>
+Expected Date of Completion : September 2015 <br/><br/>
+firstname@cs.dartmouth.edu<br/>241 Sudikoff Lab, Dartmouth College<!--<br/><a href="http://www.aarathi.joosee.com">Mobile site</a>    -->
+</td></tr></table><br />
+<div align="center" style="background-color:#F5BCA9; margin-left:1%; margin-right:1%"><font size="+1"><a href="#" onclick='show(document.getElementById("home"));hide(document.getElementById("research"));hide(document.getElementById("activities"))'>Me</a
+></font></div>
+<div id="home" align="center" style="margin-left:1%; margin-right:1%; display: none"><img src="timeline.png" style="max-width: 100%;" /></div>
+<br/>
+<div align="center" style="background-color:#F5BCA9; margin-left:1%; margin-right:1%"><font size="+1"><a href="#" onclick='hide(document.getElementById("home"));show(document.getElementById("research"));hide(document.getElementById("activities"))'>Resume <a href="Aarathi_Prasad.pdf">(View as pdf)</a></a>
+</font></div>
+<div id="research" style="margin-left:1%; margin-right:1%; display:none">
+<br/><font size="+1"<b>Research Interests:</b> mobile health(mHealth) security and privacy<br>
+<b>Advisor:</b> <a href="http://cs.dartmouth.edu/~dfk">David Kotz</a></b></font><br/>
+<br/>
+<br/>
+
+<table style="table-layout:fixed;">
+<tr>
+<td>
+<div align="center" style="background-color:#BCF5A9; border-radius:40px; margin-left:1%; margin-right:1%">
+<a href="#" onclick='show(document.getElementById("education"));hide(document.getElementById("researchexp"));hide(document.getElementById("workexp"));hide(document.getElementById("publications"));hide(document.getElementById("techskills"));hide(document.getElementById("profskills"));'>Education</a></div>
+<br/>
+<div align="center" style="background-color:#BCF5A9; border-radius:40px; margin-left:1%; margin-right:1%">
+<a href="#" onclick='hide(document.getElementById("education"));show(document.getElementById("researchexp"));hide(document.getElementById("workexp"));hide(document.getElementById("publications"));hide(document.getElementById("techskills"));hide(document.getElementById("profskills"));'>Research Experience</a></div>
+<br/>
+<div align="center" style="background-color:#BCF5A9; border-radius:40px; margin-left:1%; margin-right:1%">
+<a href="#" onclick='hide(document.getElementById("education"));hide(document.getElementById("researchexp"));show(document.getElementById("workexp"));hide(document.getElementById("publications"));hide(document.getElementById("techskills"));hide(document.getElementById("profskills"));'>Work Experience</a></div>
+<br/>
+<div align="center" style="background-color:#BCF5A9; border-radius:40px; margin-left:1%; margin-right:1%">
+<a href="#" onclick='hide(document.getElementById("education"));hide(document.getElementById("researchexp"));hide(document.getElementById("workexp"));show(document.getElementById("publications"));hide(document.getElementById("techskills"));hide(document.getElementById("profskills"));'>Publications</a></div>
+<br/>
+<div align="center" style="background-color:#BCF5A9; border-radius:40px; margin-left:1%; margin-right:1%">
+<a href="#" onclick='hide(document.getElementById("education"));hide(document.getElementById("researchexp"));hide(document.getElementById("workexp"));hide(document.getElementById("publications"));show(document.getElementById("techskills"));hide(document.getElementById("profskills"));'>Technical Skills</a></div>
+<br/>
+<div align="center" style="background-color:#BCF5A9; border-radius:40px; margin-left:1%; margin-right:1%">
+<a href="#" onclick='hide(document.getElementById("education"));hide(document.getElementById("researchexp"));hide(document.getElementById("workexp"));hide(document.getElementById("publications"));hide(document.getElementById("techskills"));show(document.getElementById("profskills"));'>Professional Skills</a></div><br/>
+</td>
+<td style="margin-left:1%; margin-right:1%;">
+<div id="education" style="display:none">
+<b>Dartmouth College, Hanover, New Hampshire</b><br/>
+Doctorate of Philosophy, Computer Science, Advisor: David Kotz (Expected date of completion: September 2015) <br/>
+Master of Science, Computer Science, Advisor: David Kotz (September 2009 - February 2012) <br/>
+<b>National Institute of Technology, Calicut, India</b><br/>
+Bachelor of Technology, Computer Science and Engineering (August 2003 - April 2007)
+</div>
+<div id="researchexp" style="display:none;">
+<font size="+1">
+My PhD thesis addresses the trust issues that people have when using remotely sensed personal data. People might be unsure of the accuracy and authenticity of the data and might also have trouble interpreting the meaning of the remotely collected data. I developed a framework that allows mobile applications to be extended, to collect context along with the data, as evidence to verify the data's accuracy and to help recipients better interpret the meaning of the data.  
+<br/>
+My Masters thesis explored
+ individuals’ privacy concerns with the use of mobile and wearable health- monitoring devices through focus groups and user studies. <br/>
+</div>
+<div id="workexp" style="margin-left:1%; display:none">
+In Summer 2014, I worked as a Privacy Research Intern at Intel Labs, Hillsboro, OR, where I designed privacy controls to help users better understand what data to share when using mobile technologies. I worked as a Software Engineer at Oracle Corporation, Hyderabad, India from July 2007-April 2009. During this time, I was the key developer of Search Modeler and part of the development team of AppSearch (E-Business Suite Secure
+Enterprise Search). 
+</div>
+<div id="publications" style="margin-left:1%; margin-right:1%; display:none">
+<ul>
+<li>Aarathi Prasad, Xiaohui Liang and David Kotz. Ocean: Open Contextual Evidence Add-On for Mobile Applications. In preparation.</li>
+<li>Aarathi Prasad, Xiaohui Liang and David Kotz. Poster: Balancing Disclosure and Utility of Personal Information. <i>In
+Proceedings of the International Conference on Mobile Systems, Applications, and Services (MobiSys)</i>, June, 2014. ACM Press.
+DOI 10.1145/2594368.2601448. Copyright 2014 by ACM.</li>
+<li>Aarathi Prasad, Jacob Sorber, Timothy Stablein, Denise Anthony and David Kotz. Understanding User Privacy Preferences for mHealth Data Sharing. In <i>Mobile Health (mHealth): Multidisciplinary Verticals</i>, chapter 50, Taylor & Francis (CRC Press), 2014. Accepted for publication. Copyrigh 2014 by authors. </li>
+<li>Aarathi Prasad, Michael Butkiewicz, HotMobile 2013, <i>IEEE Pervasive Computing</i>, vol.12, no.3, pp. 85-88, July-Sept. 2013, doi:10.1109/MPRV.2013.50</li>
+<li>Aarathi Prasad, Ronald Peterson, Shrirang Mare, Jacob Sorber, Kolin Paul and David Kotz. Provenance framework for mHealth. <i>In Workshop on Networked Healthcare Systems</i>, January, 2013. IEEE Computer Society Press. <a href="http://www.cs.dartmouth.edu/~dfk/papers/prasad-nethealth13.pdf">[PDF]</a> Copyright © 2013 by IEEE. </li>
+<li>Aarathi Prasad, Ronald Peterson, Jacob Sorber and David Kotz. A Provenance Framework for mHealth. <i>In Proceedings of the Workshop for Mobile Systems, Applications, and Services for Healthcare (mHealthSys) Poster Track</i>, November, 2012. ACM Press. </li>
+<li>Aarathi Prasad, Jacob Sorber, Timothy Stablein, Denise Anthony and David Kotz. Understanding Sharing Preferences and Behavior for mHealth Devices.<i>In Workshop on Privacy in the Electronic Society (WPES)</i>, October 2012, Raleigh.<a href="http://www.cs.dartmouth.edu/~dfk/papers/prasad-fitbit.pdf">[PDF]</a></li>
+<li>Aarathi Prasad. Exposing Privacy Concerns in mHealth Data Sharing. Masters Thesis, Dartmouth College Computer Science, February, 2012. Available as Technical Report TR2012-711.<a href="http://www.cs.dartmouth.edu/reports/TR2012-711.pdf">[PDF]</a></li>
+<li>Jacob Sorber, Minho Shin, Ronald Peterson, Cory Cornelius, Shrirang Mare, Aarathi Prasad, Zachary Marois, Emma Smithayer, David Kotz. An Amulet for trustworthy wearable mHealth. <i>In Workshop on Mobile Computing Systems and Applications (HotMobile)</i>, pages 7:1-7:6, February, 2012. DOI 10.1145/2162081.2162092. <a href="http://www.cs.dartmouth.edu/~dfk/papers/sorber-amulet.pdf">[PDF]</a> Copyright © 2012 by the authors.</li>
+<li> Aarathi Prasad, Jacob Sorber, Timothy Stablein, Denise Anthony and David Kotz. Exposing privacy concerns in mHealth. <i>In USENIX Workshop on Health Security (HealthSec)</i>, August, 2011. Position paper. <a href="http://www.cs.dartmouth.edu/~dfk/papers/prasad-healthsec11.pdf">[PDF]</a> Copyright © 2011 by the authors.</li>
+<li>Aarathi Prasad and David Kotz. Can I access your Data? Privacy Management in mHealth. <i>In USENIX Workshop on Health Security (HealthSec)</i>, August 2010. Position paper. <a href="http://www.cs.dartmouth.edu/~dfk/papers/prasad-healthsec10.pdf">[PDF]</a> Copyright © 2010 by the authors.</li>
+</ul>
+</div>
+<div id="techskills" style="margin-left:1%;display:none">
+<b>Languages:</b>C/C++, Java, Arduino programming, Ruby, Python and Visual Basic <br/>
+<b>Web-related:</b>XML, XSL, PHP, HTML and CSS, JavaScript, ASP <br/> 
+<b>Databases:</b>Oracle, MySQL, MS Access <br/>
+<b>Development Frameworks:</b>Android SDK,  Oracle Applications Development Framework <br/>
+</div>
+<div id="profskills" style="margin-left:1%; display:none">
+At Dartmouth, I have been part of several organizations such as the Graduate Student Council, Graduate Women in Science and Engineering and the Hindu Student Organization. I helped organize the Computer Science Research Symposium in the CS department and the PhD forum at MobiSys 2014.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<br />
+<div align="center" style="background-color:#F5BCA9; margin-left:1%; margin-right:1%; max-width:100%;">
+<font size="+1">
+<a href="#" onclick='hide(document.getElementById("home"));hide(document.getElementById("research"));show(document.getElementById("activities"))'>Hobbies</a></font></div>
+<div id="activities" style="margin-left:1%; margin-right:1%; display:none">
+<br/>
+<table>
+<tr>
+<td>
+<figure>
+<img src="images/dance14_1.jpg"/>
+<figcaption>I never miss an opportunity to dance! I am trained in Indian <br/>classical dance forms such as Bharatanatyam, Mohiniyattom and Kuchipudi.</figcaption>
+</figure>
+</td>
+<td><figure>
+<img src="images/myhike1.jpg"/>
+<figcaption>I love to hike.. no better way to enjoy the beautiful NH summer <br/> than from the top of the White Mountains!</figcaption>
+</figure>
+</td>
+</tr>
+</table>
+<center>
+At home, you will find me reading a book or experimenting with food in the kitchen.
+</center><br/></div>
+
+</body>
+</html>
+

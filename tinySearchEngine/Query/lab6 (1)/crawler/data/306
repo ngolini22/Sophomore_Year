@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-jgame.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:jgame</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, Rajiv&nbsp;T. Maheswaran, &Ccedil;agri Imer, Tamer Basar, David Kotz, and Daniela Rus.
+<b>Computational Markets to Regulate Mobile-Agent Systems</b>.
+<i>Autonomous Agents and Multi-Agent Systems</i>,
+6(3):235-263,
+May,
+2003.
+DOI <a href="http://dx.doi.org/10.1023/A:1022923422570">10.1023/A:1022923422570</a>.
+<p><b>Abstract:</b> Mobile-agent systems allow applications to distribute their
+resource consumption across the network. By prioritizing applications and
+publishing the cost of actions, it is possible for applications to achieve
+faster performance than in an environment where resources are evenly shared.
+We enforce the costs of actions through markets where user applications bid
+for computation from host machines. <P> We represent applications as
+collections of mobile agents and introduce a distributed mechanism for
+allocating general computational priority to mobile agents. We derive a
+bidding strategy for an agent that plans expenditures given a budget and a
+series of tasks to complete. We also show that a unique Nash equilibrium
+exists between the agents under our allocation policy. We present simulation
+results to show that the use of our resource-allocation mechanism and
+expenditure-planning algorithm results in shorter mean job completion times
+compared to traditional mobile-agent resource allocation. We also observe
+that our resource-allocation policy adapts favorably to allocate overloaded
+resources to higher priority agents, and that agents are able to effectively
+plan expenditures even when faced with network delay and job-size estimation
+error.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/bredin-jgame.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-jgame.pdf">PDF</a> (335K)</p>
+<p><b>Copyright &#169;&nbsp;2003 by Kluwer Academic Publishers.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/bredin-game.html">bredin:game</a></b>.</p>
+</BODY>
+</HTML>

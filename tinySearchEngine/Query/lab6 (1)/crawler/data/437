@@ -1,0 +1,25 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/baek-survey-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>baek:survey-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Kwang-Hyun Baek, Sean W. Smith, and David Kotz.
+<b>A Survey of WPA and 802.11i RSN Authentication Protocols</b>.
+Technical Report
+TR2004-524,
+Dartmouth Computer Science,
+November,
+2004.
+<p><b>Abstract:</b> In the new standards for WLAN security, many choices exist for
+the authentication process. In this paper, we list eight desired properties
+of WLAN authentication protocols, survey eight recent authentication
+protocols, and analyze the protocols according to the desired properties.</p>
+<p><b>Keywords:</b> wireless, network, security</p>
+<p><a href="bibtex/baek-survey-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././baek-survey-tr.pdf">PDF</a> (422K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+</BODY>
+</HTML>

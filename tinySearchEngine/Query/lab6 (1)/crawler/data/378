@@ -1,0 +1,23 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/peebles-anonytl.html
+3
+<HTML>
+<HEAD>
+ <TITLE>peebles:anonytl</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Dan Peebles, Cory Cornelius, Apu Kapadia, David Kotz, Minho Shin, and Nikos Triandopoulos.
+<b>AnonyTL Specification</b>.
+Technical Report
+TR2010-660,
+Dartmouth Computer Science,
+January,
+2010.
+<p><b>Abstract:</b> We provide a specification of \sc AnonyTL, a domain-specific
+language that describes sensing tasks for mobile devices in a manner that
+facilitates automated reasoning about privacy.</p>
+<p><a href="bibtex/peebles-anonytl.bib">BibTeX</a></p>
+<p><a target=_top href = "././peebles-anonytl.pdf">PDF</a> (72K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by the authors.</b></p>
+</BODY>
+</HTML>

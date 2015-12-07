@@ -1,0 +1,160 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs60/lab2.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="lab2.tex"> 
+<meta name="date" content="2012-04-04 11:42:00"> 
+<link rel="stylesheet" type="text/css" href="lab2.css"> 
+</head><body 
+>
+<h1 class="likepartHead"><a 
+ id="x1-1000"></a>CS 60 Computer Networks</h1>
+<h1 class="likepartHead"><a 
+ id="x1-2000"></a>Lab2</h1>
+<h1 class="likepartHead"><a 
+ id="x1-3000"></a>Reverse Engineering Sockets: a puzzle </h1>
+<!--l. 20--><p class="noindent" >In this lab, we will build on our new found skills of sniffing packets using wireshark to reverse engineer a
+protocol that uses sockets. After this lab you will have gained additional skills of socket programming and
+you will get some insights into reverse engineering a protoco - this is all cool! We will learn the important
+skill of distributed programming using socket programming in C and the socket API. A socket is similar to
+the pipe abstraction not between two processes on the same machine but between process on different
+machines on the Internet.
+<!--l. 22--><p class="noindent" >You have been tasked you to rewrite an outdated sensor network system deployed at the Three Mile
+Island nuclear reactor. This particular sensor network is so outdated that the source code
+has since gone missing. But there is hope! Because this sensor network is still operational we
+can give you binary executable that the staff uses to monitor the various sensors. It is your
+task to reverse engineer the protocol these two components speak and rewrite the client in
+C.
+<!--l. 25--><p class="noindent" >____________________________________________________________________________
+<!--l. 27--><p class="noindent" >Luckily, we have executables for the more recent operating systems. You can download them below. Note,
+you should download the executable file using &#8220;save as a file&#8221; option. Once you done that make sure you
+have the right file permissions to execute the file; try&#8220; chmod +x client-macos&#8221; under unix. Here are the
+binaries for Windows, Mac and Linux machines:
+<!--l. 29--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/client-windows.exe" > Windows Executable </a>
+<!--l. 31--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/client-linux-32" > Linux Executable </a>
+<!--l. 33--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/client-mac-32" > Intel Mac OS X Executable </a>
+<!--l. 35--><p class="noindent" >If you have any problems contact the TA - when you run the program, you will see a prompt as
+follows:
+<div 
+class="colorbox" id="colorbox1"><div class="BVerbatimInput"><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;WELCOME</span><span 
+class="cmtt-10">&#x00A0;TO</span><span 
+class="cmtt-10">&#x00A0;THE</span><span 
+class="cmtt-10">&#x00A0;THREE</span><span 
+class="cmtt-10">&#x00A0;MILE</span><span 
+class="cmtt-10">&#x00A0;ISLAND</span><span 
+class="cmtt-10">&#x00A0;SENSOR</span><span 
+class="cmtt-10">&#x00A0;NETWORK</span><br /><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Which</span><span 
+class="cmtt-10">&#x00A0;sensor</span><span 
+class="cmtt-10">&#x00A0;would</span><span 
+class="cmtt-10">&#x00A0;you</span><span 
+class="cmtt-10">&#x00A0;like</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;read:</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;(1)</span><span 
+class="cmtt-10">&#x00A0;Water</span><span 
+class="cmtt-10">&#x00A0;temperature</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;(2)</span><span 
+class="cmtt-10">&#x00A0;Reactor</span><span 
+class="cmtt-10">&#x00A0;temperature</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;(3)</span><span 
+class="cmtt-10">&#x00A0;Power</span><span 
+class="cmtt-10">&#x00A0;level</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Selection:</span><br /><br /></div></div>
+<!--l. 59--><p class="noindent" >Your task is to run Wireshark at the same time and watch the packets going from your computer to the
+server(s) the executable it connecting and talking to. Sometimes it helps if you stop all other
+internet-related activity because it can be difficult to tell what the program is doing amongst a whole slew
+of other traffic. You&#8217;ll want to capture all the packets associated with each option since you&#8217;re are trying
+to faithfully reproduce the source code of the given executable. Note, that if you are unable
+                                                                                  
+                                                                                  
+to run the executable, contact the TA immediately and we&#8217;ll see what we can do. If worse
+comes to worse, the TA can provide you with a packet trace of the executable that you can
+use to reverse engineer the protocol. It is important that you reverse engineer the protocol
+before coding your client. If you are having trouble understanding or need clarification ask the
+TA.
+<!--l. 61--><p class="noindent" >Once you think you fully understand the protocol (it might be useful to draw a diagram outline the
+messages that need to be sent, etc.), start coding your C client. Your C client should be able
+to connect to the appropriate server(s), retrieve the sensor reading and output this to the
+user.
+<!--l. 63--><p class="noindent" ><span 
+class="cmbx-10">Extra hacker credit</span>: This is hard so you may not want to do this. After you have reserved engineered
+the client and have it sucessfully working with the existing servers then write the server side too. You will
+have to use a different ports. Submit the client and server.
+<!--l. 65--><p class="noindent" >Good luck!
+<!--l. 67--><p class="noindent" ><span 
+class="cmbx-10">Submitting assignment</span>: We are using SVN for the submission of assignments. Create a directory for
+each new lab (viz. lab1, lab2, lab3, lab3, lab5, lab6 and lab7). We will make a copy of the directory after
+the deadline.
+<!--l. 70--><p class="noindent" >Please make sure that each lab directory (e.g., lab2) contains a simple text file (called README) briefly
+describing the source code in the directory and anything &#8220;unusual&#8221; about how your solution should be
+located, executed, and considered. Essentially, your README gives us a quick overview of the content on
+the directory and how to run your programs. You also have to include a Makefile so we can build your
+programs.
+<!--l. 73--><p class="noindent" >Your svn repository root is at <a 
+href="https://svn.cs.dartmouth.edu/classes/cs60-S12/yourreponame" class="url" ><span 
+class="cmtt-10">https://svn.cs.dartmouth.edu/classes/cs60-S12/yourreponame</span></a>. For
+example: <a 
+href="https://svn.cs.dartmouth.edu/classes/cs60-S12/campbell" class="url" ><span 
+class="cmtt-10">https://svn.cs.dartmouth.edu/classes/cs60-S12/campbell</span></a>. Note, repo in yourreponame is
+short for respository.
+<!--l. 75--><p class="noindent" >But replace campbell with your repsoitory account username. You should have received this from Wayne
+or the TA. When you click on the svn URL above you will be asked to enter a username and password:
+enter your full DND (also blitz name) as your username and Blitz password as your password;
+DO NOT use your CS account name and password to login to the svn server - it will not
+work.
+<!--l. 77--><p class="noindent" ><span 
+class="cmbx-10">NOTE, for classes after 2012 this is relevant: change cs60-s12 to the correct year and term</span>
+<span 
+class="cmbx-10">for example W13 changes the svn commands below to cs60-W13</span>.
+<!--l. 80--><p class="noindent" >All detailed svn instruction is here:<a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/svn.html" class="url" ><span 
+class="cmtt-10">http://www.cs.dartmouth.edu/</span><span 
+class="cmtt-10">~</span><span 
+class="cmtt-10">campbell/cs50/svn.html</span></a>.
+<!--l. 82--><p class="noindent" ><span 
+class="cmbx-10">Coding style</span>: Please put comments in your code to help increase its understanding.
+<!--l. 84--><p class="noindent" >The final software should be include of the following components:
+     <ul class="itemize1">
+     <li class="itemize">A Wireshark dump of the packets you analyzed to reverse engineer the protocol;
+     </li>
+     <li class="itemize">The reversed engineered client; and
+     </li>
+                                                                                  
+                                                                                  
+     <li class="itemize">Some example outputs of your program.</li></ul>
+<!--l. 91--><p class="noindent" >Again, you should also provide a Makefile to build your program (one for the client and one for the
+server) and a concise README file describing briefly your design choicesand how to run the
+program.
+<!--l. 93--><p class="noindent" >Good luck!
+<!--l. 95--><p class="noindent" ><span 
+class="cmbx-10">Tip</span>: Make sure you always logout when you are done and see the prompt to login again before you leave
+the terminal.
+ 
+</body></html> 
+
+                                                                                  
+
+

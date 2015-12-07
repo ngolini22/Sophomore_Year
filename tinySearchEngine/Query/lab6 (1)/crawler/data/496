@@ -1,0 +1,31 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-tuning.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:tuning</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Tuning STARFISH</b>.
+Technical Report
+PCS-TR96-296,
+Dartmouth Computer Science,
+October,
+1996.
+<p><b>Abstract:</b> STARFISH is a parallel file-system simulator we built for our
+research into the concept of disk-directed I/O. In this report, we detail
+steps taken to tune the file systems supported by STARFISH, which include a
+traditional parallel file system (with caching) and a disk-directed I/O
+system. In particular, we now support two-phase I/O, use smarter disk
+scheduling, increased the maximum number of outstanding requests that a
+compute processor may make to each disk, and added gather/scatter block
+transfer. We also present results of the experiments driving the tuning
+effort.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-tuning.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-tuning.pdf">PDF</a> (305K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

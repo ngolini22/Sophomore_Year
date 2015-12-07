@@ -1,0 +1,22 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/howell-restricted.html
+3
+<HTML>
+<HEAD>
+ <TITLE>howell:restricted</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jon Howell and David Kotz.
+<b>Restricted delegation: seamlessly spanning administrative
+boundaries</b>.
+<i>ACM Operating Systems Review</i>,
+34(2):38-39,
+April,
+2000.
+DOI <a href="http://dx.doi.org/10.1145/346152.346268">10.1145/346152.346268</a>.
+<p><b>Keywords:</b> security, distributed computing, operating system</p>
+<p><a href="bibtex/howell-restricted.bib">BibTeX</a></p>
+<p><a target=_top href = "././howell-restricted.pdf">PDF</a> (42K)</p>
+<p><b>Copyright &#169;&nbsp;2000 by the authors.</b></p>
+</BODY>
+</HTML>

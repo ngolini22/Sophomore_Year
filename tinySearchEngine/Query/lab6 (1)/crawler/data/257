@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/sorber-amulet.html
+3
+<HTML>
+<HEAD>
+ <TITLE>sorber:amulet</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jacob Sorber, Minho Shin, Ronald Peterson, Cory Cornelius, Shrirang Mare, Aarathi Prasad, Zachary Marois, Emma Smithayer, and David Kotz.
+<b>An Amulet for trustworthy wearable mHealth</b>.
+In
+<i>Workshop on Mobile Computing Systems and Applications
+(HotMobile)</i>,
+pages 7:1-7:6,
+February,
+2012.
+DOI <a href="http://dx.doi.org/10.1145/2162081.2162092">10.1145/2162081.2162092</a>.
+<p><b>Abstract:</b> Mobile technology has significant potential to help revolutionize
+personal wellness and the delivery of healthcare. Mobile phones, wearable
+sensors, and home-based tele-medicine devices can help caregivers and
+individuals themselves better monitor and manage their health. While the
+potential benefits of this ``mHealth'' technology include better health, more
+effective healthcare, and reduced cost, this technology also poses
+significant security and privacy challenges. In this paper we propose
+Amulet, an mHealth architecture that provides strong security and
+privacy guarantees while remaining easy to use, and outline the research and
+engineering challenges required to realize the Amulet vision.</p>
+<p><a href="bibtex/sorber-amulet.bib">BibTeX</a></p>
+<p><a target=_top href = "././sorber-amulet.pdf">PDF</a> (700K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by the authors.</b></p>
+</BODY>
+</HTML>

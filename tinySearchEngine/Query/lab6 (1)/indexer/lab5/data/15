@@ -1,0 +1,95 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/dartmouthbiorhythm.html
+1
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<div class="figure">
+<img src="images/s_biorhythm_icon_cropped.jpg" />
+</div>
+<div class="figure">
+<img src="images/s_Dart_biorhythm.png" />
+</div>
+<h1 id="dartmouth-biorhythm-project">Dartmouth Biorhythm Project</h1>
+<h2 id="ever-wondered-where-the-term-went">Ever wondered where the term went?</h2>
+<p>It was over before it started -- I was so busy my friends don't think we are friends anymore; I managed to cram in so much -- how did I do it all and stay sane?; I lost sleep as the term progressed but stayed healthy, exercised and engaged in three really demanding classes -- how did I manage that?; I met new people -- friendships were formed in the group projects and collaborative assignments; did I manage to relax during the term? -- can't remember; how did my mood change day to day, week to week, assignment to assignment -- don't remember; I was near burnout a few times but kept going; how did the workload and assignment due dates impact my grades - there were a number of weeks when all the due dates overlapped; most classes were great overall but there were lots of moments when I did not understand what was being taught -- but I don't remember the specifics now term is over; exams are done and I can finally sleep, run, eat well, relax, and, enjoy my friends, the great weather, and the Green -- life is good again :) -- the snow is history and summer is finally here!</p>
+<p>This story is not an outlier but is it the norm? We do not know.</p>
+<h2 id="some-anecdotal-information">Some anecdotal information</h2>
+<p>Computer science is known across campus as a place that you learn stuff deeply -- it's a demanding major. We have a sense as professors what the biorhythm is like but we do not have the day by day data, or the week by week data-- nor, importantly do the students. What we have is a course assessment from students but it only tells us their view of the class three weeks after the end of term -- and little else.</p>
+<p>Here are some <a href="assessment.pdf">anecdotal comments by students</a> on pace, load and retrospective for one CS course -- I know, this is not a statistically significant sample but I'd bet you see it across many Dartmouth classes:</p>
+<h3 id="pace">Pace</h3>
+<ul>
+<li>&quot;SO.SO.SO FAST. I know that's how it has to be, but I'm not gonna say it was slow&quot;</li>
+<li>&quot;Very fast, especially after the first few weeks. Very challenging to undertake&quot;</li>
+<li>&quot;Reasonable&quot;</li>
+</ul>
+<h3 id="load">Load</h3>
+<ul>
+<li>&quot;The labs and lectures were great, RIDICULOUSLY hard, and so much work but I really enjoyed them, I can't think of a ten week period in my life when I have learned more&quot;</li>
+<li>&quot;The assignments were very challenging but helped me learn a large amount quickly&quot;</li>
+<li>&quot;Wow. This really was a fantastic class. On nearly every count--effectiveness of teaching, appropriateness of assignments, what we learned--just great. Loved this class. Of course, it dominated my life, but fair enough--I'm here to learn!&quot;</li>
+</ul>
+<h3 id="retrospective">Retrospective</h3>
+<ul>
+<li>&quot;There is too. much. work. I'm an avid hiker, but I only went on one hike this past term because I knew that I would have to be in Sudikoff all weekend every weekend. Each lab took me (on average) 25-30 hours to complete&quot;</li>
+<li>&quot;Tens of hours each week coding. This class sucked out my soul.&quot;</li>
+<li>&quot;coding day and night&quot;</li>
+</ul>
+<h2 id="how-can-we-shine-more-light-on-the-dartmouth-term">How can we shine more light on the Dartmouth term?</h2>
+<p>Today's smartphones are capable of automatically understanding behavior.</p>
+<p>Dartmouth has these intense 10-week terms - the Dartmouth term has its own unique biorhythm. The first few weeks are low key students are relaxed smile a lot and then as the complexity and demands of the term increase students get more stressed, have less sleep and time to exercise, and spend a lot of time -- particularly in this course -- hacking Android code.</p>
+<p>Multiply that by 3 and you have the Dartmouth term - it is unique to Dartmouth because we tend to push students to learn complex topics typically taught over a 15-week semester in a 10-week term. This works at Dartmouth because kids are very capable and want to be challenged, whereas it wouldn't work at many other institutions of higher learning.</p>
+<p>Similarly, teaching staff including the professor, teaching assistants and section leaders follow a similar biorhythm were increase stress, lack of sleep, changing moods, lack of time for exercise cycle through the term and impact performance and quality of life -- for 10 weeks at least. Particularly with the demands of teaching (which we like to do well), research (which we like to do well) and family life (which we like to do well).</p>
+<p>I've taught semesters at Columbia for a decade prior to coming to Dartmouth. As a lecturer it took me at least 3 years to adapt to the pace of the Dartmouth term -- and I've run 10 marathons ;-). The semester has its own cycle and feels more like a marathon in my experience: I would have to pace myself for the semester so I could make it to the end -- I would find myself loosing steam and interest here and there over the 15 weeks but never burning out because it was very manageable. The Dartmouth term is more like a sprint -- it's an intense learning experience for the student and demanding for the professor -- I never have time to loose interest in the Dartmouth dash where I cram a semester's information into a term in terms of knowledge dissemination because if I'm going to teach smartphone programming I have to get the material across, the fundamental skills needed, it is hard to water it down and leave the student with partial knowledge -- so you compress the basics and squeeze them into a term.</p>
+<h2 id="what-is-dartmouth-biorhythm-project">What is Dartmouth Biorhythm Project?</h2>
+<p>The Dartmouth Biorhythm Project aims to shine a light on the impact of the Dartmouth term and its workload on stress, sleep, mood, activity, sociability, health and burnout. We aim to understand the term of a typical Dartmouth student. We plan to study the students in one Dartmouth class over one term -- that is, this class. This is a uniquely Dartmouth experience which brings advance computer technology and research into the classroom so students can get first hand experience with new untested ideas.</p>
+<p>Today's phones can automatically infers some user behavior while <a href="http://en.wikipedia.org/wiki/Experience_sampling_method">experience sampling</a> allows students to record other information. The images below show the two apps we have developed that students can use in the project: the first app is Bio (left) and it runs in the background of your Android phone; the second app is <a href="https://code.google.com/p/paco/">Paco</a> (developed as a framework by Google for <a href="http://en.wikipedia.org/wiki/Quantified_Self">quantified-self</a> studies) which we extended to allow experience sampling to capture parts of the Dartmouth biorhythm.</p>
+<div class="figure">
+<img src="images/bio.png" />
+</div>
+<p>As part of group projects each student (and only them) in the study will have access to their data. All students will have access to some of the class anonymized data to use in the group project. The group project is to develop a new app. All students in the class have the opportunity to opt in or not to the study which is covered by the college's <a href="http://www.dartmouth.edu/~cphs/">CPHS</a> to make sure your privacy is protected at all times. Students that choose not to opt in will be able to complete their group project.</p>
+<p>A study like this has not been attempted before at Dartmouth or anywhere else for that matter -- a single class over a single term. Results from the study will help us understand what makes the Dartmouth term tick, its rhythm, ups and downs, stresses, engagement levels, coping mechanisms, failure rates, achievements.</p>
+<p>Dartmouth Biorhythm trivia: Note, the professor is more <a href="http://infogr.am/DartmouthBiorhythm/">stressed</a> than the students in class today but the students are more <a href="http://infogr.am/DartmouthBiorhythm/">rested</a>. Dartmouth professors stressed, surely not.</p>
+<div class="figure">
+<img src="images/stress1.png" />
+</div>
+<h2 id="biorhythm-people">Biorhythm People</h2>
+<h3 id="faculty">Faculty</h3>
+<ul>
+<li><a href="http://www.cs.dartmouth.edu/~campbell/">Andrew Campbell</a> (Dartmouth)</li>
+<li><a href="http://www.dartmouth.edu/~psych/people/faculty/norris.html">Catherine Norris</a> (Dartmouth)</li>
+<li><a href="http://www.cs.dartmouth.edu/~tanzeem/">Tanzeem Choudhury</a> (Cornell)</li>
+<li><a href="http://homepage.psy.utexas.edu/homepage/faculty/gosling/">Sam Gosling</a> (UTA)</li>
+<li><a href="http://www.northeastern.edu/psychology/people/faculty/c-randall-colvin/">Randy Colvin</a> (Northeasten)</li>
+<li><a href="http://tdi.dartmouth.edu/faculty/ethan-berke-md-mph">Ethan Berke</a> (DHMC)</li>
+<li><a href="http://www.niclane.org/">Nicholas Lane</a> (MSRA)</li>
+</ul>
+<h3 id="students">Students</h3>
+<ul>
+<li>Fanglin Chen</li>
+<li>Rui Wang</li>
+<li>Tianxing Li</li>
+<li>Zhengyu Chen</li>
+</ul>
+</body>
+</html>

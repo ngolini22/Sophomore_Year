@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/rus-autonomous.html
+3
+<HTML>
+<HEAD>
+ <TITLE>rus:autonomous</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Daniela Rus, Robert Gray, and David Kotz.
+<b>Autonomous and Adaptive Agents that Gather Information</b>.
+In
+<i>AAAI&nbsp;'96 International Workshop on Intelligent Adaptive Agents</i>,
+pages 107-116,
+August,
+1996.
+AAAI Press.
+Proceedings available as AAAI Technical Report WS-96-04.
+<p><b>Abstract:</b> We have designed and implemented autonomous software agents.
+Autonomous software agents navigate independently through a heterogeneous
+network of computers. They can sense the state of the network, monitor
+software conditions, and interact with other agents. The network-sensing
+tools allow our agents to adapt to the network configuration and to navigate
+under the control of reactive plans. In this paper we illustrate the
+intelligent and adaptive behavior of autonomous agents in distributed
+information-gathering tasks.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/rus-autonomous.bib">BibTeX</a></p>
+<p><a target=_top href = "././rus-autonomous.pdf">PDF</a> (360K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by AAAI Press.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/rus-autonomous2.html">rus:autonomous2</a></b>.</p>
+</BODY>
+</HTML>

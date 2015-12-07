@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-flexibility2.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:flexibility2</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Nils Nieuwejaar.
+<b>Flexibility and Performance of Parallel File Systems</b>.
+In
+<i>Proceedings of the Third International Conference of the
+Austrian Center for Parallel Computation (ACPC)</i>,
+pages 1-11,
+September,
+1996.
+Springer-Verlag.
+Invited paper.
+DOI <a href="http://dx.doi.org/10.1007/3-540-61695-0_1">10.1007/3-540-61695-0_1</a>.
+<p><b>Abstract:</b> As we gain experience with parallel file systems, it becomes
+increasingly clear that a single solution does not suit all applications. For
+example, it appears to be impossible to find a single appropriate interface,
+caching policy, file structure, or disk-management strategy. Furthermore, the
+proliferation of file-system interfaces and abstractions make applications
+difficult to port. <P> We propose that the traditional functionality of
+parallel file systems be separated into two components: a fixed core that is
+standard on all platforms, encapsulating only primitive abstractions and
+interfaces, and a set of high-level libraries to provide a variety of
+abstractions and application-programmer interfaces (APIs). <P> We present
+our current and next-generation file systems as examples of this structure.
+Their features, such as a three-dimensional file structure, strided read and
+write interfaces, and I/O-node programs, re specifically designed with the
+flexibility and performance necessary to support a wide range of
+applications.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-flexibility2.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-flexibility2.pdf">PDF</a> (291K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-flexibility.html">kotz:flexibility</a></b>.</p>
+</BODY>
+</HTML>

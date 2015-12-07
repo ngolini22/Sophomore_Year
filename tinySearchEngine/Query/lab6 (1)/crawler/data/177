@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bratus-fingerprint-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bratus:fingerprint-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Sergey Bratus, Cory Cornelius, Daniel Peebles, and David Kotz.
+<b>Active Behavioral Fingerprinting of Wireless Devices</b>.
+Technical Report
+TR2008-610,
+Dartmouth Computer Science,
+March,
+2008.
+<p><b>Abstract:</b> We propose a simple active method for discovering facts about the
+chipset, the firmware or the driver of an 802.11 wireless device by observing
+its responses (or lack thereof) to a series of crafted non-standard or
+malformed 802.11 frames. We demonstrate that such responses can differ
+significantly enough to distinguish between a number of popular chipsets and
+drivers. We expect to significantly expand the number of recognized device
+types through community contributions of signature data for the proposed open
+fingerprinting framework. Our method complements known fingerprinting
+approaches, and can be used to interrogate and spot devices that may be
+spoofing their MAC addresses in order to conceal their true architecture from
+other stations, such as a fake AP seeking to engage clients in complex
+protocol frame exchange (e.g., in order to exploit a driver vulnerability).
+In particular, it can be used to distinguish rogue APs from legitimate APs
+before association.</p>
+<p><b>Keywords:</b> wireless, security</p>
+<p><a href="bibtex/bratus-fingerprint-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././bratus-fingerprint-tr.pdf">PDF</a> (302K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/bratus-fingerprint.html">bratus:fingerprint</a></b>.</p>
+</BODY>
+</HTML>

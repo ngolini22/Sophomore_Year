@@ -1,0 +1,48 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/molina-markham-wmmadd.html
+3
+<HTML>
+<HEAD>
+ <TITLE>molina-markham:wmmadd</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Andr&eacute;s Molina-Markham, Ronald Peterson, Joseph Skinner, Tianlong Yun, Bhargav Golla, Kevin Freeman, Travis Peters, Jacob Sorber, Ryan Halter, and David Kotz.
+<b>Amulet: enabling computational jewelry for mHealth
+applications</b>.
+In
+<i>Proceedings of the Workshop on Mobile Medical Applications&nbsp;-
+Design and Development (WMMADD)</i>,
+pages 16-21,
+November,
+2014.
+DOI <a href="http://dx.doi.org/10.1145/2676431.2676432">10.1145/2676431.2676432</a>.
+<p><b>Abstract:</b> Interest in using mobile technologies for health-related
+applications (mHealth) has increased. However, none of the available mobile
+platforms provide the essential properties that are needed by these
+applications. An mHealth platform must be (i) secure; (ii) provide high
+availability; and (iii) allow for the deployment of multiple third-party
+mHealth applications that share access to an individual's devices and data.
+Smartphones may not be able to provide property (ii) because there are
+activities and situations in which an individual may not be able to carry
+them (e.g., while in a contact sport). A low-power wearable device can
+provide higher availability, remaining attached to the user during most
+activities. Furthermore, some mHealth applications require integrating
+multiple on-body or near-body devices, some owned by a single individual, but
+others shared with multiple individuals. In this paper, we propose a secure
+system architecture for a low-power bracelet that can run multiple
+applications and manage access to shared resources in a body-area mHealth
+network. The wearer can install a personalized mix of third-party
+applications to support the monitoring of multiple medical conditions or
+wellness goals, with strong security safeguards. Our preliminary
+implementation and evaluation supports the hypothesis that our approach
+allows for the implementation of a resource monitor on far less power than
+would be consumed by a mobile device running Linux or Android. Our
+preliminary experiments demonstrate that our secure architecture would enable
+applications to run for several weeks on a small wearable device without
+recharging.</p>
+<p><a href="bibtex/molina-markham-wmmadd.bib">BibTeX</a></p>
+<p><a target=_top href = "././molina-markham-wmmadd.pdf">PDF</a> (708K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

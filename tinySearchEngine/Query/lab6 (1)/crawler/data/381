@@ -1,0 +1,46 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kapadia-anonysense.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kapadia:anonysense</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Apu Kapadia, Nikos Triandopoulos, Cory Cornelius, Dan Peebles, and David Kotz.
+<b>AnonySense: Opportunistic and Privacy-Preserving Context
+Collection</b>.
+In
+<i>Proceedings of the Sixth International Conference on Pervasive
+Computing (Pervasive)</i>,
+pages 280-297,
+May,
+2008.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/978-3-540-79576-6_17">10.1007/978-3-540-79576-6_17</a>.
+<p><b>Abstract:</b> Opportunistic sensing allows applications to ``task'' mobile
+devices to measure context in a target region. For example, one could
+leverage sensor-equipped vehicles to measure traffic or pollution levels on a
+particular street, or users' mobile phones to locate (Bluetooth-enabled)
+objects in their neighborhood. In most proposed applications, context reports
+include the time and location of the event, putting the privacy of users at
+increased risk--even if a report has been anonymized, the accompanying time
+and location can reveal sufficient information to deanonymize the user whose
+device sent the report. <P> We propose AnonySense, a general-purpose
+architecture for leveraging users' mobile devices for measuring context,
+while maintaining the privacy of the users. AnonySense features multiple
+layers of privacy protection--a framework for nodes to receive tasks
+anonymously, a novel blurring mechanism based on tessellation and clustering
+to protect users' privacy against the system while reporting context, and
+$k$-anonymous report aggregation to improve the users' privacy against
+applications receiving the context. We outline the architecture and security
+properties of AnonySense, and focus on evaluating our tessellation and
+clustering algorithm against real mobility traces.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, privacy, security, sensors, anonymity,
+ubicomp</p>
+<p><a href="bibtex/kapadia-anonysense.bib">BibTeX</a></p>
+<p><a target=_top href = "././kapadia-anonysense.pdf">PDF</a> (670K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/shin-anonytiles.html">shin:anonytiles</a></b>.</p>
+</BODY>
+</HTML>

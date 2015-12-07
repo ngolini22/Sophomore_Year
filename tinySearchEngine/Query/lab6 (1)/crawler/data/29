@@ -1,0 +1,78 @@
+http://www.cs.dartmouth.edu/~tianzhao
+2
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Zhao Tian | Dartmouth CS</title>
+<style type="text/css">
+    body {margin: 0px 15px 0px}
+</style>
+<link rel="shortcut icon" href="images/favicon.ico">
+</head>
+
+<body>
+
+<table cellpadding="10">
+<tr>
+<td><img src="images/zhao_tian-3.jpg" height="220" alt="Picture of Zhao Tian"></td>
+<!-- <td valign=top>&nbsp;&nbsp;&nbsp;<td/> -->
+<td valign=top>
+<h1>Zhao Tian</h1>
+<p>Ph.D. Student</p>
+
+<p>6211 Sudikoff Laboratory<br>
+Department of Computer Science<br>
+Dartmouth College<br>
+Hanover, NH 03755<br>
+E-mail: tianzhao@cs.dartmouth.edu<br>
+Office: 219 Sudikoff Laboratory</p>
+</td>
+</tr>
+</table>
+<hr>
+<h2>What's New?</h2>
+<ul>
+<li> Mar. 2015: I will TA <a href="http://www.cs.dartmouth.edu/~ccpalmer/classes/cs50/Content/cs50%20Syllabus.html">CS 50: Software Design & Implementation (Spring 2015)</a>
+<li> Jan. 2015: I will TA <a href="http://www.cs.dartmouth.edu/~xia/cs50/index.html#!index.md">CS 50: Software Design & Implementation (Winter 2015)</a>
+<li> Sept. 2014: I will TA <a href="http://www.cs.dartmouth.edu/~cs30">CS 30: Discrete Mathematics in Computer Science (Fall 2014)</a>
+<li> Aug. 2014: I joined the <a href="http://dartnets.cs.dartmouth.edu">DartNets</a> (Dartmouth Networking and Ubiquitous System) Lab
+</ul>
+<hr>
+<h2>About me</h2>
+
+<p>I am a first year Ph.D. student in the <a href="http://www.cs.dartmouth.edu"> Department of Computer Science</a> at <a href="http://www.dartmouth.edu">Dartmouth College</a>. I am a member of the <a href="http://dartnets.cs.dartmouth.edu">DartNets</a> (Dartmouth Networking and Ubiquitous Systems) Lab, under the supervision of <a href="http://www.cs.dartmouth.edu/~xia/">Prof. Xia Zhou</a>. I received my B.S. in Computer Science and B.A. (minor) in Economics from Peking University in July, 2013. During my senior year, I also went to UCLA as a research-exchange student.</p>
+<p>My research interest focuses on mobile systems and wireless networking. Now, I am highly motivated by the topics on VLC (Visible Light Communication) testbed design and spectrum monitoring. Before joining DartNets, I was an undergraduate research assistant at the Center for Energy-efficient Computing and Applications (CECA), Peking University and conducted research on FPGA and SDR system (Software Defined Radio).</p>
+<hr>
+<h2>Research</h2>
+<ol>
+<li><b>Visible Light Communication (VLC) testbed</b>
+<p>We build a flexible VLC system and make it a testbed for other researchers to develop new ideas on, such as mobile HCI.</p>
+<li><b>Spectrum Monitering</b>
+<p>We participate in the <a href="http://observatory.microsoftspectrum.com/Home/About">Microsoft Spectrum Observatory</a> and set up a base station in Sudikoff Lab. Microsoft has recently released a new version. Everyone now has access to the spectrum usage data and raw IQ data collected from stations all over the world.</p>
+</ol>
+<hr>
+<h2>Teaching Assistant</h2>
+<ul>
+<li><a href="http://www.cs.dartmouth.edu/~ccpalmer/classes/cs50/Content/cs50%20Syllabus.html">CS 50: Software Design & Implementation (Spring 2015)</a><br>
+Office hours: March 30 through June 3:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Monday 4:00 pm &ndash; 5:00 pm at Sudikoff 219
+<li><a href="http://www.cs.dartmouth.edu/~xia/cs50/index.html#!index.md">CS 50: Software Design & Implementation (Winter 2015)</a><br>
+Office hours: January 5 through March 13:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Monday 4:00 pm &ndash; 5:00 pm at Sudikoff 219
+<li><a href="http://www.cs.dartmouth.edu/~cs30">CS 30: Discrete Mathematics in Computer Science (Fall 2014)</a><br>
+Office hours: September 15 through November 23:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Wednesday 9:00 am &ndash; 11:00 am at Sudikoff 219
+</ul>
+<hr>
+<h2>Miscellaneous</h2>
+<ul>
+<li> <a href="writing.html">Writing Resources</a>
+<li> <a href="phdlife.html">Ph.D. Life</a>
+<li> <a href="tips.html">Technical Tips</a>
+</ul>
+<hr>
+<i>I hope that my research improves the respect for individuals.</i><br>
+<i>Last updated: Mar. 24, 2015</i>
+</body>
+</html>

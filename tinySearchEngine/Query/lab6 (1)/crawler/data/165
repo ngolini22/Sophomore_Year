@@ -1,0 +1,165 @@
+http://www.cs.dartmouth.edu/~ccpalmer/classes/cs50/Content/cs50%20Syllabus.html
+3
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--
+====================================================================
+made the style sheet (azul.css) inline for use in Piazza! 
+====================================================================
+-->
+
+    <style type="text/css">
+/*<![CDATA[*/
+    #coursetitle{
+    color: #101010;
+    float: left;
+    font-size: 2em; 
+    font-family: "Arial Narrow", "Myriad Pro"; 
+    margin-bottom: 6px;
+    }
+
+    #termtitle{
+    float: right;
+    font-family: "Arial Narrow", "Myriad Pro"; 
+    font-size: 2em; 
+    }
+
+    #quicklinktitle {
+    float: left;
+    font-family: "Myriad Pro", "Arial Narrow";
+    font-weight: bold;
+    padding-right: .5em;
+    }
+
+    .UnderConstruction {
+    color: #FF8000;
+    text-align: center;
+    }
+
+    #colorbox1{border: solid 1px rgb(33,140,33);}
+    #colorbox1{background-color: rgb(229,229,229);}
+
+    body  {
+    background: #FFFFFF;
+    font-family: "Georgia";
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: left;
+    padding-right:50px;
+    padding-left:50px;
+    }
+
+    h1 {
+    color: #101010;
+    text-decoration: none;
+    font-size: 2em; 
+    line-height:1.3;
+    font-family: "Arial Narrow", "Myriad Pro"; 
+    font-weight: normal;
+    text-align: left;
+    padding-bottom: .2em;
+    border-bottom: #900;
+    border-width: 2px;
+    border-style: none none solid none;
+    }
+
+
+    h2 {
+    color: #005070;
+    font-size: 16px; 
+    }
+
+
+    h3 {
+    color: #005070;
+    font-size: 13px; 
+    }
+
+
+    h4 {
+    padding-left: 1em;  
+    }
+
+    #gp { 
+    background-color: #dfc; 
+    padding: 1em; 
+    border-width: 1px;
+    border-style:solid;
+    border-color: #0d0;
+    }
+
+    code {
+    font-family: monospace;
+    font-size: 16px;
+    }
+
+    img {
+    border-style:solid;
+    border-color:#900;
+    border-width: 1px;
+    }
+
+    pre { 
+    background-color: #eee; 
+    padding: 1em; 
+    border-style:solid;
+    border-color:#900;
+    border-width: 1px;
+    }
+
+    .ResponseNum {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 24pt;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    color: #F00;
+    }
+    .Order {
+    font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+    }
+    .RedFont {
+    color: #F00;
+    }
+    /*]]>*/
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>CS50 Spring 2015 - Syllabus</title><!--<link href="../azul.css" rel="stylesheet" type="text/css" />
+ -->
+</head>
+
+<body>
+    <div id="termtitle">
+        CS 50: Spring 2015
+    </div>
+
+    <h1><a href='http://www.catb.org/~esr/hacker-emblem/'><img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' /></a> Software design &amp; implementation<a href="#credits">*</a><br />
+    Syllabus</h1>
+
+    <p>In this course you will learn how to design &amp; build large, reliable, maintainable, and understandable software systems. You'll learn to program in C, learn Unix development tools, and learn how to craft software that is understandable, testable, reliable, and secure.</p>
+
+    <table style="margin-left: auto; margin-right: auto; width: 520px; height: 50px;" border="0">
+        <tbody>
+            <tr align="center">
+                <td><span style="font-size: large;">[<a href="http://www.cs.dartmouth.edu/~ccpalmer/classes/cs50/Content/cs50%20Logistics.html">Logistics</a>]</span></td>
+
+                <td><span style="font-size: large;">[<a title="Schedule" href="./CS50 Spring 2015.pdf">Schedule</a>]</span></td>
+
+                <td><span style="font-size: large;">[<a href="http://www.cs.dartmouth.edu/~ccpalmer/classes/cs50/Content/cs50%20Resources.html">Resources</a>]</span></td>
+
+                <td><span style="font-size: large;">[<a href="http://www.cs.dartmouth.edu/~ccpalmer/classes/cs50/Content/cs50%20Assignments.html">Assignments</a>]</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Note: the full detailed schedule may be found in <a href="http://canvas.dartmouth.edu">Canvas</a>.</h3>
+
+    <h3><a id="credits"></a>* - This course is based upon the course designed by Prof. Devin Balkcom and Prof. Andrew Campbell. This instructor is deeply indebted to these two outstanding educators.</h3>
+    <hr align="left" color="#900" style="none none solid none" />
+
+    <p class="style3"><b><img src="http://www.cs.dartmouth.edu/icons/back.gif" alt="" align="left" /> <a href="../index.html"><b>Back to CS50 Home Page</b></a></b> &nbsp;&nbsp;&nbsp; <b>Adjunct Professor</b> <b>Charles C. Palmer</b> &nbsp;&nbsp;&nbsp; <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#99;&#112;&#97;&#108;&#109;&#101;&#114;&#64;&#100;&#97;&#114;&#116;&#109;&#111;&#117;&#116;&#104;&#46;&#101;&#100;&#117;'>&#99;&#99;&#112;&#97;&#108;&#109;&#101;&#114;&#32;&lt;&#97;&#116;&gt;&#32;&#100;&#97;&#114;&#116;&#109;&#111;&#117;&#116;&#104;&#46;&#101;&#100;&#117;</a></p>
+
+    <p><span>Document last modified: <!-- #BeginDate format:Sw1 -->14 March 2015<!-- #EndDate --></span></p>
+</body>
+</html>

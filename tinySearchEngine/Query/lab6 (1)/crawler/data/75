@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nieuwejaar-strided2.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nieuwejaar:strided2</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Nils Nieuwejaar and David Kotz.
+<b>Low-level Interfaces for High-level Parallel I/O</b>.
+In
+<i>Proceedings of the IPPS&nbsp;'95 Workshop on Input/Output in Parallel
+and Distributed Systems (IOPADS)</i>,
+pages 47-62,
+April,
+1995.
+<p><b>Abstract:</b> As the I/O needs of parallel scientific applications increase,
+file systems for multiprocessors are being designed to provide applications
+with parallel access to multiple disks. Many parallel file systems present
+applications with a conventional Unix-like interface that allows the
+application to access multiple disks transparently. By tracing all the
+activity of a parallel file system in a production, scientific computing
+environment, we show that many applications exhibit highly regular, but
+non-consecutive I/O access patterns. Since the conventional interface does
+not provide an efficient method of describing these patterns, we present
+three extensions to the interface that support  strided, 
+nested-strided, and  nested-batched I/O requests. We show how these
+extensions can be used to express common access patterns.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/nieuwejaar-strided2.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;1995 by the authors.</b></p>
+<p>Identical to <b><a href="abstracts/nieuwejaar-strided2-tr.html">nieuwejaar:strided2-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/nieuwejaar-strided2-book.html">nieuwejaar:strided2-book</a></b>.</p>
+</BODY>
+</HTML>

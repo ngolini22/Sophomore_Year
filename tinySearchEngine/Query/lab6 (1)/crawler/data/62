@@ -1,0 +1,202 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture12/lecture12.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Using PreferenceFragment to store user preferences - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-13----using-preferencefragment-to-store-user-preferences">Lecture 13 -- Using PreferenceFragment to Store User Preferences</h1>
+<p>Most applications we use today on the laptop and phone from the common or garden browser to specialized activity app (Nike+) allow users to personalize the app using user of system preferences which need to be updated and stored persistently. We will need to do that in MyRuns2.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Demo project - PreferenceFragment app</li>
+<li>PreferenceFragment</li>
+<li>Preference hierarchy specified in an XML</li>
+<li>PreferenceFragment code</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>The code used in this demo comes form the Android developers site. For more information see: <a href="http://developer.android.com/reference/android/preference/PreferenceFragment.html">PreferenceFragment</a></p>
+<h2 id="checkout-the-demo-project">Checkout the demo project</h2>
+<ul>
+<li>Download the demo the <a href="../code/fragmentpreference.zip">fragmentpreference.zip</a> app specifically designed to go with these notes.</li>
+</ul>
+<h2 id="preferencefragment">PreferenceFragment</h2>
+<p>Earlier on we used the SharedPreference to store data using key-value pairs. Android supports PreferfenceActivity and PreferenceFragment to edit and store preferences. It is easy to create a hierarchy of preferences (that can be shown on multiple screens) via XML. The example we discuss below does 90% of the work in XML and very little code. When the user interacts with the fragment there is no code needed to create dialogs or new screens to handle input from the user or storage. This is a simple and powerful way to handle system preferences.</p>
+<p>PreferenceFragment contains a hierarchy of preference objects as lists. These preferences will automatically save to SharedPreferences (which we discussed earlier in the course) as the user interacts with them.</p>
+<p>To retrieve an instance of SharedPreferences that the preference hierarchy in this fragment will use, call PreferenceManager.getDefaultSharedPreferences(android.content.Context) with a context in the same package as this fragment.</p>
+<div class="figure">
+<img src="images/frag1.png" />
+</div>
+<h2 id="preference-hierarchy-specified-in-an-xml">Preference hierarchy specified in an XML</h2>
+<p>The preference.xml file is set up in &quot;res/xml&quot;. How is this file created. You should just set up a new folder call it xml and the create preference.xml and save it there.</p>
+<p>There are a large number of example preferences shown in the preference.xml example. First not that you have to create a <PreferenceScreen> to specifying the hierarchy. The PreferenceScreen object should be at the top of the preference hierarchy. As you an see from the xml and running the example that another PreferenceScreen in the hierarchy denote a screen break--that is the preferences contained within subsequent PreferenceScreen should be shown on another screen. If you tap any of the preferences you will go to a dialog or new screen. This is determined by the type of preference object that is specified; for example:</p>
+<ul>
+<li>edit text preference will launch a dialog to enter text;</li>
+<li>screen preferences will launch a new screen for input.</li>
+</ul>
+<p>The preference framework handles showing these other screens from the preference hierarchy.</p>
+<p>This PreferenceScreen tag serves as a screen break (similar to page break in word processing). Like for other preference types, we assign a <code>key</code> (e.g., android:key=&quot;checkbox_preference&quot;) here so it is able to save and restore its instance state.</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;?xml version=<span class="st">&quot;1.0&quot;</span> encoding=<span class="st">&quot;utf-8&quot;</span>?&gt;
+&lt;PreferenceScreen xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span> &gt;
+    
+    &lt;PreferenceCategory
+            android:title=<span class="st">&quot;@string/inline_preferences&quot;</span>&gt;
+            
+        &lt;CheckBoxPreference
+                android:key=<span class="st">&quot;checkbox_preference&quot;</span>
+                android:title=<span class="st">&quot;@string/title_checkbox_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_checkbox_preference&quot;</span> /&gt;
+ 
+    &lt;/PreferenceCategory&gt;
+                
+    &lt;PreferenceCategory
+            android:title=<span class="st">&quot;@string/dialog_based_preferences&quot;</span>&gt;
+ 
+        &lt;EditTextPreference
+                android:key=<span class="st">&quot;edittext_preference&quot;</span>
+                android:title=<span class="st">&quot;@string/title_edittext_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_edittext_preference&quot;</span>
+                android:dialogTitle=<span class="st">&quot;@string/dialog_title_edittext_preference&quot;</span> /&gt;
+                
+        &lt;ListPreference
+                android:key=<span class="st">&quot;list_preference&quot;</span>
+                android:title=<span class="st">&quot;@string/title_list_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_list_preference&quot;</span>
+                android:entries=<span class="st">&quot;@array/entries_list_preference&quot;</span>
+                android:entryValues=<span class="st">&quot;@array/entryvalues_list_preference&quot;</span>
+                android:dialogTitle=<span class="st">&quot;@string/dialog_title_list_preference&quot;</span> /&gt;
+ 
+    &lt;/PreferenceCategory&gt;
+ 
+    &lt;PreferenceCategory
+            android:title=<span class="st">&quot;@string/launch_preferences&quot;</span>&gt;
+ 
+        &lt;!-- This PreferenceScreen tag serves as a screen <span class="kw">break</span> (similar to page <span class="kw">break</span>
+            in word processing). Like <span class="kw">for</span> other preference types, we assign a key
+            here so it is able to save and restore its instance state. --&gt;
+        &lt;PreferenceScreen
+                android:key=<span class="st">&quot;screen_preference&quot;</span>
+                android:title=<span class="st">&quot;@string/title_screen_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_screen_preference&quot;</span>&gt;
+                    
+            &lt;CheckBoxPreference
+                    android:key=<span class="st">&quot;next_screen_checkbox_preference&quot;</span>
+                    android:title=<span class="st">&quot;@string/title_next_screen_toggle_preference&quot;</span>
+                    android:summary=<span class="st">&quot;@string/summary_next_screen_toggle_preference&quot;</span> /&gt;
+                
+        &lt;/PreferenceScreen&gt;
+ 
+        &lt;PreferenceScreen
+                android:title=<span class="st">&quot;@string/title_intent_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_intent_preference&quot;</span>&gt;
+ 
+            &lt;intent android:action=<span class="st">&quot;android.intent.action.VIEW&quot;</span>
+                    android:data=<span class="st">&quot;http://www.android.com&quot;</span> /&gt;
+ 
+        &lt;/PreferenceScreen&gt;
+ 
+    &lt;/PreferenceCategory&gt;
+    
+    &lt;PreferenceCategory
+            android:title=<span class="st">&quot;@string/preference_attributes&quot;</span>&gt;
+    
+        &lt;CheckBoxPreference
+                android:key=<span class="st">&quot;parent_checkbox_preference&quot;</span>
+                android:title=<span class="st">&quot;@string/title_parent_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_parent_preference&quot;</span> /&gt;
+ 
+        &lt;!-- The visual style of a child is defined by <span class="kw">this</span> styled theme attribute. --&gt;
+        &lt;CheckBoxPreference
+                android:key=<span class="st">&quot;child_checkbox_preference&quot;</span>
+                android:dependency=<span class="st">&quot;parent_checkbox_preference&quot;</span>
+                android:layout=<span class="st">&quot;?android:attr/preferenceLayoutChild&quot;</span>
+                android:title=<span class="st">&quot;@string/title_child_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_child_preference&quot;</span> /&gt;
+            
+    &lt;/PreferenceCategory&gt;
+    
+&lt;/PreferenceScreen&gt;         </code></pre>
+<p>The class below is a snippet from the XML. Recall <PreferenceScreen> means a new screen will be shown. And in this XML we can see that an Intent is fired and the data past to the browser in this case is the developer.android.com. <strong>The cool think here is you can see how a built-in application -- that is the browser can be called form the MainActivity to to display a webpage</strong>.</p>
+<pre class="sourceCode java"><code class="sourceCode java">  &lt;PreferenceScreen
+                android:title=<span class="st">&quot;@string/title_intent_preference&quot;</span>
+                android:summary=<span class="st">&quot;@string/summary_intent_preference&quot;</span>&gt;
+ 
+            &lt;intent android:action=<span class="st">&quot;android.intent.action.VIEW&quot;</span>
+                    android:data=<span class="st">&quot;http://developer.android.com&quot;</span> /&gt;
+ 
+  &lt;/PreferenceScreen&gt;</code></pre>
+<h2 id="preferencefragment-code">PreferenceFragment code</h2>
+<p>The code is trivial. The launched MainActivity uses the FragmentManager to load the PreferenceFragment into the activities root view. The fragment implementation itself simply populates the preferences when created. Note that the preferences framework takes care of loading the current values out of the app preferences and writing them when changed.</p>
+<p>To inflate from XML, use the addPreferencesFromResource(int). addPreferencesFromResource simply inflates the given XML resource specified in preferences.xml and adds the preference hierarchy to the current preference hierarchy. The root element should be a PreferenceScreen. Subsequent elements can point to actual Preference subclasses. As mentioned above, subsequent PreferenceScreen in the hierarchy will result in the screen break.</p>
+<p>Once the preference fragment is created and the UI inflated the transactions replaces the fragment and commits -- at which point it is drawn on the screen.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+<span class="kw">public</span> <span class="kw">class</span> MainActivity <span class="kw">extends</span> Activity {
+ 
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="co">// Display the fragment as the main content.</span>
+                        FragmentManager mFragmentManager = <span class="fu">getFragmentManager</span>();
+                        FragmentTransaction mFragmentTransaction = mFragmentManager
+                                                .<span class="fu">beginTransaction</span>();
+                        PrefsFragment mPrefsFragment = <span class="kw">new</span> <span class="fu">PrefsFragment</span>();
+                        mFragmentTransaction.<span class="fu">replace</span>(android.<span class="fu">R</span>.<span class="fu">id</span>.<span class="fu">content</span>, mPrefsFragment);
+                        mFragmentTransaction.<span class="fu">commit</span>();
+             
+            }
+ 
+            <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> PrefsFragment <span class="kw">extends</span> PreferenceFragment {
+ 
+                        @Override
+                        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                                    <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                                    <span class="co">// Load the preferences from an XML resource</span>
+                                    <span class="fu">addPreferencesFromResource</span>(R.<span class="fu">xml</span>.<span class="fu">preferences</span>);
+                        }
+            }
+}</code></pre>
+<p>We could replace 5 lines of code with one line.</p>
+<pre class="sourceCode java"><code class="sourceCode java">                        <span class="fu">getFragmentManager</span>().<span class="fu">beginTransaction</span>()
+                                                .<span class="fu">replace</span>(android.<span class="fu">R</span>.<span class="fu">id</span>.<span class="fu">content</span>, <span class="kw">new</span> <span class="fu">PrefsFragment</span>()).<span class="fu">commit</span>();</code></pre>
+</body>
+</html>

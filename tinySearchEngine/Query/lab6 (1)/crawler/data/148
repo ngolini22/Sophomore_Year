@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-compare-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:compare-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert S. Gray, David Kotz, Calvin Newport, Nikita Dubrovsky, Aaron Fiske, Jason Liu, Christopher Masone, Susan McGrath, and Yougu Yuan.
+<b>Outdoor Experimental Comparison of Four Ad Hoc Routing Algorithms</b>.
+Technical Report
+TR2004-511,
+Dartmouth Computer Science,
+2004.
+<p><b>Abstract:</b> Most comparisons of wireless ad hoc routing algorithms involve
+simulated or indoor trial runs, or outdoor runs with only a small number of
+nodes, potentially leading to an incorrect picture of algorithm performance.
+In this paper, we report on the results of an outdoor trial run of four
+different routing algorithms, APRL, AODV, GPSR, and STARA, running on top of
+thirty-three 802.11-enabled laptops moving randomly through an athletic
+field. The laptops generated random traffic according to the traffic patterns
+observed in a prototype application, and ran each routing algorithm for a
+fifteen-minute period over the course of the hour-long trial run. The
+33-laptop experiment represents one of the largest outdoor tests of wireless
+routing algorithms, and three of the algorithms each come from a different
+algorithmic class, providing insight into the behavior of ad hoc routing
+algorithms at larger real-world scales than have been considered so far. In
+addition, we compare the outdoor results with both indoor ("tabletop") and
+simulation results for the same algorithms, examining the differences between
+the indoor results and the outdoor reality. The paper also describes the
+software infrastructure that allowed us to implement the ad hoc routing
+algorithms in a comparable way, and use the same codebase for indoor,
+outdoor, and simulated trial runs.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/gray-compare-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././gray-compare-tr.pdf">PDF</a> (231K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/gray-compare.html">gray:compare</a></b>.</p>
+</BODY>
+</HTML>

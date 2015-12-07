@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-pervasive.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:pervasive</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Solar: An Open Platform for Context-Aware Mobile Applications</b>.
+In
+<i>Proceedings of the First International Conference on Pervasive
+Computing (Short paper)</i>,
+pages 41-47,
+June,
+2002.
+In an informal companion volume of short papers.
+<p><b>Abstract:</b> Emerging pervasive computing technologies transform the way we
+live and work by embedding computation in our surrounding environment. To
+avoid increasing complexity, and allow the user to concentrate on her tasks,
+applications in a pervasive computing environment must automatically adapt to
+their changing  context, including the user state and the physical and
+computational environment in which they run. Solar is a middleware platform
+to help these ``context-aware'' applications aggregate desired context from
+heterogeneous sources and to locate environmental services depending on the
+current context. By moving most of the context computation into the
+infrastructure, Solar allows applications to run on thin mobile clients more
+effectively. By providing an open framework to enable dynamic injection of
+context processing modules, Solar shares these modules across many
+applications, reducing application development cost and network traffic. By
+distributing these modules across network nodes and reconfiguring the
+distribution at runtime, Solar achieves parallelism and online load
+balancing.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-pervasive.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-pervasive.pdf">PDF</a> (85K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/chen-pervasive-tr.html">chen:pervasive-tr</a></b>.</p>
+</BODY>
+</HTML>

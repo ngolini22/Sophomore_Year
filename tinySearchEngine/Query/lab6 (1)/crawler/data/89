@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mare-hns-w.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mare:hns-w</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shrirang Mare, Jacob Sorber, Minho Shin, Cory Cornelius, and David Kotz.
+<b>Adapt-lite: Privacy-aware, secure, and efficient mHealth
+sensing</b>.
+In
+<i>Proceedings of the Workshop on Privacy in the Electronic Society
+(WPES)</i>,
+pages 137-142,
+October,
+2011.
+DOI <a href="http://dx.doi.org/10.1145/2046556.2046574">10.1145/2046556.2046574</a>.
+<p><b>Abstract:</b> As healthcare in many countries faces an aging population and
+rising costs, mobile sensing technologies promise a new opportunity. Using
+mobile health (mHealth) sensing, which uses medical sensors to collect data
+about the patients, and mobile phones to act as a gateway between sensors and
+electronic health record systems, caregivers can continuously monitor the
+patients and deliver better care. Although some work on mHealth sensing has
+addressed security, achieving strong security and privacy for low-power
+sensors remains a challenge. <P> We make three contributions. First, we
+propose Adapt-lite, a set of two techniques that can be applied to existing
+wireless protocols to make them energy efficient without compromising their
+security or privacy properties. The techniques are: adaptive security, which
+dynamically modifies packet overhead; and MAC striping, which makes forgery
+difficult even for small-sized MACs. Second, we apply these techniques to an
+existing wireless protocol, and demonstrate a prototype on a Chronos wrist
+device. Third, we provide security, privacy, and energy analysis of our
+techniques.</p>
+<p><a href="bibtex/mare-hns-w.bib">BibTeX</a></p>
+<p><a target=_top href = "././mare-hns-w.pdf">PDF</a> (432K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/mare-hns-tr.html">mare:hns-tr</a></b>.</p>
+</BODY>
+</HTML>

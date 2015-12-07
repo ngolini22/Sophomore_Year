@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bredin-lottery-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bredin:lottery-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan Bredin, David Kotz, and Daniela Rus.
+<b>Mobile-Agent Planning in a Market-Oriented Environment</b>.
+Technical Report
+PCS-TR99-345,
+Dartmouth Computer Science,
+May,
+1999.
+Revision 1 of May 20, 1999.
+<p><b>Abstract:</b> We propose a method for increasing incentives for sites to host
+arbitrary mobile agents in which mobile agents purchase their computing needs
+from host sites. We present a scalable market-based CPU allocation policy and
+an on-line algorithm that plans a mobile agent's expenditure over a multihop
+ordered itinerary. The algorithm chooses a set of sites at which to execute
+and computational priorities at each site to minimize execution time while
+preserving a prespecified budget constraint. We present simulation results of
+our algorithm to show that our allocation policy and planning algorithm scale
+well as more agents are added to the system.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent</p>
+<p><a href="bibtex/bredin-lottery-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././bredin-lottery-tr.pdf">PDF</a> (457K)</p>
+<p><b>Copyright &#169;&nbsp;1999 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/bredin-lottery.html">bredin:lottery</a></b>.</p>
+</BODY>
+</HTML>

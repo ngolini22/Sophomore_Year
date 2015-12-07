@@ -1,0 +1,41 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-jmobile.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:jmobile</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Robert Gray, Saurab Nog, Daniela Rus, Sumit Chawla, and George Cybenko.
+<b>Agent Tcl: Targeting the Needs of Mobile Computers</b>.
+<i>IEEE Internet Computing</i>,
+1(4):58-67,
+July/August,
+1997.
+DOI <a href="http://dx.doi.org/10.1109/4236.612217">10.1109/4236.612217</a>.
+<p><b>Abstract:</b> Mobile computers have become increasingly popular as users
+discover the benefits of having their electronic work available at all times.
+However, because network conditions vary from connection to connection, using
+Internet resources from a mobile platform is a major challenge. Mobile agents
+are one solution. A mobile agent is an autonomous program that can move from
+machine to machine in a heterogeneous network under its own control. It can
+suspend its execution at any point, transport itself to a new machine, and
+resume execution on the new machine from the point at which it left off. On
+each machine, it interacts with service agents and other resources to
+accomplish its task, returning to its home site with a final result when that
+task is finished. <P> Agent Tcl is a mobile-agent system whose agents can be
+written in Tcl, Java, and Scheme. Agent Tcl has extensive navigation and
+communication services, security mechanisms, and debugging and tracking
+tools. In this article we focus on Agent Tcl's architecture and security
+mechanisms, its RPC system, and its docking system, which lets an agent move
+transparently among mobile computers, regardless of when they are connected
+to the network.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/kotz-jmobile.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-jmobile.pdf">PDF</a> (716K)</p>
+<p><b>Copyright &#169;&nbsp;1997 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>Identical to <b><a href="abstracts/kotz-bmobile.html">kotz:bmobile</a></b>.</p>
+<p>See also earlier version <b><a href="abstracts/gray-mobile.html">gray:mobile</a></b>.</p>
+</BODY>
+</HTML>

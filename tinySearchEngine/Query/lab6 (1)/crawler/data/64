@@ -1,0 +1,269 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture13/lecture13.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Customizing Dialogs with DialogFragment - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-14----customizing-dialogs-with-dialogfragment">Lecture 14 -- Customizing Dialogs with DialogFragment</h1>
+<p>We have looked at dialogs before where a dialog box pops up and floats over the UI (that is, partially obscuring the current UI) in a transparent manner prompting the user for input needed by the program -- e.g., date, time. We use dialogs quite a lot in the MyRuns set of labs. Android supports <a href="http://developer.android.com/reference/android/app/DialogFragment.html">DialogFragment</a>, which is a fragment that displays a dialog window, floating on top of its activity's window. In what follows we show how DialogFragment can be used to construct and customize dialogs. You can use this knowledge for your MyRuns2 lab and future labs.</p>
+<p>Note, because I restructured the course a little this year you need to go back and read about the Dialog handling for the <a href="http://www.cs.dartmouth.edu/~campbell/cs65/lecture14/lecture14.html">camera</a> -- you will need that for the MyRuns2 lab.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Demo project - PreferenceFragment app</li>
+<li>PreferenceFragment</li>
+<li>Preference hierarchy specified in an XML</li>
+<li>PreferenceFragment code</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>The code used in this demo comes form the Android developers site. For more information see: <a href="http://developer.android.com/guide/topics/ui/dialogs.html">dialogs</a></p>
+<p>In addition, checkout the section on <a href="http://commonsware.com/Android/">Dialogs and DialogFragments</a> in the course book.</p>
+<h2 id="checkout-the-demo-project">Checkout the demo project</h2>
+<ul>
+<li>Download the demo the <a href="../code/fragmentalertdialog.zip">fragmentalertdialog.zip</a> app specifically designed to go with these notes.</li>
+</ul>
+<h2 id="dialogs">Dialogs</h2>
+<p>In this lecture, we will first show how the DialogFragment can be extended and customized. When designing MyRuns you should think about how to come up with an implementation that handles all dialogs rather than write code here and there in your source to cover the current dialog at hand -- that is, there are lots of points in the app where dialogs are used so develop code of reuse.</p>
+<p>Android supports three ways to use dialogs:</p>
+<ol style="list-style-type: decimal">
+<li><p>Use the Dialog class and its numerous extensions; such as AlertDialogs, DatePickerDialog. There a large number of canned dialog boxes that you can use depending on the sort of user interaction you need. For your own custom dialogs, you could extend the Dialog base class, as do DatePickerDialog and TimePickerDialog.</p></li>
+<li><p>You can apply the dialog theme directly by the activity giving the feel of a dialog box.</p></li>
+<li><p>Toast.</p></li>
+</ol>
+<p>We initially focus on the first approach of using standard dialog boxes that extend the dialog class. We use DialogFragment and the FragmentManager to control the experience.</p>
+<p>Dialog fragments embed the dialog lifecycle which control the fragment and the rendered Dialog's behavior. DialogFragment contains a Dialog object, which it displays as appropriate based on the fragment's state. Control of the dialog (deciding when to show, hide, dismiss it) should be done through the API here, not with direct calls on the dialog. Implementations should override this class and implement onCreateView(LayoutInflater, ViewGroup, Bundle) to supply the content of the dialog. Alternatively, they can override onCreateDialog(Bundle) to create an entirely custom dialog, such as an AlertDialog, with its own content.</p>
+<h2 id="creating-a-dialog">Creating a Dialog</h2>
+<p>It is straightforward to create a dialog box. A new dialog instantiates a new Dialog instance and sets up the layout -- title, etc. -- using various methods on the class. The ContentView() method uses a resource ID for the layout, which is subsequently used to inflate and display the dialog to the UI, as shown in the code snippet below.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+<span class="co">// Created a new Dialog</span>
+Dialog dialog = <span class="kw">new</span> Dialog(MyActivity.<span class="fu">this</span>);
+ 
+<span class="co">// Set the title</span>
+dialog.<span class="fu">setTitle</span>(<span class="st">&quot;Dialog Title&quot;</span>);
+ 
+<span class="co">// inflate the layout</span>
+dialog.<span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">dialog_view</span>);
+ 
+<span class="co">// Set the dialog text -- this is better done in the XML</span>
+TextView text = (TextView)dialog.<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">dialog_text_view</span>);
+text.<span class="fu">setText</span>(<span class="st">&quot;This is the text that does in the dialog box&quot;</span>);
+ 
+<span class="co">// Display the dialog</span>
+dialog.<span class="fu">show</span>();
+ </code></pre>
+<h2 id="alert-dialog">Alert Dialog</h2>
+<p>One common dialog box used fairly widely is the alert dialog. Let's discuss that. AlertDialog can be used to construct a common set of use cases:</p>
+<ol style="list-style-type: decimal">
+<li>Asking the user for input with a number of buttons (OK, cancel, save, etc.).</li>
+<li>Presenting a list of options using check boxes or radio buttons</li>
+<li>Presenting a text entry box for user input.</li>
+</ol>
+<p>AlertDialog is used in conjunction with the AlertDialog.Builder, a builder class used to construct a custom dialog using a -- a long -- single Java statement. You can use the builder rather than creating a new custom class every time you want to use some variant on the base alert dialog class.</p>
+<p>To construct an alert dialog box you need to first create a new AlertDialog.Builder object</p>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+AlertDialog.<span class="fu">Builder</span> ad = <span class="kw">new</span> AlerDialog.<span class="fu">Builder</span>(context);
+ </code></pre>
+<p>Once done you can then set up the various parts of the dialog as discussed above -- title, assign buttons programmatically, text to be displayed, and importantly, <em>event listeners</em> to handle user interaction such as text input, touching buttons, making a selection.</p>
+<p>In the simple code example below [taken from Meier] we configure a dialog box. We create and build an alert dialog, set up various options define two buttons, event listeners. The code is self-explanatory.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">private</span> <span class="dt">void</span> <span class="fu">displayAlertDialog</span>() {
+ 
+    Context context = MyActivity.<span class="fu">this</span>;
+    String title = <span class="st">&quot;It is Pitch Black&quot;</span>;
+    String message = <span class="st">&quot;You are likely to be eaten by a Grue.&quot;</span>;
+    String button1String = <span class="st">&quot;Go Back&quot;</span>;
+    String button2String = <span class="st">&quot;Move Forward&quot;</span>;
+ 
+     AlertDialog.<span class="fu">Builder</span> ad = <span class="kw">new</span> AlertDialog.<span class="fu">Builder</span>(context);
+         ad.<span class="fu">setTitle</span>(title);
+         ad.<span class="fu">setMessage</span>(message);
+ 
+    ad.<span class="fu">setPositiveButton</span>(
+    button1String,
+    <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog, <span class="dt">int</span> arg1) {
+          <span class="fu">eatenByGrue</span>();
+        }
+    }
+    );
+ 
+    ad.<span class="fu">setNegativeButton</span>(
+    button2String,
+    <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>(){
+        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog, <span class="dt">int</span> arg1) {
+        <span class="co">// do nothing</span>
+        }
+    }
+    );
+ 
+    <span class="co">//</span>
+    ad.<span class="fu">show</span>();
+  }</code></pre>
+<h2 id="using-dialog-fragments">Using Dialog Fragments</h2>
+<p>We will use fragments to build, display and interact with the user.</p>
+<p>We are going to use DialogFragment to build and display the dialog shown below. It shows the first presentation of the dialog and the when the user touches the button it displays the custom dialog box and waits to handle user interaction.</p>
+<div class="figure">
+<img src="images/dialog.png" />
+</div>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> FragmentDialogAlarmActivity <span class="kw">extends</span> Activity {
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">activity_fragment_dialog_alarm</span>);
+
+        View tv = <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">text</span>);
+        ((TextView) tv)
+                .<span class="fu">setText</span>(<span class="st">&quot;Example of displaying an alert dialog with a DialogFragment&quot;</span>);
+
+        <span class="co">// Watch for button clicks.</span>
+        Button button = (Button) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">show</span>);
+        button.<span class="fu">setOnClickListener</span>(<span class="kw">new</span> <span class="fu">OnClickListener</span>() {
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(View v) {
+                <span class="fu">showDialog</span>();
+            }
+        });
+    }
+
+    <span class="dt">void</span> <span class="fu">showDialog</span>() {
+        DialogFragment newFragment = MyAlertDialogFragment
+                .<span class="fu">newInstance</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_two_buttons_title</span>);
+        newFragment.<span class="fu">show</span>(<span class="fu">getFragmentManager</span>(), <span class="st">&quot;dialog&quot;</span>);
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">doPositiveClick</span>() {
+        <span class="co">// Do stuff here.</span>
+        Log.<span class="fu">i</span>(<span class="st">&quot;FragmentAlertDialog&quot;</span>, <span class="st">&quot;Positive click!&quot;</span>);
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">doNegativeClick</span>() {
+        <span class="co">// Do stuff here.</span>
+        Log.<span class="fu">i</span>(<span class="st">&quot;FragmentAlertDialog&quot;</span>, <span class="st">&quot;Negative click!&quot;</span>);
+    }
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> MyAlertDialogFragment <span class="kw">extends</span> DialogFragment {
+
+        <span class="kw">public</span> <span class="dt">static</span> MyAlertDialogFragment <span class="fu">newInstance</span>(<span class="dt">int</span> title) {
+            MyAlertDialogFragment frag = <span class="kw">new</span> <span class="fu">MyAlertDialogFragment</span>();
+            Bundle args = <span class="kw">new</span> <span class="fu">Bundle</span>();
+            args.<span class="fu">putInt</span>(<span class="st">&quot;title&quot;</span>, title);
+            frag.<span class="fu">setArguments</span>(args);
+            <span class="kw">return</span> frag;
+        }
+
+        @Override
+        <span class="kw">public</span> Dialog <span class="fu">onCreateDialog</span>(Bundle savedInstanceState) {
+            <span class="dt">int</span> title = <span class="fu">getArguments</span>().<span class="fu">getInt</span>(<span class="st">&quot;title&quot;</span>);
+
+            <span class="kw">return</span> <span class="kw">new</span> AlertDialog.<span class="fu">Builder</span>(<span class="fu">getActivity</span>())
+                    .<span class="fu">setIcon</span>(R.<span class="fu">drawable</span>.<span class="fu">alert_dialog_dart_icon</span>)
+                    .<span class="fu">setTitle</span>(title)
+                    .<span class="fu">setPositiveButton</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_ok</span>,
+                            <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog,
+                                        <span class="dt">int</span> whichButton) {
+                                    ((FragmentDialogAlarmActivity) <span class="fu">getActivity</span>())
+                                            .<span class="fu">doPositiveClick</span>();
+                                }
+                            })
+                    .<span class="fu">setNegativeButton</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_cancel</span>,
+                            <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog,
+                                        <span class="dt">int</span> whichButton) {
+                                    ((FragmentDialogAlarmActivity) <span class="fu">getActivity</span>())
+                                            .<span class="fu">doNegativeClick</span>();
+                                }
+                            }).<span class="fu">create</span>();
+        }
+    }
+
+}</code></pre>
+<p>This one very long line of code that it is hard to get your head around the first time you see it. Do not worry. Consider it a template you fill in when you need to create and set up a new dialog.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="kw">return</span> <span class="kw">new</span> AlertDialog.<span class="fu">Builder</span>(<span class="fu">getActivity</span>())
+                    .<span class="fu">setIcon</span>(R.<span class="fu">drawable</span>.<span class="fu">alert_dialog_dart_icon</span>)
+                    .<span class="fu">setTitle</span>(title)
+                    .<span class="fu">setPositiveButton</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_ok</span>,
+                            <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog,
+                                        <span class="dt">int</span> whichButton) {
+                                    ((FragmentDialogAlarmActivity) <span class="fu">getActivity</span>())
+                                            .<span class="fu">doPositiveClick</span>();
+                                }
+                            })
+                    .<span class="fu">setNegativeButton</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_cancel</span>,
+                            <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog,
+                                        <span class="dt">int</span> whichButton) {
+                                    ((FragmentDialogAlarmActivity) <span class="fu">getActivity</span>())
+                                            .<span class="fu">doNegativeClick</span>();
+                                }
+                            }).<span class="fu">create</span>();</code></pre>
+<p>The convoluted line could be rewritten as multiple times for simplicity of reading</p>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+AlertDialog.<span class="fu">Builder</span> myDialog =<span class="kw">new</span> AlertDialog.<span class="fu">Builder</span>(<span class="fu">getActivity</span>());
+ 
+<span class="co">// Set icon and title</span>
+myDialog.<span class="fu">setIcon</span>(R.<span class="fu">drawable</span>.<span class="fu">alert_dialog_dart_icon</span>);
+myDialog.<span class="fu">setTitle</span>(title);
+ 
+<span class="co">// set up buttons</span>
+myDialog.<span class="fu">setPositiveButton</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_ok</span>,
+            <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog,
+                        <span class="dt">int</span> whichButton) {
+                    ((FragmentDialogAlarmActivity) <span class="fu">getActivity</span>())
+                                    .<span class="fu">doPositiveClick</span>();
+                }
+        });
+myDialog.<span class="fu">setNegativeButton</span>(R.<span class="fu">string</span>.<span class="fu">alert_dialog_cancel</span>,
+             <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog,
+                        <span class="dt">int</span> whichButton) {
+                    ((FragmentDialogAlarmActivity) <span class="fu">getActivity</span>())
+                                    .<span class="fu">doNegativeClick</span>();
+                    }
+        });
+ 
+<span class="co">// return the created Dialog</span>
+ 
+<span class="kw">return</span> myDialog.<span class="fu">create</span>();
+ </code></pre>
+</body>
+</html>

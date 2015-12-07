@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-naming.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:naming</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Context-Sensitive Resource Discovery</b>.
+In
+<i>Proceedings of the First IEEE International Conference on
+Pervasive Computing and Communications (PerCom)</i>,
+pages 243-252,
+March,
+2003.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/PERCOM.2003.1192747">10.1109/PERCOM.2003.1192747</a>.
+<p><b>Abstract:</b> This paper presents the ``Solar'' system framework that allows
+resources to advertise context-sensitive names and for applications to make
+context-sensitive name queries. The heart of our framework is a small
+specification language that allows composition of ``context-processing
+operators'' to calculate the desired context. Resources use the framework to
+register and applications use the framework to lookup context-sensitive name
+descriptions. The back-end system executes these operators and constantly
+updates the context values, adjusting advertised names and informing
+applications about changes. We report experimental results from a prototype,
+using a modified version of the Intentional Naming System (INS) as the core
+directory service.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-naming.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-naming.pdf">PDF</a> (228K)</p>
+<p><b>Copyright &#169;&nbsp;2003 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

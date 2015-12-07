@@ -1,0 +1,160 @@
+http://www.cs.dartmouth.edu/%7Epway
+3
+<html>
+1<head>
+<title>Reality Heding: Understanding Financial Market Dynamics with Truth from Big Social and Behavior Data</title>
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="Reality Hedging, Big Data, Financial Dynamics, Financial Markets, Trading, Hedge Fund, 潘巍,麻省理工,媒体实验室,计算社会学,人类动力,社交网络, 机器学习,社交媒体,专家,Wei Pan, MIT, Media Lab, Human Dynamics, Social networks, Red Balloon,找气球, social media,expert,博士,专家,数据分析,数据挖掘,清华大学,Dartmouth College, Artificial Social Intelligence, Connective Finance" />
+
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+
+
+<body>
+<div id="container">
+  <div id="intro">
+    <div id="pageHeader">
+    </div>
+
+    <div class="ctr" align="center">
+      <table align="center">
+	<tr>
+	  <td>
+	    <img src="panwei5.png" height="200px" alt="weipan4.jpg"> </img>
+	  </td>
+	  <td>
+	    <h2> Wei Pan (潘巍) </h2>
+	    panwei --@AT@-- media.mit.edu
+	    <br>
+	    E15-388
+	    <br>
+	    20 Ames St
+	    <br>
+	    Cambridge, MA 02139
+	    <br>
+<!--	    <object type="application/x-shockwave-flash" data="https://clients4.google.com/voice/embed/webCallButton" width="230" height="85"><param name="movie" value="https://clients4.google.com/voice/embed/webCallButton" /><param name="wmode" value="transparent" /><param name="FlashVars" value="id=e929a6da7f9b47e68bd414a7276480107f5224bf&style=0" /></object> -->
+	  </td>
+	  <td>
+	    <!--<img src="weipan1.jpg" width=100px, alt="anotherpic"> </img>
+	      -->
+	  </td>
+	</tr>
+      </table>
+    </div>
+    <div id="preamble">
+      <h3><span>Reality Hedging: Big Data for Finance </span></h3>
+      <p class="p1"><span>I am in the <a href="http://hd.media.mit.edu">Human Dynamics Group</a> of MIT Media Lab led by my advisor <a href="http://web.media.mit.edu/~sandy">Sandy Pentland</a>. Currently I am on leave from MIT to do a startup focusing on big-data driven finance.
+
+<P>
+My expertise and past experiences are related to big data, 
+machine learning, social dynamics, complex systems, large-scale mobile sensing and overall the understanding of 
+economics and crowds behavior using quantitative approaches. I now apply these ideas to financial markets and macro economics. 
+<p>
+My approach and this new field, known as "Reality Hedging", tries to understand financial markets dynamics and macro economics 
+through the better understanding and models of social systems, big data measurements of people and crowd, and complex systems.
+Currently I work on two problems: a) how can we model financial market price dynamics with collective human behavior and social
+interaction, and b) how can we better measure real global macro economics using big data.
+
+</span>
+    </div>
+  </div>
+  
+    <div id="supportingText">
+      
+      <div id="news">
+	<h2><span>News</span></h2>
+	<img src="news.png" height=30px alt"*" />June 2013: My new article on high frequency trading is published in MIT Sloan Management Review. See <a href="http://sloanreview.mit.edu/article/can-high-frequency-trading-drive-the-stock-market-off-a-cliff/">here</a>. It will be shown up in the Summer 2013 issue as well.
+	<br>
+
+	<img src="news.png" height=30px alt="*" />June 2013: Our city paper received some good media coverage. See The Economist report <a href="http://www.economist.com/blogs/babbage/2013/06/urbanisation">here</a> and The Atlantic Cities report <a href="http://www.theatlanticcities.com/jobs-and-economy/2013/06/secret-why-cities-are-centers-innovation/5819/">here</a>. This work is also part of the new MIT Media Lab <a href="http://cities.media.mit.edu">City Science Initiative</a> focusing on building the great future cities.
+	<br>
+
+	<img src="news.png" height=30px alt="*" />June 2013: New paper on what makes cities greater is published in Nature Communication. Please read the paper <a href="http://www.nature.com/ncomms/2013/130604/ncomms2961/full/ncomms2961.html">here</a> and check out the MIT news report <a href="http://web.mit.edu/newsoffice/2013/why-innovation-thrives-in-cities-0604.html">here</a>. An earlier version of this work won the Best Student Talk at NetSci 2012.
+	<br>
+
+	<img src="news.png" height=30px alt="*" />September 2012: Presenting new work on how social network dynamics affect traders' decisions in financial markets in SocialCom 2012. Please read the paper <a href="pub/socialcom12.pdf">here</a>.
+	<br>
+
+      </div>
+      <div id="China Initiative">
+	<h2><span>China Initiative</span></h2>
+	<span>I am the co-founder and president of the MIT Media Lab <a href="http://china.media.mit.edu">China Initiative</a>. We are passionate in bringing
+	    new innovations in China and reaching respected Chinese companies for MIT Media Lab partnership. I wrote this <a href=http://moria.media.mit.edu/blog/?p=16>blog post</a> when we started this in 2010. For the past two years, we received overwhelming support from our Chinese partners and business leaders in China. We thank you all for the support.
+	  </span>
+      </div>
+
+      <div id="Past Research Software">
+	<h2><span>Historical Research Software</span></h2>
+	<br>
+	2011: Funf Open Sensing Platform. Click <a href="http://funf.media.mit.edu">here</a>. See <a href="http://web.mit.edu/newsoffice/2011/phone-sensor-programming-1005.html">MIT News</a> for detail.
+	<br>
+	2009: Hierachical Model for Human Locomotion, click <a href="http://www.cs.dartmouth.edu/~lorenzo/hlm/index.html">here</a>.
+	<br>
+	2008: Optimal Tuning Systems (see my ICMC'08 paper), click <a href="owt/">here</a>.
+	<br>
+</div>
+      <div id="footer">
+	
+Last update: June 2012. 
+<br/>
+My PGP key is here: <a href="/gpgkey.txt">gpgkey.txt</a>
+<br />
+No material on this website should be used for commercial purpose.       </div>
+    </div>
+  
+                                                                                                                                                                                                                                                                                                                                                                                    
+    <div id="linkList">
+      <div id="linkList2">
+	<div id="lselect">
+	  <ul>
+	    <li><a href="index.php">Home</a></li>
+	    <li><a href="news.php">News Archive</a></li>
+	    <li><a href="publication.php">Publication</a></li>
+            <li><a href="http://www.linkedin.com/in/panweipway">
+      
+          <img src="http://www.linkedin.com/img/webpromo/btn_profile_greytxt_80x15.png" width="80" height="15" border="0" alt="View Wei Pan's profile on LinkedIn">
+        
+    </a></li>
+	  </ul>
+	</div>
+	<div id="larchives">
+	  <ul>
+	    <li><a href="cv.pdf">C. V.</a></li>    
+	    </ul>
+	</div>
+	<div id="larchives">
+	  <ul>
+	    <li><img src="pic/forbes.jpg" width=60><a href="http://www.forbeschina.com/review/201307/0026833.shtml">Big Data and Urban Investments (in Chinese)</a> </li>
+            <li><img src="pic/sloan.jpg" width=60 /><a href="http://sloanreview.mit.edu/article/can-high-frequency-trading-drive-the-stock-market-off-a-cliff/">Can High-Frequency Trading Drive the Stock Market Off a Cliff?</a>
+            <li><img src="pic/economist.jpg" width=60 /><a href="http://www.economist.com/blogs/babbage/2013/06/urbanisation">The city triumphs, again</a>
+            <li><img src="pic/science.gif" width=60 /><a href="http://www.sciencemag.org/content/334/6055/509.full">Time Critical Social Mobilization</a>
+	    <li><img src="pic/funf.png" width=60 /><a href="http://web.mit.edu/newsoffice/2011/phone-sensor-programming-1005.html">Funf Mobile Phone Sensing</a></li>
+            <li><img src="pic/newscientist.jpg" width=60 /><a href="http://www.newscientist.com/article/mg21128195.600-mining-social-networks-to-predict-your-app-choices.html">Mobile Social Networks Predicting App Choices</a></li>
+	    <li><img src="pic/techreview.PNG" width=60 /><a href="http://www.technologyreview.com/blog/arxiv/25712/">Understanding Influence</a></li>
+	    <li><img src="pic/popsci.png" width=60 /><a href="http://www.scientificamerican.com/article.cfm?id=darpa-network-challenge-results">DARPA Network Challenge and Crowdsourcing</a></li>
+	    <li><img src="pic/ieee.png" width=30 /a> <img src=pic/acm.png width=30 /a> Works on Mobile Sensing Featured in <a href="http://www.cs.rice.edu/~dbj/pubs/sigmobile-report2009.pdf">ACM Annual Report</a><a href=http://www.google.com/url?sa=t&source=web&cd=1&ved=0CBYQFjAA&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F7742%2F5281242%2F05281247.pdf%3Farnumber%3D5281247&ei=UnXZTcX9MciWtwf_g_HoDg&usg=AFQjCNGwW99FV6_PGb6ydINIoWfXj5PfGw&sig2=y4nSgRzWN1kvl85AvR3Z5A>IEEE News</a></li>
+	  
+	    <li><img src="pic/sanlian.png" width=70 /><a href="pub/san_lian.pdf"> Finding Balloons and Social Marketing (in Chinese) </a></li>
+	  
+<!--	    <li><img src="pic/scinet.png" width=60 /a> <a href="http://www.sciencenet.cn/htmlnews/200811721627545199617.html">Undergraduate Research Published in Leading Journal</a></li> -->
+	  </ul>
+	  
+
+      </div>
+    </div>
+   </div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-13246236-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

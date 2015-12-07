@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-jmodel.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:jmodel</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, George Cybenko, Robert S. Gray, Guofei Jiang, Ronald A. Peterson, Martin O. Hofmann, Daria A. Chac&oacute;n, Kenneth R. Whitebread, and James Hendler.
+<b>Performance Analysis of Mobile Agents for Filtering Data Streams on
+Wireless Networks</b>.
+<i>Mobile Networks and Applications (MONET)</i>,
+7(2):163-174,
+April,
+2002.
+Invited paper.
+DOI <a href="http://dx.doi.org/10.1145/506882.506889">10.1145/506882.506889</a>.
+<p><b>Abstract:</b> Wireless networks are an ideal environment for mobile agents,
+since their mobility allows them to move across an unreliable link to reside
+on a wired host, next to or closer to the resources that they need to use.
+Furthermore, client-specific data transformations can be moved across the
+wireless link and run on a wired gateway server, reducing bandwidth demands.
+In this paper we examine the tradeoffs faced when deciding whether to use
+mobile agents in a data-filtering application where numerous wireless clients
+filter information from a large data stream arriving across the wired
+network. We develop an analytical model and use parameters from filtering
+experiments conducted during a U.S. Navy Fleet Battle Experiment (FBE) to
+explore the model's implications.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, wireless, network</p>
+<p><a href="bibtex/kotz-jmodel.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-jmodel.pdf">PDF</a> (242K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by Kluwer Academic Publishers.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-model-tr2.html">kotz:model-tr2</a></b>.</p>
+</BODY>
+</HTML>

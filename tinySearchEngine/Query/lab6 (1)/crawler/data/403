@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-solar.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:solar</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>SOLAR: Towards a Flexible and Scalable Data-Fusion Infrastructure
+for Ubiquitous Computing</b>.
+In
+<i>UbiTools workshop at UbiComp 2001</i>,
+October,
+2001.
+<p><b>Abstract:</b> As we embed more computers into our daily environment, ubiquitous
+computing promises to make them less noticeable and to avoid information
+overload. We see, however, few ubiquitous applications that are able to adapt
+to the dynamics of user, physical, and computational context. The challenge
+is to allow applications flexible access to these sources, and yet scale to
+thousands of devices and sensors. In this paper we introduce our proposed
+infrastructure, Solar. In Solar, information sources produce events.
+Applications may subscribe to interesting sources directly, or they may
+instantiate and subscribe to a tree of operators that filter, transform,
+merge and aggregate events. Applications use a subscription language to
+describe the tree, based on event streams registered in a context-sensitive
+naming hierarchy. Solar is flexible: modular operators can be composed to
+produce new event streams. Solar is scalable: it distributes operators across
+hosts called Planets, and it re-uses common subgraphs in the operator
+network.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-solar.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-solar.pdf">PDF</a> (140K)</p>
+<p><b>Copyright &#169;&nbsp;2001 by the authors.</b></p>
+</BODY>
+</HTML>

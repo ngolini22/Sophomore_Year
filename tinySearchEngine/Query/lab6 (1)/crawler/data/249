@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/murthy-bp.html
+3
+<HTML>
+<HEAD>
+ <TITLE>murthy:bp</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Rima Murthy and David Kotz.
+<b>Assessing blood-pressure measurement in tablet-based mHealth
+apps</b>.
+In
+<i>Workshop on Networked Healthcare Technology (NetHealth)</i>,
+pages 1-5,
+January,
+2014.
+IEEE Press.
+DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2014.6734920">10.1109/COMSNETS.2014.6734920</a>.
+<p><b>Abstract:</b> We propose a new method to record contextual information
+associated with a blood-pressure reading using a tablet's touchscreen and
+accelerometer. This contextual information can be used to verify that a
+patient's lower arm remained well-supported and stationary during her
+blood-pressure measurement. We found that a binary support vector machine
+classifier could be used to distinguish different types of lower-arm
+movements from stationary arms with 90\% accuracy overall. Predetermined
+thresholds for the accelerometer readings suffice to determine whether the
+tablet, and therefore the arm that rested on it, remained supported.
+Together, these two methods can allow mHealth applications to guide untrained
+patients (or health workers) in measuring blood pressure correctly.</p>
+<p><a href="bibtex/murthy-bp.bib">BibTeX</a></p>
+<p><a target=_top href = "././murthy-bp.pdf">PDF</a> (549K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

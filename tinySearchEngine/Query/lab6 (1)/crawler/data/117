@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nieuwejaar-strided.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nieuwejaar:strided</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Nils Nieuwejaar and David Kotz.
+<b>A Multiprocessor Extension to the Conventional File System
+Interface</b>.
+Technical Report
+PCS-TR94-230,
+Dartmouth Computer Science,
+September,
+1994.
+<p><b>Abstract:</b> As the I/O needs of parallel scientific applications increase,
+file systems for multiprocessors are being designed to provide applications
+with parallel access to multiple disks. Many parallel file systems present
+applications with a conventional Unix-like interface that allows the
+application to access multiple disks transparently. By tracing all the
+activity of a parallel file system in a production, scientific computing
+environment, we show that many applications exhibit highly regular, but
+non-consecutive I/O access patterns. Since the conventional interface does
+not provide an efficient method of describing these patterns, we present an
+extension which supports  strided and  nested-strided I/O
+requests.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/nieuwejaar-strided.bib">BibTeX</a></p>
+<p><a target=_top href = "././nieuwejaar-strided.pdf">PDF</a> (252K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/nieuwejaar-strided2-tr.html">nieuwejaar:strided2-tr</a></b>.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,164 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture22/lecture22.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Collector and Weka - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-21---activity-recognition">Lecture 21 - Activity Recognition</h1>
+<p>In this lecture, we will discuss the <em>training phase</em> of activity recognition; the complete machine learning task of building a classification system that can automatically infer your activity (e.g., standing, walking, running) breaks down into two sequential phases:</p>
+<ul>
+<li>First, the <strong>training phase</strong> where we collect data using the <em>MyRuns data collector</em> (which you are given) and label the data (e.g., walking) and then feed the resulting sensor data into <a href="http://www.cs.waikato.ac.nz/ml/weka/">WEKA</a>(Waikato Environment for Knowledge Analysis -- a very cool machine learning tool); which, in turn produces a classifier (called the <em>WekaClassifier java class</em> in our MyRuns5) that we embedded in our MyRuns5 to form a component in what is called the activity recognition &quot;classification pipeline. Technically, this technique is called &quot;supervised learning&quot; in machine learning (ML) parlance.</li>
+<li>Second, the <strong>classification or inference phase</strong> where we embed the WekaClassifier produced by WEKA into our MyRuns5 project in a file called <strong>WekaClassifier.java</strong> -- this forms one component of the classification pipeline that runs as part of your application. Other parts of the pipeline are as follows (include the WekaClassifier):</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>reading the x, y, z sensor data from the SensorManager;</li>
+<li>computing the magnitude from a single x, y, z reading;</li>
+<li>computing the FFT coefficient of the magnitude - this is called a <strong>feature</strong>;</li>
+<li>segmenting features into batches of 64 features in a buffer -- this is called the <strong>feature vector</strong>;</li>
+<li>adding the maximum value of the magnitude across all 64 individual magnitudes to the feature vector; and</li>
+<li>calling the WekaClassifier inputting the feature vector -- this is called the classification phase and produces an inference (e.g. walking).</li>
+</ol>
+<p>In what follows, we only discuss the <em>training phase</em> where we collect data and create a classification model. I will show how to collect activity data using MyRuns Data Collector and teach you how to play with Weka GUI to train your own classifier.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Training phase workflow</li>
+<li>Data collector</li>
+<li>WEKA overview</li>
+</ul>
+<h2 id="an-overview-of-training-workflow-steps">An overview of training workflow steps</h2>
+<p>The training phase is illustrated in the figure below -- don't panic: we do not expect you to write low-level signal processing functions such as compute the FFT -- we give out code to do that. The training phase boils down to the following steps at a high level:</p>
+<ol style="list-style-type: decimal">
+<li>Install <a href="http://www.cs.waikato.ac.nz/ml/weka/">WEKA</a> on your computer</li>
+<li>Import the <a href="http://www.cs.dartmouth.edu/~campbell/cs65/code/myrunsdatacollector.zip">myrunsdatacollector.zip</a> into Android Studio and load it on to your phone.</li>
+<li>Use the collector to collect your data -- standing, walking, running (you can do other classes to -- by the way the term classes also means activity, the running class, walking class -- we simply say classes to mean, in a general sense, all activities; activities == classes. Your data will be saved in a file on your phone called <strong>features.arff</strong> -- it's a critic name hey. This is used as an input file to WEKA</li>
+<li>Use the file explorer in Android Device Monitor to upload the features.arff file and store it in any folder on your computer (you can use any text editor to view the data -- as you see it is all the samples and labels, a label is for example when you tell the collector this is walking).</li>
+<li>Double click on the features.arff file. This will start WEKA assuming you have installed it correctly.</li>
+<li>Create a decision tree J48 classifier from the features.arff data</li>
+<li>Cut and paste the class WekaClassifier into the WekaClassifier.java file in your MyRuns5 project. Make sure you only cut and paste the WekaClassifier class and not all the other information provided by WEKA. You will see what I mean when you get to that part.</li>
+</ol>
+<p><strong>Important</strong>. When you collect and label activities -- like walking, running -- make sure that you walk, run, etc. for a least 3 minutes for each activity. By doing this you will have more data for each activity class and a better classifier -- WekaClassifier. Makes sense right? The more data the less confused the classifier will be. If you only have a little data it will confuse classes -- standing with walking, walking with running. It is true the classifiers do get confused and that is OK. But the more data the less they get confused. You might collect less than 3 minutes per class when you are debugging but for your final polished product the more data the better. And there is nothing stopping your re-creating the classifier and just popping it into WekaClassifier.java.</p>
+<h2 id="training-workflow-diagram-explained">Training workflow diagram explained</h2>
+<p>Let’s discuss this diagram in a little more. Note, there is a lot of code reuse between coding the collector (which used for training phase) and the classification phase which supports by MyRuns automatic mode. But for the training phase you do not have to write code -- as indicated in the steps above.</p>
+<p>In the training phase a method called onSensorChanged() produces sensor samples (x, y, z) in a time series (each time onSensorChanged is called), which computes m (magnitude) from the sensor samples. The workflow buffers up 64 consecutive magnitudes (m0..m63) before computing the FFT for each of the magnitudes (f0..f63) – each of these features is called an FFT coefficient; e.g., f0 and f63 are the low and highest frequency coefficients, as shown in the diagram.</p>
+<p>As shown in the upper left of the diagram, FFT transforms a time series of amplitude over time to magnitude (some representation of amplitude) across frequency; the example shows some oscillating system where the dominant frequency is between 4-8 cycles/second called Hertz (H) – imagine a ball attached to an elastic band that this stretched and oscillates for a short period of time, or your gait while walking, running -- one could look at these systems in the time and frequency domains. The x,y,z accelerometer readings and the magnitude are time domain variables. We transform these time domain data into the frequency domain because the can represent the distribution in a nice compact manner that the classifier will use to build a decision tree model. For example, the rate of the amplitude transposed to the frequency domain may look something like the figure bottom plot -- the top plot is time domain and the bottom plot a transformation of the time to the frequency domain. Cool hey.</p>
+<p>The training phase also stores the maximum (MAX) magnitude of the (m0..m63) and the user supplied label (e.g., walking) using the collector. The individual features are computed magnitudes (f0..f63) and MAX magnitude and label are added: collectively, we call these features the feature vector and again it comprises:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="fu">magnitudes</span> (f0..<span class="fu">f63</span>), MAX magnitude, label. </code></pre>
+<p>Because the user can collect a small or larger amount of data, the size of the feature vector will vary (and the size and complexity of the generated WekaClassifier class will change). The longer you collect data the more feature vectors accumulated. Once the user has stopped collecting training data using the collector tool -- we move to WEKA to carry on the workflow. The output of the collector is features.arff and this file is the input to the WEKA tool. Get it? You need to make sure you install WEKA to keep moving onto the next step in the workflow.</p>
+<div class="figure">
+<img src="images/Diagram.png" />
+</div>
+<p>To complete the training phase we run Weka GUI to generate the classifier. The creation of the classifier is the completion of the training phase. As mentioned before we add the generated WekaClassifier to the WekaClassifier.java file in your MyRuns5 project.</p>
+<h2 id="classification-pipeline">Classification pipeline</h2>
+<p>While we focus on the training phase in this lecture the diagram also shows the classification phase. MyRuns uses exactly the same workflow of the training phase in terms of computing the feature vectors (sampling x,y,z, computing the magnitudes – and MAX – and FFT coefficients) but this time there is no user supplied label as in the collector. The classification phase does not need the user to supply a label because it has trained a model (WekaClassifier) that can infer the label (e.g., walking) from the feature vectors. The pipeline of computing the feature vectors is simply shown in the diagram as <em>new samples to be classified</em> that is fed into the <em>Classifier</em> (WekaClassifier) – the result is a label (e.g., running). So in the classification phase our running MyRuns5 app sets the accelerometer data (x, y, z) computes the feature vector and passes that to the classifier WekaClassifier, and as a result your phone can now automatically infer what you are doing!</p>
+<h2 id="myruns-data-collector">MyRuns Data Collector</h2>
+<p>We now discuss the project design for the collector. As shown below the collector consists of the CollectorActivity, Globals (data) and SensorService. The project also shows the FFT.java and the Weka.jar. Again, we give you the source code for the collector and much of the processing used during the real-time classification can be also see here in the collector which is used as part of off-line training phase.</p>
+<div class="figure">
+<img src="images/ProjectExplorer.png" />
+</div>
+<p>The goal of the collector is to collect sensor data for four different activity classes (viz. standing, walking, running, others). As I demoed in class you need to collect data for the at least three of the classes (viz. standing, walking, running). The user (read you) selects an activity (thereby providing the training phase the label it needs to associate with the data it’s about to collect – this is called supervised learning in Machine Learning parlance). Once an activity is selected (e.g., walking) the user clicks “start collecting” and starts to walk around for at least 3 minutes. Note, that once the user selects start collecting “Delete data” button (discussed below) is disabled – you don’t want to accidentally delete the data. The user repeats this for each of the activities --- pressing stop at the end of the activity collection phase and then selecting a new activity and starting to collect again – so, yes, in the case of running you need to take a 3 minute run (tip: while debugging you don’t need to run during code updates – simple emulate standing, walking and running by shaking the phone in your hand; once you have solid code then go for the real run, etc.).</p>
+<p>The delete button removes the data, which is stored in a file on the phone (called <strong>features.arff</strong>). If you want to start all over hit delete before starting else the new collected data will be appended to the end of the file. You could collect multiple instances of training data – go for multiple runs, walks and different times and it should all be accumulated in the same file. The collector implements the training phase shown in the diagram and discussed in the section above. The result of the collector phase is the creation of a Weka formatted features.arff file. So the collector needs to be able to collect accelerometer samples, compute the magnitudes and use the FFT.java class to compute the coefficients, etc. to produce the feature vectors. The weka.jar APIs are used to format the feature vectors into to the correct format for the Weka tool that produces the classifier, as discussed in the next section.</p>
+<p>Next, we need to upload the saved data to laptop. File Explorer in your Android Device Monitor helps to do that. You can access your Android Device Monitor by clicking the android robot icon as following.</p>
+<div class="figure">
+<img src="images/Android_Device_Monitor.png" />
+</div>
+<p>By selecting your device on the left, your device storage will be shown on the right. Click through mnt-&gt; shell -&gt; emulated -&gt; 0 -&gt; Android -&gt; data -&gt; edu.dartmouth.cs.myrunscollector -&gt; files, you will see the collected feature file features.arff. <img src="images/FileExplorer.png" /></p>
+<p>To upload this file to your computer, you need to highlight the file (features.arff) and click upload – red arrow points to it in the DDMS view.</p>
+<div class="figure">
+<img src="images/FileUpload.png" />
+</div>
+<h2 id="weka-overview">WEKA overview</h2>
+<p>We now discuss how to use the data collected by the data collector as input to the WEKA tool to generate the <em>WekaClassifier java class</em> based on the J48 decision tree (a ML algorithm).</p>
+<h3 id="installing-weka">Installing WEKA</h3>
+<p>Frist you need to install WEKA. Once the features.arff file is uploaded, my mac knows it is a Weka file as shown with the WEKA bird icon on the file. Clearly you need to have downloaded and installed Weka for the system to recognize the file extension. Therefore, you need to install <a href="http://www.cs.waikato.ac.nz/ml/weka/index_downloading.html">Weka</a>:</p>
+<div class="figure">
+<img src="images/Weka.png" />
+</div>
+<h3 id="feature.arff-file-format">feature.arff file format</h3>
+<p>Once WEKA is installed on your laptop and the features.arff file uploaded to your laptop then WEKA can generate the classifier. BTW, if you open features.arff using your favorite text editor you will see the Weka format of the file - interesting hey. The layout of the file makes complete sense. The first part of the file is the specification followed by the feature vector as shown figure below. The more time you send collecting data the feature vectors you will see the file.</p>
+<div class="figure">
+<img src="images/DataSpecs.png" />
+</div>
+<h3 id="generating-the-classifier">Generating the Classifier</h3>
+<p>If you click on features.arff the WEKA will fire up automatically with the following window, as shown below.</p>
+<div class="figure">
+<img src="images/WekaExplorer.png" />
+</div>
+<p>Select the <strong>Classify</strong> option – and then select <strong>Choose</strong> and select the J48 decision tree (folder weka-&gt;classifiers-&gt;trees-&gt;j48) is selected and then select <em>More options ..</em> to specify the source code name (WekaClassifier) of the classifier object.</p>
+<div class="figure">
+<img src="images/WekaClassify.png" />
+</div>
+<p>So we name the classifier object – output source code <em>WekaClassifier</em>.</p>
+<div class="figure">
+<img src="images/Classifier.png" />
+</div>
+<p>Now we are ready to generate the WekaClassifier classifier – and its java class implementation. Click <strong>Start</strong> to generate the java class code for the classifier (and, BTW, a lot of other interesting information including the <em>confusion</em> metric I showed and discussed in class). In essence WEKA takes the training data you supplied in features.arff to train a J48 decision tree classifier -- it spits out the java code for the classifier. The confusion metrics indicates when the classifier confused one class over another; for example, the confusion metric tells us that standing (i.e., still) gets confused with the walking activity in 4 cases and with running in 1 case.</p>
+<p>If you look at the code produced by WEKA you see a bunch of if-then statements (see the code below). It is complete and you will not be able to make sense of it. To understand the code take the CS machine learning class. Until then consider is WEKA magic. This classifier is a personal classifier based only on your data. If you do this in the wild you would get a large corpus on training data from a large number of people. Why do that? Because you would like your app to work for not just you but a large population of users.</p>
+<div class="figure">
+<img src="images/ClassifierCode.png" />
+</div>
+<h2 id="plugging-the-classifier-into-your-project">Plugging the classifier into your project</h2>
+<p>The last thing you have to do is cut and paste the <strong>class WekaClassifier{ ...}</strong> (and only the java code -- not the other stuff like the confusion metric) -- again, <strong>only the java code</strong>; for example here is the code I trained and popped into WekaClassifier.java</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> WekaClassifier {
+
+      <span class="kw">public</span> <span class="dt">static</span> <span class="dt">double</span> <span class="fu">classify</span>(Object[] i)
+        <span class="kw">throws</span> Exception {
+
+        <span class="dt">double</span> p = Double.<span class="fu">NaN</span>;
+        p = WekaClassifier.<span class="fu">N36673c9f0</span>(i);
+        <span class="kw">return</span> p;
+      }
+      ......
+      <span class="dt">static</span> <span class="dt">double</span> <span class="fu">N1901b54e3</span>(Object []i) {
+        <span class="dt">double</span> p = Double.<span class="fu">NaN</span>;
+        <span class="kw">if</span> (i[<span class="dv">64</span>] == <span class="kw">null</span>) {
+          p = <span class="dv">2</span>;
+        } <span class="kw">else</span> <span class="kw">if</span> (((Double) i[<span class="dv">64</span>]).<span class="fu">doubleValue</span>() &lt;= <span class="fl">4.573082</span>) {
+          p = <span class="dv">2</span>;
+        } <span class="kw">else</span> <span class="kw">if</span> (((Double) i[<span class="dv">64</span>]).<span class="fu">doubleValue</span>() &gt; <span class="fl">4.573082</span>) {
+          p = <span class="dv">1</span>;
+        } 
+        <span class="kw">return</span> p;
+      }
+    }</code></pre>
+<p>OK. Now you have completed the training phase and imported your classifier into your project. Now you have to implement the rest of the classification pipeline -- it's described in the lab write up for <a href="http://www.cs.dartmouth.edu/~campbell/cs65/myruns/myruns_manual.html">MyRuns Design Doc</a></p>
+</body>
+</html>

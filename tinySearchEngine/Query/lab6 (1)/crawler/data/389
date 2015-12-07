@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/li-jfilter.html
+3
+<HTML>
+<HEAD>
+ <TITLE>li:jfilter</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ming Li and David Kotz.
+<b>Group-aware Stream Filtering for Bandwidth-efficient Data
+Dissemination</b>.
+<i>International Journal of Parallel, Emergent and Distributed
+Systems (IJPEDS)</i>,
+23(6):429-446,
+December,
+2008.
+DOI <a href="http://dx.doi.org/10.1080/17445760801930955">10.1080/17445760801930955</a>.
+<p><b>Abstract:</b> In this paper we are concerned with disseminating high-volume
+data streams to many simultaneous applications over a low-bandwidth wireless
+mesh network. For bandwidth efficiency, we propose a \textitgroup-aware
+stream filtering approach, used in conjunction with multicasting, that
+exploits two overlooked, yet important, properties of these applications:
+1)&nbsp;many applications can tolerate some degree of ``slack'' in their data
+quality requirements, and 2)&nbsp;there may exist multiple subsets of the source
+data satisfying the quality needs of an application. We can thus choose the
+``best alternative'' subset for each application to maximize the data overlap
+within the group to best benefit from multicasting. An evaluation of our
+prototype implementation shows that group-aware data filtering can save
+bandwidth with low CPU overhead. We also analyze the key factors that affect
+its performance, based on testing with heterogeneous filtering requirements.</p>
+<p><b>Keywords:</b> distributed computing</p>
+<p><a href="bibtex/li-jfilter.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/~dfk/papers/internal/li-jfilter.pdf">PDF</a> (remote)</p>
+<p><a target=_top href = "./internal/li-jfilter.pdf">PDF</a> (590K)(Dartmouth only)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Taylor &amp; Francis.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

@@ -1,0 +1,53 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-workload.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:workload</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Nils Nieuwejaar.
+<b>Dynamic File-Access Characteristics of a Production Parallel
+Scientific Workload</b>.
+In
+<i>Proceedings of Supercomputing '94</i>,
+pages 640-649,
+Washington, DC,
+November,
+1994.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/SUPERC.1994.344328">10.1109/SUPERC.1994.344328</a>.
+<p><b>Abstract:</b> Multiprocessors have permitted astounding increases in
+computational performance, but many cannot meet the intense I/O requirements
+of some scientific applications. An important component of any solution to
+this I/O bottleneck is a parallel file system that can provide high-bandwidth
+access to tremendous amounts of data  in parallel to hundreds or
+thousands of processors. <P> Most successful systems are based on a solid
+understanding of the characteristics of the expected workload, but until now
+there have been no comprehensive workload characterizations of multiprocessor
+file systems. We began the CHARISMA project in an attempt to fill that gap.
+We instrumented the common node library on the iPSC/860 at NASA Ames to
+record all file-related activity over a two-week period. Our instrumentation
+is different from previous efforts in that it collects information about
+every read and write request and about the  mix of jobs running in the
+machine (rather than from selected applications). <P> The trace analysis in
+this paper leads to many recommendations for designers of multiprocessor file
+systems. First, the file system should support simultaneous access to many
+different files by many jobs. Second, it should expect to see many small
+requests, predominantly sequential and regular access patterns (although of a
+different form than in uniprocessors), little or no concurrent file-sharing
+between jobs, significant byte- and block-sharing between processes within
+jobs, and strong interprocess locality. Third, our trace-driven simulations
+showed that these characteristics led to great success in caching, both at
+the compute nodes and at the I/O&nbsp;nodes. Finally, we recommend supporting
+strided I/O requests in the file-system interface, to reduce overhead and
+allow more performance optimization by the file system.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-workload.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-workload.pdf">PDF</a> (270K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-workload-tr.html">kotz:workload-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-jworkload.html">kotz:jworkload</a></b>.</p>
+</BODY>
+</HTML>

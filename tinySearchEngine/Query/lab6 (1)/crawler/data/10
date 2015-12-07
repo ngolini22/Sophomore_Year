@@ -1,0 +1,371 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture05/lecture05.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Activity Lifecycle - Lecture 4 - Activity Lifecycle</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<div id="header">
+<h1 class="title">Lecture 4 - Activity Lifecycle</h1>
+</div>
+<p>Application comprise one or more activities. Because of the mobile and UI experience the operation of an activity is governed by a set of states (like a finite state machine) called the lifecycle. In this lecture, we discuss this blueprint and the types of operations that can take place as activities transition through the lifecycle because of user and system events. I think this is a very cool part of Android design.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>The birth, operation and death of activities</li>
+<li>App usage</li>
+<li>App design</li>
+<li>Capturing the lifecycle of an activity</li>
+<li>Declaring the app's launcher activity in the manifest</li>
+<li>Implementing the activity lifecycle callbacks</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li>Activity lifecycle demonstrator <a href="../code/activitya.zip">activita.zip</a></li>
+</ul>
+<p>This code is taken form android developers <a href="http://developer.android.com/training/basics/activity-lifecycle/index.html">demo</a>. You can download it from our webpage or <a href="http://developer.android.com/training/basics/activity-lifecycle/index.html">Google's Android developers</a>.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Android developers: <a href="http://developer.android.com/training/basics/activity-lifecycle/index.html">Managing the activity lifecycle</a></li>
+<li>Course book section on <a href="http://commonsware.com/Android/">Activities and Their Lifecycles</a></li>
+</ul>
+<h2 id="birth-operation-and-death-of-an-activity">Birth, operation and death of an activity</h2>
+<p>Android apps run in a different mode than typical apps run on laptops -- resources are limited (e.g., battery), the form factor and real estate of the screen size is small and can't easily display more than one app at a time -- that is, only one app is in <em>focus</em> in the foreground at a time. That makes sense because the user can only focus on one thing at a time while on the go. However, other apps can be started pushing the current app in focus into the background. Once the user has completed their interaction with the new app they might want to bring into focus the app that was previously running in the foreground.</p>
+<p>These various events (plus others) are captured in the blue print for each application -- the set of possible states that the app can go through is called the activity lifecycle. BTW, app == activity in the example above but in reality an application (just like MyFirstProgram) comprises one or more activities. Each activity has its own state machine and the user can define what actions to take when certain activity events fire -- for example, before the activity is killed by the system, perhaps because the system needs to reclaim resources then the user might care to safe any ethereal data to more persistent storage so that the next time the app/activity runs it starts from where it left off.</p>
+<h2 id="app-usage">App usage</h2>
+<p>We all have our core apps that we use most of the time -- Facebook, Skype, Gmail, maps, music, games - and then we have a set we churn through -- download, try a few times and remove or leave as installed but unused apps. We have a regular behavior of using apps; for example, we launch an app (e.g., Facebook) use it and then hit the <em>home button</em> and launch another app ( e.g., Google maps) and then hit the <em>back button</em> to go back to the previous app (Facebook); hit the home button and launch another app (e.g., Skype); hit the home button again launch the super cool activity lifecycle app; then hit the <em>recent apps</em> button and select the Facebook app because it is paused like all the apps on the recent app list -- so I select it and I'm back to my Facebook app at the exact place I left it.</p>
+<p>This app usage pattern by the user as described above is fairly representative. Importantly, the user's behavior drives the lifecycle of the apps -- the system can also drive the lifecycle independent of the user, for example, the system can destroy a paused or stopped app if it needs to reclaim system resources (e.g., memory) because the current foreground app needs more resources. Note, the Android OS is optimized to focus on the user experience of the current foreground process/app at all costs. It will find resources to keep the foreground app in good shape and if that means killing other paused or stopped apps then it will do that -- in brief, the foreground app is king.</p>
+<p>The figure shown below shows:</p>
+<ul>
+<li>the <em>back button</em>, which if clicked move back through app;;</li>
+<li>the <em>home button</em>, which bring you to the home page where other apps can be launched; and</li>
+<li>the <em>recent app button</em>, which presents a list of all stopped but not destroyed apps which can be clicked to bring to the foreground, or swiped which would destroy them -- in a similar manner to using the back button.</li>
+</ul>
+<p>Couple of addition comments: You can cycle through launching apps, home button, back button, recent apps any which way you like -- you can have a large stack of recent apps in memory ready to be brought to the foreground and into user focus. Also these buttons do different things to apps (or activities); for example, we mentioned the back button kills the current activity in focus while the home button pushes the app on to the recent app list and therefore the app is not destroyed and remains in memory -- and should the user select it from the recent apps list it will be brought back into the foreground where you left off -- the system remains the state information -the UI and data associated with the app. Tip: because apps that are on paused or stopped can be killed by the system because it needs resources you as a programmer have to take care to store or save any important data to persistent storage (more on that soon). If you do this you then the next time your app fires up it will start with the app's UI and data intact and the user can start where it left off. If you do not do this and the system kills your app then you have lost your data forever. More on how we save data later.</p>
+<div class="figure">
+<img src="images/button.png" />
+</div>
+<p>The figure below shows the stack of recent apps if I click on the recent apps button.</p>
+<div class="figure">
+<img src="images/button.png" />
+</div>
+<h2 id="app-design">App design</h2>
+<p>Apps support various features. Take Skype. It has a home page UI view once you sign in which has various options such as contacts, recent, call phones and profile. If you navigate into contacts view UI you can select someone to call which brings you to another view where you can make a call or sms the person. Because a phone has a small sized display the app designer can't present all of these views at once in the UI but has to overlay one with another as the user navigates through the app. These different features are represented by multiple activities (or fragments, more on fragments later) where each activity supports a different view of the overall UI experience -- so one activity supports a view in my example. We will talk about UI design and <em>views</em> later. But imagine you start Skype, sign in, hit contacts, hit call Andrew, hit voice call -- if at this point you hit the back button you would move back through the receding features/views each represents in my example by an activity -- as you moved back through the activities the one in the foreground is killed where you hit back button until you come to the first view presented when you signed in -- if you back button on that activity the complete app (which comprises a bunch of activities and their associated views) is killed.</p>
+<p>The app progress through Skype is illustrated by the sequence of view/activities as the user navigates through the screens/features presented the app. Note, there are 7 activities supporting 7 views -- consider the last one when the call is going through, at this point, there is one foreground activity (the call activity and its associated view) and a 5 stopped activities that you could use the back button to sequence back through as discussed above. The sequence starts from my home screen, which is simply the current foreground activity.</p>
+<p>The home screen were the user launches the Skype app</p>
+<div class="figure">
+<img src="images/s2.png" />
+</div>
+<p>The user selects contacts.</p>
+<div class="figure">
+<img src="images/s3.png" />
+</div>
+<p>Then Andrew Campbell</p>
+<div class="figure">
+<img src="images/s4.png" />
+</div>
+<p>Let's call him</p>
+<div class="figure">
+<img src="images/s6.png" />
+</div>
+<p>And now the call is going through -- but Campbell is not answering, darn it!</p>
+<div class="figure">
+<img src="images/s7.png" />
+</div>
+<p>Note, that if I click on the recent apps button from the call activity then all the 7 stopped activities are presented as one app (as shown in the figure below) -- make sense right. You might think that all 7 activities should be shown but this is not a recent activity’s button it is a recent apps button. So only apps are listed here in the order in which they were started.</p>
+<div class="figure">
+<img src="images/s5.png" />
+</div>
+<h2 id="capturing-the-lifecycle-of-an-activity">Capturing the lifecycle of an activity</h2>
+<p>The figure below illustrates the life cycle. The figure captures the states and call back methods that get called as the app transitions. From the first moment an activity is created at the bottom of the pyramid each call back method (e.g., <code>onCreate()</code>, <code>onStart(),</code>onResume()`) moves the activity state up toward the top. At this point the activity is said to be in the <em>foreground</em> and the user freely interacts with it; for example, the activity transitions through <em>Created</em>, <em>Started</em> to <em>Resumed</em> state where it is <em>visible</em> and can be interacted with by the user.</p>
+<p>Once the user is finished interacting with the app say Foursquare, Skype, Google Now they loose interest in the current foreground app and may kill it -- in which case the activity moves to the background and then is destroyed. Here again a sequence of lifecycle methods is called to handle this transition in an orderly manner.</p>
+<p>In each case that a call back method is invoked the user call provide application specific code to deal with the event, for example, saving variable to persistence storage, on in contrast, when an activity is restated restoring data from storage. As the user looses interest in the foreground application it the control flow moves down the pyramid. Consider the case were the user simply wants to start another application without destroying the current app (e.g., a navigation app). In this case the app is not destroyed but pushed to the background by traversing down the pyramid from <em>Resumed</em> to <em>Paused</em> to <em>Stopped</em> -- at this point the application is <em>hidden</em> (not visible) from the user. The user can use the back key to navigate back to a background app and bring it back into focus, thereby moving back up the pyramid to the <em>Resumed</em> state via callback methods such as <code>onRestart()</code> and <code>onResumed()</code> -- in the case the code in the call back methods might restore the app so it could pick up where it left off.</p>
+<div class="figure">
+<img src="images/lifecyclediagram.png" />
+</div>
+<p>As you can see from the lifecycle figure there are a number of states and in many cases the types of applications we will write will not need to take any actions is many of these states so we will just ignore then if not needed.</p>
+<p>We want to use a necessary subset of these states so that our apps behave well when user and system driven events occur; for example, the app should not</p>
+<ul>
+<li>crash when a user suddenly receives a phone call;</li>
+<li>crash when the user switches app (e.g., from Facebook to Google maps);</li>
+<li>use valuable system resources (e.g., cores) when the user is not working it;</li>
+<li>loose the user's context (data) or progress if the user leaves and then later returns to the app; and finally,</li>
+<li>crash or loose the user's progress when the screen flips between landscape and portrait orientation.</li>
+</ul>
+<p>Most states transition quickly for example <code>Started</code> but others for example <code>Resumed</code>, <code>Paused</code> and <code>Stopped</code> allow the application to remain in these states for extended periods of time; more specifically:</p>
+<ul>
+<li><p><em>resumed</em>: The activity is in the foreground and the user can interact with it.</p></li>
+<li><p><em>paused</em>: In this state, the activity is partially obscured by another activity—the other activity that's in the foreground is semi-transparent or doesn't cover the entire screen. The paused activity does not receive user input and cannot execute any code. Need to explain these terms and relevance to phones, typically apps cover other apps.</p></li>
+<li><p><em>stopped</em>: The activity is completely hidden and therefore not visible to the user -- we say that the activity is in the <em>background</em> In the Stopped state the activity instance and all its state information such as member variable are stored but no code can execute in this state.</p></li>
+<li><p><em>brown bread</em> (cockney rhyming slang for dead): The activity was destroyed by the user for example by using the back button or by the systems that reclaimed resources when the activity was either in paused or stopped states.</p></li>
+</ul>
+<p>In contrast to these extended states, after the system calls onCreate(), it transitions quickly to the next states by calling onStart(), which is quickly followed by onResume(). These are thought as transient states. Again short pieces of code can be executed in the callback methods.</p>
+<p>The activity lifecycle comes across as being abstract if you have not used finite state machines (FSMs) in the design of software -- again, because lots of events can occur with a mobile device -- you get a call, arrive at a destination, get a notification of some application specific event, system is running out of resources. the orientation is flip to view a photo better in landscape -- when events like these occur a mobile app has to react in an orderly way.</p>
+<p>We will code up a simple application and watch as the activities associated with the app transition from state to state. In this way we will come to understand the life cycle and through further use we will become comfortable with the idea and the need for lifecycle states and methods.</p>
+<h2 id="declaring-the-apps-launcher-activity-in-the-manifest">Declaring the app's launcher activity in the manifest</h2>
+<p>Note: can you use the idea of persistence data storage in the example? That way its covered and you don't need a special lecture on it.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+    &lt;activity android:name=<span class="st">&quot;.MyActivity&quot;</span>
+            android:launchMode=<span class="st">&quot;singleTask&quot;</span>&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=<span class="st">&quot;android.intent.action.MAIN&quot;</span> /&gt;
+                &lt;category android:name=<span class="st">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+ </code></pre>
+<h2 id="implementing-the-activity-lifecycle-callbacks">Implementing the activity lifecycle callbacks</h2>
+<pre class="sourceCode java"><code class="sourceCode java"> 
+<span class="kw">public</span> <span class="kw">class</span> MyActivity <span class="kw">extends</span> Activity {
+ 
+  <span class="co">// Called at the start of the full lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+    <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+    <span class="co">// Initialize Activity and inflate the UI.</span>
+  }
+ 
+  <span class="co">// Called after onCreate has finished, use to restore UI state</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onRestoreInstanceState</span>(Bundle savedInstanceState) {
+    <span class="kw">super</span>.<span class="fu">onRestoreInstanceState</span>(savedInstanceState);
+    <span class="co">// Restore UI state from the savedInstanceState.</span>
+    <span class="co">// This bundle has also been passed to onCreate.</span>
+    <span class="co">// Will only be called if the Activity has been</span>
+    <span class="co">// killed by the system since it was last visible.</span>
+  }
+ 
+  <span class="co">// Called before subsequent visible lifetimes</span>
+  <span class="co">// for an activity process.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onRestart</span>(){
+    <span class="kw">super</span>.<span class="fu">onRestart</span>();
+    <span class="co">// Load changes knowing that the Activity has already</span>
+    <span class="co">// been visible within this process.</span>
+  }
+ 
+  <span class="co">// Called at the start of the visible lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStart</span>(){
+    <span class="kw">super</span>.<span class="fu">onStart</span>();
+    <span class="co">// Apply any required UI change now that the Activity is visible.</span>
+  }
+ 
+  <span class="co">// Called at the start of the active lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onResume</span>(){
+    <span class="kw">super</span>.<span class="fu">onResume</span>();
+    <span class="co">// Resume any paused UI updates, threads, or processes required</span>
+    <span class="co">// by the Activity but suspended when it was inactive.</span>
+  }
+ 
+  <span class="co">// Called to save UI state changes at the</span>
+  <span class="co">// end of the active lifecycle.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSaveInstanceState</span>(Bundle savedInstanceState) {
+    <span class="co">// Save UI state changes to the savedInstanceState.</span>
+    <span class="co">// This bundle will be passed to onCreate and</span>
+    <span class="co">// onRestoreInstanceState if the process is</span>
+    <span class="co">// killed and restarted by the run time.</span>
+    <span class="kw">super</span>.<span class="fu">onSaveInstanceState</span>(savedInstanceState);
+  }
+ 
+  <span class="co">// Called at the end of the active lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onPause</span>(){
+    <span class="co">// Suspend UI updates, threads, or CPU intensive processes</span>
+    <span class="co">// that don&#39;t need to be updated when the Activity isn&#39;t</span>
+    <span class="co">// the active foreground Activity.</span>
+    <span class="kw">super</span>.<span class="fu">onPause</span>();
+  }
+ 
+  <span class="co">// Called at the end of the visible lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStop</span>(){
+    <span class="co">// Suspend remaining UI updates, threads, or processing</span>
+    <span class="co">// that aren&#39;t required when the Activity isn&#39;t visible.</span>
+    <span class="co">// Persist all edits or state changes</span>
+    <span class="co">// as after this call the process is likely to be killed.</span>
+    <span class="kw">super</span>.<span class="fu">onStop</span>();
+  }
+ 
+  <span class="co">// Sometimes called at the end of the full lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroy</span>(){
+    <span class="co">// Clean up any resources including ending threads,</span>
+    <span class="co">// closing database connections etc.</span>
+    <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+  }
+ 
+}</code></pre>
+<p>The above callback methods capture the complete activity lifecycle. There are three main nested loops in the lifecycle figure associated with an activity; theses are:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>entire lifetime</em>, which is the time duration between the calls to onCreate() and onDestroy(). Your activity should setup of all resources (e.g., UI) in onCreate() and release them in onDestroy().</p></li>
+<li><p><em>visible lifetime</em>, which is the time duration between calls to onStart() and onStop(). During this period the activity is visible to the user on the phone's screen and the user can interact with it. If a new activity needs to started then onStop() would be called in the life cycle making the current visible activity no longer visible. During the <em>entire lifetime</em> of the activity, onStart() and onStop() are typically called multiple times resulting in the activity changing between being visible and hidden to the user. Typically, the visible state only relates to tablets with larger form factors where an activity is visible but not in the foreground.</p></li>
+<li><p><em>foreground lifetime</em>, which is the period between onResume() and onPause(). During this time, the activity is in front of all other activities on screen and has user input focus. An activity can frequently transition in and out of the foreground—for example, onPause() is called when the device goes to sleep or when a dialog appears. Because this state can transition often, the code in these two methods should be fairly lightweight in order to avoid slow transitions that make the user wait.</p></li>
+</ol>
+<h2 id="create-an-activity">Create an activity</h2>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="co">// Initialize activity and inflate UI</span>
+                     <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">activity_a</span>);
+ 
+                        <span class="co">// Open database for operations.</span>
+                        mDb = <span class="kw">new</span> <span class="fu">DatabaseAdapter</span>(<span class="fu">getActivity</span>());
+                        mDb.<span class="fu">open</span>();
+                        mActivityEntryCursor = mDb.<span class="fu">fetchEntries</span>();
+            }</code></pre>
+<h2 id="destroy-an-activity">Destroy an activity</h2>
+<p>Clean up any resources including ending threads, closing database connections etc.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroy</span>() {
+                        <span class="co">// Close the database</span>
+                        mActivityEntryCursor.<span class="fu">close</span>();
+                        mDb.<span class="fu">close</span>();
+                        <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+            }</code></pre>
+<h2 id="onpause-pause-an-activity">onPause(): pause an activity</h2>
+<p>If the foreground activity is obstructed or made partially visible it will be paused. An example of this is when a dialog activity is started and comes into <em>focus</em>. An example of this is shown below where activity A is paused as the dialog activity comes into view. Activity A will remains partially visible because its view is obscured by the dialog -- as long as its partially visible it remains paused as shown. <img src="images/activitya.png" /></p>
+<p>Notice that as the user clicks on the Dialog button to start the dialog activity which renders the dialog (simple dialog) the Activity A lifecycle status changes from Resumed to Paused as shown in the Activity Status.</p>
+<div class="figure">
+<img src="images/dialog.png" />
+</div>
+<p>Typically onPause callback will for example suspend UI updates, threads, or CPU intensive processes that do not need to be updated when the activity is not the active foreground activity -- as in the case of Activity A.</p>
+<p><code>onPause()</code> is called at the end of the active lifetime; more specifically it is called as part of the activity lifecycle when an activity is going into the background, but has not (yet) been killed. The counterpart to onResume(). When activity B is launched in front of activity A, this callback will be invoked on A. B will not be created until A's onPause() returns, so be sure to not do anything lengthy here.</p>
+<p>The code snippet from MyRuns app that you will develop as part of this course. The code unregisters receivers for location updates and sensor updates from the motion sensors. Don't worry if you do not grasp the meaning of the code now -- it is hard to decode with the other code. It is just an example of what an onPause() callback might do.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onPause</span>() {
+                        <span class="co">// unregister the receiver when the activity is about to go inactive</span>
+                        <span class="co">// Reverse to what happened in onResume()</span>
+                        <span class="kw">if</span> ( mTaskType == Globals.<span class="fu">TASK_TYPE_NEW</span> ){
+                                    <span class="kw">if</span> (mEntry.<span class="fu">getInputType</span>() == Globals.<span class="fu">INPUT_TYPE_AUTOMATIC</span>) {
+                                                <span class="fu">unregisterReceiver</span>(mMotionUpdateReceiver);
+                                    }
+                                    <span class="fu">unregisterReceiver</span>(mLocationUpdateReceiver);
+                        }
+ 
+                        Log.<span class="fu">d</span>(Globals.<span class="fu">TAG</span>, <span class="st">&quot;Activity paused&quot;</span>);
+                        <span class="kw">super</span>.<span class="fu">onPause</span>();
+            }</code></pre>
+<h2 id="onresume-resume-an-activity">onResume(): Resume an activity</h2>
+<p><code>onResume()</code> is called at the start of the active lifetime; more specifically, it is called at the start of the active lifetime; more specifically it is called after onRestoreInstanceState(Bundle), onRestart(), or onPause() for your activity to start interacting with the user. This is a good place to begin animations, open exclusive-access devices (such as the camera), etc. Keep in mind that onResume is not the best indicator that your activity is visible to the user; a system window such as the keyboard may be in front. Use onWindowFocusChanged(boolean) to know for certain that your activity is visible to the user (for example, to resume a game).</p>
+<p>In the Activity Lifecycle app if we the user now clicks on the OK in the dialog box the partially visible Activity A is brought back into focus as the foreground activity as shown in the figure -- the activity status has changed from paused to resumed.</p>
+<div class="figure">
+<img src="images/resume.png" />
+</div>
+<p>Typically, the onResume() callback restarts any paused UI updates, threads, or processes required by the activity but suspended when it was inactive. In the code snippet below from MyRuns the code registers receivers to receive location updates from the GPS location manager and the motion sensor.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onResume</span>() {
+                        <span class="co">// register the receiver for receiving the location update broadcast</span>
+                        <span class="co">// from the service. Logic is the same as in onCreate()</span>
+                        
+                        <span class="co">// If &quot;new&quot; task, need to read sensor data.</span>
+                        <span class="kw">if</span> ( mTaskType == Globals.<span class="fu">TASK_TYPE_NEW</span> ){
+                                    
+                                    <span class="co">// Register gps location update receiver</span>
+                                    <span class="fu">registerReceiver</span>(mLocationUpdateReceiver, mLocationUpdateFilter);
+                                    
+                                    <span class="co">// If it&#39;s &quot;automatic&quot; mode, also need motion sensor for classification</span>
+                                    <span class="kw">if</span> (mEntry.<span class="fu">getInputType</span>() == Globals.<span class="fu">INPUT_TYPE_AUTOMATIC</span>) {
+                                                <span class="fu">registerReceiver</span>(mMotionUpdateReceiver, mMotionUpdateIntentFilter);
+                                    }
+                        }
+ 
+                        Log.<span class="fu">d</span>(Globals.<span class="fu">TAG</span>, <span class="st">&quot;Activity resumed&quot;</span>);
+                        <span class="kw">super</span>.<span class="fu">onResume</span>();
+            }</code></pre>
+<h2 id="stop-an-activity">Stop an activity</h2>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStop</span>() {
+                <span class="kw">super</span>.<span class="fu">onStop</span>();  <span class="co">// Always call the superclass method first</span>
+ 
+                        <span class="co">// Getting the shared preferences editor</span>
+                        key = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_name</span>);
+                        SharedPreferences prefs = <span class="fu">getSharedPreferences</span>(key, MODE_PRIVATE);
+                        SharedPreferences.<span class="fu">Editor</span> editor = prefs.<span class="fu">edit</span>();
+                        editor.<span class="fu">clear</span>();
+                        
+                <span class="co">// Please save major information</span>
+                        key = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_major</span>);
+                        value = (String) ((EditText) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editMajor</span>)).<span class="fu">getText</span>()
+                                                .<span class="fu">toString</span>();
+                        editor.<span class="fu">putString</span>(key, value);
+ 
+                        <span class="co">// Commit all the changes into the shared preference</span>
+                        editor.<span class="fu">commit</span>();
+            }                   </code></pre>
+<h2 id="restart-an-activity">Restart an activity</h2>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroy</span>() {
+                        <span class="co">// Close the database</span>
+                        mActivityEntryCursor.<span class="fu">close</span>();
+                        mDb.<span class="fu">close</span>();
+                        <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+            }</code></pre>
+<h2 id="save-your-activity-state">Save your activity state</h2>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onSaveInstanceState</span>(Bundle outState) {
+                        <span class="kw">super</span>.<span class="fu">onSaveInstanceState</span>(outState);
+                        <span class="co">// Save the tab index before the activity goes into background.</span>
+                        <span class="co">// Referred by string key TAB_INDEX_KEY</span>
+                        outState.<span class="fu">putInt</span>(TAB_INDEX_KEY, <span class="fu">getActionBar</span>().<span class="fu">getSelectedNavigationIndex</span>());
+            }</code></pre>
+<h2 id="restore-activity-state">Restore activity state</h2>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="co">// Load the previously saved tab index before the activity goes into background</span>
+                        <span class="kw">if</span> (savedInstanceState != <span class="kw">null</span>) {
+                                    actionBar.<span class="fu">setSelectedNavigationItem</span>(savedInstanceState.<span class="fu">getInt</span>(
+                                                            TAB_INDEX_KEY, <span class="dv">0</span>));
+            }</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onRestoreInstanceState</span>(Bundle savedInstanceState) {
+                   <span class="kw">super</span>.<span class="fu">onRestoreInstanceState</span>(savedInstanceState);
+ 
+                actionBar.<span class="fu">setSelectedNavigationItem</span>(savedInstanceState.<span class="fu">getInt</span>(
+                                                            TAB_INDEX_KEY, <span class="dv">0</span>));
+ 
+            }</code></pre>
+</body>
+</html>

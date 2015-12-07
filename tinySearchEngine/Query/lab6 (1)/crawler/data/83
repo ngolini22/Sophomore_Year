@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-axioms-tr2.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:axioms-tr2</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Calvin Newport, Robert S. Gray, Jason Liu, Yougu Yuan, and Chip Elliott.
+<b>Experimental evaluation of wireless simulation assumptions</b>.
+Technical Report
+TR2004-507,
+Dartmouth Computer Science,
+June,
+2004.
+<p><b>Abstract:</b> All analytical and simulation research on ad&nbsp;hoc wireless
+networks must necessarily model radio propagation using simplifying
+assumptions. Although it is tempting to assume that all radios have circular
+range, have perfect coverage in that range, and travel on a two-dimensional
+plane, most researchers are increasingly aware of the need to represent more
+realistic features, including hills, obstacles, link asymmetries, and
+unpredictable fading. Although many have noted the complexity of real radio
+propagation, and some have quantified the effect of overly simple assumptions
+on the simulation of ad&nbsp;hoc network protocols, we provide a comprehensive
+review of six assumptions that are still part of many ad&nbsp;hoc network
+simulation studies. In particular, we use an extensive set of measurements
+from a large outdoor routing experiment to demonstrate the weakness of these
+assumptions, and show how these assumptions cause simulation results to
+differ significantly from experimental results. We close with a series of
+recommendations for researchers, whether they develop protocols, analytic
+models, or simulators for ad&nbsp;hoc wireless networks.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/kotz-axioms-tr2.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-axioms-tr2.pdf">PDF</a> (572K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/kotz-axioms-tr.html">kotz:axioms-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-axioms.html">kotz:axioms</a></b>.</p>
+</BODY>
+</HTML>

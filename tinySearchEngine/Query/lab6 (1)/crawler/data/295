@@ -1,0 +1,23 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/choudhary-sdcr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>choudhary:sdcr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Alok Choudhary and David Kotz.
+<b>Large-Scale File Systems with the Flexibility of Databases</b>.
+<i>ACM Computing Surveys</i>,
+28A(4),
+December,
+1996.
+Position paper for the Working Group on Storage I/O for Large-Scale
+Computing, ACM Workshop on Strategic Directions in Computing Research.
+Available on-line only, at DOI 10.1145/242224.242488.
+DOI <a href="http://dx.doi.org/10.1145/242224.242488">10.1145/242224.242488</a>.
+<p><b>Keywords:</b> file system, parallel-IO, parallel computing</p>
+<p><a href="bibtex/choudhary-sdcr.bib">BibTeX</a></p>
+<p><b>Copyright &#169;&nbsp;1996 by ACM.</b></p>
+</BODY>
+</HTML>

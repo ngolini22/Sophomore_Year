@@ -1,0 +1,23 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-jdapple.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:jdapple</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>A DAta-Parallel Programming Library for Education
+\mbox(DAPPLE)</b>.
+<i>Computer Science Education</i>,
+6(2):141-159,
+1996.
+DOI <a href="http://dx.doi.org/10.1080/0899340950060203">10.1080/0899340950060203</a>.
+<p><b>Keywords:</b> education, parallel computing</p>
+<p><a href="bibtex/kotz-jdapple.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-jdapple.pdf">PDF</a> (284K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by Ablex Publishing.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-dapple.html">kotz:dapple</a></b>.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,344 @@
+http://www.cs.dartmouth.edu/%7Edfk/armada
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  <html>  <head>  <title>Armada</title>    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">  </head>  <body bgcolor="white"> 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+<div class="p"><!----></div>
+
+
+
+
+
+
+
+<div class="p"><!----></div>
+
+<h3 align="center"> </h3>
+
+<div class="p"><!----></div>
+        
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+ 
+
+<div class="p"><!----></div>
+   
+<h1 align="center">Armada: a parallel I/O framework for computational grids </h1>
+
+<div class="p"><!----></div>
+
+<h3 align="center"><a href="http://www.cs.dartmouth.edu/~raoldfi">Ron Oldfield</a> and <a href="http://www.cs.dartmouth.edu/~dfk/">David Kotz</a><br />
+&nbsp; </h3>
+
+<div class="p"><!----></div>
+
+<h3 align="center">Department of Computer Science<br />
+Dartmouth College </h3>
+
+<div class="p"><!----></div>
+
+<h3>Objectives.</h3>
+
+<div class="p"><!----></div>
+Develop an I/O framework that allows data-intensive applications to
+efficiently access geographically distributed data sets.
+
+<div class="p"><!----></div>
+
+<h3>Problem Definition.</h3>
+
+<div class="p"><!----></div>
+An exciting trend in high-performance computing is the use of geographically-distributed
+networks of heterogeneous systems and devices known as "computational
+grids". Of particular interest is the development of data-intensive
+grid applications. Data-intensive grid applications require access
+to large (terabyte-petabyte) remote data sets, and often require significant
+preprocessing of filtering before the computation can take place.
+Such applications exist in many areas of scientific computing including
+seismic processing, climate modeling, particle physics, and others
+
+<div class="p"><!----></div>
+
+<h3>Technical Approach.</h3>
+
+<div class="p"><!----></div>
+The Armada framework for parallel I/O provides a solution for data-intensive
+applications in which the application programmer and data-set provider
+deploy a network of application-specific and data-set-specific functionality
+across the grid. Using the Armada framework, grid applications access
+remote data by sending data requests through a graph of distributed
+application objects. A typical graph consists of two distinct portions:
+one that describes the layout of the data (as defined by the data
+provider), and one that describes the interface and processing required
+by the application. Armada appends the two portions to form a single
+graph, restructures the resulting graph to distribute computation
+and data flow, and assigns modules to grid processors so that data-reducing
+modules execute near the data source and data-increasing modules execute
+near the data destination. The figures below show the original and
+restructured graphs for an application accessing a replicated and
+distributed data set. 
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<a name="tth_fIg1">
+</a> 
+<center><img src="figures/simple-graph.gif" alt="figures/simple-graph.gif" /></center>
+
+<div class="p"><!----></div>
+<center>Figure 1: A typical Armada graph consists of a portion from the data provider
+that describes the layout of the data and a portion from the application
+that describes required preprocessing. </center>
+
+<div class="p"><!----></div>
+&nbsp;
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+<a name="tth_fIg2">
+</a> 
+<center><img src="figures/restruct-placement.gif" alt="figures/restruct-placement.gif" /></center>
+
+<div class="p"><!----></div>
+<center>Figure 2: Armada restructured the graph to provide end-to-end parallism and
+it moved the filter code close to the data source. The grey blobs
+represent the three LANs used by the application. </center>
+
+<div class="p"><!----></div>
+&nbsp;
+
+<div class="p"><!----></div>
+A key feature of Armada is the ability to restructure the application
+graph. Unlike existing database systems that restructure graphs based
+on well-known relational operators, Armada's restructuring algorithm
+uses programmer-defined properties to allow restructuring of a wide
+range of application classes (not just relational databases).
+
+<div class="p"><!----></div>
+Perhaps the most critical part of the Armada system is the placement
+algorithm. Modules that make up the graph execute on processors near
+the client, processors near the data, or intermediate network processors.
+Our approach is to treat placement as a hierarchical graph-partitioning
+problem. We first partition the graph into domains in such a way to
+minimize the data transferred between domains. Next, we partition
+the modules in each domain to available processors provided by each
+domain's local resource manager.
+
+<div class="p"><!----></div>
+
+<h3>Open Problems.</h3>
+
+<div class="p"><!----></div>
+Armada is not a fully-featured I/O system. In particular, it lacks
+support for data management, security, and fault tolerance, which
+are necessary in a production grid system. While there are active
+research groups working in each of these areas, there is still much
+debate over proper solutions. In the Conclusions and Future Work section
+of the dissertation (oldfield:thesis), we discuss the issues involved
+in building support for each of these features in the Armada I/O system.
+In addition, we present potential improvements to the placement algorithm,
+and describe how to adapt Armada to work efficiently on tightly-connected
+clusters of workstations.
+<h3>Papers</h3>
+<DL>
+
+<DT> <A NAME="oldfield:armada"
+  HREF="papers/oldfield:armada.bib">oldfield:armada</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<A HREF="http://www.cs.dartmouth.edu/~dfk/papers/oldfield:armada.pdf"><STRONG>Armada: A parallel file system for computational grids</STRONG></A>.
+In <EM>Proceedings of the First IEEE/ACM International Symposium on Cluster
+  Computing and the Grid</EM>, pages 194-201, Brisbane, Australia, May 2001.
+  IEEE Computer Society Press.</DD>
+
+<DT> <A NAME="oldfield:armada-wip"
+  HREF="papers/oldfield:armada-wip.bib">oldfield:armada-wip</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<A HREF="http://www.cs.dartmouth.edu/~dfk/armada/papers/oldfield:armada-wip.pdf"><STRONG>The Armada framework for parallel I/O on computational
+  grids</STRONG></A>.
+Work-in-progress report at the Conference on File and Storage Technologies,
+  January 2002.</DD>
+
+<DT> <A NAME="oldfield:emulab-tr"
+  HREF="papers/oldfield:emulab-tr.bib">oldfield:emulab-tr</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<A HREF="http://www.cs.dartmouth.edu/reports/abstracts/TR2002-433/"><STRONG>Using the Emulab network testbed to evaluate the Armada I/O framework for
+  computational grids</STRONG></A>.
+Technical Report TR2002-433, Dept. of Computer Science, Dartmouth College,
+  Hanover, NH, September 2002.</DD>
+
+<DT> <A NAME="oldfield:framework"
+  HREF="papers/oldfield:framework.bib">oldfield:framework</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<A HREF="http://www.cs.dartmouth.edu/~dfk/papers/oldfield:framework.pdf"><STRONG>Armada: a parallel I/O framework for computational grids</STRONG></A>.
+<EM>Future Generation Computing Systems (FGCS)</EM>, 18(4):501-523, March
+  2002.</DD>
+
+<DT> <A NAME="oldfield:restruct"
+  HREF="papers/oldfield:restruct.bib">oldfield:restruct</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<A HREF="http://dx.doi.org/10.1007/s10586-006-4899-7"><STRONG>Improving data
+  access for computational grid applications</STRONG></A>.
+<EM>Cluster Computing</EM>, 9(1):79-99, January 2006, DOI
+  10.1007/s10586-006-4899-7.</DD>
+
+<DT> <A NAME="oldfield:thesis"
+  HREF="papers/oldfield:thesis.bib">oldfield:thesis</A>:</DT>
+<DD>
+Ron Oldfield.
+<STRONG>Efficient I/O for Computational Grid Applications</STRONG>.
+PhD thesis, Dept. of Computer Science, Dartmouth College, May 2003.
+Available as Dartmouth Computer Science Technical Report TR2003-459.<br>
+See also later version <A HREF="#oldfield:thesis-tr">oldfield:thesis-tr</A>.
+</DD>
+
+<DT> <A NAME="oldfield:thesis-tr"
+  HREF="papers/oldfield:thesis-tr.bib">oldfield:thesis-tr</A>:</DT>
+<DD>
+Ron Oldfield.
+<A HREF="http://www.cs.dartmouth.edu/reports/TR2003-459.pdf"><STRONG>Efficient I/O
+  for computational grid applications</STRONG></A>.
+Technical Report TR2003-459, Dept. of Computer Science, Dartmouth College, May
+  2003.<br>
+See also earlier version <A HREF="#oldfield:thesis">oldfield:thesis</A>.
+</DD>
+
+</DL>
+<h3>Talks</h3>
+<DL>
+
+<DT> <A NAME="oldfield:armada-talk-dartmouth2003"
+  HREF="talks/oldfield:armada-talk-dartmouth2003.bib">oldfield:armada-talk-dartmouth2003</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<STRONG>High-performance I/O for computational grid applications</STRONG>.
+Department of Computer Science graduate student colloquium, Dartmouth College,
+  Hanover, NH, January 2003.</DD>
+
+<DT> <A NAME="oldfield:armada-talk-dartmouth98"
+  HREF="talks/oldfield:armada-talk-dartmouth98.bib">oldfield:armada-talk-dartmouth98</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<STRONG>The Armada parallel file system</STRONG>.
+Department of Computer Science graduate student colloquium, Dartmouth College,
+  Hanover, NH, October 1998.</DD>
+
+<DT> <A NAME="oldfield:armada-talk-sandia1998"
+  HREF="talks/oldfield:armada-talk-sandia1998.bib">oldfield:armada-talk-sandia1998</A>:</DT>
+<DD>
+Ron Oldfield.
+<STRONG>The Armada parallel file system</STRONG>.
+Invited talk at Sandia National Laboratories, Albuquerque, NM, October
+  1998.</DD>
+
+<DT> <A NAME="oldfield:armada-talk-sandia2000"
+  HREF="talks/oldfield:armada-talk-sandia2000.bib">oldfield:armada-talk-sandia2000</A>:</DT>
+<DD>
+Ron Oldfield.
+<STRONG>Flexible Parallel I/O for Computational Grids</STRONG>.
+Invited talk at Sandia National Laboratories, Albuquerque, NM, March 2000.</DD>
+
+<DT> <A NAME="oldfield:armada-talk-sandia2003"
+  HREF="talks/oldfield:armada-talk-sandia2003.bib">oldfield:armada-talk-sandia2003</A>:</DT>
+<DD>
+Ron Oldfield.
+<A HREF="http://www.cs.dartmouth.edu/~dfk/armada/papers/oldfield:sandia2003.pdf"><STRONG>High-performance I/O for computational grid
+  applications</STRONG></A>.
+Invited talk at Sandia National Laboratories, Albuquerque, NM, January
+  2003.</DD>
+
+<DT> <A NAME="oldfield:datagrids-talk-microsoft"
+  HREF="talks/oldfield:datagrids-talk-microsoft.bib">oldfield:datagrids-talk-microsoft</A>:</DT>
+<DD>
+Ron Oldfield and Reagan Moore.
+<STRONG>Summary of Existing Data Grids (Grids for a federation of data,
+  Applications that use the grid)</STRONG>.
+Invited talk for the plenary session of the Fourth Grid Forum, Microsoft,
+  Redmond, WA, July 2000.</DD>
+
+<DT> <A NAME="oldfield:seismic-talk-dartmouth96"
+  HREF="talks/oldfield:seismic-talk-dartmouth96.bib">oldfield:seismic-talk-dartmouth96</A>:</DT>
+<DD>
+Ron Oldfield, Curtis Ober, and David Womble.
+<STRONG>Parallel I/O for seismic imaging</STRONG>.
+Department of Computer Science colloquium, Dartmouth College, Hanover, NH,
+  September 1996.</DD>
+
+<DT> <A NAME="oldfield:seismic-talk-sc95"
+  HREF="talks/oldfield:seismic-talk-sc95.bib">oldfield:seismic-talk-sc95</A>:</DT>
+<DD>
+Ron Oldfield.
+<STRONG>Generating a large synthetic seismic dataset on the Paragon
+  Supercomputer</STRONG>.
+Invited talk at birds-of-a-feather session of SC'95, San Diego, CA, November
+  1995.</DD>
+
+<DT> <A NAME="oldfield:thesis-defense"
+  HREF="talks/oldfield:thesis-defense.bib">oldfield:thesis-defense</A>:</DT>
+<DD>
+Ron Oldfield.
+<A HREF="http://www.cs.dartmouth.edu/~dfk/armada/papers/oldfield:thesis-defense.pdf"><STRONG>Efficient I/O for computational grid applications</STRONG></A>.
+Department of Computer Science colloquium, Dartmouth College, Hanover, NH, May
+  2003.</DD>
+
+<DT> <A NAME="oldfield:thesis-proposal-talk"
+  HREF="talks/oldfield:thesis-proposal-talk.bib">oldfield:thesis-proposal-talk</A>:</DT>
+<DD>
+Ron Oldfield and David Kotz.
+<STRONG>Flexible parallel I/O for computational grids</STRONG>.
+Ph.D. thesis proposal for the Department of Computer Science, Dartmouth
+  College, Hanover, NH, May 2000.</DD>
+
+</DL>
+
+<h3>Other papers and talks</h3>
+
+Some other papers, possibly overlapping list above:
+<ul>
+<li><a href=papers/oldfield:armada-emulab-tr.pdf>oldfield:armada-emulab-tr.pdf</a>
+<li><a href=papers/oldfield:armada-talk-sandia2003.pdf>oldfield:armada-talk-sandia2003.pdf</a>
+<li><a href=papers/oldfield:armada-wip.pdf>oldfield:armada-wip.pdf</a>
+<li><a href=papers/kotz:anl2002.pdf>kotz:anl2002.pdf</a>
+<li><a href=papers/oldfield:armada.pdf>oldfield:armada.pdf</a>
+<li><a href=papers/oldfield:emulab-tr.pdf>oldfield:emulab-tr.pdf</a>
+<li><a href=papers/ccgrid2001.ps.gz>ccgrid2001.ps.gz</a>
+<li><a href=papers/oldfield:framework.pdf>oldfield:framework.pdf</a>
+<li><a href=papers/design.ps.gz>design.ps.gz</a>
+<li><a href=papers/oldfield:sandia2003.pdf>oldfield:sandia2003.pdf</a>
+<li><a href=papers/datagrids.pdf>datagrids.pdf</a>
+<li><a href=papers/oldfield:armada-wip-talk.ppt>oldfield:armada-wip-talk.ppt</a>
+<li><a href=papers/oldfield:thesis-defense.pdf>oldfield:thesis-defense.pdf</a>
+</ul>
+
+
+
+<br /><br /><hr />  <small>File translated from T<sub><font size=-1>E</font></sub>X  by <a href=http://hutchinson.belmont.ma.us/tth/>  T<sub><font size=-1>T</font></sub>H</a>,  version 3.13.<br />On  Mon Mar 2 00:46:18 EST 2009 .</small>  </body></html> 

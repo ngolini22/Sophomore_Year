@@ -1,0 +1,55 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/howell-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>howell:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jonathan R. Howell.
+<b>Naming and sharing resources across administrative boundaries</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+June,
+2000.
+Available as Dartmouth Computer Science Technical Reports TR2000-378,
+379, and 380.
+<p><b>Abstract:</b> I tackle the problem of naming and sharing resources across
+administrative boundaries. Conventional systems manifest the hierarchy of
+typical administrative structure in the structure of their own mechanism.
+While natural for communication that follows hierarchical patterns, such
+systems interfere with naming and sharing that cross administrative
+boundaries, and therefore cause headaches for both users and administrators.
+I propose to organize resource naming and security, not around administrative
+domains, but around the sharing patterns of users. <P> The dissertation is
+organized into four main parts. First, I discuss the challenges and tradeoffs
+involved in naming resources and consider a variety of existing approaches to
+naming. <P> Second, I consider the architectural requirements for
+user-centric sharing. I evaluate existing systems with respect to these
+requirements. <P> Third, to support the sharing architecture, I develop a
+formal logic of sharing that captures the notion of restricted delegation.
+Restricted delegation ensures that users can use the same mechanisms to share
+resources consistently, regardless of the origin of the resource, or with
+whom the user wishes to share the resource next. A formal semantics gives
+unambiguous meaning to the logic. I apply the formalism to the Simple Public
+Key Infrastructure and discuss how the formalism either supports or
+discourages potential extensions to such a system. <P> Finally, I use the
+formalism to drive a user-centric sharing implementation for distributed
+systems. I show how this implementation enables end-to-end authorization, a
+feature that makes heterogeneous distributed systems more secure and easier
+to audit. Conventionally, gateway services that bridge administrative
+domains, add abstraction, or translate protocols typically impede the flow of
+authorization information from client to server. In contrast, end-to-end
+authorization enables us to build gateway services that preserve
+authorization information, hence we reduce the size of the trusted computing
+base and enable more effective auditing. I demonstrate my implementation and
+show how it enables end-to-end authorization across various boundaries. I
+measure my implementation and argue that its performance tracks that of
+similar authorization mechanisms without end-to-end structure. <P> I
+conclude that my user-centric philosophy of naming and sharing benefits both
+users and administrators.</p>
+<p><a href="bibtex/howell-thesis.bib">BibTeX</a></p>
+<p>Other: <a target=_top href="http://www.cs.dartmouth.edu/~jonh/research/dissertation/">http://www.cs.dartmouth.edu/~jonh/research/dissertation/</a></p>
+<p><b>Copyright &#169;&nbsp;2000 by Jonathan R. Howell.</b></p>
+</BODY>
+</HTML>

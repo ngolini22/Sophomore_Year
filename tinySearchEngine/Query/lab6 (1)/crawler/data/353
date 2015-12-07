@@ -1,0 +1,49 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-biometrics-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:biometrics-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius, Zachary Marois, Jacob Sorber, Ron Peterson, Shrirang Mare, and David Kotz.
+<b>Passive Biometrics for Pervasive Wearable Devices (Poster paper)</b>.
+In
+<i>Workshop on Mobile Computing Systems and Applications
+(HotMobile)</i>,
+February,
+2012.
+ACM Press.
+<p><b>Abstract:</b> Wearable devices&nbsp;- like the FitBit, MOTOACTV, and Jawbone UP&nbsp;-
+are increasingly becoming more pervasive whether for monitoring health and
+fitness, personal assistance, or home automation. While pervasive wearable
+devices have long been researched, we are now beginning to see the fruits of
+this research in the form of commercial offerings. Today, many of these
+commercial wearable devices are closed systems that do not interoperate with
+other devices a person might carry. We believe, however, these commercial
+offerings signal the coming of wireless body-area networks that will connect
+these pervasive wearable devices and leverage existing devices a user already
+owns (e.g., a smartphone). Such wireless body-area networks will allow
+devices to specialize and utilize the capabilities of other devices in the
+network. A sensor, for example, might harness the internet connectivity of a
+smartphone to store its data in the cloud. Utilized in this way, devices will
+become cheaper because they will only require the components necessary for
+their speciality, and they will also become more pervasive because they can
+easily be shared between users. <P> In order for such a vision to be
+successful, these devices will need to seamlessly interoperate with no
+interaction required of the user. As difficult as it is for users to manage
+their wireless area networks, it will be even more difficult for a user to
+manage their wireless body-area network in a truly pervasive world. As such,
+we believe these wearable devices should form a wireless body-area network
+that is passive in nature. This means that these pervasive wearable devices
+will require no configuration, yet they will be able form a wireless
+body-area network by (1) discovering their peers, (2) recognizing they are
+attached to the same body, (3) securing their communications, and (4)
+identifying to whom they are attached. While we are interested in all aspects
+of these passive wireless body-area networks, we focus on the last
+requirement: identifying who is wearing a device.</p>
+<p><a href="bibtex/cornelius-biometrics-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-biometrics-poster.pdf">PDF</a> (1808K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by the authors.</b></p>
+</BODY>
+</HTML>

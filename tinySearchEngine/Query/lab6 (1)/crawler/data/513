@@ -1,0 +1,23 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/reed-panel.html
+3
+<HTML>
+<HEAD>
+ <TITLE>reed:panel</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Daniel A. Reed, Charles Catlett, Alok Choudhary, David Kotz, and Marc Snir.
+<b>Parallel I/O: Getting Ready for Prime Time</b>.
+<i>IEEE Parallel and Distributed Technology</i>,
+64-71,
+Summer,
+1995.
+Edited transcript of panel discussion at the 1994 International
+Conference on Parallel Processing.
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/reed-panel.bib">BibTeX</a></p>
+<p><a target=_top href = "././reed-panel.pdf">PDF</a> (818K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

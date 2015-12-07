@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-mpcs.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:mpcs</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen, Bo Yan, Minho Shin, David Kotz, and Ethan Berke.
+<b>MPCS: Mobile-based Patient Compliance System for Chronic Illness
+Care</b>.
+In
+<i>Proceedings of the International Workshop on Ubiquitous Mobile
+Healthcare Applications (MobiCare)</i>,
+pages 1-7,
+July,
+2009.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.4108/ICST.MOBIQUITOUS2009.6829">10.4108/ICST.MOBIQUITOUS2009.6829</a>.
+<p><b>Abstract:</b> More than 100 million Americans are currently living with at
+least one chronic health condition and expenditures on chronic diseases
+account for more than 75 percent of the \$2.3 trillion cost of our healthcare
+system. To improve chronic illness care, patients must be empowered and
+engaged in health self-management. However, only half of all patients with
+chronic illness comply with treatment regimen. The self-regulation model,
+while seemingly valuable, needs practical tools to help patients adopt this
+self-centered approach for long-term care. <P> In this position paper, we
+propose Mobile-phone based Patient Compliance System (MPCS) that can reduce
+the time-consuming and error-prone processes of existing self-regulation
+practice to facilitate self-reporting, non-compliance detection, and
+compliance reminders. The novelty of this work is to apply social-behavior
+theories to engineer the MPCS to positively influence patients' compliance
+behaviors, including mobile-delivered contextual reminders based on
+association theory; mobile-triggered questionnaires based on self-perception
+theory; and mobile-enabled social interactions based on social-construction
+theory. We discuss the architecture and the research challenges to realize
+the proposed MPCS.</p>
+<p><a href="bibtex/chen-mpcs.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-mpcs.pdf">PDF</a> (688K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by ICST.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

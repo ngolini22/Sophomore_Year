@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/rus-autonomous4.html
+3
+<HTML>
+<HEAD>
+ <TITLE>rus:autonomous4</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Daniela Rus, Robert Gray, and David Kotz.
+<b>Transportable Information Agents</b>.
+In
+Michael Huhns and Munindar Singh.
+editors, 
+<i>Readings in Agents</i>,
+chapter 3.3,
+Morgan Kaufmann Publishers,
+October,
+1997.
+<p><b>Abstract:</b> Transportable agents are autonomous programs. They can move
+through a heterogeneous network of computers under their own control,
+migrating from host to host. They can sense the state of the network, monitor
+software conditions, and interact with other agents or resources. The
+network-sensing tools allow our agents to adapt to the network configuration
+and to navigate under the control of reactive plans. In this paper we
+describe the design and implementation of the navigation system that gives
+our agents autonomy. We also discuss the intelligent and adaptive behavior of
+autonomous agents in distributed information-gathering tasks.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/rus-autonomous4.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;1997 by Morgan Kaufmann Publishers.</b></p>
+<p>Identical to <b><a href="abstracts/rus-autonomous3.html">rus:autonomous3</a></b>.</p>
+</BODY>
+</HTML>

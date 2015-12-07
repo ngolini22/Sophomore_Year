@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-traces.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:traces</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>A Case Study of Four Location Traces</b>.
+Technical Report
+TR2004-490,
+Dartmouth Computer Science,
+February,
+2004.
+<p><b>Abstract:</b> Location is one of the most important context information that an
+ubiquitous-computing application may leverage. Thus understanding the
+location systems and how location-aware applications interact with them is
+critical for design and deployment of both the location systems and
+location-aware applications. In this paper, we analyze a set of traces
+collected from two small-scale one-building location system and two
+large-scale campus-wide location systems. Our goal is to study
+characteristics of these location systems ant how these factors should be
+taken into account by a potentially large number of location-aware
+applications with different needs. We make empirical measurements of several
+important metrics and compare the results across these location systems. We
+discuss the implication of these results on location-aware applications and
+their supporting software infrastructure, and how location systems could be
+improved to better serve applications' needs. In places where possible, we
+use location-aware applications discussed in existing literatures as
+illustrating examples.</p>
+<p><a href="bibtex/chen-traces.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-traces.pdf">PDF</a> (699K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by the authors.</b></p>
+</BODY>
+</HTML>

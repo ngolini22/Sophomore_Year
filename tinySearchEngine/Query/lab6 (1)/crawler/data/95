@@ -1,0 +1,241 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture27/lecture27.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Testing code - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<title>
+help
+</title>
+
+<h1 id="lecture-27---testing">Lecture 27 - Testing</h1>
+<p>Students who write bug free code can leave the class now -- they get an A. Those students should come see me during my office hours.</p>
+<p>You have come across unit testing before in CS50. You might think that great coders write great code and that is it; they never need to test their code -- that is, systematically determine no bugs lurk at the edges of their code or any where in their objects. Wrong! Great coders are great testers.</p>
+<p>How do you determine no bugs exist in your code? Test every use case.</p>
+<p>We have written quite a lot of Android code at this point. You've used Log and the debugger but we've never tested our code.</p>
+<p>That's about to change.</p>
+<p>But how do you test your app? Think about MyRuns. It has many classes. It has a UI, activities, services, loaders, database, many fragments, etc.</p>
+<p>How do we know the UI does not leak data or that the SQLite objects manage the data in the database in consistent manner. We may have used the app, entered various data and tracked a run but how do we really know there are no bugs in the app. We don't. I'm sure they exist.</p>
+<p>In industry you will sometimes write test cases before you write the actual code. No matter what you will always test the code you write. So if you plan to write code you better get use to the idea that you need to know how to test code.</p>
+<p>As an aside, my very first software job was unit testing of major parts of a kernel OS. I tested the code written by a brilliant hacker. I spent one year of my sad life as tester trying to prove there were bugs. I never found a single bug. But that's another story.</p>
+<p>OK. Let's go.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Fundamentals of the Android testing framework</li>
+<li>How to create tests for your Android application</li>
+<li>Examples about the usage of testing API</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Android <a href="http://developer.android.com/tools/testing/testing_android.html">Testing Fundamentals</a></li>
+<li>Android ActivityInstrumentation <a href="https://github.com/googlesamples/android-ActivityInstrumentation/">Sample</a></li>
+<li><a href="http://rexstjohn.com/unit-testing-with-android-studio/">Unit testing with Android Studio</a></li>
+</ul>
+<h2 id="testing-framework">Testing framework</h2>
+<p>The Android testing framework provides an tools that help you test every aspect of your application at every level from unit (method, object) to the complete app framework.</p>
+<p>Android test suites are based on JUnit. You can use plain JUnit to test a class that does not call the Android API, or Android's JUnit extensions to test Android components.</p>
+<p>The Android JUnit extensions provide - specific test case classes. These classes provide helper methods for creating mock objects and methods that help you control the lifecycle of a component. You can test the lifecycle of various components, such as, fragments, activities, services, etc. You can test different configurations. It's cool.</p>
+<p>Problem is that there isn't a lot of details for testing with the relatively new Android Studio. Most web based information relates to testing using the Eclipse IDE which is quite different from Studio.</p>
+<p>Test suites are contained in test packages that are similar to main application packages, so you do not need to learn a new set of tools or techniques for designing and building tests. You can do that right in the Android Studio.</p>
+<p>The SDK tools for building and tests are available in Android Studio, and also in command-line (we will not use command line). These tools get information from the project (for the application) under test and uses this information to automatically create the build files, manifest file, and directory structure for the test package.</p>
+<p>The SDK also uses monkeyrunner, an API for testing devices with Python programs, and UI/Application Exerciser Monkey, a command-line tool for stress-testing UIs by sending pseudo-random events to a device.</p>
+<p>The following diagram summarizes the testing framework:</p>
+<div class="figure">
+<img src="images/test_framework.png" />
+</div>
+<h2 id="create-your-test-class">Create your test class</h2>
+<p>You can create a test project anywhere in your file system, but the best approach is to add the test project so that its root directory tests/ is at the same level as the src/ directory of the main application's project. This helps you find the tests associated with particular application. For example, in the MyRuns1 example, right click the java package and create a package called &quot;tests&quot;. And we create a Java class in the test package.</p>
+<div class="figure">
+<img src="images/file_structure.png" />
+</div>
+<p>The Android testing API is based on the JUnit API and extended with a instrumentation framework and Android-specific testing classes. You can use the JUnit Assert class to display test results. The assert method compares values you expect from a test to the actual results. If the value is as expected then that particular test passes. If it is not the value you expect then the test throws an exception -- that is, if the comparison fails. Android also provides a class of assertions that extend the possible types of comparisons. It also provides another class of assertions for testing the UI.</p>
+<p>For example, we would likely want to test the UI code. And we would also likely want to test all the objects, all the paths through the app code and each method in every object. You can see as you app grows in size and complexity your test cases and test code will grow. That's to be expected. But you should not feel overwhelmed because you can test at the method level, object level, app level. I like to start bottom up in case of the system components but probably top down for the UI.</p>
+<p>You must use Android's instrumented test runner -- InstrumentationTestRunner -- to run your test case classes. Individual tests are defined as any method beginning with the word 'test'. Here is an example:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import android.test.InstrumentationTestCase;</span>
+
+<span class="kw">public</span> <span class="kw">class</span> ProfileActivityTest <span class="kw">extends</span> InstrumentationTestCase {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">testExample</span>() <span class="kw">throws</span> Exception {
+        <span class="dt">int</span> expect = <span class="dv">1</span>;
+        <span class="dt">int</span> actual = <span class="dv">2</span>;
+        <span class="fu">assertEquals</span>(expect, actual);
+    }
+}</code></pre>
+<h2 id="how-to-run-your-test">How to run your test</h2>
+<p>First you need to set up the configurations by choosing &quot;Run&quot; -&gt; &quot;Edit Configurations&quot;. Then click the &quot;+&quot; button from the upper left corner to add an Android Tests configuration, as below. Let's walk you through the process.</p>
+<div class="figure">
+<img src="images/add_config.png" />
+</div>
+<p>Type the name of the test, select the current module (&quot;app&quot;) as the module, select the “All in Package” option and navigate to your “tests” folder you created. The configuration should look like the following:</p>
+<div class="figure">
+<img src="images/test_config.png" />
+</div>
+<p>Apply the changes and close the dialog. You should now see your test cases as a runnable project configuration in the bar across the top of your Android Studio instance.</p>
+<div class="figure">
+<img src="images/runnable_instance.png" />
+</div>
+<p>Choose the test instance, then run it. You should now see the failed test result because the expected value is different to the actual value.</p>
+<div class="figure">
+<img src="images/test_result.png" />
+</div>
+<h2 id="testing-myruns1">Testing MyRuns1</h2>
+<p>For activity testing, this base class provides the following functions:</p>
+<ol style="list-style-type: decimal">
+<li><p>Lifecycle control: With instrumentation, you can start the activity under test, pause it, and destroy it, using methods provided by the test case classes. That's cool.</p></li>
+<li><p>Dependency injection: Instrumentation allows you to create mock system objects such as Contexts or Applications and use them to run the activity under test. This helps you control the test environment and isolate it from the production system. You can also set up customized Intents and start an activity with them.</p></li>
+<li><p>User interface interaction: You use instrumentation to send keystrokes or touch events directly to the UI of the activity under test. This allows you to emulate the user providing input to the UI. Very cool.</p></li>
+</ol>
+<p>Since we are testing an actvitity, first we need to extends the test class to ActivityInstrumentationTestCase2 and then specify the class name that you want to test in constructor.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import android.test.ActivityInstrumentationTestCase2;</span>
+<span class="kw">import edu.dartmouth.cs.myruns.ProfileActivity;</span>
+
+<span class="kw">public</span> <span class="kw">class</span> ProfileActivityTest <span class="kw">extends</span> ActivityInstrumentationTestCase2&lt;ProfileActivity&gt; {
+
+    <span class="kw">public</span> <span class="fu">ProfileActivityTest</span>() {
+        <span class="kw">super</span>(ProfileActivity.<span class="fu">class</span>);
+    }
+}</code></pre>
+<p>The ActivityInstrumentationTestCase2 class provides functional testing of a single activity. The activity under test is created using the system infrastructure (by calling InstrumentationTestCase.launchActivity()). You will then be able to manipulate your Activity directly.</p>
+<p>Myruns1 allows the user to enter and save: name, email, phone etc. Next, we will create a test to make sure that value of name entered persists across activity restarts. So if you flipped the orientation your input values e.g., name, is saved corrected and reloaded when you change the configuration from portrait to landscape. Clearly, we might have hand tested this but we now get the code to test this systematically. Remember, if you add code to a class that say you have developed. You rerun all the tests to confirm that the new code has not broken the old code - there can be crosstalk between code.</p>
+<p>Inorder to get the views in Profile activity, we need to import the R values -- R.java</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import edu.dartmouth.cs.myruns.R;</span></code></pre>
+<p>Next, we create a test method in the test class. Again, all test methods must start with the “test” prefix, otherwise Android Studio will not detect them as tests and you will get errors.</p>
+<p>We define the test name value that we want to add to the EditText.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="dt">final</span> String TEST_NAME_VALUE = <span class="st">&quot;test_name&quot;</span>;</code></pre>
+<p>We can launch the activity using getActivity(), and get the views in the XML file using the same approach as in the activity class.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="co">// Launch the activity</span>
+        Activity activity = <span class="fu">getActivity</span>();
+
+        <span class="co">// Get name edit text and save button</span>
+        <span class="dt">final</span> EditText text = (EditText) activity.<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editName</span>);
+        <span class="dt">final</span> Button save = (Button) activity.<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">btnSave</span>);</code></pre>
+<p>Next, we need to set the name value to the edit text (i.e., EditText) and click the save button. Because we are manipulating the UI, the execution must be performed on a UI thread. Makes sense.</p>
+<p>An application's activities run on the application's UI thread. Once the UI is instantiated, for example in the activity's onCreate() method, then all interactions with the UI must run in the UI thread. When you run the application normally, it has access to the thread and does not have to do anything special.</p>
+<p>This changes when you run tests against the application. With instrumentation-based classes, you can invoke methods against the UI of the application under test. The other test classes do not allow this. To run an entire test method on the UI thread, you can annotate the thread with @UIThreadTest. Notice that this will run all of the method statements on the UI thread. Methods that do not interact with the UI are not allowed; for example, you can't invoke Instrumentation.waitForIdleSync().</p>
+<p>To run a subset of a test method on the UI thread, create an anonymous class of type Runnable, put the statements you want in the run() method, and instantiate a new instance of the class as a parameter to the method appActivity.runOnUiThread(), where appActivity is the instance of the application you are testing.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        activity.<span class="fu">runOnUiThread</span>(<span class="kw">new</span> Runnable() {
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">run</span>() {
+                <span class="co">// Attempts to manipulate the UI must be performed on a UI thread.</span>
+                <span class="co">// Calling this outside runOnUiThread() will cause an exception.</span>
+                <span class="co">//</span>
+                <span class="co">// You could also use @UiThreadTest, but activity lifecycle methods</span>
+                <span class="co">// cannot be called if this annotation is used.</span>
+                text.<span class="fu">requestFocus</span>();
+                <span class="co">//set the name to the edit text</span>
+                text.<span class="fu">setText</span>(TEST_NAME_VALUE);
+                <span class="co">//click the save button</span>
+                save.<span class="fu">performClick</span>();
+            }
+        });</code></pre>
+<p>Calling .setText() or performClick() outside runOnUiThread() will cause an exception. Next we close the activity and relaunch it, get the name value from the name edit text, check if it is the same as the one we set before.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="co">// Close the activity</span>
+        activity.<span class="fu">finish</span>();
+        <span class="fu">setActivity</span>(<span class="kw">null</span>);  <span class="co">// Required to force creation of a new activity</span>
+
+        <span class="co">// Relaunch the activity</span>
+        activity = <span class="kw">this</span>.<span class="fu">getActivity</span>();
+
+        <span class="co">// Verify that the name was saved at the name edit text</span>
+        <span class="dt">final</span> EditText name2 = (EditText) activity.<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editName</span>);
+        String currentName = name2.<span class="fu">getText</span>().<span class="fu">toString</span>();
+        <span class="fu">assertEquals</span>(TEST_NAME_VALUE, currentName);</code></pre>
+<p>If your program is correct, you should see it passes the test. Otherwise you should verify the correctness of your implementation.</p>
+<div class="figure">
+<img src="images/test_success.png" />
+</div>
+<h2 id="change-in-orientation-of-the-phone">Change in orientation of the phone</h2>
+<p>As mentioned in the topic of &quot;<a href="http://developer.android.com/tools/testing/what_to_test.html">What to test</a>&quot; on Android official website, testing change in orientation is one of the important test cases that you must consider when testing your app.</p>
+<p>For devices that support multiple orientations, Android detects a change in orientation when the user turns the device so that the display is &quot;landscape&quot; (long edge is horizontal) instead of &quot;portrait&quot; (long edge is vertical).</p>
+<p>When Android detects a change in orientation, its default behavior is to destroy and then re-start the foreground Activity. We have discussed how the activity and fragment lifecycle respond to such configurations changes multiple times in class. OK, you should consider testing the following after changing the orientation (i.e., configuration):</p>
+<p>Is the screen re-drawn correctly? Any custom UI code you have should handle changes in the orientation? Does the application maintain its state? The Activity should not lose anything that the user has already entered into the UI. The application should not &quot;forget&quot; its place in the current transaction.</p>
+<p>In Myruns1, we need to save the image temporarily inside onSaveInstanceState() when the screen roates thus the image persists after screen rotation. Now we test if such feature is implemented correctly.</p>
+<p>In order to set a test image, we first start the activity, get an image from drawable folder and convert the bimap into byte array.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="co">// Launch the activity</span>
+        Activity activity = <span class="fu">getActivity</span>();
+
+        <span class="co">// Define a test bitmap</span>
+        <span class="dt">final</span> Bitmap TEST_BITMAP = BitmapFactory.<span class="fu">decodeResource</span>(activity.<span class="fu">getResources</span>(),
+                R.<span class="fu">drawable</span>.<span class="fu">blue_pushpin</span>);
+                
+        <span class="co">// Convert bitmap to byte array</span>
+        ByteArrayOutputStream bos = <span class="kw">new</span> ByteArrayOutputStream();
+        TEST_BITMAP.<span class="fu">compress</span>(Bitmap.<span class="fu">CompressFormat</span>.<span class="fu">PNG</span>, <span class="dv">100</span>, bos);
+        <span class="dt">final</span> <span class="dt">byte</span>[] TEST_BITMAP_VALUE = bos.<span class="fu">toByteArray</span>();</code></pre>
+<p>Similarly to the name test, we set our test bitmap to the image view.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="dt">final</span> ImageView mImageView = (ImageView) activity.<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">imageProfile</span>);
+        activity.<span class="fu">runOnUiThread</span>(<span class="kw">new</span> Runnable() {
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">run</span>() {
+                <span class="co">//set the test bitmap to the image view</span>
+                mImageView.<span class="fu">setImageBitmap</span>(TEST_BITMAP);
+            }
+        });</code></pre>
+<p>We can rotate the screen by using setRequestedOrientation(). However, it creates a new instance of the activity when we rotate the screen, thus, we need to use Activity monitor to track the activity and update the current activity. Instrumentation.ActivityMonitor provides information about a particular kind of Intent that is being monitored. An instance of this class is added to the current instrumentation through addMonitor(Instrumentation.ActivityMonitor); after being added, when a new activity is being started the monitor will be checked and, if matching, its hit count updated and (optionally) the call stopped and a canned result returned.</p>
+<p>The rotation test is required to open your phone screen, otherwise the test will hang.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        Instrumentation.<span class="fu">ActivityMonitor</span> monitor =
+                <span class="kw">new</span> Instrumentation.<span class="fu">ActivityMonitor</span>(ProfileActivity.<span class="fu">class</span>.<span class="fu">getName</span>(), <span class="kw">null</span>, <span class="kw">false</span>);
+        <span class="fu">getInstrumentation</span>().<span class="fu">addMonitor</span>(monitor);
+        <span class="co">// Rotate the screen</span>
+        activity.<span class="fu">setRequestedOrientation</span>(ActivityInfo.<span class="fu">SCREEN_ORIENTATION_LANDSCAPE</span>);
+        <span class="fu">getInstrumentation</span>().<span class="fu">waitForIdleSync</span>();
+        <span class="co">// Updates current activity</span>
+        activity = <span class="fu">getInstrumentation</span>().<span class="fu">waitForMonitor</span>(monitor);</code></pre>
+<p>Now the &quot;activity&quot; variable is the rotated activity. You can find the bitmap value on the image view and compare it to our test bitmap.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="co">// Convert bitmap to byte array</span>
+        bos = <span class="kw">new</span> ByteArrayOutputStream();
+        currentBitMap.<span class="fu">compress</span>(Bitmap.<span class="fu">CompressFormat</span>.<span class="fu">PNG</span>, <span class="dv">100</span>, bos);
+        <span class="dt">byte</span>[] currentBitmapValue = bos.<span class="fu">toByteArray</span>();
+
+        <span class="co">// Check if these two bitmaps have the same byte values.</span>
+        <span class="co">// If the program executes correctly, they should be the same</span>
+        <span class="fu">assertTrue</span>(java.<span class="fu">util</span>.<span class="fu">Arrays</span>.<span class="fu">equals</span>(TEST_BITMAP_VALUE, currentBitmapValue));</code></pre>
+<p>You should see the following changes in your phone screen:</p>
+<div class="figure">
+<img src="images/test_rotation.png" />
+</div>
+<h2 id="codeitfour-testing-and-tracking-down-a-bug">CodeItFour: testing and tracking down a bug</h2>
+<p>OK. For this week's codeIt you have to complete the testing of the UI for the profile in MyRun3-- which requires you to test the UI. After you have done that you will test the database helper object in myRuns3. Here you are not testing the UI but all the methods in the class.</p>
+<p>We will provide you with the solution code for MyRuns3 so you all have the same code. This is an individual exercise and not with a partner.</p>
+<p>The final twist is that we have introduced a bug in one part of the code you will test. So testing should find the bug. Once you find the bug fix it in your code. So then all tests will pass.</p>
+<p>You have to mail the TAs the bug you found as part of the submission.</p>
+</body>
+</html>

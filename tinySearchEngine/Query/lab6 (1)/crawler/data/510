@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/oldfield-bapp-pario.html
+3
+<HTML>
+<HEAD>
+ <TITLE>oldfield:bapp-pario</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ron Oldfield and David Kotz.
+<b>Scientific Applications using Parallel I/O</b>.
+In
+Hai Jin, Toni Cortes, and Rajkumar Buyya.
+editors, 
+<i>High Performance Mass Storage and Parallel I/O: Technologies
+and Applications</i>,
+chapter 45,
+IEEE Computer Society Press and John Wiley &amp; Sons,
+2001.
+<p><b>Abstract:</b> Scientific applications are increasingly being implemented on
+massively parallel supercomputers. Many of these applications have intense
+I/O demands, as well as massive computational requirements. This paper is
+essentially an annotated bibliography of papers and other sources of
+information about scientific applications using parallel I/O.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/oldfield-bapp-pario.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;2001 by IEEE.</b></p>
+<p>See also earlier version <b><a href="abstracts/oldfield-app-pario.html">oldfield:app-pario</a></b>.</p>
+</BODY>
+</HTML>

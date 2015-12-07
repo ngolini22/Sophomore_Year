@@ -1,0 +1,52 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nanda-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nanda:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Soumendra Nanda.
+<b>Mesh-Mon: a Monitoring and Management System for Wireless Mesh
+Networks</b>.
+Ph.D. Thesis,
+Dartmouth College Computer Science,
+May,
+2008.
+Available as Dartmouth Computer Science Technical Report TR2008-619.
+<p><b>Abstract:</b> A mesh network is a network of wireless routers that employ
+multi-hop routing and can be used to provide network access for mobile
+clients. Mobile mesh networks can be deployed rapidly to provide an alternate
+communication infrastructure for emergency response operations in areas with
+limited or damaged infrastructure. <P> In this dissertation, we present
+Dart-Mesh: a Linux-based layer-3 dual-radio two-tiered mesh network that
+provides complete 802.11b coverage in the Sudikoff Lab for Computer Science
+at Dartmouth College. We faced several challenges in building, testing,
+monitoring and managing this network. These challenges motivated us to design
+and implement Mesh-Mon, a network monitoring system to aid system
+administrators in the management of a mobile mesh network. Mesh-Mon is a
+scalable, distributed and decentralized management system in which mesh nodes
+cooperate in a proactive manner to help detect, diagnose and resolve network
+problems automatically. Mesh-Mon is independent of the routing protocol used
+by the mesh routing layer and can function even if the routing protocol
+fails. We demonstrate this feature by running Mesh-Mon on two versions of
+Dart-Mesh, one running on AODV (a reactive mesh routing protocol) and the
+second running on OLSR (a proactive mesh routing protocol) in separate
+experiments. <P> Mobility can cause links to break, leading to disconnected
+partitions. We identify critical nodes in the network, whose failure may
+cause a partition. We introduce two new metrics based on social-network
+analysis: the Localized Bridging Centrality (LBC) metric and the Localized
+Load-aware Bridging Centrality (LLBC) metric, that can identify critical
+nodes efficiently and in a fully distributed manner. <P> We run a monitoring
+component on client nodes, called Mesh-Mon-Ami, which also assists Mesh-Mon
+nodes in the dissemination of management information between physically
+disconnected partitions, by acting as carriers for management data. <P> We
+conclude, from our experimental evaluation on our 16-node Dart-Mesh testbed,
+that our system solves several management challenges in a scalable manner,
+and is a useful and effective tool for monitoring and managing real-world
+mesh networks.</p>
+<p><a href="bibtex/nanda-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2008-619.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Soumendra Nanda.</b></p>
+</BODY>
+</HTML>

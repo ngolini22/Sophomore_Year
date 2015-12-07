@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kim-mobility.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kim:mobility</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minkyong Kim, David Kotz, and Songkuk Kim.
+<b>Extracting a mobility model from real user traces</b>.
+In
+<i>Proceedings of the 25th Annual Joint Conference of the IEEE
+Computer and Communications Societies (INFOCOM)</i>,
+Barcelona, Spain,
+April,
+2006.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/INFOCOM.2006.173">10.1109/INFOCOM.2006.173</a>.
+<p><b>Abstract:</b> Understanding user mobility is critical for simulations of mobile
+devices in a wireless network, but current mobility models often do not
+reflect real user movements. In this paper, we provide a foundation for such
+work by exploring mobility characteristics in traces of mobile users. We
+present a method to estimate the physical location of users from a large
+trace of mobile devices associating with access points in a wireless network.
+Using this method, we extracted tracks of always-on Wi-Fi devices from a
+13-month trace. We discovered that the speed and pause time each follow a
+log-normal distribution and that the direction of movements closely reflects
+the direction of roads and walkways. Based on the extracted mobility
+characteristics, we developed a mobility model, focusing on movements among
+popular regions. Our validation shows that synthetic tracks match real tracks
+with a median relative error of 17\%.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/kim-mobility.bib">BibTeX</a></p>
+<p><a target=_top href = "././kim-mobility.pdf">PDF</a> (665K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

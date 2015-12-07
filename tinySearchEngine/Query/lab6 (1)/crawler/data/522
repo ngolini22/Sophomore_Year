@@ -1,0 +1,40 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/johnson-freshmen.html
+3
+<HTML>
+<HEAD>
+ <TITLE>johnson:freshmen</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Donald Johnson, David Kotz, and Fillia Makedon.
+<b>Teaching Parallel Computing to Freshmen</b>.
+In
+Chris Nevison.
+editor, 
+<i>Conference on Parallel Computing for Undergraduates</i>,
+June,
+1994.
+<p><b>Abstract:</b> Parallelism is the future of computing and computer science and
+should therefore be at the heart of the CS curriculum. Instead of continuing
+along the evolutionary path by introducing parallel computation ``top down''
+(first in special junior-senior level courses), we are taking a radical
+approach and introducing parallelism at the earliest possible stages of
+instruction. Specifically, we are developing a completely new freshman-level
+course on data structures that integrates parallel computation naturally, and
+retains the emphasis on laboratory instruction. This will help to steer our
+curriculum as expeditiously as possible toward parallel computing. <P> Our
+approach is novel in three distinct and essential ways. First, we will teach
+parallel computing to freshmen in a course designed from beginning to end to
+do so. Second, we will motivate the course with examples from scientific
+computation. Third, we use multimedia and visualization as instructional
+aids. We have two primary objectives: to begin a reform of our undergraduate
+curriculum with an laboratory-based freshman course on parallel computation,
+and to produce tools and methodologies that improve student understanding of
+the basic principles of parallel computing.</p>
+<p><b>Keywords:</b> education, parallel computing</p>
+<p><a href="bibtex/johnson-freshmen.bib">BibTeX</a></p>
+<p><a target=_top href = "././johnson-freshmen.pdf">PDF</a> (173K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by Colgate University.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

@@ -1,0 +1,205 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs60/lab3.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="lab3.tex"> 
+<meta name="date" content="2012-04-08 22:14:00"> 
+<link rel="stylesheet" type="text/css" href="lab3.css"> 
+</head><body 
+>
+<h1 class="likepartHead"><a 
+ id="x1-1000"></a>CS 60 Computer Networks</h1>
+<h1 class="likepartHead"><a 
+ id="x1-2000"></a>Lab3</h1>
+<h1 class="likepartHead"><a 
+ id="x1-3000"></a>IM Application: Your First Network App!</h1>
+<!--l. 20--><p class="noindent" >Ready to design, implement and test your first network application? In this lab, we will implement a
+simple Instant messaging and presence protocol in C. This will require socket programming in
+C.
+<!--l. 22--><p class="noindent" >Read the socket programming notes. You have coded a client but now you will need to know how to do the
+server side too. There are examples in the socket programming notes that you can cut-paste and run to
+get some experience.
+<!--l. 24--><p class="noindent" >Note that there will be an x-hour by the TA this week on concurrency, threads, synchronization in
+C, etc, associated with completing this assignment. The synchronisation issues need some
+thought.
+<!--l. 27--><p class="noindent" >The description below in on the verbose side, we apologies in advance.
+<!--l. 29--><p class="noindent" >OK, off we go.
+<!--l. 31--><p class="noindent" >____________________________________________________________________________
+<h3 class="likesectionHead"><a 
+ id="x1-4000"></a>Getting Started</h3>
+<!--l. 35--><p class="noindent" >The design of your IM system is an important aspect of this assignment. We provide a functional
+description of an IM system that your design should conform to. However, we will leave the precise details
+of the design up to you (maybe you want to make it state driven, using an Finite State Machine design, or
+use other techniques, maybe you want to add bells and whistles beyond what we outline  all up to you).
+But please think about the design before diving into coding  it will help. Feel free to look at some of the
+IM references presented at the end of this assignment, on the web, existing specs (<a 
+href="http://www.hypothetic.org/docs/msn/ietf_draft.txt" > MSNP</a> always cite
+sources (no use of any existing code base of course  but you can look at other open source code for sure,
+for inspiration, ideas, etc.). Be a detective. If you use any ideas, techniques, please cite sources,
+again.
+<!--l. 37--><p class="noindent" >When you do begin to implement your IM system we recommend you start with a basic set of features and
+proceed incrementally  start simply and keep it simple. Perhaps start with just two clients exchanging
+messages and build up from there. Test each feature as you proceed, build confidence, and keep
+working towards the design specification that you developed. This assignment may require
+some aspects of the C language with which you maybe unfamiliar (for instance dealing with
+                                                                                  
+                                                                                  
+concurrency/threads). You will find the text book provides some useful examples and there are some
+excellent tutorials provided by Sun that we list in the references section at the end of this
+assignment.
+<!--l. 39--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-5000"></a>Blueprint for a Simple IM System</h3>
+<!--l. 41--><p class="noindent" >Many of you are familiar with IM from a user&#8217;s perspective but may not have given much consideration to
+its operation. The precise operation of an IM system will vary between different systems (e.g., AIM, MSN,
+iChat) but the essential functions remain the same. For the purposes of this assignment we require your
+simple IM system to incorporate the following functionality:
+<!--l. 43--><p class="noindent" >1) IM clients are able to join and leave the IM network. Every client has a user name and at any one
+particular time no two clients connected to the IM network can have the same user name. So some name
+checking is required in your code.
+<!--l. 45--><p class="noindent" >2) When IM clients join the network other connected clients are made aware of this change within the
+network  the presence component. Similarly, the reverse should be true; that is, when clients leave the
+network other connected clients should be informed. So you need notification and state management  a
+consistent view.
+<!--l. 47--><p class="noindent" >3) Connected IM clients are able to send messages to any other connected IM client. Messages are
+addressed to particular IM clients using their user name.
+<!--l. 49--><p class="noindent" >Given that constructing an elaborate IM system would be a semester long project we have limited the
+scope of this assignment in comparison to a full blown IM system such as supported by MSNP. It is
+perfectly acceptable to adopt the following simplifications:
+<!--l. 51--><p class="noindent" >1) A command line user interface is acceptable, only add a GUI if you would like to  again keep it simple.
+We looked at the command line interface for MSNP in class. It is fairly complex because it supports many
+functions, e.g., file sharing. Your clear text interface would be quite simple in comparison to
+that.
+<!--l. 53--><p class="noindent" >2) You are not required to maintain buddy lists specific to each IM client. It is fine to assume everyone in
+the IM network is part of a single universal buddy list. For instance all IM clients should be notified when
+any IM client joins or leaves the network. Furthermore, all IM clients should be able to exchange messages
+with any other IM client.
+<!--l. 55--><p class="noindent" >3) Your design only needs to support a single IM server (phew ;-). Although, this is not a scalable
+approach it simplifies the task of building your IM system. You may assume all clients are aware of this
+single well-known IM server. So your server will sit on a known host and have a known port.
+Clients simply connect using sockets. By only having a single server you do not need to be
+concerned with maintaining consistent state between multiple servers, so essential in a real
+system.
+<!--l. 57--><p class="noindent" >However, feel free to provide any additional functionality if you wish, it will be rewarded as extra-credit.
+But completing the base line system with no extras would be outstanding. See how things
+                                                                                  
+                                                                                  
+go.
+<!--l. 59--><p class="noindent" >The objective of this assignment is for you to design and implement an IM system that conforms to the
+description outlined above. It is a fairly high level description, so the details are up to you. Supporting
+these features will require you to define an application level protocol that controls how participants in the
+system communicate. We suggest you adopt the client/server approach when designing your IM system
+let us leave P2P aside for the moment.
+<!--l. 61--><p class="noindent" >The server should perform operations, such as:
+<!--l. 63--><p class="noindent" >(a) monitor clients that join and leave the IM network;
+<!--l. 65--><p class="noindent" >(b) maintain a reasonably consistent view of clients currently connected to the network and provide this
+state information to all the currently connected clients; and
+<!--l. 67--><p class="noindent" >(c) facilitate the exchange of messages between clients.
+<!--l. 69--><p class="noindent" >The clients should perform operations, such as:
+<!--l. 71--><p class="noindent" >(a) display to &#8220;the user&#8221; the currently connected IM clients; and
+<!--l. 73--><p class="noindent" >(b) allow &#8220;the use&#8221; to send and receive messages to and from any of these clients, respectively.
+<!--l. 75--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-6000"></a>IM Design Spec</h3>
+<!--l. 77--><p class="noindent" >Here is what we would like to see other than running code and a working simple IM system.
+We would like you to provide as part of the submission a short (read: we do not expect you
+to write a book  the goal is to write good, working code) specification. For example, take a
+look at the original <a 
+href="http://www9.limewire.com/developer/gnutella_protocol_0.4.pdf" > Gnutella specification </a>that we will talk about in class - this is not an IM
+system but it gives a good example of how an application level protocol (albeit for a P2P
+system) can be specified. It is good that you start to look at specs and read them - try and
+puzzle them out for yourself. We would expect a spec of 3 or 4 pages max that describes your
+protocol.
+<!--l. 80--><p class="noindent" >The spec should include:
+<!--l. 82--><p class="noindent" >1) A high level description of the types of participants within your system (i.e., IM clients, the IM server,
+and perhaps others). Describe what are the functions that each of these participants perform and how
+these combine to produce the required system behavior.
+<!--l. 84--><p class="noindent" >2) Define the protocols that occur between these participants. You should provide illustrative examples of
+the protocols in operation (such as seen in the textbook; see Figure 3.16 - note this is for the
+transport layer but is shows examples of sender and receiver interaction). You may find an FSM
+diagram (e.g., Figure 3.10 in the textbook) useful in representing the state and operation of your
+system.
+<!--l. 86--><p class="noindent" >3) Provide a comment on reasons behind any important design decisions  so we can best understand your
+thinking. You could even add a short section on ideas you jettisoned because of x, y, z reasons. What
+                                                                                  
+                                                                                  
+brought you to your final design? Could be you ran out of time and hacked it! Well, that would not be a
+great design methodology but industry sometimes operates like that when developing prototype ideas to
+test the waters against crushing deadlines.
+<!--l. 88--><p class="noindent" >After your design is complete and you start the implementation of your design we suggest you
+first consult the example client/server application provided in the textbook (page 159). The
+textbook example provides a description (and source code) of two Java applications using socket
+programming. The client application is able to send strings to the server. These strings are
+echoed back to the client from the server but are altered so that the strings now only use upper
+case letters. It would be quite simple to alter this example and allow the two end hosts to
+exchange messages directly between each other. Doing this would be a good initial step when
+approaching this assignment. However, you must write this assignment in C so you should only
+use the Java code as a reference. Note that lab 2 will come in handy for this lab because in
+lab 2 you more or less implemented the client part of this lab. You will have to tweak it to
+conform to your protocol but the fundamental building blocks should already be there. Thus the
+majority of your time will more than likely be spent on writing the server portion of this
+lab.
+<!--l. 90--><p class="noindent" >During the design process you will determine that your server needs to be &#8220;multi-threaded&#8221; so that it can
+concurrently service more than one IM client at a time  multithreading might be a new concept to you; it
+allows a software process to deal with concurrent events and operations. If you lack experience in threaded
+programming you will find the POSIX Threads Programming tutorials on the subject an excellent
+resource (this reference is provided at the end of this assignment). Your IM system requires
+threads to concurrently access state that is shared between all thread instances. To ensure the
+correct operation of your server you will be required to perform some form of synchronization
+between these threads when they access shared data they need mutual exclusion. The pthreads
+library provides support for threading and the necessary synchronization primitives. So this
+assignment brings in a lot of concepts that are important, one being shared state and the issue of
+concurrent access. You will come across these ideas in the software industry as designers and
+programmers.
+<!--l. 92--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-7000"></a>Submit</h3>
+<!--l. 94--><p class="noindent" >Make sure you test your code against the requirements discussed above and that it works. Please submit
+the source code - please add comments in your code and employ good programming practices. We will not
+grade you on style in this lab but it is good to get into good habits early in your careers. Please also
+provide a README file that contains any information necessary to run your application. The source
+code submitted must be entirely self-contained. You should also provide in the README any
+information that explains how to setup your IM network; for example, provide a step-by-step set of
+instructions regarding how to use your system to demonstrate it supports the list of functions
+discussed.
+<!--l. 96--><p class="noindent" >That is a lot of information but not too much to limit any innovations you would like to add, if you wish.
+The assignment will take some effort so plan your time carefully.
+                                                                                  
+                                                                                  
+<!--l. 98--><p class="noindent" ><span 
+class="cmbx-10">Extra hacker credit</span>: Allow authentication through Dartmouth&#8217;s DND. Allow users to maintain a buddy
+list of users.
+<!--l. 100--><p class="noindent" >Good luck.
+<!--l. 102--><p class="noindent" >Here are some useful links for IM systems and pthreads.
+<!--l. 104--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-8000"></a>References</h3>
+<!--l. 106--><p class="noindent" >Instant Messenger Systems
+<!--l. 108--><p class="noindent" ><a 
+href="http://libyahoo2.sourceforge.net/ymsg-9.txt" > Yahoo Instant Messenger Protocol </a>
+<!--l. 110--><p class="noindent" ><a 
+href="http://www.hypothetic.org/docs/msn/ietf_draft.txt" > MSNP (Early Internet Draft) </a>
+<!--l. 112--><p class="noindent" >PThreads
+<!--l. 114--><p class="noindent" ><a 
+href="http://en.wikipedia.org/wiki/POSIX_Threads" > POSIX Threads </a>
+<!--l. 116--><p class="noindent" ><a 
+href="https://computing.llnl.gov/tutorials/pthreads/" > POSIX Threads Programming </a>
+<!--l. 118--><p class="noindent" >Thread-Specific Data and Signal Handling in Multi-Threaded Applications
+<!--l. 120--><p class="noindent" ><a 
+href="http://www.linuxjournal.com/article/2121" > Signal Handling for Threads </a>
+<!--l. 122--><p class="noindent" >Good luck!
+<!--l. 124--><p class="noindent" ><span 
+class="cmbx-10">Tip</span>: Make sure you always logout when you are done and see the prompt to login again before you leave
+the terminal.
+ 
+</body></html> 
+
+                                                                                  
+
+

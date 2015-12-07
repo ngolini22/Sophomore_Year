@@ -1,0 +1,21 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/aslam-kerf-WIP.html
+3
+<HTML>
+<HEAD>
+ <TITLE>aslam:kerf-WIP</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aslam, Javed, Bratus, Sergey, Kotz, David, Peterson, Ron, and Rus, Daniela.
+<b>Kerf: Machine Learning to Aid Intrusion Analysts</b>.
+In
+<i>Proceedings of the 13th USENIX Security Symposium</i>,
+August,
+2004.
+Work-in-progress report.
+<p><b>Keywords:</b> security, network, intrusion detection</p>
+<p><a href="bibtex/aslam-kerf-WIP.bib">BibTeX</a></p>
+<p><a target=_top href = "././aslam-kerf-WIP.pdf">PDF</a> (39K)</p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

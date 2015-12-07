@@ -1,0 +1,26 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/yeo-poll-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>yeo:poll-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jihwang Yeo, Keren Tan, and David Kotz.
+<b>User survey regarding the needs of network researchers in
+trace-anonymization tools</b>.
+Technical Report
+TR2009-658,
+Dartmouth Computer Science,
+November,
+2009.
+<p><b>Abstract:</b> To understand the needs of network researchers in an
+anonymization tool, we conducted a survey on the network researchers. We
+invited network researchers world-wide to the survey by sending invitation
+emails to well-known mailing lists whose subscribers may be interested in
+network research with collecting, sharing and sanitizing network traces.</p>
+<p><a href="bibtex/yeo-poll-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././yeo-poll-tr.pdf">PDF</a> (406K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by the authors.</b></p>
+</BODY>
+</HTML>

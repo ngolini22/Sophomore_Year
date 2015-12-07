@@ -1,0 +1,49 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/tan-crf.html
+3
+<HTML>
+<HEAD>
+ <TITLE>tan:crf</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Keren Tan, Guanhua Yan, Jihwang Yeo, and David Kotz.
+<b>Privacy analysis of user association logs in a large-scale wireless
+LAN</b>.
+In
+<i>Proceedings of the 30th Annual Joint Conference of the IEEE
+Computer and Communications Societies (INFOCOM) mini-conference</i>,
+pages 31-35,
+April,
+2011.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/INFCOM.2011.5935168">10.1109/INFCOM.2011.5935168</a>.
+<p><b>Abstract:</b> User association logs collected from a large-scale wireless LAN
+record where and when a user has used the network. Such information plays an
+important role in wireless network research. One concern of sharing these
+data with other researchers, however, is that the logs pose potential privacy
+risks for the network users. Today, the common practice in sanitizing these
+data before releasing them to the public is to anonymize users' sensitive
+information, such as their devices' MAC addresses and their exact association
+locations. In this work, we aim to study whether such sanitization measures
+are sufficient to protect user privacy. By simulating an adversary's role, we
+propose a novel type of correlation attack in which the adversary uses the
+anonymized association log to build signatures against each user, and when
+combined with auxiliary information, such signatures can help to identify
+users within the anonymized log. Using a user association log that contains
+more than four thousand users and millions of association records, we
+demonstrate that this attack technique, under certain circumstances, is able
+to pinpoint the victim's identity exactly with a probability as high as 70\%,
+or narrow it down to a set of 20 candidates with a probability close to
+100\%. We further evaluate the effectiveness of standard anonymization
+techniques, including generalization and perturbation, in mitigating
+correlation attacks; our experimental results reveal only limited success of
+these methods, suggesting that more thorough treatment is needed when
+anonymizing wireless user association logs before public release.</p>
+<p><a href="bibtex/tan-crf.bib">BibTeX</a></p>
+<p><a target=_top href = "././tan-crf.pdf">PDF</a> (263K)</p>
+<p><b>Copyright &#169;&nbsp;2011 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/tan-crf-s3.html">tan:crf-s3</a></b>.</p>
+<p>See also later version <b><a href="abstracts/tan-crf-tr.html">tan:crf-tr</a></b>.</p>
+</BODY>
+</HTML>

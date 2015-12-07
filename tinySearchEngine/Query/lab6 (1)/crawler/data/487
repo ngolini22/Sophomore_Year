@@ -1,0 +1,28 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/khanna-group.html
+3
+<HTML>
+<HEAD>
+ <TITLE>khanna:group</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Sanjay Khanna and David Kotz.
+<b>A Split-Phase Interface for Parallel File Systems</b>.
+Technical Report
+PCS-TR97-312,
+Dartmouth Computer Science,
+March,
+1997.
+<p><b>Abstract:</b> We describe the effects of a new user-level library for the
+Galley Parallel File System. This library allows some pre-existing sequential
+programs to make use of the Galley Parallel File System with minimal
+modification. It permits programs to efficiently use the parallel file system
+because the user-level library groups accesses together. We examine the
+performance of our library, and we show how code needs to be modified to use
+the library.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/khanna-group.bib">BibTeX</a></p>
+<p><a target=_top href = "././khanna-group.pdf">PDF</a> (201K)</p>
+<p><b>Copyright &#169;&nbsp;1997 by the authors.</b></p>
+</BODY>
+</HTML>

@@ -1,0 +1,24 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-fsint2p.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:fsint2p</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Multiprocessor File System Interfaces</b>.
+In
+<i>Proceedings of the USENIX File Systems Workshop</i>,
+pages 149-150,
+May,
+1992.
+USENIX Association.
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-fsint2p.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-fsint2p.pdf">PDF</a> (137K)</p>
+<p><b>Copyright &#169;&nbsp;1992 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/kotz-fsint2.html">kotz:fsint2</a></b>.</p>
+</BODY>
+</HTML>

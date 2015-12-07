@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-motivation.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:motivation</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert S. Gray, George Cybenko, David Kotz, and Daniela Rus.
+<b>Mobile agents: Motivations and State of the Art</b>.
+In
+Jeffrey Bradshaw.
+editor, 
+<i>Handbook of Agent Technology</i>,
+AAAI/MIT Press,
+2002.
+Accepted for publication. Draft available as Technical Report
+TR2000-365, Department of Computer Science, Dartmouth College.
+<p><b>Abstract:</b> A mobile agent is an executing program that can migrate, at times
+of its own choosing, from machine to machine in a heterogeneous network. On
+each machine, the agent interacts with stationary service agents and other
+resources to accomplish its task. In this chapter, we first make the case for
+mobile agents, discussing six strengths of mobile agents and the applications
+that benefit from these strengths. Although none of these strengths are
+unique to mobile agents, no competing technique shares all six. In other
+words, a mobile-agent system provides a single general framework in which a
+wide range of distributed applications can be implemented efficiently and
+easily. We then present a representative cross-section of current
+mobile-agent systems.</p>
+<p><b>Keywords:</b> mobile-agent, survey, mobile computing</p>
+<p><a href="bibtex/gray-motivation.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/~dfk/papers/gray-motivation-tr.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2002 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/gray-motivation-tr.html">gray:motivation-tr</a></b>.</p>
+</BODY>
+</HTML>

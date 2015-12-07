@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-fusenet.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:fusenet</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen, Ming Li, and David Kotz.
+<b>Design and implementation of a large-scale context fusion network</b>.
+In
+<i>First Annual International Conference on Mobile and Ubiquitous
+Systems: Networking and Services (Mobiquitous)</i>,
+pages 246-255,
+August,
+2004.
+DOI <a href="http://dx.doi.org/10.1109/MOBIQ.2004.1331731">10.1109/MOBIQ.2004.1331731</a>.
+<p><b>Abstract:</b> In this paper we motivate a Context Fusion Network (CFN), an
+infrastructure model that allows context-aware applications to select
+distributed data sources and compose them with customized data-fusion
+operators into a directed acyclic information fusion graph. Such a graph
+represents how an application computes high-level understandings of its
+execution context from low-level sensory data. Multiple graphs by different
+applications inter-connect with each other to form a global graph. A key
+advantage of a CFN is re-usability, both at code-level and instance-level,
+facilitated by operator composition. We designed and implemented a
+distributed CFN system, Solar, which maps the logical operator graph
+representation onto a set of overlay hosts. In particular, Solar meets the
+challenges inherent to heterogeneous and volatile ubicomp environments. By
+abstracting most complexities into the infrastructure, we believe Solar
+facilitates both the development and deployment of context-aware
+applications. We present the operator composition model, basic services of
+the Solar overlay network, and programming support for the developers. We
+also discuss some applications built with Solar and the lessons we learned
+from our experience.</p>
+<p><b>Keywords:</b> mobile computing, ubicomp, distributed computing</p>
+<p><a href="bibtex/chen-fusenet.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-fusenet.pdf">PDF</a> (135K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

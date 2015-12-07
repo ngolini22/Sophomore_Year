@@ -1,0 +1,203 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture21/lecture21.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Sensor Manager - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="lecture-20---sensor-manager">Lecture 20 - Sensor Manager</h2>
+<p>In this lecture, we discuss Android's sensors and accessing them via the <a href="http://developer.android.com/reference/android/hardware/SensorManager.html">SensorManager</a>.</p>
+<p>Nexus-4 as a number of interesting sensors beyond the camera and the microphone, specifically:</p>
+<ul>
+<li>Accelerometer</li>
+<li>GPS</li>
+<li>Gyroscope</li>
+<li>Barometer</li>
+<li>Ambient light</li>
+<li>Compass</li>
+</ul>
+<p>In this lecture we will focus mainly on the accelerometer. The Sensor Manager provides access to the 3-axis accelerometer sensor. We use the signals (x, y, and z axis) to infer activity in MyRuns5; specifically, we build an accelerometer pipeline that extracts &quot;features&quot; from the signals and uses these features to infer the activity of the user. More on that in MyRuns5 lab.</p>
+<p>We first provide a demo of the accelerometer signals and the Sensor Manager. We will also show you how to access some of the other sensors such as light, barometer.</p>
+<p><strong>Note, these notes are incomplete.</strong></p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Sensor Manager</li>
+<li>Accessing the X, Z, Y axis of the accelerometer</li>
+<li>Barometer, light and temperature sensors</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li><p><a href="https://play.google.com/store/apps/details?id=imoblife.androidsensorbox&amp;hl=en">Android Sensor Box</a> is a great app that allows you to quickly check out the sensors on your phone and interact with them. This is a very cool and geeky app.</p></li>
+<li><p>We will use the <a href="../code/shakesensordemo.zip">shakesensordemo.zip</a> app to demonstrate how to read the accelerometer. This demo is an extended version of the code found in the <a href="http://www.vogella.com/articles/AndroidSensor/article.html">Sensor Manger tutorial</a>.</p></li>
+<li><p>We will use the <a href="../code/weatherdemo.zip">weatherdemo.zip</a> app to demonstrate how to access the temperature, barometer and light sensors. Note, that the nexus-4 does not have a temperature sensor!</p></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>Some excellent references.</p>
+<ul>
+<li>Course book does not seem to have much on sensors.</li>
+<li>Lars Vogel's <a href="http://www.vogella.com/articles/AndroidSensor/article.html">SensorManger tutorial</a></li>
+<li>Developers <a href="http://developer.android.com/reference/android/hardware/SensorManager.html">Sensor Manager</a>.</li>
+</ul>
+<h2 id="shakesensor-demo">ShakeSensor Demo</h2>
+<p>This simple demo displays the x, y and z axis accelerometer readings in a continuous fashion. If the phone is shaken the background color of the text changes and a toast is displayed, as shown in the example below.</p>
+<div class="figure">
+<img src="images/shake.png" />
+</div>
+<h2 id="set-up-sensor-manager">Set up Sensor Manager</h2>
+<p>We first get a sensor service and sensor manager before we can access the accelerometer data.</p>
+<h2 id="set-the-sensor-data-type-of-interest">Set the Sensor Data Type of Interest</h2>
+<p>We set the sensor manager to get accelerometer data -- Sensor.TYPE_ACCELEROMETER. But we could have asked for any sensor data that the phone produces -- light, proximity, etc. See the list of <a href="http://developer.android.com/reference/android/hardware/Sensor.html">sensor types here</a>.</p>
+<h1 id="phone-coordinate-system-orientation">Phone Coordinate-system orientation</h1>
+<p>The figure below shows the x, y and z axis of the accelerometer sensor with respect to the phone's orientation.</p>
+<p>See <a href="http://developer.android.com/reference/android/hardware/SensorEvent.html">developers notes</a> on the definition of the coordination and the SensorEvent object definition which is based to the onSensorChanged() callback when new data is available.</p>
+<p>The X axis is horizontal and points to the right, the Y axis is vertical and points up and the Z axis points towards the outside of the front face of the screen. In this system, coordinates behind the screen have negative Z values.</p>
+<div class="figure">
+<img src="images/accel.png" />
+</div>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> SensorTestActivity <span class="kw">extends</span> Activity <span class="kw">implements</span> SensorEventListener {
+    <span class="kw">private</span> SensorManager sensorManager;
+    <span class="kw">private</span> <span class="dt">boolean</span> color = <span class="kw">false</span>;
+    <span class="kw">private</span> View view;
+    <span class="kw">private</span> <span class="dt">long</span> lastUpdate;
+    TextView textx, texty, textz;
+
+    <span class="co">/** Called when the activity is first created. */</span>
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">requestWindowFeature</span>(Window.<span class="fu">FEATURE_NO_TITLE</span>);
+        <span class="fu">getWindow</span>().<span class="fu">setFlags</span>(WindowManager.<span class="fu">LayoutParams</span>.<span class="fu">FLAG_FULLSCREEN</span>,
+                WindowManager.<span class="fu">LayoutParams</span>.<span class="fu">FLAG_FULLSCREEN</span>);
+
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+        
+        <span class="co">// get textviews</span>
+        textx = (TextView) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">xval</span>);
+        texty = (TextView) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">yval</span>);
+        textz = (TextView) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">zval</span>);
+
+        
+        view = <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">textView</span>);
+        view.<span class="fu">setBackgroundColor</span>(Color.<span class="fu">BLUE</span>);
+
+        sensorManager = (SensorManager) <span class="fu">getSystemService</span>(SENSOR_SERVICE);
+        sensorManager.<span class="fu">registerListener</span>(<span class="kw">this</span>,
+                sensorManager.<span class="fu">getDefaultSensor</span>(Sensor.<span class="fu">TYPE_ACCELEROMETER</span>),
+                SensorManager.<span class="fu">SENSOR_DELAY_NORMAL</span>);
+        lastUpdate = System.<span class="fu">currentTimeMillis</span>();
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSensorChanged</span> (SensorEvent event) {
+        <span class="kw">if</span> (event.<span class="fu">sensor</span>.<span class="fu">getType</span>() == Sensor.<span class="fu">TYPE_ACCELEROMETER</span>) {
+            <span class="fu">displayAccelerometer</span>(event);
+            <span class="fu">checkShake</span>(event);
+        }
+
+    }</code></pre>
+<h2 id="display-accelerometer-readings">Display accelerometer readings</h2>
+<p>The two helper functions display the accelerometer and check to see if the phone has been shaken using a simple test -- if so change the background color of the text.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">displayAccelerometer</span>(SensorEvent event) {
+
+        <span class="co">// Many sensors return 3 values, one for each axis.</span>
+        <span class="dt">float</span> x = event.<span class="fu">values</span>[<span class="dv">0</span>];
+        <span class="dt">float</span> y = event.<span class="fu">values</span>[<span class="dv">1</span>];
+        <span class="dt">float</span> z = event.<span class="fu">values</span>[<span class="dv">2</span>];
+
+        <span class="co">// display values using TextView</span>
+        textx.<span class="fu">setText</span>(<span class="st">&quot;X axis&quot;</span> + <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">&quot;</span> + x);
+        texty.<span class="fu">setText</span>(<span class="st">&quot;Y axis&quot;</span> + <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">&quot;</span> + y);
+        textz.<span class="fu">setText</span>(<span class="st">&quot;Z axis&quot;</span> + <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">&quot;</span> + z);
+
+    }
+
+    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">checkShake</span>(SensorEvent event) {
+
+        <span class="co">// Movement</span>
+        <span class="dt">float</span> x = event.<span class="fu">values</span>[<span class="dv">0</span>];
+        <span class="dt">float</span> y = event.<span class="fu">values</span>[<span class="dv">1</span>];
+        <span class="dt">float</span> z = event.<span class="fu">values</span>[<span class="dv">2</span>];
+
+        <span class="dt">float</span> accelationSquareRoot = (x * x + y * y + z * z)
+             / (SensorManager.<span class="fu">GRAVITY_EARTH</span> * SensorManager.<span class="fu">GRAVITY_EARTH</span>);
+        <span class="dt">long</span> actualTime = System.<span class="fu">currentTimeMillis</span>();
+        <span class="kw">if</span> (accelationSquareRoot &gt;= <span class="dv">2</span>) <span class="co">//</span>
+        {
+            <span class="kw">if</span> (actualTime - lastUpdate &lt; <span class="dv">200</span>) {
+                <span class="kw">return</span>;
+            }
+            lastUpdate = actualTime;
+            Toast.<span class="fu">makeText</span>(<span class="kw">this</span>, <span class="st">&quot;Don&#39;t shake me!&quot;</span>, Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+            <span class="kw">if</span> (color) {
+                view.<span class="fu">setBackgroundColor</span>(Color.<span class="fu">BLUE</span>);
+
+            } <span class="kw">else</span> {
+                view.<span class="fu">setBackgroundColor</span>(Color.<span class="fu">RED</span>);
+            }
+            color = !color;
+        }
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onAccuracyChanged</span>(Sensor sensor, <span class="dt">int</span> accuracy) {
+
+    }
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onResume</span>() {
+        <span class="kw">super</span>.<span class="fu">onResume</span>();
+        <span class="co">// register this class as a listener for the orientation and</span>
+        <span class="co">// accelerometer sensors</span>
+        sensorManager.<span class="fu">registerListener</span>(<span class="kw">this</span>,
+                sensorManager.<span class="fu">getDefaultSensor</span>(Sensor.<span class="fu">TYPE_ACCELEROMETER</span>),
+                SensorManager.<span class="fu">SENSOR_DELAY_NORMAL</span>);
+    }
+
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onPause</span>() {
+        <span class="co">// unregister listener</span>
+        <span class="kw">super</span>.<span class="fu">onPause</span>();
+        sensorManager.<span class="fu">unregisterListener</span>(<span class="kw">this</span>);
+    }
+}</code></pre>
+</body>
+</html>

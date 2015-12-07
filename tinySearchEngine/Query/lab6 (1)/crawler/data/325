@@ -1,0 +1,47 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/ap-workload-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>ap:workload-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Apratim Purakayastha, Carla Schlatter Ellis, David Kotz, Nils Nieuwejaar, and Michael Best.
+<b>Characterizing Parallel File-Access Patterns on a Large-Scale
+Multiprocessor</b>.
+Technical Report
+CS-1994-33,
+Dept. of Computer Science, Duke University,
+October,
+1994.
+<p><b>Abstract:</b> Rapid increases in the computational speeds of multiprocessors
+have not been matched by corresponding performance enhancements in the I/O
+subsystem. To satisfy the large and growing I/O requirements of some parallel
+scientific applications, we need parallel file systems that can provide
+high-bandwidth and high-volume data transfer between the I/O subsystem and
+thousands of processors. <P> Design of such high-performance parallel file
+systems depends on a thorough grasp of the expected workload. So far there
+have been no comprehensive usage studies of multiprocessor file systems. Our
+CHARISMA project intends to fill this void. The first results from our study
+involve an iPSC/860 at NASA Ames. This paper presents results from a
+different platform, the CM-5 at the National Center for Supercomputing
+Applications. The CHARISMA studies are unique because we collect information
+about every individual read and write request and about the entire mix of
+applications running on the machines. <P> The results of our trace analysis
+lead to recommendations for parallel file system design. First, the file
+system should support efficient concurrent access to many files, and I/O
+requests from many jobs under varying load condit ions. Second, it must
+efficiently manage large files kept open for long periods. Third, it should
+expect to see small requests, predominantly sequential access patterns,
+application-wide synchronous access, no concurrent file-sharing between jobs,
+appreciable byte and block sharing between processes within jobs, and strong
+interprocess locality. Finally, the trace data suggest that node-level write
+caches and collective I/O request interfaces may be useful in certain
+environments.</p>
+<p><b>Keywords:</b> parallel-IO, file system, parallel computing</p>
+<p><a href="bibtex/ap-workload-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././ap-workload-tr.pdf">PDF</a> (294K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/ap-workload.html">ap:workload</a></b>.</p>
+</BODY>
+</HTML>

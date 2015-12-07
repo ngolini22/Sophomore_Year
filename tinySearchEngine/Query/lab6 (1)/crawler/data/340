@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/liang-healthtech14.html
+3
+<HTML>
+<HEAD>
+ <TITLE>liang:healthtech14</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Xiaohui Liang and David Kotz.
+<b>Securely Connecting Wearable Health Devices to External Displays</b>.
+In
+<i>USENIX Summit on Health Information Technologies</i>,
+August,
+2014.
+USENIX.
+No paper - workshop presentation only.
+<p><b>Abstract:</b> Wearable health technology is becoming a hot commodity as it has
+the potential to help both patients and clinicians continuously monitor vital
+signs and symptoms. One popular type of wearable devices are worn on human
+wrist and are equipped with sensors to passively perform sensing tasks. Their
+constrained user interface, however, is ineffective to display the sensory
+data for users. We envision connecting a wrist-worn device to a display
+device, such as a television, so the user is able to view the sensory data.
+Such connections must be secure to prevent the sensory data from being
+eavesdropped by other devices, must be made only when the user intends, and
+must be easy even when a new display is encountered (such as in a medical
+clinic, or a hotel room). In this presentation, we will discuss the secure
+wearable/display connection problem by revisiting existing methods and
+hardware designs of wrist-worn devices and display devices. We then present
+possible solutions that leverage the built-in hardware components of
+wrist-worn devices to implement, secure, intentional, easy connections to
+ambient display devices.</p>
+<p><a href="bibtex/liang-healthtech14.bib">BibTeX</a></p>
+<p>Other: <a target=_top href="https://www.usenix.org/conference/healthtech14/summit-program/presentation/liang">https://www.usenix.org/conference/healthtech14/summit-program/presentation/liang</a></p>
+<p><b>Copyright &#169;&nbsp;2014 by the authors.</b></p>
+</BODY>
+</HTML>

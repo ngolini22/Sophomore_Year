@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/oldfield-framework.html
+3
+<HTML>
+<HEAD>
+ <TITLE>oldfield:framework</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ron Oldfield and David Kotz.
+<b>Armada: a parallel I/O framework for computational grids</b>.
+<i>Future Generation Computing Systems (FGCS)</i>,
+18(4):501-523,
+March,
+2002.
+DOI <a href="http://dx.doi.org/10.1016/S0167-739X(01)00076-0">10.1016/S0167-739X(01)00076-0</a>.
+<p><b>Abstract:</b> High-performance computing increasingly occurs on ``computational
+grids'' composed of heterogeneous and geographically distributed systems of
+computers, networks, and storage devices that collectively act as a single
+``virtual'' computer. One of the great challenges for this environment is to
+provide efficient access to data that is distributed across remote data
+servers in a grid. In this paper, we describe our solution, a framework we
+call Armada. Armada allows applications to flexibly compose modules to access
+their data, and to place those modules at appropriate hosts within the grid
+to reduce network traffic.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system, distributed
+computing</p>
+<p><a href="bibtex/oldfield-framework.bib">BibTeX</a></p>
+<p><a target=_top href = "././oldfield-framework.pdf">PDF</a> (855K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by Elsevier Science.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

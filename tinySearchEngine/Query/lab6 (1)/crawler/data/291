@@ -1,0 +1,121 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs50/lab1.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="lab1.tex"> 
+<meta name="date" content="2015-04-03 08:52:00"> 
+<link rel="stylesheet" type="text/css" href="lab1.css"> 
+</head><body 
+>
+<h1 class="likepartHead"><a 
+ id="x1-1000"></a>CS 50 Software Design and Implementation</h1>
+<h1 class="likepartHead"><a 
+ id="x1-2000"></a>Lab1</h1>
+<h1 class="likepartHead"><a 
+ id="x1-3000"></a>Shell Commands Lab</h1>
+<!--l. 19--><p class="noindent" >We have discussed a number of Linux shell commands in class. It&#8217;s time to get familiar with them and
+your Linux environment.
+<!--l. 21--><p class="noindent" >Here is what you should do: First, login to your Linux account and go through the material in <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/shell.html" > Lecture 2
+(The Linux Shell and Commands) </a>and <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/shellcontinued.html" > Lecture 3 (The Linux Shell and Command - Continued)</a>(Lecture 3
+notes will be posted just before the lecture) by executing the example shell commands found in the notes.
+You will be become familiar with the most common set of commands. Knowledge of these commands will
+serve you well in the course and project, and will serve as a basis for the shell programming assignment
+(Lab 2)
+<!--l. 23--><p class="noindent" ><span 
+class="cmbx-10">Note</span>: Lab1 is not graded nor do you have to hand anything in.
+<!--l. 25--><p class="noindent" >The TA and I will be in the Sudikoff 001 during X-hour should you have any questions. There is also office
+hours. You should already have logged on to galehead.cs.dartmouth.edu to change your shell
+to bash (see notes) if need be and reset your password if Wayne provided you with a new
+account.
+<!--l. 27--><p class="noindent" ><span 
+class="cmbx-10">Tip</span>: I would recommend that you complete this lab-sheet before you start the Lab 2. As I mentioned Lab
+2 will comprise of a set of (progressively more difficult) shell programming problems, so you
+should get this lab-sheet out of the way as soon as can. If you need help on the meaning or
+syntax of any command you can use the manual (man) pages or the <a 
+href="http://www.computerhope.com/unix.htm#04" > web unix commands.
+</a>
+<!--l. 29--><p class="noindent" >Complete the following questions.
+<!--l. 31--><p class="noindent" >____________________________________________________________________________
+<!--l. 33--><p class="noindent" >1) Go through all command examples in Lecture 2 and Lecture 3 (when available).
+<!--l. 35--><p class="noindent" >2) You should have already created a subdirectory for cs50 in your home directory. Change into the cs50
+directory and create two new subdirectories for labs and project. Change into the labs directory and create
+two subdirectory lab1 and lab2 (that is where you can put your shell programs for the next
+assignment).
+<!--l. 37--><p class="noindent" >3) The file <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/bad.spelling" > bad.spelling </a>contains a number of spelling errors. Using the Firefox browser under Linux, copy
+this file to <span 
+class="cmbx-10">your lab1 sub-directory </span>and use the spell command to find the spelling errors. Use emacs, vi
+or vim (or any preferred text editor) to correct the errors and then check the file again. Be
+                                                                                  
+                                                                                  
+warned that the spell command will incorrectly report some errors (as the basic dictionary file,
+/usr/share/dict/linux.words, is not complete; you should cat, more, or less the file to take a look at
+it).
+<!--l. 41--><p class="noindent" >4) How many words are there in the file <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/bad.spelling" > bad.spelling </a>Use the Linux manuals to find out how to determine
+this count.
+<!--l. 45--><p class="noindent" >5) List the processes running on your terminal window using the ps command. After examining the
+manual entry for ps can you determine how many processes are running simultaneously on the Linux
+machine you are using? How many of these can be considered &#8220;system-level&#8221; processes?&#8221; There is a lot
+going on under to bonnet - if you get my drift.
+<!--l. 47--><p class="noindent" >6) Experiment with the grep command which finds strings in text files. For example, how many lines is the
+word UNIX found on in the file <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/bad.spelling" > bad.spelling </a>Can you use grep to see how many of your processes are
+running? If you use ps -el you will see all the processes. You can find your processes in this list if you know
+your UID (user ID). How do you find your UID? (Hint: echo $something). Once you have your UID you
+can pipe to grep and only display your process status information in long format (&#8220;-l switch&#8221;). The
+resulting pipe command has the same output format as &#8220;ps -U username&#8221; (find out what the
+-U switch means). The output of the two command lines may differ in some cases - why?
+The command <span 
+class="cmti-10">top </span>shows all processes (and other information about the system). Check it
+out.
+<!--l. 51--><p class="noindent" >7) Experiment with the chmod command. Change the read, write and execute modes (one at a time) on
+one of your subdirectories and see how this affects the ls command, your ability to create files in the
+directory and your ability to change into the directory. Use both the absolute and symbolic methods (as
+discussed in Lecture 2) in addressing the above questions.
+<!--l. 53--><p class="noindent" >8) You can read the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">/etc/passwd</span></span></span> file - sounds crazy. Use a combination of cat (or more) and grep to
+display information in <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">/etc/passwd</span></span></span> about your own details and others in addressing the following
+questions: a) use cat and grep in a pipe line to only print your information. What does this
+line mean? Checkout <a 
+href="http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/" > the /etc/passwd file format</a>; b) Which character is used to separated
+fields in the file? c) How is your password stored? If you try and access <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">/etc/shadow</span></span></span> what
+happens? d) How many different shells can you find when looking at /etc/passwd file - which are
+they?
+<!--l. 55--><p class="noindent" >9) Setup your <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">.bash_profile</span></span></span> file. Set your prompt (PS1) to something you like. Set up your <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">.bashrc</span></span></span> file
+and add in the important aliases (e.g., mygcc, rm). You can cut and paste from the lecture notes or cp
+over the files from <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">~campbell/</span></span></span> and edit them as you wish. Use the source command to execute your new
+<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">.bash_profile</span></span></span> when you have finished editing it.
+<!--l. 57--><p class="noindent" >10) <span 
+class="cmbx-10">Difficult</span>: The ls command seems to have every option you&#8217;d ever need. However, older versions of ls
+did not provide a facility to list files sorted by their size (on today&#8217;s Linux machines we can use ls -lrS ).
+Can you write a shell pipeline to provide this listing? We have talked about the commands
+you&#8217;ll need to do this. You can look at the manual to find which switches help to solve this
+problem.
+<!--l. 59--><p class="noindent" >____________________________________________________________________________
+<!--l. 61--><p class="noindent" >OK. You are done.
+<!--l. 63--><p class="noindent" ><span 
+class="cmbx-10">Tip</span>: Make sure you always logout when you are done and see the prompt to login again before you leave
+                                                                                  
+                                                                                  
+the terminal.
+ 
+</body></html> 
+
+                                                                                  
+
+

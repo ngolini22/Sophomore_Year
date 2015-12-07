@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nieuwejaar-galley-perf.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nieuwejaar:galley-perf</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Nils Nieuwejaar and David Kotz.
+<b>Performance of the Galley Parallel File System</b>.
+In
+<i>Proceedings of the Fourth Workshop on Input/Output in Parallel
+and Distributed Systems (IOPADS)</i>,
+pages 83-94,
+Philadelphia,
+May,
+1996.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/236017.236038">10.1145/236017.236038</a>.
+<p><b>Abstract:</b> As the I/O needs of parallel scientific applications increase,
+file systems for multiprocessors are being designed to provide applications
+with parallel access to multiple disks. Many parallel file systems present
+applications with a conventional Unix-like interface that allows the
+application to access multiple disks transparently. This interface conceals
+the parallelism within the file system, which increases the ease of
+programmability, but makes it difficult or impossible for sophisticated
+programmers and libraries to use knowledge about their I/O needs to exploit
+that parallelism. Furthermore, most current parallel file systems are
+optimized for a different workload than they are being asked to support. We
+introduce Galley, a new parallel file system that is intended to efficiently
+support realistic parallel workloads. Initial experiments, reported in this
+paper, indicate that Galley is capable of providing high-performance I/O to
+applications that access data in patterns that have been observed to be
+common.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/nieuwejaar-galley-perf.bib">BibTeX</a></p>
+<p><a target=_top href = "././nieuwejaar-galley-perf.pdf">PDF</a> (297K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/nieuwejaar-jgalley-tr.html">nieuwejaar:jgalley-tr</a></b>.</p>
+</BODY>
+</HTML>

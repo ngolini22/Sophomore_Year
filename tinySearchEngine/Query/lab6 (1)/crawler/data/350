@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/deshpande-refocusing.html
+3
+<HTML>
+<HEAD>
+ <TITLE>deshpande:refocusing</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Udayan Deshpande, Chris McDonald, and David Kotz.
+<b>Refocusing in 802.11 Wireless Measurement</b>.
+In
+<i>Proceedings of the Passive and Active Measurement Conference
+(PAM 2008)</i>,
+pages 142-151,
+April,
+2008.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/978-3-540-79232-1_15">10.1007/978-3-540-79232-1_15</a>.
+<p><b>Abstract:</b> The edge of the Internet is increasingly wireless. To understand
+the Internet, one must understand the edge, and yet the measurement of
+wireless networks poses many new challenges. IEEE 802.11 networks support
+multiple wireless channels and any monitoring technique involves capturing
+traffic on each of these channels to gather a representative sample of frames
+from the network. We call this procedure channel sampling, in which
+each sniffer visits each channel periodically, resulting in a sample of the
+traffic on each of the channels. <P> This sampling approach may be
+sufficient, for example, for a system administrator or anomaly detection
+module to observe some unusual behavior in the network. Once an anomaly is
+detected, however, the administrator may require a more extensive traffic
+sample, or need to identify the location of an offending device. <P> We
+propose a method to allow measurement applications to dynamically modify the
+sampling strategy, refocusing the monitoring system to pay more
+attention to certain types of traffic than others. In this paper we show that
+refocusing is a necessary and promising new technique for wireless
+measurement.</p>
+<p><b>Keywords:</b> wireless, network, security, intrusion detection</p>
+<p><a href="bibtex/deshpande-refocusing.bib">BibTeX</a></p>
+<p><a target=_top href = "./internal/deshpande-refocusing.pdf">PDF</a> (403K)(Dartmouth only)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

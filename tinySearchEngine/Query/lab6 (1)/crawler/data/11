@@ -1,0 +1,346 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture18/lecture18.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Google Maps - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="lecture-17---google-maps">Lecture 17 - Google Maps</h2>
+<p>In this lecture, we learn how to incorporate Google Maps into applications - this is very cool. We have all used Google Maps on laptop browsers and smartphones but only as user up until now.</p>
+<p>We will first learn how to create a map activity. Then through two simple demos apps we get a sense of the main programming features needed to construct and control maps. I even named a demo app after the city recently described by New York Times journalist Neil MacFarquhar as a &quot;drab industrial city&quot;. Cheers Neil - I was born and brought up in the hip, bustling, vibrant town of Coventry. You clearly now &quot;darb&quot; when you see it Neil. I digress. Now we transition from one Android aka Neil to another.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>How to create an activity with map in.</li>
+<li>I Am Here app.</li>
+<li>Coventry Demo app (dedicated to <a href="http://www.neilmacfarquhar.com/">Neil MacFarquhar</a>)</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li>We will use the <a href="../code/i_am_here.zip">i_am_here.zip</a> app to demonstrate how to display a single map and update it as we move. This app can track you as you move around and put a marker on the map of your current location.</li>
+<li>We also use the <a href="../code/coventrydemo.zip">coventrydemo.zip</a> app which allows the user to interact with the map by placing markers on the map and then connecting up the markers with <a href="http://developer.android.com/reference/com/google/android/gms/maps/model/Polyline.html">polylines</a> drawn on the map. A polyline is a list of points, where line segments are drawn between consecutive points.</li>
+</ul>
+<p>The Coventry demo is take from here: <a href="http://android-er.blogspot.com/2013/01/google-maps-android-api-v2-example_5213.html">detect MarkerClick and add Polyline</a> The app detects long click on map and adds a marker. Lines can be drawn between markers using polylines.</p>
+<p>These two apps will provide the necessary background to implement maps for <a href="http://www.cs.dartmouth.edu/~campbell/cs65/myruns/myruns_manual.html#chap:labs:4">MyRuns4</a>.</p>
+<h2 id="resources">Resources</h2>
+<p>Some excellent references.</p>
+<ul>
+<li>Course book section on <a href="http://commonsware.com/Android/">Mapping with MapView</a> page 817</li>
+<li><a href="http://www.vogella.com/articles/AndroidGoogleMaps/article.html">Google Maps Android API v2 - Tutorial</a></li>
+<li><a href="http://android-er.blogspot.com/2013/01/google-maps-android-api-v2-example_5213.html">Google Maps Android API v2 example: detect MarkerClick and add Polyline</a></li>
+<li><a href="https://developers.google.com/maps/documentation/android/reference/com/google/android/gms/maps/package-summary">com.google.android.gms.maps</a> reference.</li>
+<li>Installing <a href="https://developers.google.com/maps/documentation/android/start">Google Maps Android API v2</a>.</li>
+</ul>
+<h2 id="running-the-demo-code">Running the demo code</h2>
+<p>The new version of Android makes creating Google maps much easier than previous versions of the API. Just follow the <a href="#steps">two steps</a> below to create Google Maps Activity and you are all set.</p>
+<p>However, to get the existing demo code to run on your phone you need to follow the old way of creating maps. Here you need to (1) manually get a SHA1- fingerprint; (2) create Maps API key using Google Console; and (3) replace the existing Maps API key in the demo code’s google_maps_api.xml file (e.g., i_am_here or coventrydemo) with your new Maps API key. Sounds complicated but it is not. If you don’t do this and just run the demo code you will get errors such as 522-6622/edu.dartmouth.cs.iamhere E/Google Maps Android API﹕ Authorization failure.</p>
+<p>Here is what you have to do to get the demo code to work:</p>
+<ol style="list-style-type: decimal">
+<li><p>The Maps API key is based on a short form of your application's digital certificate, known as its SHA-1 fingerprint. Follow the these instructions: <a href="https://developers.google.com/maps/documentation/android/start#display_your_apps_certificate_information">Display your app's certificate information</a>. Make sure you expand the section on &quot;Displaying the debug certificate fingerprint&quot; (which folds the text by default so click on the triangle and expand it). OK, now you have your SHA you need to use it to create a Map API key.</p></li>
+<li><p>In order to create your key read the section <a href="https://developers.google.com/maps/documentation/android/start#create_an_api_project_in_the_google_apis_console">Create an API project in the Google APIs Console</a> and the <a href="https://developers.google.com/maps/documentation/android/start#obtain_a_google_maps_api_key">Obtain a Google Maps API key</a>. OK now you have your Map API key.</p></li>
+<li><p>Finally, you need to replace the existing key with your new key (as shown below) to in the google_maps_api.xml file under the values directory. Note, you do not have to add this to the manifest file.</p></li>
+</ol>
+<pre class="sourceCode java"><code class="sourceCode java">
+&lt;resources&gt;
+    &lt;string name=<span class="st">&quot;google_maps_key&quot;</span> templateMergeStrategy=<span class="st">&quot;preserve&quot;</span>&gt;AIzaSyDVlNw0hUMQYRhQXdrPAScw5HkJ_bkSg74&lt;/string&gt;
+&lt;/resources&gt;</code></pre>
+<h2 id="steps">Creating Google Maps Activity</h2>
+<p>Above we explained how to run the demo code. But to create a new app from scratch it is a lot easier. Android Studio creates the SHA and key and you update the google_maps_api.xml</p>
+<p>The overall process of adding a Google Map to an Android application is as follows:</p>
+<h2 id="step-1-add-a-google-maps-activity-to-your-project">STEP 1: Add a Google Maps Activity to your project</h2>
+<ol style="list-style-type: decimal">
+<li>As shown in figures below, you can either create a Google Maps Activity project from scratch (left) or add a Google Maps Activity (right) to your existing projects (e.g, MyRuns).</li>
+</ol>
+<div class="figure">
+<img src="images/create_map_activity.png" />
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Have a first look of the generated MapsActivity. It extends itself from a FragmentActivity, containing a GoogleMap instance. It uses setUpMapIfNeeded() and setUpMap() to configure settings of the GoogleMap in this activity. Read through the comments for these two methods - we will extend the functionalities of them in the following samples and MyRuns4.</li>
+</ol>
+<div class="figure">
+<img src="images/first_look.png" />
+</div>
+<h2 id="step-2-obtain-an-api-key-for-google-maps-v2.0">STEP 2: Obtain an API key for Google Maps v2.0</h2>
+<ol style="list-style-type: decimal">
+<li>Go to google_maps_api.xml, you will find a generated url in the comments. This url is generated using the unique SHA-1 key of your current computer and the package name of the app. We also notice that there is a placeholder specifying the &quot;google_maps_key&quot;. We need to get the key from the Google API Console and fill it in.</li>
+</ol>
+<div class="figure">
+<img src="images/xml.png" />
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Copy this link to your browser and hit Enter, you will be directed to a page on the API console as shown below:</li>
+</ol>
+<div class="figure">
+<img src="images/copy_link_create.png" />
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Hit &quot;Continue&quot; and &quot;Create&quot; to proceed. Wait a few seconds - your API key is being generated. Note that in the textbox your SHA-1 and package name are already there. You don't need to edit them at all.</li>
+</ol>
+<div class="figure">
+<img src="images/get_key.png" />
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Once the server is ready, you will be presented with the page like below. Copy the API Key back to the key placeholder in the xml file.</li>
+</ol>
+<div class="figure">
+<img src="images/key.png" />
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>There are a number of meta-data and uses-permissions added to the Manifest file by Android Studio. Once you have the API key you added to google_maps_api.xml, you will find the meta-data for the api key in Manifest is updated as well (shown below). Now you are done with the setup for a Google Maps Activity.</li>
+</ol>
+<div class="figure">
+<img src="images/notice_changes_manifest.png" />
+</div>
+<h2 id="i-amhere----a-tracking-app">I <em>Am</em>Here -- a tracking app</h2>
+<p>The first application we look at this is an extension of the applications we developed for the lecture on the <a href="http://www.cs.dartmouth.edu/~campbell/cs65/lecture17/lecture17.html">LocationManger</a>. As shown in the image below the app lists:</p>
+<ul>
+<li>current longitude and latitude of your location</li>
+<li>the address</li>
+<li>and location on a map with a sickly green marker</li>
+</ul>
+<div class="figure">
+<img src="images/here.png" />
+</div>
+<p>The cool thing about this app is that as you move around it will update your position on the map. It tracks you. There is little control over the app. You can move the map around or use the simple zoon in / zoom out buttons on the map -- that is about it.</p>
+<p>Let's discuss the code. Note, in the code examples below we <strong>snip</strong> some of the code that we have already discussed in the <a href="http://www.cs.dartmouth.edu/~campbell/cs65/lecture17/lecture17.html">pervious lecture</a>. You can look at the demo app source code to see the complete source code.</p>
+<p>Much of the structure of the code is familiar now.</p>
+<h3 id="set-up-google-maps-in-oncreate">Set up Google Maps in onCreate()</h3>
+<p>The code first gets a reference to a GoogleMap using getSupportFragmentManager() on SupportMapFragment set up in layout/activity_main.xml, as shown below in the layout file</p>
+<pre class="sourceCode java"><code class="sourceCode java">&lt;LinearLayout xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    xmlns:tools=<span class="st">&quot;http://schemas.android.com/tools&quot;</span>
+    android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+    android:layout_height=<span class="st">&quot;match_parent&quot;</span>
+    android:orientation=<span class="st">&quot;vertical&quot;</span>
+    tools:context=<span class="st">&quot;.MainActivity&quot;</span> &gt;
+
+    &lt;TextView
+        android:id=<span class="st">&quot;@+id/locinfo&quot;</span>
+        android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+        android:layout_height=<span class="st">&quot;wrap_content&quot;</span>/&gt;
+    &lt;fragment xmlns:android=<span class="st">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+            xmlns:tools=<span class="st">&quot;http://schemas.android.com/tools&quot;</span> 
+            android:layout_width=<span class="st">&quot;match_parent&quot;</span>
+            android:layout_height=<span class="st">&quot;match_parent&quot;</span> 
+            android:id=<span class="st">&quot;@+id/map&quot;</span> tools:context=<span class="st">&quot;.MainActivity&quot;</span>
+            android:name=<span class="st">&quot;com.google.android.gms.maps.SupportMapFragment&quot;</span> /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<p>The getMap() method renders the Google Map returned from the server into the SupportMapFragment in layout. The type of map is then set to normal.</p>
+<p>There are a number of types of maps that can be selected:</p>
+<ul>
+<li>MAP_TYPE_HYBRID: Satellite maps with a transparent layer of major streets.</li>
+<li>MAP_TYPE_NONE: No base map tiles.</li>
+<li>MAP_TYPE_NORMAL: Basic maps.</li>
+<li>MAP_TYPE_SATELLITE: Satellite maps with no labels.</li>
+<li>MAP_TYPE_TERRAIN Terrain maps.</li>
+</ul>
+<p>Change the type of the map in your code and look at the map rendered.</p>
+<pre class="sourceCode java"><code class="sourceCode java">   mMap.<span class="fu">setMapType</span>(GoogleMap.<span class="fu">MAP_TYPE_NORMAL</span>);</code></pre>
+<p>After the map type is set we get the current location and set a marker at that location and zooms in. The location manager sets up the time and distance parameters as well as the call back listener for location updates:</p>
+<pre class="sourceCode java"><code class="sourceCode java">locationManager.<span class="fu">requestLocationUpdates</span>(provider, <span class="dv">2000</span>, <span class="dv">10</span>,
+                                           locationListener);</code></pre>
+<p>We discussed these call backs in the <a href="http://www.cs.dartmouth.edu/~campbell/cs65/lecture17/lecture17.html">last lecture</a>. So check that out again if you need to. The helper function then gets called to update the map if necessary.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> WhereAmI <span class="kw">extends</span> Activity {
+
+    <span class="kw">public</span> GoogleMap mMap;
+    <span class="kw">public</span> Marker whereAmI;
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+    <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+    <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+
+    <span class="fu">setUpMapIfNeeded</span>();
+
+    LocationManager locationManager;
+    String svcName= Context.<span class="fu">LOCATION_SERVICE</span>;
+    locationManager = (LocationManager)<span class="fu">getSystemService</span>(svcName);
+
+    [Code snippet]
+    ........
+    ........
+    ........
+
+    Location l = locationManager.<span class="fu">getLastKnownLocation</span>(provider);
+    
+    LatLng latlng=<span class="fu">fromLocationToLatLng</span>(l);
+        
+    whereAmI=mMap.<span class="fu">addMarker</span>(<span class="kw">new</span> <span class="fu">MarkerOptions</span>().<span class="fu">position</span>(latlng).<span class="fu">icon</span>(BitmapDescriptorFactory.<span class="fu">defaultMarker</span>(
+             BitmapDescriptorFactory.<span class="fu">HUE_GREEN</span>)));
+    <span class="co">// Zoom in</span>
+    mMap.<span class="fu">animateCamera</span>(CameraUpdateFactory.<span class="fu">newLatLngZoom</span>(latlng,
+            <span class="dv">17</span>));
+    
+    <span class="fu">updateWithNewLocation</span>(l);
+
+    locationManager.<span class="fu">requestLocationUpdates</span>(provider, <span class="dv">2000</span>, <span class="dv">10</span>,
+                                           locationListener);
+  }
+
+  <span class="kw">public</span> <span class="dt">static</span> LatLng <span class="fu">fromLocationToLatLng</span>(Location location){
+        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">LatLng</span>(location.<span class="fu">getLatitude</span>(), location.<span class="fu">getLongitude</span>());
+        
+  }</code></pre>
+<h3 id="user-tracking">User Tracking</h3>
+<p>Each time the callback onLocationChanged() is called the map is updated simply by calling the helper function discussed below. There is no action for the other callbacks in this code -- there really should be.</p>
+<pre class="sourceCode java"><code class="sourceCode java">  <span class="kw">private</span> <span class="dt">final</span> LocationListener locationListener = <span class="kw">new</span> <span class="fu">LocationListener</span>() {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onLocationChanged</span> (Location location) {
+      <span class="fu">updateWithNewLocation</span>(location);
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onProviderDisabled</span>(String provider) {}
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onProviderEnabled</span>(String provider) {}
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStatusChanged</span>(String provider, <span class="dt">int</span> status, 
+                                Bundle extras) {}
+  };</code></pre>
+<h3 id="helper-for-tracking">Helper for Tracking</h3>
+<p>The helper function simply has the current location passed to it. It first removed the current marker and redraws a new marker at the new location.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">private</span> <span class="dt">void</span> <span class="fu">updateWithNewLocation</span>(Location location) {
+    TextView myLocationText;
+    myLocationText = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">myLocationText</span>);
+      
+    String latLongString = <span class="st">&quot;No location found&quot;</span>;
+    String addressString = <span class="st">&quot;No address found&quot;</span>;
+    
+    <span class="kw">if</span> (location != <span class="kw">null</span>) {
+      <span class="co">// Update the map location.</span>
+      
+      LatLng latlng=<span class="fu">fromLocationToLatLng</span>(location);
+      
+      mMap.<span class="fu">animateCamera</span>(CameraUpdateFactory.<span class="fu">newLatLngZoom</span>(latlng,
+            <span class="dv">17</span>));
+
+
+      <span class="kw">if</span>(whereAmI!=<span class="kw">null</span>)
+          whereAmI.<span class="fu">remove</span>();
+      
+      whereAmI=mMap.<span class="fu">addMarker</span>(<span class="kw">new</span> <span class="fu">MarkerOptions</span>().<span class="fu">position</span>(latlng).<span class="fu">icon</span>(BitmapDescriptorFactory.<span class="fu">defaultMarker</span>(
+             BitmapDescriptorFactory.<span class="fu">HUE_GREEN</span>)).<span class="fu">title</span>(<span class="st">&quot;Here I Am.&quot;</span>));
+      
+    [Snip code]
+    ........
+    ........
+    ........
+
+    
+    }</code></pre>
+<h2 id="coventry-demo">Coventry Demo</h2>
+<p>The Coventry app allows the user to interact with the map by placing markers on the map and then connecting up the markers with <a href="http://developer.android.com/reference/com/google/android/gms/maps/model/Polyline.html">polylines</a> drawn on the map. A polyline is a list of points, where line segments are drawn between consecutive points. The app detects <strong>long clicks</strong> on map and adds a marker. Lines can be drawn between markers using polylines. To do this the use clicks (do not long click) on a marker then moves to another marker and clicks. To remove the markers and lines click on the map.</p>
+<div class="figure">
+<img src="images/cov.png" />
+</div>
+<p>In the image below the user has <strong>long clicked</strong> on three places on the map creating three markers. Then the user has clicked (just normal short click) on each point and the lines are drawn constructing a triangle around the vibrant metropolis of Coventry, England.</p>
+<h3 id="oncreate">onCreate()</h3>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MainActivity <span class="kw">extends</span> Activity 
+    <span class="kw">implements</span> OnMapClickListener, OnMapLongClickListener, OnMarkerClickListener{
+    
+    <span class="kw">private</span> GoogleMap myMap;
+    
+    Location myLocation;
+    TextView tvLocInfo;
+    
+    <span class="dt">boolean</span> markerClicked;
+    PolylineOptions rectOptions;
+    Polyline polyline;
+
+    <span class="dt">static</span> <span class="dt">final</span> LatLng COVENTRY = <span class="kw">new</span> <span class="fu">LatLng</span>(<span class="fl">52.4081</span>, -<span class="fl">1.5106</span>);
+    
+    @Override
+    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">activity_main</span>);
+        <span class="fu">setUpMapIfNeeded</span>();
+
+        tvLocInfo = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">locinfo</span>);
+    }</code></pre>
+<h3 id="adding-markers-and-drawing-lines">Adding markers and drawing lines</h3>
+<p>The user can move the map around and zoom in/out as they wish. The callbacks set up in onCreate() are shown below:</p>
+<ul>
+<li>onMapLongClick(LatLng point), which will create and display a marker</li>
+<li>onMarkerClick(Marker marker), which will enable a polyline to be drawn between to markers that are clicked consecutively.</li>
+<li>onMapClick(LatLng point) , which will clear the current lines after the map has been clicked followed by the user clicking on an existing marker or creating a new marker.</li>
+</ul>
+<p>Let's look at the code more below.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onMapClick</span>(LatLng point) {
+        tvLocInfo.<span class="fu">setText</span>(point.<span class="fu">toString</span>());
+        myMap.<span class="fu">animateCamera</span>(CameraUpdateFactory.<span class="fu">newLatLng</span>(point));
+        
+        markerClicked = <span class="kw">false</span>;
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onMapLongClick</span>(LatLng point){
+        tvLocInfo.<span class="fu">setText</span>(<span class="st">&quot;New marker added@&quot;</span> + point.<span class="fu">toString</span>());
+        myMap.<span class="fu">addMarker</span>(<span class="kw">new</span> <span class="fu">MarkerOptions</span>().<span class="fu">position</span>(point).<span class="fu">title</span>(point.<span class="fu">toString</span>()));
+        
+        markerClicked = <span class="kw">false</span>;
+    }
+
+    @Override
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">onMarkerClick</span>(Marker marker){
+        
+        <span class="kw">if</span>(markerClicked){
+            
+            <span class="kw">if</span>(polyline != <span class="kw">null</span>){
+                polyline.<span class="fu">remove</span>();
+                polyline = <span class="kw">null</span>;
+            }
+            
+            rectOptions.<span class="fu">add</span>(marker.<span class="fu">getPosition</span>());
+            rectOptions.<span class="fu">color</span>(Color.<span class="fu">RED</span>);
+            polyline = myMap.<span class="fu">addPolyline</span>(rectOptions);
+        }<span class="kw">else</span>{
+            <span class="kw">if</span>(polyline != <span class="kw">null</span>){
+                polyline.<span class="fu">remove</span>();
+                polyline = <span class="kw">null</span>;
+            }
+            
+            rectOptions = <span class="kw">new</span> <span class="fu">PolylineOptions</span>().<span class="fu">add</span>(marker.<span class="fu">getPosition</span>());
+            markerClicked = <span class="kw">true</span>;
+        }
+        
+        <span class="kw">return</span> <span class="kw">true</span>;
+    }
+
+}</code></pre>
+<p>The logic for onMarkerClick() is straightforward. First time onMarkerClick() is called it will call new PolylineOptions().add(marker.getPosition()) to add the marker to the polyline. Next time it is called it will add the second marker --rectOptions.add(marker.getPosition()) -- and then draw the line. Each time a new marker is added (via a long click) and a line drawn -- the complete set of lines are redrawn starting at the first marker added to the rectOptions (i.e., the ployline). If the user clicks on the map (not the markers) and then clicks on any marker or does a long click to create a new marker then the line or polyline is remove - that is, the line between the markers is cleared.</p>
+</body>
+</html>

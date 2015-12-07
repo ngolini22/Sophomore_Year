@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nanda-llbc.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nanda:llbc</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Soumendra Nanda and David Kotz.
+<b>Social Network Analysis Plugin (SNAP) for Mesh Networks</b>.
+In
+<i>Proceedings of the IEEE Wireless Communications and Networking
+Conference (WCNC)</i>,
+pages 725-730,
+March,
+2011.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/WCNC.2011.5779252">10.1109/WCNC.2011.5779252</a>.
+<p><b>Abstract:</b> In a network, bridging nodes are those nodes that from a
+topological perspective, are strategically located between highly connected
+regions of nodes. Thus, they have high values of the Bridging Centrality (BC)
+metric. We recently introduced the Localized Bridging Centrality (LBC)
+metric, which can identify such nodes via distributed computation, yet has an
+accuracy equal to that of the centralized BC metric. The LBC and BC metrics
+are based on the Social Network Analysis (SNA) metric "betweenness
+centrality". We now introduce a new SNA metric that is more suitable for use
+in wireless mesh networks: the Localized Load-aware Bridging Centrality
+(LLBC) metric. The LLBC metric improves upon LBC by detecting critical
+bridging nodes while taking into account the actual traffic flows present in
+a mesh network. We only use local information from surrounding nodes to
+compute the LLBC metric, thus our LLBC metric is designed for scalable
+distributed computation and distributed network analysis. We developed the
+SNA Plugin (SNAP) for the Optimized Link State Routing (OLSR) protocol to
+study the potential use of LBC and LLBC in improving multicast
+communications. We present some promising initial results for SNAP from real
+and emulated mesh networks. SNAP is open source and free for academic use.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/nanda-llbc.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/~dfk/papers/nanda-llbc-corrected.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2011 by IEEE.</b></p>
+</BODY>
+</HTML>

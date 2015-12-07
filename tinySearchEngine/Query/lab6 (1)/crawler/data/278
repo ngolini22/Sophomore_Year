@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-model-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:model-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Guofei Jiang, Robert Gray, George Cybenko, and Ronald A. Peterson.
+<b>Performance Analysis of Mobile Agents for Filtering Data Streams on
+Wireless Networks</b>.
+Technical Report
+TR2000-366,
+Dartmouth Computer Science,
+May,
+2000.
+<p><b>Abstract:</b> Wireless networks are an ideal environment for mobile agents,
+because their mobility allows them to move across an unreliable link to
+reside on a wired host, next to or closer to the resources they need to use.
+Furthermore, client-specific data transformations can be moved across the
+wireless link, and run on a wired gateway server, with the goal of reducing
+bandwidth demands. In this paper we examine the tradeoffs faced when deciding
+whether to use mobile agents to support a data-filtering application, in
+which numerous wireless clients filter information from a large data stream
+arriving across the wired network. We develop an analytical model and use
+parameters from our own experiments to explore the model's implications.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, wireless, network</p>
+<p><a href="bibtex/kotz-model-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-model-tr.pdf">PDF</a> (445K)</p>
+<p><b>Copyright &#169;&nbsp;2000 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-model.html">kotz:model</a></b>.</p>
+</BODY>
+</HTML>

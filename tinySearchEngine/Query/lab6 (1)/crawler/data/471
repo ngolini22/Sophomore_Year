@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/gray-mobile-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>gray:mobile-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Robert Gray, David Kotz, Saurab Nog, Daniela Rus, and George Cybenko.
+<b>Mobile agents for mobile computing</b>.
+Technical Report
+PCS-TR96-285,
+Dartmouth Computer Science,
+May,
+1996.
+<p><b>Abstract:</b>  Mobile agents are programs that can move through a
+network under their own control, migrating from host to host and interacting
+with other agents and resources on each. We argue that these mobile,
+autonomous agents have the potential to provide a convenient, efficient and
+robust programming paradigm for distributed applications, particularly when
+partially connected computers are involved. Partially connected computers
+include mobile computers such as laptops and personal digital assistants as
+well as modem-connected home computers, all of which are often disconnected
+from the network. In this paper, we describe the design and implementation of
+our mobile-agent system, Agent Tcl, and the specific features that support
+mobile computers and disconnected operation. These features include
+network-sensing tools and a  docking system that allows an agent to
+transparently move between mobile computers, regardless of when the computers
+connect to the network.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/gray-mobile-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././gray-mobile-tr.pdf">PDF</a> (379K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by the authors.</b></p>
+<p>Identical to <b><a href="abstracts/gray-mobile.html">gray:mobile</a></b>.</p>
+</BODY>
+</HTML>

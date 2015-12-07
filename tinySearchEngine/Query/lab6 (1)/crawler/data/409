@@ -1,0 +1,29 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/howell-spki-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>howell:spki-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jon Howell and David Kotz.
+<b>A Formal Semantics for SPKI</b>.
+Technical Report
+TR2000-363,
+Dartmouth Computer Science,
+March,
+2000.
+<p><b>Abstract:</b> We extend the logic and semantics of authorization due to Abadi,
+Lampson, et al. to support restricted delegation. Our formal model provides a
+simple interpretation for the variety of constructs in the Simple Public Key
+Infrastructure (SPKI), and lends intuition about possible extensions. We
+discuss both extensions that our semantics supports and extensions that it
+cautions against.</p>
+<p><b>Keywords:</b> security, distributed computing</p>
+<p><a href="bibtex/howell-spki-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././howell-spki-tr.pdf">PDF</a> (541K)</p>
+<p><b>Copyright &#169;&nbsp;2000 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/howell-calculus-tr.html">howell:calculus-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/howell-spki.html">howell:spki</a></b>.</p>
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-axioms.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:axioms</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Calvin Newport, Robert S. Gray, Jason Liu, Yougu Yuan, and Chip Elliott.
+<b>Experimental Evaluation of Wireless Simulation Assumptions</b>.
+In
+<i>Proceedings of the ACM/IEEE International Symposium on Modeling,
+Analysis and Simulation of Wireless and Mobile Systems (MSWiM)</i>,
+pages 78-82,
+October,
+2004.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1023663.1023679">10.1145/1023663.1023679</a>.
+<p><b>Abstract:</b> All analytical and simulation research on ad&nbsp;hoc wireless
+networks must necessarily model radio propagation using simplifying
+assumptions. We provide a comprehensive review of six assumptions that are
+still part of many ad&nbsp;hoc network simulation studies, despite increasing
+awareness of the need to represent more realistic features, including hills,
+obstacles, link asymmetries, and unpredictable fading. We use an extensive
+set of measurements from a large outdoor routing experiment to demonstrate
+the weakness of these assumptions, and show how these assumptions cause
+simulation results to differ significantly from experimental results. We
+close with a series of recommendations for researchers, whether they develop
+protocols, analytic models, or simulators for ad&nbsp;hoc wireless networks.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/kotz-axioms.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-axioms.pdf">PDF</a> (231K)</p>
+<p><b>Copyright &#169;&nbsp;2004 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-axioms-tr2.html">kotz:axioms-tr2</a></b>.</p>
+<p>See also later version <b><a href="abstracts/newport-axioms.html">newport:axioms</a></b>.</p>
+</BODY>
+</HTML>

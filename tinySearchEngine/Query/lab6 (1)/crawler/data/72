@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nanda-lbc-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nanda:lbc-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Soumendra Nanda and David Kotz.
+<b>Localized Bridging Centrality for Distributed Network Analysis</b>.
+Technical Report
+TR2008-612,
+Dartmouth Computer Science,
+January,
+2008.
+<p><b>Abstract:</b> Centrality is a concept often used in social network analysis to
+study different properties of networks that are modeled as graphs. We present
+a new centrality metric called Localized Bridging Centrality (LBC). LBC is
+based on the Bridging Centrality (BC) metric that Hwang et al. recently
+introduced. Bridging nodes are nodes that are located in between highly
+connected regions. LBC is capable of identifying bridging nodes with an
+accuracy comparable to that of the BC metric for most networks. As the name
+suggests, we use only local information from surrounding nodes to compute the
+LBC metric, while, global knowledge is required to calculate the BC metric.
+The main difference between LBC and BC is that LBC uses the egocentric
+definition of betweenness centrality to identify bridging nodes, while BC
+uses the sociocentric definition of betweenness centrality. Thus, our LBC
+metric is suitable for distributed computation and has the benefit of being
+an order of magnitude faster to calculate in computational complexity. We
+compare the results produced by BC and LBC in three examples. We applied our
+LBC metric for network analysis of a real wireless mesh network. Our results
+indicate that the LBC metric is as powerful as the BC metric at identifying
+bridging nodes that have a higher flow of information through them (assuming
+a uniform distribution of network flows) and are important for the robustness
+of the network.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/nanda-lbc-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././nanda-lbc-tr.pdf">PDF</a> (350K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/nanda-lbc.html">nanda:lbc</a></b>.</p>
+</BODY>
+</HTML>

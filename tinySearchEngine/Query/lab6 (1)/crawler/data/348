@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kini-compliance-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kini:compliance-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Shloka R. Kini.
+<b>Please Take My Survey: Compliance with smartphone-based EMA/ESM
+studies</b>.
+Technical Report
+TR2013-734,
+Dartmouth Computer Science,
+May,
+2013.
+<p><b>Abstract:</b> This thesis analyzes the factors that affect compliance in
+Ecological Momentary Assessment (EMA) survey systems using smartphones.
+Current EMA systems have simple parameters in their triggering mechanisms,
+which results in missed or ignored surveys, creating a loss of subject data.
+Over the course of three user studies, with slight variations, we analyze the
+factors that influence the willingness of a survey participant to answer
+surveys on an Android phone. An understanding of these factors would be
+valuable for mobile developers in developing advanced EMA trigger systems.
+After having experienced various unforeseen challenges in the process, we
+describe the parameters and difficulties in administering a study of this
+nature, making recommendations for future EMA applications and user studies.
+We also compare and analyze the pros and cons involved in developing various
+EMA systems. Psychologists and sociologists who use EMA systems to gather
+behavioral data might benefit from the experiential and behavioral data
+collected as part of our user studies.</p>
+<p><a href="bibtex/kini-compliance-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kini-compliance-tr.pdf">PDF</a> (4793K)</p>
+<p><b>Copyright &#169;&nbsp;2013 by the author.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

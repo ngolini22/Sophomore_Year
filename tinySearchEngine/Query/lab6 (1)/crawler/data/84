@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/shin-deamon.html
+3
+<HTML>
+<HEAD>
+ <TITLE>shin:deamon</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minho Shin, Patrick Tsang, David Kotz, and Cory Cornelius.
+<b>DEAMON: Energy-efficient sensor monitoring</b>.
+In
+<i>Proceedings of the IEEE Communications Society Conference on
+Sensor, Mesh, and Ad Hoc Communications and Networks (SECON)</i>,
+pages 1-9,
+June,
+2009.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/SAHCN.2009.5168925">10.1109/SAHCN.2009.5168925</a>.
+<p><b>Abstract:</b> In people-centric opportunistic sensing, people offer their
+mobile nodes (such as smart phones) as platforms for collecting sensor data.
+A sensing application distributes sensing `tasks,' which specify what sensor
+data to collect and under what conditions to report the data back to the
+application. To perform a task, mobile nodes may use on-board sensors, a
+body-area network of personal sensors, or sensors from neighboring nodes that
+volunteer to contribute their sensing resources. In all three cases,
+continuous sensor monitoring can drain a node's battery. <P> We propose
+DEAMON (Distributed Energy-Aware MONitoring), an energy-efficient distributed
+algorithm for long-term sensor monitoring. Our approach assumes only that
+mobile nodes are tasked to report sensor data under conditions specified by a
+Boolean expression, and that a network of nearby sensor nodes contribute to
+monitoring subsets of the task's sensors. Our algorithm to select sensor
+nodes and to monitor the sensing condition conserves energy of all nodes by
+limiting sensing and communication operations. We evaluate DEAMON with a
+stochastic analysis and with simulation results, and show that it should
+significantly reduce energy consumption.</p>
+<p><b>Keywords:</b> mobile computing, sensors, wireless, ubicomp</p>
+<p><a href="bibtex/shin-deamon.bib">BibTeX</a></p>
+<p><a target=_top href = "././shin-deamon.pdf">PDF</a> (226K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

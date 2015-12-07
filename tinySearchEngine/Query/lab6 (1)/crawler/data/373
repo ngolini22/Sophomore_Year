@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/sriram-challenges.html
+3
+<HTML>
+<HEAD>
+ <TITLE>sriram:challenges</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Janani Sriram, Minho Shin, David Kotz, Anand Rajan, Manoj Sastry, and Mark Yarvis.
+<b>Challenges in Data Quality Assurance in Pervasive Health Monitoring
+Systems</b>.
+In
+David Gawrock, Helmut Reimer, Ahmad-Reza Sadeghi, and Claire Vishik.
+editors, 
+<i>Future of Trust in Computing</i>,
+Vieweg+Teubner Verlag,
+July,
+2009.
+DOI <a href="http://dx.doi.org/10.1007/978-3-8348-9324-6_14">10.1007/978-3-8348-9324-6_14</a>.
+<p><b>Abstract:</b> Wearable, portable, and implantable medical sensors have ushered
+in a new paradigm for healthcare in which patients can take greater
+responsibility and caregivers can make well-informed, timely decisions.
+Health-monitoring systems built on such sensors have huge potential benefit
+to the quality of healthcare and quality of life for many people, such as
+patients with chronic medical conditions (such as blood-sugar sensors for
+diabetics), people seeking to change unhealthy behavior (such as losing
+weight or quitting smoking), or athletes wishing to monitor their condition
+and performance. To be effective, however, these systems must provide
+assurances about the quality of the sensor data. The sensors must be applied
+to the patient by a human, and the sensor data may be transported across
+multiple networks and devices before it is presented to the medical team.
+While no system can guarantee data quality, we anticipate that it will help
+for the system to annotate data with some measure of confidence. In
+this paper, we take a deeper look at potential health-monitoring usage
+scenarios and highlight research challenges required to ensure and assess
+quality of sensor data in health-monitoring systems.</p>
+<p><b>Keywords:</b> healthcare, sensors, security, privacy, mhealth</p>
+<p><a href="bibtex/sriram-challenges.bib">BibTeX</a></p>
+<p><a target=_top href = "././sriram-challenges.pdf">PDF</a> (217K)</p>
+<p><b>Copyright &#169;&nbsp;2009 by Vieweg+Teubner Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

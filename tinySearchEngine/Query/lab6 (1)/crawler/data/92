@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-campus-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:campus-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Kobby Essien.
+<b>Characterizing Usage of a Campus-wide Wireless Network</b>.
+Technical Report
+TR2002-423,
+Dartmouth Computer Science,
+March,
+2002.
+<p><b>Abstract:</b> Wireless local-area networks (WLANs) are increasingly common, but
+little is known about how they are used. A clear understanding of usage
+patterns in real WLANs is critical information to those who develop, deploy,
+and manage WLAN technology, as well as those who develop systems and
+application software for wireless networks. This paper presents results from
+the largest and most comprehensive trace of network activity in a large,
+production wireless LAN. For eleven weeks we traced the activity of nearly
+two thousand users drawn from a general campus population, using a
+campus-wide network of 476 access points spread over 161 buildings. Our study
+expands on those done by Tang and Baker, with a significantly larger and
+broader population. <P> We found that residential traffic dominated all
+other traffic, particularly in residences populated by newer students;
+students are increasingly choosing a wireless laptop as their primary
+computer. Although web protocols were the single largest component of traffic
+volume, network backup and file sharing contributed an unexpectedly large
+amount to the traffic. Although there was some roaming within a network
+session, we were surprised by the number of situations in which cards roamed
+excessively, unable to settle on one access point. Cross-subnet roams were an
+especial problem, because they broke IP connections, indicating the need for
+solutions that avoid or accommodate such roams.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/kotz-campus-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-campus-tr.pdf">PDF</a> (208K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-campus.html">kotz:campus</a></b>.</p>
+</BODY>
+</HTML>

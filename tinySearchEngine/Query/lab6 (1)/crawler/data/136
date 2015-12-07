@@ -1,0 +1,24 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-jworkload.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:jworkload</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Nils Nieuwejaar.
+<b>File-System Workload on a Scientific Multiprocessor</b>.
+<i>IEEE Parallel and Distributed Technology</i>,
+3(1):51-60,
+Spring,
+1995.
+DOI <a href="http://dx.doi.org/10.1109/88.384584">10.1109/88.384584</a>.
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-jworkload.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-jworkload.pdf">PDF</a> (891K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-workload.html">kotz:workload</a></b>.</p>
+<p>See also later version <b><a href="abstracts/nieuwejaar-workload-tr.html">nieuwejaar:workload-tr</a></b>.</p>
+</BODY>
+</HTML>

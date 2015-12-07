@@ -1,0 +1,61 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kim-classify.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kim:classify</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minkyong Kim and David Kotz.
+<b>Classifying the Mobility of Users and the Popularity of Access
+Points</b>.
+In
+Thomas Strang and Claudia Linnhoff-Popien.
+editors, 
+<i>Proceedings of the International Workshop on Location- and
+Context-Awareness (LoCA)</i>,
+pages 198-209,
+Germany,
+May,
+2005.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/11426646_19">10.1007/11426646_19</a>.
+<p><b>Abstract:</b> There is increasing interest in location-aware systems and
+applications. It is important for any designer of such systems and
+applications to understand the nature of user and device mobility.
+Furthermore, an understanding of the effect of user mobility on access points
+(APs) is also important for designing, deploying, and managing wireless
+networks. Although various studies of wireless networks have provided
+insights into different network environments and user groups, it is often
+hard to apply these findings to other situations, or to derive useful
+abstract models. <P> In this paper, we present a general methodology for
+extracting mobility information from wireless network traces, and for
+classifying mobile users and APs. We used the Fourier transform to convert
+time-dependent location information to the frequency domain, then chose the
+two strongest periods and used them as parameters to a classification system
+based on Bayesian theory. To classify mobile users, we computed diameter (the
+maximum distance between any two APs visited by a user during a fixed time
+period) and observed how this quantity changes or repeats over time. We found
+that user mobility had a strong period of one day, but there was also a large
+group of users that had either a much smaller or much bigger primary period.
+Both primary and secondary periods had important roles in determining classes
+of mobile users. Users with one day as their primary period and a smaller
+secondary period were most prevalent; we expect that they were mostly
+students taking regular classes. To classify APs, we counted the number of
+users visited each AP. The primary period did not play a critical role
+because it was equal to one day for most of the APs; the secondary period was
+the determining parameter. APs with one day as their primary period and one
+week as their secondary period were most prevalent. By plotting the classes
+of APs on our campus map, we discovered that this periodic behavior of APs
+seemed to be independent of their geographical locations, but may depend on
+the relative locations of nearby APs. Ultimately, we hope that our study can
+help the design of location-aware services by providing a base for user
+mobility models that reflect the movements of real users.</p>
+<p><b>Keywords:</b> wireless, network, mobile computing</p>
+<p><a href="bibtex/kim-classify.bib">BibTeX</a></p>
+<p><a target=_top href = "././kim-classify.pdf">PDF</a> (718K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/kim-classify-tr.html">kim:classify-tr</a></b>.</p>
+</BODY>
+</HTML>

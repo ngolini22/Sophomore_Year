@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/oldfield-restruct.html
+3
+<HTML>
+<HEAD>
+ <TITLE>oldfield:restruct</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Ron Oldfield and David Kotz.
+<b>Improving data access for computational grid applications</b>.
+<i>Cluster Computing</i>,
+9(1):79-99,
+January,
+2006.
+DOI <a href="http://dx.doi.org/10.1007/s10586-006-4899-7">10.1007/s10586-006-4899-7</a>.
+<p><b>Abstract:</b> High-performance computing increasingly occurs on ``computational
+grids'' composed of heterogeneous and geographically distributed systems of
+computers, networks, and storage devices that collectively act as a single
+``virtual'' computer. A key challenge in this environment is to provide
+efficient access to data distributed across remote data servers. Our parallel
+I/O framework, called Armada, allows application and data-set providers to
+flexibly compose graphs of processing modules that describe the distribution,
+application interfaces, and processing required of the dataset before
+computation. Although the framework provides a simple programming model for
+the application programmer and the data-set provider, the resulting graph may
+contain bottlenecks that prevent efficient data access. In this paper, we
+present an algorithm used to restructure Armada graphs that distributes
+computation and data flow to improve performance in the context of a
+wide-area computational grid.</p>
+<p><b>Keywords:</b> parallel computing, parallel-IO, file system, distributed
+computing</p>
+<p><a href="bibtex/oldfield-restruct.bib">BibTeX</a></p>
+<p><a target=_top href = "././oldfield-restruct.pdf">PDF</a> (1462K)</p>
+<p><b>Copyright &#169;&nbsp;2006 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

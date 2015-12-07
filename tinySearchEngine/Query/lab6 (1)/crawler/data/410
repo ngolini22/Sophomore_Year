@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/grimstrup-gmas.html
+3
+<HTML>
+<HEAD>
+ <TITLE>grimstrup:gmas</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Arne Grimstrup, Robert Gray, David Kotz, Maggie Breedy, Marco Carvalho, Thomas Cowin, Daria Chac&oacute;n, Joyce Barton, Chris Garrett, and Martin Hofmann.
+<b>Toward Dynamic Interoperability of Mobile Agent Systems</b>.
+In
+<i>Proceedings of the Sixth IEEE International Conference on Mobile
+Agents</i>,
+pages 106-120,
+October,
+2002.
+DOI <a href="http://dx.doi.org/10.1007/3-540-36112-X_8">10.1007/3-540-36112-X_8</a>.
+<p><b>Abstract:</b> Mobile agents are an increasingly popular paradigm and in recent
+years there has been a proliferation of mobile-agent systems. These systems
+are, however, largely incompatible with each other. In particular, agents
+cannot migrate to a host that runs a different mobile-agent system. Prior
+approaches to interoperability have tried to force agents to use a common API
+and so far none have succeeded. This goal led to our efforts to develop
+mechanisms that support dynamic runtime interoperability of mobile-agent
+systems. This paper describes the  Grid Mobile-Agent System, which
+allows agents to migrate to different mobile-agent systems.</p>
+<p><b>Keywords:</b> mobile-agent, mobile computing</p>
+<p><a href="bibtex/grimstrup-gmas.bib">BibTeX</a></p>
+<p><a target=_top href = "././grimstrup-gmas.pdf">PDF</a> (80K)</p>
+<p><b>Copyright &#169;&nbsp;2002 by Springer-Verlag.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

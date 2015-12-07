@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-crawdad-workshop05.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:crawdad-workshop05</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Tristan Henderson.
+<b>CRAWDAD: A Community Resource for Archiving Wireless Data at
+Dartmouth</b>.
+<i>IEEE Pervasive Computing</i>,
+4(4):12-14,
+Oct-Dec,
+2005.
+DOI <a href="http://dx.doi.org/10.1109/MPRV.2005.75">10.1109/MPRV.2005.75</a>.
+<p><b>Abstract:</b> Wireless network researchers are seriously starved for data about
+how real users, applications, and devices use real networks under real
+network conditions. CRAWDAD (Community Resource for Archiving Wireless Data
+at Dartmouth) is a new National Science Foundation-funded project to build a
+wireless-network data archive for the research community. It will host
+wireless data and provide tools and documents to make collecting and using
+the data easy. This resource should help researchers identify and evaluate
+real and interesting problems in mobile and pervasive computing. To learn
+more about CRAWDAD and discuss its direction, about 30 interested people
+gathered at a workshop held in conjunction with MobiCom 2005.</p>
+<p><b>Keywords:</b> wireless, network</p>
+<p><a href="bibtex/kotz-crawdad-workshop05.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-crawdad-workshop05.pdf">PDF</a> (325K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

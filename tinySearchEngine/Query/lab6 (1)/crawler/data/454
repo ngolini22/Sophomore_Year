@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/jiang-msthesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>jiang:msthesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Zhenhui Jiang.
+<b>A Combined Routing Method for Ad hoc Wireless Networks</b>.
+Masters Thesis,
+Dartmouth College Computer Science,
+December,
+2005.
+Available as Dartmouth Computer Science Technical Report TR2005-566.
+<p><b>Abstract:</b> To make ad hoc wireless networks adaptive to different mobility
+and traffic patterns, we studied in this thesis an approach to swap from one
+protocol to another protocol dynamically, while routing continues. By the
+insertion of a new layer, we were able to make each node in the ad hoc
+wireless network notify each other about the protocol swap. To ensure that
+routing works efficiently after the protocol swap, we initialized the
+destination routing protocol's data structures and reused the previous
+routing information to build the new routing table. We also tested our
+approach under different network topologies and traffic patterns in static
+networks to learn whether the swap is fast and whether the swap incurs too
+much overload . We found that the swap latency is related to the destination
+protocol and the topology of the network. We also found that the control
+packet ratio after swap is close to the protocol running without swap, which
+means our method does not incur too many control packets for swap.</p>
+<p><a href="bibtex/jiang-msthesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2005-566.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2005 by Zhenhui Jiang.</b></p>
+</BODY>
+</HTML>

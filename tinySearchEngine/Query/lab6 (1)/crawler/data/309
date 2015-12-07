@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/tan-crf-s3.html
+3
+<HTML>
+<HEAD>
+ <TITLE>tan:crf-s3</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Keren Tan, Guanhua Yan, Jihwang Yeo, and David Kotz.
+<b>A Correlation Attack Against User Mobility Privacy in a Large-scale
+WLAN network</b>.
+In
+<i>Proceedings of the ACM MobiCom'10 S3 workshop</i>,
+pages 33-35,
+September,
+2010.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/1860039.1860050">10.1145/1860039.1860050</a>.
+<p><b>Abstract:</b> User association logs collected from real-world wireless LANs
+have facilitated wireless network research greatly. To protect user privacy,
+the common practice in sanitizing these data before releasing them to the
+public is to anonymize users' sensitive information such as the MAC addresses
+of their devices and their exact association locations. In this work,we
+demonstrate that these sanitization measures are insufficient in protecting
+user privacy from a novel type of correlation attack that is based on CRF
+(Conditional Random Field). In such a correlation attack, the adversary
+observes the victim's AP (Access Point) association activities for a short
+period of time and then infers her corresponding identity in a released user
+association dataset. Using a user association log that contains more than
+three thousand users and millions of AP association records, we demonstrate
+that the CRF-based technique is able to pinpoint the victim's identity
+exactly with a probability as high as 70\%.</p>
+<p><a href="bibtex/tan-crf-s3.bib">BibTeX</a></p>
+<p><a target=_top href = "././tan-crf-s3.pdf">PDF</a> (278K)</p>
+<p><b>Copyright &#169;&nbsp;2010 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/tan-crf.html">tan:crf</a></b>.</p>
+</BODY>
+</HTML>

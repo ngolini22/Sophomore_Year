@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/anthony-sith3.html
+3
+<HTML>
+<HEAD>
+ <TITLE>anthony:sith3</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Denise Anthony, Andrew Campbell, Thomas Candon, Andrew Gettinger, Carl A. Gunter, M.&nbsp;Eric Johnson, David Kotz, Lisa Marsch, Andr&eacute;s Molina-Markham, Karen Page, and Sean Smith.
+<b>Securing Information Technology in Healthcare</b>.
+<i>IEEE Security &amp; Privacy</i>,
+11(6):25-33,
+Nov/Dec,
+2013.
+Invited paper.
+DOI <a href="http://dx.doi.org/10.1109/MSP.2013.104">10.1109/MSP.2013.104</a>.
+<p><b>Abstract:</b> Information technology (IT) has great potential to improve
+healthcare quality while also improving efficiency, and thus has been a major
+focus of recent healthcare reform efforts. However, developing, deploying and
+using IT that is both secure and genuinely effective in the complex clinical,
+organizational and economic environment of healthcare is a significant
+challenge. Further, it is imperative that we better understand the privacy
+concerns of patients and providers, as well as the ability of current
+technologies, policies, and laws to adequately protect privacy. The Securing
+Information Technology in Healthcare (SITH) workshops were created to provide
+a forum to discuss security and privacy for experts from a broad range of
+perspectives, from officers at large healthcare companies, startups and
+nonprofits, to physicians, researchers and policy makers.</p>
+<p><a href="bibtex/anthony-sith3.bib">BibTeX</a></p>
+<p><a target=_top href = "././anthony-sith3.pdf">PDF</a> (265K)</p>
+<p><b>Copyright &#169;&nbsp;2013 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

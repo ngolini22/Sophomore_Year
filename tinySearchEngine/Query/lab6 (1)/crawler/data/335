@@ -1,0 +1,153 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture08/MySkeletonFragment.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<p>This code snippet is taken from <a href="http://www.wrox.com/WileyCDA/WroxTitle/Professional-Android-4-Application-Development.productCd-1118102274.html">Professional Android 4 Application Development</a></p>
+<p>The example shows skeleton code for the fragment lifecycle event handlers.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MySkeletonFragment <span class="kw">extends</span> Fragment {
+
+  <span class="co">// Called when the Fragment is attached to its parent Activity.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onAttach</span>(Activity activity) {
+    <span class="kw">super</span>.<span class="fu">onAttach</span>(activity);
+    <span class="co">// Get a reference to the parent Activity.</span>
+  }
+
+  <span class="co">// Called to do the initial creation of the Fragment.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+    <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+    <span class="co">// Initialize the Fragment.</span>
+  }
+
+  <span class="co">// Called once the Fragment has been created in order for it to</span>
+  <span class="co">// create its user interface.</span>
+  @Override
+  <span class="kw">public</span> View <span class="fu">onCreateView</span>(LayoutInflater inflater, 
+                           ViewGroup container,
+                           Bundle savedInstanceState) {
+    <span class="co">// Create, or inflate the Fragment&#39;s UI, and return it. </span>
+    <span class="co">// If this Fragment has no UI then return null.</span>
+    <span class="kw">return</span> inflater.<span class="fu">inflate</span>(R.<span class="fu">layout</span>.<span class="fu">my_fragment</span>, container, <span class="kw">false</span>);
+  }
+
+
+
+  <span class="co">// Called once the parent Activity and the Fragment&#39;s UI have </span>
+  <span class="co">// been created.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onActivityCreated</span>(Bundle savedInstanceState) {
+    <span class="kw">super</span>.<span class="fu">onActivityCreated</span>(savedInstanceState);
+    <span class="co">// Complete the Fragment initialization – particularly anything</span>
+    <span class="co">// that requires the parent Activity to be initialized or the </span>
+    <span class="co">// Fragment&#39;s view to be fully inflated.</span>
+  }
+
+  <span class="co">// Called at the start of the visible lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStart</span>(){
+    <span class="kw">super</span>.<span class="fu">onStart</span>();
+    <span class="co">// Apply any required UI change now that the Fragment is visible.</span>
+  }
+
+  <span class="co">// Called at the start of the active lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onResume</span>(){
+    <span class="kw">super</span>.<span class="fu">onResume</span>();
+    <span class="co">// Resume any paused UI updates, threads, or processes required</span>
+    <span class="co">// by the Fragment but suspended when it became inactive.</span>
+  }
+
+  <span class="co">// Called at the end of the active lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onPause</span>(){
+    <span class="co">// Suspend UI updates, threads, or CPU intensive processes</span>
+    <span class="co">// that don&#39;t need to be updated when the Activity isn&#39;t</span>
+    <span class="co">// the active foreground activity.</span>
+    <span class="co">// Persist all edits or state changes</span>
+    <span class="co">// as after this call the process is likely to be killed.</span>
+    <span class="kw">super</span>.<span class="fu">onPause</span>();
+  }
+
+  <span class="co">// Called to save UI state changes at the</span>
+  <span class="co">// end of the active lifecycle.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSaveInstanceState</span>(Bundle savedInstanceState) {
+    <span class="co">// Save UI state changes to the savedInstanceState.</span>
+    <span class="co">// This bundle will be passed to onCreate, onCreateView, and</span>
+    <span class="co">// onCreateView if the parent Activity is killed and restarted.</span>
+    <span class="kw">super</span>.<span class="fu">onSaveInstanceState</span>(savedInstanceState);
+  }
+
+  <span class="co">// Called at the end of the visible lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStop</span>(){
+    <span class="co">// Suspend remaining UI updates, threads, or processing</span>
+    <span class="co">// that aren&#39;t required when the Fragment isn&#39;t visible.</span>
+    <span class="kw">super</span>.<span class="fu">onStop</span>();
+  }
+
+  <span class="co">// Called when the Fragment&#39;s View has been detached.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroyView</span>() {
+    <span class="co">// Clean up resources related to the View.</span>
+    <span class="kw">super</span>.<span class="fu">onDestroyView</span>();
+  }
+
+  <span class="co">// Called at the end of the full lifetime.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDestroy</span>(){
+    <span class="co">// Clean up any resources including ending threads,</span>
+    <span class="co">// closing database connections etc.</span>
+    <span class="kw">super</span>.<span class="fu">onDestroy</span>();
+  }
+
+  <span class="co">// Called when the Fragment has been detached from its parent Activity.</span>
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onDetach</span>() {
+    <span class="kw">super</span>.<span class="fu">onDetach</span>();
+  }
+}</code></pre>
+</body>
+</html>

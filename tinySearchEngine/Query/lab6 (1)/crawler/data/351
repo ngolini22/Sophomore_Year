@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-nethealth13.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:nethealth13</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad, Ronald Peterson, Shrirang Mare, Jacob Sorber, Kolin Paul, and David Kotz.
+<b>Provenance framework for mHealth</b>.
+In
+<i>Workshop on Networked Healthcare Technology (NetHealth)</i>,
+pages 1-6,
+January,
+2013.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/COMSNETS.2013.6465599">10.1109/COMSNETS.2013.6465599</a>.
+<p><b>Abstract:</b> Mobile health technologies allow patients to collect their health
+information outside the hospital and share this information with others. But
+how can data consumers know whether to trust the sensor-collected and
+human-entered data they receive? Data consumers might be able to verify the
+accuracy and authenticity of the data if they have information about its
+origin and about changes made to it, i.e., the provenance of the
+data. We propose a provenance framework for mHealth devices, to collect and
+share provenance metadata and help the data consumer verify whether certain
+provenance properties are satisfied by the data they receive. This paper
+describes the programming model for this framework, which describes the rules
+to be implemented for providing provenance-collecting capabilities to an
+mHealth application.</p>
+<p><a href="bibtex/prasad-nethealth13.bib">BibTeX</a></p>
+<p><a target=_top href = "././prasad-nethealth13.pdf">PDF</a> (162K)</p>
+<p><b>Copyright &#169;&nbsp;2013 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

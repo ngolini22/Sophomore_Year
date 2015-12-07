@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/prasad-provenance-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>prasad:provenance-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Aarathi Prasad, Ronald Peterson, Jacob Sorber, and David Kotz.
+<b>A Provenance Framework for mHealth</b>.
+In
+<i>Proceedings of the Workshop for Mobile Systems, Applications,
+and Services for Healthcare (mHealthSys) Poster Track</i>,
+pages 9:1-9:2,
+November,
+2012.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/2396276.2396287">10.1145/2396276.2396287</a>.
+<p><b>Abstract:</b> How can data consumers know whether to trust the sensor-collected
+and human-entered data they receive from mHealth devices? What confidence do
+they have that it is accurate and authentic? Data recipients might be able to
+verify the accuracy and authenticity of the data if they have information
+about its origin and about changes made to it, i.e., the provenance of the
+data.We define provenance in mHealth as contextual information that can
+attest to the authenticity and accuracy of the data and can help the
+recipient in interpreting the data. To realize this vision, we propose a
+provenance framework for mHealth. The primary function of the framework is to
+collect and share provenance metadata and help the data consumer verify
+whether certain provenance properties are satisfied by the data they
+receive.</p>
+<p><a href="bibtex/prasad-provenance-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././prasad-provenance-poster.pdf">PDF</a> (75K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

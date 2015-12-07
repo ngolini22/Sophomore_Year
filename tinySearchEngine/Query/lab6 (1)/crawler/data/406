@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/aslam-toolkit.html
+3
+<HTML>
+<HEAD>
+ <TITLE>aslam:toolkit</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Javed Aslam, Sergey Bratus, David Kotz, Ron Peterson, Daniela Rus, and Brett Tofel.
+<b>The Kerf toolkit for intrusion analysis</b>.
+<i>IEEE Security and Privacy</i>,
+2(6):42-52,
+November/December,
+2004.
+DOI <a href="http://dx.doi.org/10.1109/MSP.2004.113">10.1109/MSP.2004.113</a>.
+<p><b>Abstract:</b> We consider the problem of intrusion analysis and present the
+Kerf Toolkit, whose purpose is to provide an efficient and flexible
+infrastructure for the analysis of attacks. The Kerf Toolkit includes a
+mechanism for securely recording host and network logging information for a
+network of workstations, a domain-specific language for querying this stored
+data, and an interface for viewing the results of such a query, providing
+feedback on these results, and generating new queries in an iterative
+fashion. We describe the architecture of Kerf, present examples to
+demonstrate the power of our query language, and discuss the performance of
+our implementation of this system.</p>
+<p><b>Keywords:</b> network, security, intrusion detection</p>
+<p><a href="bibtex/aslam-toolkit.bib">BibTeX</a></p>
+<p><a target=_top href = "http://ieeexplore.ieee.org/iel5/8013/29915/01366118.pdf">PDF</a> (remote)</p>
+<p>See also earlier version <b><a href="abstracts/aslam-toolkit-p.html">aslam:toolkit-p</a></b>.</p>
+<p>See also later version <b><a href="abstracts/aslam-toolkit-tr.html">aslam:toolkit-tr</a></b>.</p>
+</BODY>
+</HTML>

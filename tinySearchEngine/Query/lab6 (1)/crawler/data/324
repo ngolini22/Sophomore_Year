@@ -1,0 +1,38 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/nieuwejaar-jgalley.html
+3
+<HTML>
+<HEAD>
+ <TITLE>nieuwejaar:jgalley</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Nils Nieuwejaar and David Kotz.
+<b>The Galley Parallel File System</b>.
+<i>Parallel Computing</i>,
+23(4):447-476,
+June,
+1997.
+DOI <a href="http://dx.doi.org/10.1016/S0167-8191(97)00009-4">10.1016/S0167-8191(97)00009-4</a>.
+<p><b>Abstract:</b> Most current multiprocessor file systems are designed to use
+multiple disks in parallel computing, using the high aggregate bandwidth to
+meet the growing I/O requirements of parallel scientific applications. Many
+multiprocessor file systems provide applications with a conventional
+Unix-like interface, allowing the application to access multiple disks
+transparently. This interface conceals the parallelism within the file
+system, increasing the ease of programmability, but making it difficult or
+impossible for sophisticated programmers and libraries to use knowledge about
+their I/O needs to exploit that parallelism. In addition to providing an
+insufficient interface, most current multiprocessor file systems are
+optimized for a different workload than they are being asked to support. We
+introduce Galley, a new parallel file system that is intended to efficiently
+support realistic scientific multiprocessor workloads. We discuss Galley's
+file structure and application interface, as well as the performance
+advantages offered by that interface.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/nieuwejaar-jgalley.bib">BibTeX</a></p>
+<p><a target=_top href = "././nieuwejaar-jgalley.pdf">PDF</a> (343K)</p>
+<p><b>Copyright &#169;&nbsp;1997 by North-Holland (Elsevier Scientific).</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/nieuwejaar-jgalley-tr.html">nieuwejaar:jgalley-tr</a></b>.</p>
+</BODY>
+</HTML>

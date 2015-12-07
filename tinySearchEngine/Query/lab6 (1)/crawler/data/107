@@ -1,0 +1,222 @@
+http://www.cs.dartmouth.edu/~campbell/cs65/lecture17/lecture17.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Location-Based Service - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="location-based-service">Location-Based Service</h2>
+<p>What makes mobile so different is we can build advanced services that only mobile device with sensing can deliver. We do this all the time on our phone: do a location based search for say pizza store, cafe, cinema -- and the phone uses the location of the phone as an input to the search. This is called location based service.</p>
+<p>Android provides a number of building blocks for location based services that we will discuss in this lecture.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Location Manager</li>
+<li>Location Providers</li>
+<li>Geodecoders</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li>We will use the <em>where_am_i</em> app to demonstrate how to code and wire together the objects for a simple location base service. The demo is <a href="../code/where_am_i.zip">where_am_i.zip</a> which finds your location as a longitude/latitude tuple and then converts that to a -- more reasonable -- address for humans to read. We are't built to understand coordinates or IP addresses.</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>Some excellent references.</p>
+<ul>
+<li>Course book section on <a href="http://commonsware.com/Android/">Accessing Location-Based Services</a> page 1079</li>
+<li><a href="http://www.vogella.com/articles/AndroidLocationAPI/article.html">Android Location API - Tutorial</a></li>
+<li><a href="http://developer.android.com/guide/topics/sensors/index.html">Location and Sensors</a></li>
+<li><a href="http://developer.android.com/guide/topics/location/strategies.html">Location Strategies</a></li>
+</ul>
+<h2 id="location-manager">Location manager</h2>
+<p>The Android location manager gives location in terms of longitude and latitude for the location of the phone. Depending on the location provider selected (could be based on GPS, WiFi or Cellular) the accuracy of the location will vary.</p>
+<p>The key Android plumbing for location is:</p>
+<ul>
+<li>Location Manager, which provides the coordinates</li>
+<li>Location Providers, which can make a number of trade offs to offer the user the capability they want</li>
+</ul>
+<p>A number of services can be built using these simple components:</p>
+<ul>
+<li>get the user's current location</li>
+<li>periodically get the user location as the move around -- provides a trail of bread crumbs</li>
+<li>use proximity alerts when you move in and out of a predefined area (e.g., Time Square)</li>
+</ul>
+<p>As part of the onCreate() code of the WhereAmI app we see the location manager being set up. The user gets a location manager by specifying the LOCATION_SERVICE as input to the getSystemService() of the activity. A location manager is returned.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> WhereAmI <span class="kw">extends</span> Activity {
+
+  @Override
+  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+    <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+    <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">main</span>);
+
+    LocationManager locationManager;
+    String svcName = Context.<span class="fu">LOCATION_SERVICE</span>;
+    locationManager = (LocationManager)<span class="fu">getSystemService</span>(svcName);</code></pre>
+<p>In the Manifest you will see that it is necessary to get the user's permission to track their location or get a location reading:</p>
+<pre class="sourceCode java"><code class="sourceCode java">   &lt;uses-permission android:name=<span class="st">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span> /&gt;</code></pre>
+<p>There are fine and coarse permissions that the developer can use. The defaults is: if you ask for <em>ACCESS_FINE_LOCATION</em> then by default you get coarse.</p>
+<p>FIne is typically associated with GPS and coarse location with Cellular or network.</p>
+<h2 id="location-provider">Location Provider</h2>
+<p>Mobile phones can provide location from a set of providers that make a number of trade offs. For example, GPS has good accuracy outdoors but is costly in terms of energy tax for using the GPS chips on the phone. In contrast, Cellular is cheap in terms of energy consumption but could provide very coarse location information (say in the upper valley) because of the lack of cell tower density but could be great in the city. There are a number of trade offs that the user might want to make when selecting a location provider. Basically depending on what location device the user selects there are a number of different trade offs in:</p>
+<ul>
+<li>power consumption</li>
+<li>longitude/latitude accuracy</li>
+<li>altitude accuracy</li>
+<li>speed</li>
+<li>direction information</li>
+</ul>
+<p>The user can specify the location provider explicitly in the code using a number of constants:</p>
+<ul>
+<li>LocationManager.GPS_PROVIDER</li>
+<li>LocationManager.NETWORK_PROVIDER</li>
+<li>LocationManager.PASSIVE_PROVIDER</li>
+</ul>
+<p>It would be poor programming to rigidly specify the provider -- for example, the user might turn off GPS -- then what. It is better to let the Android systems match the user's needs to what providers are on offer. To do this we use <em>Criteria</em> as shown below. The code states that the user requires:</p>
+<ul>
+<li>coarse accuracy</li>
+<li>low power consumption</li>
+<li>no altitude, bearing or speed</li>
+</ul>
+<p>The code snippet is taken again from onCreate(). The user specifies the level of location information and then asks the system for the best provider given what is currently available and the user's needs.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+    Criteria criteria = <span class="kw">new</span> <span class="fu">Criteria</span>();
+    criteria.<span class="fu">setAccuracy</span>(Criteria.<span class="fu">ACCURACY_FINE</span>);
+    criteria.<span class="fu">setPowerRequirement</span>(Criteria.<span class="fu">POWER_LOW</span>);
+    criteria.<span class="fu">setAltitudeRequired</span>(<span class="kw">false</span>);
+    criteria.<span class="fu">setBearingRequired</span>(<span class="kw">false</span>);
+    criteria.<span class="fu">setSpeedRequired</span>(<span class="kw">false</span>);
+    criteria.<span class="fu">setCostAllowed</span>(<span class="kw">true</span>);
+
+    String provider = locationManager.<span class="fu">getBestProvider</span>(criteria, <span class="kw">true</span>);
+    </code></pre>
+<h2 id="finding-where-am-i">Finding <em>Where Am I</em></h2>
+<p>Getting the location of the device (and user) is a cool service offered by phones. There are a number of best practices when apps use location. First, you need to respect the privacy of the user; only updating the location when necessary; letting the user know if you are tracking them and where the information is being stored, communicated, etc; and allowing the user to disable tracking.</p>
+<p>To find the last location of the device you need to use getLastKnownLocation(), as shown below in the onCreate() code snippet. getLastKnownLocation returns a location indicating the data from the last known location fix obtained from the given provider. This can be done without starting the provider. Note that this location could be out-of-date, for example if the device was turned off and moved to another location. If the provider is currently disabled, null is returned.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    Location l = locationManager.<span class="fu">getLastKnownLocation</span>(provider);
+
+    <span class="fu">updateWithNewLocation</span>(l);
+    
+    locationManager.<span class="fu">requestLocationUpdates</span>(provider, <span class="dv">2000</span>, <span class="dv">10</span>,
+                                           locationListener);
+  }</code></pre>
+<p>Once the user gets the last location it class the updateWithNewLocation() function with the <em>Location</em>. updateWithNewLocation() prints out the longitude and latitude of the location and then gets a human readable address from the coordinates using <em>Geodecoders</em>. We will discuss Geodecoders in a moment.</p>
+<h2 id="tracking-your-location">Tracking your location</h2>
+<p>But the last line of code in the onCreate() refreshes the current location is the key to <strong>tracking location of a device</strong>. The locationListener() method sets up a call back <em>locationListener()</em> which is called periodically. As shown above, onCreate() calls requestLocationUpdates() passing a <a href="http://developer.android.com/reference/android/location/LocationListener.html">LocationListener</a> object called locationListener. The other parameters are:</p>
+<ul>
+<li>minTime: minimum time interval between location updates, in milliseconds. It is important to the right value of minTime to meet the apps needs and conserve battery life. Each location update requires power from GPS, WIFI, Cell and other radios.</li>
+<li>minDistance: minimum distance between location updates, in meters. The minDistance parameter is used to control the frequency of location updates. If it is greater than 0 then the location provider will only send your application an update when the location has changed by at least minDistance meters, AND at least minTime milliseconds have passed.</li>
+</ul>
+<p>When a location change has been detected then locationListener callback is fired -- that is, the LocationListener is used for receiving notifications from the LocationManager when the location has changed. Assuming that the LocationListener has been registered with the location manager uses the requestLocationUpdates(String, long, float, LocationListener) method as the call back for handling the new <a href="http://developer.android.com/reference/android/location/Location.html">Location</a> object. There are four callbacks:</p>
+<ul>
+<li>onLocationChanged(), which is called when a new location is available.</li>
+<li>onProviderDisabled(), when the provider is disabled (e.g., the user turn the GPS off).</li>
+<li>onProviderEnabled(), when the provider is enabled (e.g., the user turns the WiFI on).</li>
+<li>onStatusChanged(), when the provider status changes. This method is called when a provider is unable to fetch a location or if the provider has recently become available after a period of unavailability.</li>
+</ul>
+<p>In our code snippet we simply call updateWithNewLocation() if the onLocationChanged() is called.</p>
+<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">private</span> <span class="dt">final</span> LocationListener locationListener = <span class="kw">new</span> <span class="fu">LocationListener</span>() {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onLocationChanged</span>(Location location) {
+      <span class="fu">updateWithNewLocation</span>(location);
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onProviderDisabled</span>(String provider) {}
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onProviderEnabled</span>(String provider) {}
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onStatusChanged</span>(String provider, <span class="dt">int</span> status, 
+                                Bundle extras) {}
+  };</code></pre>
+<h2 id="geocoding">Geocoding</h2>
+<p>In the updateWithNewLocation() method the Location object is transformed into two types of output:</p>
+<ul>
+<li>longitude and latitude</li>
+<li>a readable address (e.g., 360 Georgie Best Street, Manchester, England</li>
+</ul>
+<p><a href="http://developer.android.com/reference/android/location/Geocoder.html">Geocoder</a> do the translation from long/lat to address. Geocoding is the process of transforming a street address or other description of a location into a (latitude, longitude) coordinate. Geocoder supports two services:</p>
+<ul>
+<li>forward geocoding: from address to long/lat</li>
+<li>reverse geocoding: from long/lat to address Reverse geocoding is the process of transforming a (latitude, longitude) coordinate into a (partial) address. The amount of detail in a reverse geocoded location description may vary, for example one might contain the full street address of the closest building, while another might contain only a city name and postal code. The Geocoder class requires a backend service that is not included in the core android framework.</li>
+</ul>
+<p>The Geocoder class comes with the Google Maps library (see next section). To use the library you have to import it into the application. In addition, the Geocoder class uses a server to translate over the Internet so you need to add the following permission to the Manifest:</p>
+<pre class="sourceCode java"><code class="sourceCode java">     &lt;uses-permission android:name=<span class="st">&quot;android.permission.INTERNET&quot;</span> /&gt;</code></pre>
+<p>The first part of the updateWithNewLocation() method simply prints out the longitude and latitude to the UI. The interesting stuff is the next section which does the reverse geocoding.</p>
+<p>First the Geocoder is created by setting the Locale.getDefault() locale (used to define your usual location and language -- Hanover and English, sorry, I mean American). The getFromLocation(latitude, longitude, 1) returns an <a href="http://developer.android.com/reference/android/location/Address.html">Address</a> object. The list can contain a number of possible results; that is, getFromLocation returns an array of Addresses that are known to describe the area immediately surrounding the given latitude and longitude. The parameters are:</p>
+<ul>
+<li>latitude: the latitude a point for the search</li>
+<li>longitude: the longitude a point for the search</li>
+<li>maxResults: max number of addresses to return. Smaller numbers (1 to 5) are recommended</li>
+</ul>
+<p>In the code below maxResults = 1. We only want the servers best shot. Once the Address is returned the method uses a StringBuilder to get and format the address for display to the UI, as shown in the snippet below.</p>
+<pre class="sourceCode java"><code class="sourceCode java">  <span class="kw">private</span> <span class="dt">void</span> <span class="fu">updateWithNewLocation</span>(Location location) {
+    TextView myLocationText;
+    myLocationText = (TextView)<span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">myLocationText</span>);
+      
+    String latLongString = <span class="st">&quot;No location found&quot;</span>;
+    String addressString = <span class="st">&quot;No address found&quot;</span>;
+      
+    <span class="kw">if</span> (location != <span class="kw">null</span>) {
+      <span class="dt">double</span> lat = location.<span class="fu">getLatitude</span>();
+      <span class="dt">double</span> lng = location.<span class="fu">getLongitude</span>();
+      latLongString = <span class="st">&quot;Lat:&quot;</span> + lat + <span class="st">&quot;</span><span class="ch">\n</span><span class="st">Long:&quot;</span> + lng;
+        
+      <span class="dt">double</span> latitude = location.<span class="fu">getLatitude</span>();
+      <span class="dt">double</span> longitude = location.<span class="fu">getLongitude</span>();
+      Geocoder gc = <span class="kw">new</span> <span class="fu">Geocoder</span>(<span class="kw">this</span>, Locale.<span class="fu">getDefault</span>());
+
+      <span class="kw">try</span> {
+        List&lt;Address&gt; addresses =gc.<span class="fu">getFromLocation</span>(latitude, longitude, <span class="dv">1</span>);
+        StringBuilder sb = <span class="kw">new</span> StringBuilder();
+        <span class="kw">if</span> (addresses.<span class="fu">size</span>() &gt; <span class="dv">0</span>) {
+          Address address = addresses.<span class="fu">get</span>(<span class="dv">0</span>);
+
+          <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; address.<span class="fu">getMaxAddressLineIndex</span>(); i++)
+            sb.<span class="fu">append</span>(address.<span class="fu">getAddressLine</span>(i)).<span class="fu">append</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>);
+
+          sb.<span class="fu">append</span>(address.<span class="fu">getLocality</span>()).<span class="fu">append</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>);
+          sb.<span class="fu">append</span>(address.<span class="fu">getPostalCode</span>()).<span class="fu">append</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>);
+          sb.<span class="fu">append</span>(address.<span class="fu">getCountryName</span>());
+        }
+        addressString = sb.<span class="fu">toString</span>();
+      } <span class="kw">catch</span> (IOException e) {}
+    }
+      
+    myLocationText.<span class="fu">setText</span>(<span class="st">&quot;Your Current Position is:</span><span class="ch">\n</span><span class="st">&quot;</span> +
+                            latLongString + <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span> + addressString);
+  }</code></pre>
+</body>
+</html>

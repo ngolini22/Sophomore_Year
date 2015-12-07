@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/tan-dist.html
+3
+<HTML>
+<HEAD>
+ <TITLE>tan:dist</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Tan, Keren, McDonald, Chris, Vance, Bennet, Arackaparambil, Chrisil, Bratus, Sergey, and Kotz, David.
+<b>From MAP to DIST: the evolution of a large-scale WLAN
+monitoring system</b>.
+<i>IEEE Transactions on Mobile Computing</i>,
+13(1):216-229,
+January,
+2014.
+DOI <a href="http://dx.doi.org/10.1109/TMC.2012.237">10.1109/TMC.2012.237</a>.
+<p><b>Abstract:</b> The edge of the Internet is increasingly becoming wireless.
+Therefore, monitoring the wireless edge is important to understanding the
+security and performance aspects of the Internet experience. We have designed
+and implemented a large-scale WLAN monitoring system, the Distributed
+Internet Security Testbed (DIST), at Dartmouth College. It is equipped with
+distributed arrays of ``sniffers'' that cover 210 diverse campus locations
+and more than 5,000 users. In this paper, we describe our approach, designs
+and solutions for addressing the technical challenges that have resulted from
+efficiency, scalability, security, and management perspectives. We also
+present extensive evaluation results on a production network, and summarize
+the lessons learned.</p>
+<p><a href="bibtex/tan-dist.bib">BibTeX</a></p>
+<p><a target=_top href = "././tan-dist.pdf">PDF</a> (1114K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by the authors.</b></p>
+</BODY>
+</HTML>

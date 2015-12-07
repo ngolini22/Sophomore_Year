@@ -1,0 +1,151 @@
+http://www.cs.dartmouth.edu/%7Exia/cs69/readings.html
+3
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS69/169</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="res/css/custom.css">
+    <link rel="stylesheet" href="res/font-awesome/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="res/font-awesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <style>
+      
+    </style> 
+  </head>
+  <body>
+
+    <div class="pure-g-r" id="layout">
+      <a href="#menu" id="menuLink" class="pure-menu-link">
+        <span></span>
+      </a>
+
+      <div class="pure-u" id="menu">
+        <div class="pure-menu pure-menu-open">
+          <ul>
+            <li class="">
+            <i class="icon-home"></i><a href="index.html">Home</a>
+            </li>
+            <li class="">
+            <i class="icon-calendar"></i><a href="schedule.html">Schedule</a>
+            </li>
+            <li class="pure-menu-selected">
+            <i class="icon-bookmark"></i><a href="readings.html">Readings</a>
+            </li>
+            <li class=" ">
+            <i class="icon-gamepad"></i><a href="projects.html">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="pure-u-1" id="main">
+        <div class="hero">
+          <p>
+            <img src="res/img/network.jpg" height=120px size=100%></img>
+          </p> 
+        </div>
+
+        <a name="#readings"></a>
+        <div class="header">
+          <h1>Readings</h1>
+        </div>
+        <div class="content">
+          <p>
+          Don't panic. You do not need to read all papers. Some papers just provide background to help you understand the topic and the paper you plan to present. 
+          </p>
+          <h4>Wireless & Mobile</h4>
+          <ul>
+            <li><a href="./ARY95.pdf">[ARY95]</a> J. Andersen, T. Rappaport, and S. Yoshida. Propagation Measurements and Models for Wireless Communications Channels. IEEE Communications Magazine. 1995.</li>
+            <li> <a href="http://sing.stanford.edu/cs303-sp10/papers/p442-aguayo.pdf">[ABB+04]</a> D. Aguayo et al. Link-level Measurements from an 802.11b Mesh Network. SIGCOMM. 2004.</li>
+            <li> <a href="http://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p39.pdf">[LPT+13]</a> V. Liu et al. Ambient Backscatter: Wireless Communication Out of Thin Air. SIGCOMM. 2013. </li>
+            <li><a href="http://homes.cs.washington.edu/~gshyam/Papers/wifibackscatter.pdf">[KPG+14]</a> B. Kellogg et al. Wi-Fi Backscatter: Internet Connectivity for RF-Powered Devices. SIGCOMM. 2014.</li>
+            <li><a href="http://www.ece.gatech.edu/research/labs/bwn/surveys/radio.pdf">[ALV+06]</a> I. Akyildiz et al. NeXt generation/dynamic spectrum access/cognitive radio wireless networks: A survey. Computer Networks Journal (ELSEVIER). 2006. </li>
+            <li> <a href="http://www.cs.ucsb.edu/~htzheng/publications/pdfs/lb.pdf">[CZ05]</a> L. Cao, and H. Zheng. Spectrum allocation in ad hoc networks via local bargaining. SECON. 2005. </li>
+            <li><a href="http://www.cs.dartmouth.edu/~xia/papers/mobicom08_veritas.pdf">[ZGS+08]</a> X. Zhou et al. eBay in the Sky: strategy-proof wireless spectrum auctions. MobiCom. 2008. </li>
+            <li><a href="http://pages.cs.wisc.edu/~tzhang/papers/vscope_mobicom2014.pdf">[ZLB14]</a> T. Zhang, N. Leng, and S. Banerjee. Vehicle-based Measurement Framework for Enhancing Whitespace Spectrum Databases. MobiCom. 2014. </li>
+            <li><a href="http://www.shihada.com/F11-344/papers/interferencecancel.pdf">[HAW08]</a> D. Halperin, T. Anderson, D. Wetherall. Taking the Sting out of Carrier Sense: Interference Cancellation for Wireless LANs. MobiCom. 2008.</li>
+            <li><a href="http://ccr.sigcomm.org/online/files/p159-gollakotaA.pdf">[GK08]</a> S. Gollakota and D. Katabi. ZigZag Decoding: Combating Hidden Terminals in Wireless Networks. SIGCOMM. 2008.</li>
+            <li><a href="http://homes.cs.washington.edu/~gshyam/Papers/IAC.pdf">[GPK09]</a> S. Gollakota, S. Perli and D. Katabi. Interference Alignment and Cancellation. SIGCOMM. 2009. </li>
+            <li><a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final180.pdf">[JHK13]</a> K. Joshi, S. Hong, and S. Katti. PinPoint: Localizing Interfering Radios. NSDI. 2013.</li>
+            <li><a href="http://www.mit.edu/~swarun/papers/lteye-sigcomm2014.pdf">[KHK+14]</a> Swarun Kumar et al. LTE Radio Analytics Made Easy and Accessible. SIGCOMM. 2014. </li>
+            <li><a href="http://www.cs.dartmouth.edu/~xia/papers/sigmetrics13_cg.pdf">[ZZW+13]</a> X. Zhou et al. Practical Conflict Graphs for Dynamic Spectrum Distribution. SIGMETRICS. 2013. </li>
+            <li><a href="http://www.cs.dartmouth.edu/~xia/papers/hotw14-specmonitor.pdf">[NZZ+14]</a> A. Nika et al. Towards Commoditized Real-time Spectrum Monitoring. HotWireless. 2014.</li>
+            <li><a href="http://www.ece.ucsb.edu/wcsl/Publications/Zhinous_Mobicom14.pdf">[ZZM+14]</a> Y. Zhu et al. Demystifying 60GHz Outdoor Picocells. MobiCom. 2014.</li>
+            <li><a href="https://web.eecs.umich.edu/~prabal/pubs/papers/kuo14luxapose.pdf">[KPH+14]</a> Ye-Sheng Kuo, Pat Pannuto, Ko-Jen Hsiao, and Prabal Dutta. Luxapose: Indoor Positioning with Mobile Phones and Visible Light. MobiCom. 2014. </li>
+            <li><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-li_liqun.pdf">[LHP+14]</a> Liqun Li et al. Epsilon: A Visible Light Based Positioning System. NSDI. 2014.</li>
+            <li><a href="https://www.ssrg.nicta.com.au/publications/papers/Carroll_Heiser_10.pdf">[CH10]</a> Aaron Carroll and Gernot Heiser. An Analysis of Power Consumption in a Smartphone. USENIX ATC. 2010.</li>
+            <li><a href="http://people.cs.umass.edu/~arun/papers/TailEnder.pdf">[BBV09]</a> N. Balasubramanian, A. Balasubramanian, and A. Venkataramani. Energy Consumption in Mobile Phones: A Measurement Study and Implications for Network Applications. IMC. 2009. </li>
+            <li><a href="http://www.cs.columbia.edu/~lierranli/coms6998-7Spring2014/papers/rrclte_mobisys2012.pdf">[HQG12]</a> Junxian Huang, Feng Qian, and Alexandre Gerber. A Close Examination of Performance and Power Characteristics of 4G LTE Networks 4G Energy Model. MobiSys. 2012.</li>
+            <li><a href="http://research.microsoft.com/en-us/people/mzh/eurosys-2012.pdf">[PHZ12]</a> A. Pathak, Y. C. Hu, and M. Zhang. Where is the energy spent inside my app? Fine Grained Energy Accounting on Smartphones with Eprof. EuroSys. 2012. </li>
+            <li><a href="http://www.ruf.rice.edu/~mobile/publications/dong2014mobicom.pdf">[DLZ14]</a> Mian Dong, Tian Lan, and Lin Zhong. Rethink Energy Accounting with Multi-Player Game Theory. MobiCom. 2014. </li>
+            <li><a href="http://people.cs.umass.edu/~yungchih/publication/14_cellnet_mptcp_energy.pdf">[LCN+14]</a> Yeon-sup Lim et al. How Green is Multipath TCP for Mobile Devices? CellNet. 2014.</li>
+            <li><a href="http://web.mit.edu/anirudh/www/imc086-dengA.pdf">[DNS+14]</a> Shuo Deng, Ravi Netravali, Anirudh Sivaraman, and Hari Balakrishnan. WiFi, LTE, or Both? Measuring Multi-Homed Wireless Internet Performance. IMC. 2014.</li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=2639130">[JK14]</a> J. Jadidian and D. Katabi. Magnetic MIMO: How To Charge Your Phone in Your Pocket. MobiCom. 2014.</li>
+            <li> <a href="http://wisee.cs.washington.edu/wisee_paper.pdf">[PGG+13]</a> Q. Pu et al. Whole-Home Gesture Recognition Using Wireless Signals. MobiCom. 2013. </li>
+            <li><a href="http://people.csail.mit.edu/jue_w/Papers/RF-IDraw_SIGCOMM14.pdf">[WVK14]</a> J. Wang, D. Vasisht, and D. Katabi. RF-IDraw: Virtual Touch Screen in the Air Using RF Signals. SIGCOMM. 2014.</li>
+            <li><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-adib.pdf">[AKK+14]</a> F. Adib et al. 3D Tracking via Body Radio Reflections. NSDI. 2014.</li>
+            <li><a href="http://homes.cs.washington.edu/~gshyam/Papers/wision.pdf">[HNG14]</a> Donny Huang, Rajalakshmi Nandakumar, and Shyamnath Gollakota. Feasibility and Limits of Wi-Fi Imaging. SenSys. 2014.</li>
+            <li><a href="http://conferences.sigcomm.org/hotnets/2013/papers/hotnets-final75.pdf">[BJK13]</a> Dinesh Bharadia, Kiran Raj Joshi, and Sachin Katti. Full Duplex Backscatter. HotNets. 2013.</li>
+            <li><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-kellogg.pdf">[KTG14]</a> Bryce Kellogg, Vamsi Talla, and Shyamnath Gollakota. Bringing Gesture Recognition to All Devices. NSDI. 2014.</li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=2639112">[WZZ+14]</a> Guanhua Wang et al. We can hear you with Wi-Fi! MobiCom. 2014.</li>
+          </ul>
+
+          <h4>Data Center Networking</h4>
+          <ul>
+            <li><a href="http://research.microsoft.com/en-us/um/people/dmaltz/papers/DC-Costs-CCR-editorial.pdf">[GHM+09]</a> A. Greenberg et al. The Cost of a Cloud: Research Problems in Data Center Networks. SIGCOMM CCR. 2009. </li>
+            <li><a href="http://www.sigcomm.org/sites/default/files/ccr/papers/2008/October/1402946-1402967.pdf">[ALV08]</a> Mohammad Al-Fares, Alexander Loukissas, and Amin Vahdat. A Scalable, Commodity Data Center Network Architecture. SIGCOMM. 2008. </li>
+            <li><a href="http://research.microsoft.com/en-us/um/people/padhye/publications/flyways_sigcomm11.pdf">[HKP+11]</a> D. Halperin et al. Augmenting data center networks with multi-gigabit wireless links. SIGCOMM 2011.</li>
+            <li><a href="http://www.cs.dartmouth.edu/~xia/papers/sigcomm12_beam3d.pdf">[ZZZ+12]</a> X. Zhou et al. Mirror Mirror on the Ceiling: Flexible Wireless Links for Data Centers. SIGCOMM 2012.</li>
+            <li><a href="http://www3.cs.stonybrook.edu/~zaqazi/sigcomm14_firefly.pdf">[HQG+14]</a> Navid Hamedazimi et al. FireFly: A Reconfigurable Wireless Datacenter Fabric using Free-Space Optics. SIGCOMM. 2014. </li>
+            <li><a href="http://nms.csail.mit.edu/papers/sigc110-perry.pdf">[POB+14]</a> Jonathan Perry et al. Fastpass: A Centralized “Zero-Queue” Datacenter Network. SIGCOMM. 2014.</li>
+            <li><a href="http://cseweb.ucsd.edu/~vahdat/papers/helios-sigcomm10.pdf">[FPR+10]</a> N. Farrington et al. Helios: a hybrid electrical/optical switch architecture for modular data centers. SIGCOMM 2010.</li>
+            <li><a href="http://simula.stanford.edu/~alizade/Site/DCTCP_files/dctcp-final.pdf">[AGM+10]</a> M. Alizadeh et al. Data Center TCP (DCTCP). SIGCOMM 2010. </li>
+            <li><a href="http://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p50.pdf">[WBK+11]</a> C. Wilson, H. Ballani, T. Karagiannis, and A. Rowstron. Better Never than Late: Meeting Deadlines in Datacenter Networks. SIGCOMM 2011. </li>
+            <li><a href="http://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p435.pdf">[AYS+13]</a> M. Alizadeh et al. pFabric: Minimal Near-Optimal Datacenter Transport. SIGCOMM 2013. </li>
+            <li><a href="http://research.microsoft.com/pubs/215430/sigc099-munirA1.pdf">[MBI+14]</a> Friends, not Foes — Synthesizing Existing Transport Strategies for Data Center Networks. SIGCOMM. 2014.</li>
+
+            <li><a href="http://research.microsoft.com/en-us/UM/people/srikanth/data/imc09_dcTraffic.pdf">[KSG+09]</a> S. Kandula et al. The Nature of Datacenter Trafﬁc: Measurements & Analysis. IMC 2009.</li>
+            <li><a href="https://www.usenix.org/legacy/event/nsdi10/tech/full_papers/al-fares.pdf">[ARR+10]</a> Mohammad Al-Fares et al. Hedera: Dynamic Flow Scheduling for Data Center Networks. NSDI. 2010. </li>
+            <li><a href="http://conferences.sigcomm.org/sigcomm/2012/paper/sigcomm/p139.pdf">[ZDM+12]</a> David Zats et al. DeTail: Reducing the Flow Completion Time Tail in Datacenter Networks. SIGCOMM. 2012. </li>
+            <li><a href="http://www.mosharaf.com/wp-content/uploads/varys-sigcomm14.pdf">[CZS14]</a> M. Chowdhury, Y. Zhong, and I. Stoica. Efficient Coflow Scheduling with Varys. SIGCOMM. 2014.</li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=2626316">[AED+14]</a> M. Alizadeh et al. CONGA: Distributed Congestion-Aware Load Balancing for Datacenters. SIGCOMM. 2014.</li>
+          </ul>
+
+          <h4>Mobile Cloud</h4>
+          <ul>
+            <li><a href="http://research.microsoft.com/pubs/102364/cloudlets09.pdf">[SBC+09]</a> Mahadev Satyanarayanan, Paramvir Bahl, Ramon Caceres, and Nigel Davies. The Case for VM-based Cloudlets in Mobile Computing. IEEE Pervasive Computing. 2009. </li>
+            <li><a href="http://www2.research.att.com/~miluzzo/pubs/mcs202sp-miluzzo.pdf">[MCC12]</a> Emiliano Miluzzo, Ramón Cáceres, and Yih-Farn Chen. Vision: mClouds – Computing on Clouds of Mobile Devices. MCS. 2012. </li>
+            <li><a href="http://www.bell-labs.com/user/erranlli/publications/mCloud-MCS12.pdf">[BHL12]</a> Paramvir Bahl et al. Advancing the State of Mobile Cloud Computing. MCS. 2012. </li>
+            <li><a href="http://synergy.cs.cmu.edu/MCS2014/agarwal_mcs2014.pdf">[APB14]</a> Sharad Agarwal, Mathai Philipose, and Paramvir Bahl. Vision: The Case for Cellular Small Cells for Cloudlets. MCS. 2014. </li>
+            <li><a href="http://synergy.cs.cmu.edu/MCS2014/lee_mcs2014.pdf">[LUT+14]</a> Jeongkeun Lee et al. meSDN: Mobile Extension of SDN. MCS. 2014. </li>
+            <li><a href="http://www-scf.usc.edu/~binliu/papers/mobisys_12.pdf">[RLP+12]</a> M. Ra et al. Medusa: A Programming Framework for Crowd-Sensing Applications. MobiSys. 2012.</li>
+            <li><a href="./hyrax.pdf">[E09]</a> E. Marinelli. Hyrax: Cloud Computing on Mobile Devices using MapReduce.
+              Master thesis. CMU. 2009.</li>
+            <li><a href="http://mobisocial.stanford.edu/papers/mcs10.pdf">[SSN+10]</a> S. Seong et al. PrPl: A Decentralized Social Networking Infrastructure. MCS. 2010. </li>
+            <li><a href="http://research.microsoft.com/en-us/um/people/ranveer/docs/maui.pdf">[CBC+10]</a> E. Cuervo et al. MAUI: Making Smartphones Last Longer with Code Ofﬂoad. MobiSys. 2010. </li>
+            <li><a href="http://www.cs.columbia.edu/~lierranli/coms6998-10Spring2013/papers/odessa_mobisys2011.pdf">[RSM+11]</a> M. Ra et al. Odessa: Enabling Interactive Perception Applications on Mobile Devices. MobiSys. 2011. </li> 
+            <li><a href="http://eurosys2011.cs.uni-salzburg.at/pdf/eurosys2011-chun.pdf">[CIM+11]</a> B. Chun et al. CloneCloud: Elastic Execution between Mobile Device and Cloud. EuroSys. 2011.</li>
+            <li><a href="http://fredjiang.com/papers/MobiSys2013Auditeur.pdf">[NDA+13]</a> S. Nirjon et al. Auditeur: A Mobile-Cloud Service Platform for Acoustic Event Detection on Smartphones. MobiSys. 2013. </li>
+            <li><a href="http://web.eecs.umich.edu/~yinw/publication/mobisys13-final.pdf">[WLW+13]</a> Y. Wang et al. CrowdAtlas: Self-Updating Maps for Cloud and Personal Use. MobiSys. 2013. </li>     
+            <li><a href="http://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p279.pdf">[XSL+13]</a> N. Xia et al. Mosaic: Quantifying Privacy Leakage in Mobile Networks. SIGCOMM. 2013</li>
+            <li><a href="http://www.sysnet.ucsd.edu/sysnet/miscpapers/Agarwal_MobiSys2013_ProtectMyPrivacy.pdf">[AH13]</a> Y. Agarwal and M. Hall. ProtectMyPrivacy: Detecting and Mitigating Privacy Leaks on iOS Devices Using Crowdsourcing. MobiSys. 2013. </li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=2594389">[GPL14]</a> Jeremy Gummeson, Bodhi Priyantha, and Jie Liu. An energy harvesting wearable ring platform for gesture input on surfaces. MobiSys. 2014.</li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=2594383">[HCH+14]</a> Kiryong Ha et al. Towards wearable cognitive assistance. MobiSys. 2014. </li>
+            <li><a href="https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-chakraborty.pdf">[CSR+14]</a> Supriyo Chakraborty et al. ipShield: A Framework For Enforcing Context-Aware Privacy. NSDI. 2014. </li>
+            <li><a href="http://dl.acm.org/citation.cfm?id=2594376">[ZX14]</a> Ruogu Zhou and Guoliang Xing. nShield: A Noninvasive NFC Security System for Mobile Device. MobiSys. 2014. </li>
+          </ul>
+   
+        </div>   
+
+      </div>
+
+    </div>
+    <script src="res/js/menu.js"></script>
+  </body>
+</html>

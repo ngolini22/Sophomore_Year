@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/mm-amulet-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>mm:amulet-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Andr&eacute;s Molina-Markham, Ronald A. Peterson, Joseph Skinner, Ryan J. Halter, Jacob Sorber, and David Kotz.
+<b>Poster: Enabling Computational Jewelry for mHealth Applications</b>.
+In
+<i>Proceedings of the International Conference on Mobile Systems,
+Applications, and Services (MobiSys)</i>,
+pages 374-375,
+June,
+2014.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/2594368.2601454">10.1145/2594368.2601454</a>.
+<p><b>Abstract:</b> We are developing wearable devices as the foundation for a
+consistently present and highly available body-area mHealth network. Our
+vision is that a small device, such as a bracelet or pendant, will provide
+the availability and reliability properties essential for successful
+body-area mHealth networks. We call this class of device computational
+jewelry, and expect it will be the next frontier of mobile systems. We
+prototyped our first piece of computational jewelry, which we call amulet, to
+enable our previously proposed vision. It runs applications that may collect
+sensor data from built-in sensors or from other devices, analyze and log the
+data, queue information for later upload, and interact with the wearer.
+Independent developers can develop applications that can be vetted and
+installed on an amulet.</p>
+<p><a href="bibtex/mm-amulet-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././mm-amulet-poster.pdf">PDF</a> (165K)</p>
+<p><b>Copyright &#169;&nbsp;2014 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

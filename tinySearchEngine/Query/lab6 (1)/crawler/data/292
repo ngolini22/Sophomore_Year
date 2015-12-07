@@ -1,0 +1,1538 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs50/lab2.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="lab2.tex"> 
+<meta name="date" content="2015-04-10 18:38:00"> 
+<link rel="stylesheet" type="text/css" href="lab2.css"> 
+</head><body 
+>
+<h1 class="likepartHead"><a 
+ id="x1-1000"></a>CS 50 Software Design and Implementation</h1>
+<h1 class="likepartHead"><a 
+ id="x1-2000"></a>Lab2</h1>
+<h1 class="likepartHead"><a 
+ id="x1-3000"></a>Shell Programming Lab</h1>
+<!--l. 20--><p class="noindent" >This lab comprises five bash shell programming problems. They start easy and get progressively
+harder.
+<!--l. 22--><p class="noindent" ><span 
+class="cmbx-10">Note</span>: This lab and all future labs will be graded.
+<!--l. 24--><p class="noindent" >You will find that some of the snippets of shell script in Lecture 4 on shell programming can be used as a
+foundation for some of the problems.
+<!--l. 26--><p class="noindent" >These exercises should develop your ability your shell programming skills. Grading will focus on the
+correctness of your solutions, but will also consider good coding style - including consistent formatting,
+selection of identifier names, and use of meaningful comments.
+<!--l. 28--><p class="noindent" ><span 
+class="cmbx-10">Submitting assignment</span>:
+<!--l. 30--><p class="noindent" >We are using SVN for the submission of assignments. Create a directory for each new lab (viz.
+lab1, lab2, lab3, lab3, lab5, lab6 and lab7). We will make a copy of the directory after the
+deadline.
+<!--l. 32--><p class="noindent" >Please make sure that each lab directory (e.g., lab2) contains a simple text file (called README) briefly
+describing the source code in the directory and anything &#8220;unusual&#8221; about how your solution should be
+located, executed, and considered. Essentially, your README gives us a quick overview of the content on
+the directory and how to run your programs.
+<!--l. 35--><p class="noindent" >Your svn repository root is at <a 
+href="https://svn.cs.dartmouth.edu/classes/cs50-S12/yourreponame" class="url" ><span 
+class="cmtt-10">https://svn.cs.dartmouth.edu/classes/cs50-S12/yourreponame</span></a>. For
+example: <a 
+href="https://svn.cs.dartmouth.edu/classes/cs50-S12/campbell" class="url" ><span 
+class="cmtt-10">https://svn.cs.dartmouth.edu/classes/cs50-S12/campbell</span></a>. Note, repo in yourreponame is
+short for respository.
+<!--l. 37--><p class="noindent" >But replace campbell with your repsoitory account username. You should have received this from Wayne
+or the TA. When you click on the svn URL above you will be asked to enter a username and password:
+enter your full DND (also blitz name) as your username and Blitz password as your password;
+DO NOT use your CS account name and password to login to the svn server - it will not
+work.
+<!--l. 40--><p class="noindent" ><span 
+class="cmbx-10">NOTE, for classes after 2012 this is relevant: change cs50-s12 to the correct year and term</span>
+<span 
+class="cmbx-10">for example W13 changes the svn commands below to cs50-W13</span>.
+<!--l. 42--><p class="noindent" >All detailed svn instruction is here:<a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/svn.html" class="url" ><span 
+class="cmtt-10">http://www.cs.dartmouth.edu/</span><span 
+class="cmtt-10">~</span><span 
+class="cmtt-10">campbell/cs50/svn.html</span></a>.
+                                                                                  
+                                                                                  
+<!--l. 44--><p class="noindent" ><span 
+class="cmbx-10">Grading: </span><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs50/rubric2.html" > Grading rubric for lab</a>.
+<!--l. 46--><p class="noindent" ><span 
+class="cmbx-10">Coding style</span>: Please put comments in your scripts to help increase its understanding. Include a header in
+each script similar to the the one in spy.sh.
+<div 
+class="colorbox" id="colorbox1"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;Script</span><span 
+class="cmtt-10">&#x00A0;name:</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><span 
+class="cmtt-10">#</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;Description:</span><span 
+class="cmtt-10">&#x00A0;Monitors</span><span 
+class="cmtt-10">&#x00A0;when</span><span 
+class="cmtt-10">&#x00A0;users</span><span 
+class="cmtt-10">&#x00A0;log</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;out</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;machine</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;sends</span><span 
+class="cmtt-10">&#x00A0;e-mail</span><span 
+class="cmtt-10">&#x00A0;on</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;each</span><span 
+class="cmtt-10">&#x00A0;time</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;user</span><span 
+class="cmtt-10">&#x00A0;logs</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;out</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;user.</span><span 
+class="cmtt-10">&#x00A0;It</span><span 
+class="cmtt-10">&#x00A0;also</span><span 
+class="cmtt-10">&#x00A0;sends</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;summary</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;end</span><span 
+class="cmtt-10">&#x00A0;of</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;day</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;all</span><span 
+class="cmtt-10">&#x00A0;users</span><span 
+class="cmtt-10">&#x00A0;informing</span><span 
+class="cmtt-10">&#x00A0;them</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;their</span><span 
+class="cmtt-10">&#x00A0;usage</span><span 
+class="cmtt-10">&#x00A0;patterns</span><span 
+class="cmtt-10">&#x00A0;including</span><span 
+class="cmtt-10">&#x00A0;how</span><span 
+class="cmtt-10">&#x00A0;many</span><span 
+class="cmtt-10">&#x00A0;times</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;they</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;out</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;duration.</span><span 
+class="cmtt-10">&#x00A0;The</span><span 
+class="cmtt-10">&#x00A0;script</span><span 
+class="cmtt-10">&#x00A0;also</span><span 
+class="cmtt-10">&#x00A0;computes</span><span 
+class="cmtt-10">&#x00A0;which</span><span 
+class="cmtt-10">&#x00A0;user</span><span 
+class="cmtt-10">&#x00A0;logged</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;most</span><span 
+class="cmtt-10">&#x00A0;often,</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;for</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;longest</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;shortest</span><span 
+class="cmtt-10">&#x00A0;periods</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;time.</span><br /><span 
+class="cmtt-10">#</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;Input:</span><span 
+class="cmtt-10">&#x00A0;List</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;users</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;monitor</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;terms</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;their</span><span 
+class="cmtt-10">&#x00A0;full</span><span 
+class="cmtt-10">&#x00A0;names</span><span 
+class="cmtt-10">&#x00A0;such</span><span 
+class="cmtt-10">&#x00A0;as</span><span 
+class="cmtt-10">&#x00A0;&#8216;&#8216;Andrew</span><span 
+class="cmtt-10">&#x00A0;Campbell&#8217;&#8217;</span><br /><span 
+class="cmtt-10">#</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;Output:</span><span 
+class="cmtt-10">&#x00A0;E-mails</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;user</span><span 
+class="cmtt-10">&#x00A0;each</span><span 
+class="cmtt-10">&#x00A0;time</span><span 
+class="cmtt-10">&#x00A0;they</span><span 
+class="cmtt-10">&#x00A0;log</span><span 
+class="cmtt-10">&#x00A0;out.</span><span 
+class="cmtt-10">&#x00A0;And</span><span 
+class="cmtt-10">&#x00A0;sends</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;e-mail</span><span 
+class="cmtt-10">&#x00A0;summary</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;activity</span><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;at</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;end</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;day</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;all</span><span 
+class="cmtt-10">&#x00A0;users</span><span 
+class="cmtt-10">&#x00A0;monitored.</span><br /><br /></div></div>
+<!--l. 70--><p class="noindent" >It is important when your write scripts or C programs to program <span 
+class="cmbx-10">defensively</span>. That is, you need to
+check the program&#8217;s input and provide appropriate warning or error messages back to the user in
+terms of the program usage. For example, a script that requires input arguments should check
+if it has the right number of input arguments and if not it should inform the user of usage
+errors.
+<!--l. 72--><p class="noindent" >Complete the following questions.
+<!--l. 74--><p class="noindent" >____________________________________________________________________________
+<!--l. 76--><p class="noindent" >1) <span 
+class="cmbx-10">birthday</span><span 
+class="cmbx-10">_match.sh script</span>: Write a script called birthday_match.sh that takes two birthdays (or in
+the general case any two dates in history) of the form MM/DD/YYYY (e.g., 05/15/1959) and returns
+whether there is a match if the two people where born on the same day of the week (e.g.,
+Friday). Do you know which day you were born on? Should be fun to see if any of you are born
+on the same day of the week. The input and output to/from the script should follow this
+format:
+<div 
+class="colorbox" id="colorbox2"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;no</span><span 
+class="cmtt-10">&#x00A0;match</span><br /><br /><span 
+class="cmtt-10">./birthday_match.sh</span><span 
+class="cmtt-10">&#x00A0;12/01/1984</span><span 
+class="cmtt-10">&#x00A0;12/02/1984</span><br /><span 
+class="cmtt-10">The</span><span 
+class="cmtt-10">&#x00A0;first</span><span 
+class="cmtt-10">&#x00A0;person</span><span 
+class="cmtt-10">&#x00A0;was</span><span 
+class="cmtt-10">&#x00A0;born</span><span 
+class="cmtt-10">&#x00A0;on:</span><span 
+class="cmtt-10">&#x00A0;Sat</span><br /><span 
+class="cmtt-10">The</span><span 
+class="cmtt-10">&#x00A0;second</span><span 
+class="cmtt-10">&#x00A0;person</span><span 
+class="cmtt-10">&#x00A0;was</span><span 
+class="cmtt-10">&#x00A0;born</span><span 
+class="cmtt-10">&#x00A0;on:</span><span 
+class="cmtt-10">&#x00A0;Sun</span><br /><span 
+class="cmtt-10">Therefore,</span><span 
+class="cmtt-10">&#x00A0;you</span><span 
+class="cmtt-10">&#x00A0;are</span><span 
+class="cmtt-10">&#x00A0;not</span><span 
+class="cmtt-10">&#x00A0;born</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;same</span><span 
+class="cmtt-10">&#x00A0;day.</span><br /><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;match</span><br /><br /><span 
+class="cmtt-10">./birthday_match.sh</span><span 
+class="cmtt-10">&#x00A0;11/25/1984</span><span 
+class="cmtt-10">&#x00A0;12/02/1984</span><br /><span 
+class="cmtt-10">The</span><span 
+class="cmtt-10">&#x00A0;first</span><span 
+class="cmtt-10">&#x00A0;person</span><span 
+class="cmtt-10">&#x00A0;was</span><span 
+class="cmtt-10">&#x00A0;born</span><span 
+class="cmtt-10">&#x00A0;on:</span><span 
+class="cmtt-10">&#x00A0;Sun</span><br /><span 
+class="cmtt-10">The</span><span 
+class="cmtt-10">&#x00A0;second</span><span 
+class="cmtt-10">&#x00A0;person</span><span 
+class="cmtt-10">&#x00A0;was</span><span 
+class="cmtt-10">&#x00A0;born</span><span 
+class="cmtt-10">&#x00A0;on:</span><span 
+class="cmtt-10">&#x00A0;Sun</span><br /><span 
+class="cmtt-10">Jackpot:</span><span 
+class="cmtt-10">&#x00A0;You</span><span 
+class="cmtt-10">&#x00A0;were</span><span 
+class="cmtt-10">&#x00A0;both</span><span 
+class="cmtt-10">&#x00A0;born</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;same</span><span 
+class="cmtt-10">&#x00A0;day!</span><br /><br /></div></div>
+<!--l. 102--><p class="noindent" >Please code defensively for the cases of no arguments or insufficient arguments.
+<!--l. 104--><p class="noindent" >2) <span 
+class="cmbx-10">leap</span><span 
+class="cmbx-10">_year.sh script</span>: Write a script called leap_year.sh that takes a year as input and determines if its
+a leap year. If the user does not enter a correct leap year then the script should compute the next leap
+year after the date entered as an argument. The script command line and its response should look like the
+following:
+<div 
+class="colorbox" id="colorbox3"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;incorrect</span><span 
+class="cmtt-10">&#x00A0;entry</span><br /><br /><span 
+class="cmtt-10">./leap_year</span><span 
+class="cmtt-10">&#x00A0;201</span><br /><span 
+class="cmtt-10">201</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;not</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;leap</span><span 
+class="cmtt-10">&#x00A0;year.</span><br /><span 
+class="cmtt-10">The</span><span 
+class="cmtt-10">&#x00A0;closet</span><span 
+class="cmtt-10">&#x00A0;leap</span><span 
+class="cmtt-10">&#x00A0;year</span><span 
+class="cmtt-10">&#x00A0;after</span><span 
+class="cmtt-10">&#x00A0;that</span><span 
+class="cmtt-10">&#x00A0;year</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;204</span><br /><br /><span 
+class="cmtt-10">#</span><span 
+class="cmtt-10">&#x00A0;correct</span><span 
+class="cmtt-10">&#x00A0;entry</span><br /><br /><span 
+class="cmtt-10">./leap_year</span><span 
+class="cmtt-10">&#x00A0;2008</span><br /><br /><span 
+class="cmtt-10">2008</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;leap</span><span 
+class="cmtt-10">&#x00A0;year.</span><br /><br /></div></div>
+<!--l. 127--><p class="noindent" >Here is the definition of a <a 
+href="http://en.wikipedia.org/wiki/Leap_year" > leap year</a>. You will find <span 
+class="cmbx-10">pseudo code </span>for the algorithm to compute a leap year
+there.
+<!--l. 131--><p class="noindent" >Your code should be defensively written to handle incorrect entry, such as no arguments entered or too
+many. In each case the user should be given an appropriate response for example:
+<div 
+class="colorbox" id="colorbox4"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">./leap_year</span><br /><span 
+class="cmtt-10">leap_year</span><span 
+class="cmtt-10">&#x00A0;usage:</span><span 
+class="cmtt-10">&#x00A0;No</span><span 
+class="cmtt-10">&#x00A0;arguments</span><span 
+class="cmtt-10">&#x00A0;entered,</span><span 
+class="cmtt-10">&#x00A0;please</span><span 
+class="cmtt-10">&#x00A0;enter</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;year.</span><br /><br /></div>             </div>
+<!--l. 145--><p class="noindent" >3) <span 
+class="cmbx-10">count</span><span 
+class="cmbx-10">_linesinfiles.sh script</span>: Write a script called count_linesinfiles.sh that counts the number of
+ordinary files (not directories) in the current working directory and its sub-directories. For each ordinary
+file found your script could count the number of lines in the file and print the total number of lines for files
+in the directory tree rooted at the current working directory.
+<!--l. 147--><p class="noindent" ><span 
+class="cmbx-10">Hint</span>: The unix command find without any arguments is a good place to start.
+<!--l. 149--><p class="noindent" >There are no input arguments to the count.sh script. The expected output is shown below.
+<div 
+class="colorbox" id="colorbox5"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">./count.sh</span><br /><span 
+class="cmtt-10">Counting</span><span 
+class="cmtt-10">&#x00A0;lines</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;all</span><span 
+class="cmtt-10">&#x00A0;files...</span><br /><span 
+class="cmtt-10">23</span><span 
+class="cmtt-10">&#x00A0;./count.sh</span><br /><span 
+class="cmtt-10">1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;./a.java</span><br /><span 
+class="cmtt-10">24</span><span 
+class="cmtt-10">&#x00A0;Total</span><br /><span 
+class="cmtt-10">*************************</span><br /><span 
+class="cmtt-10">Number</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;files</span><span 
+class="cmtt-10">&#x00A0;found:</span><span 
+class="cmtt-10">&#x00A0;2</span><br /><span 
+class="cmtt-10">*************************</span><br /><br /></div></div>
+                                                                                  
+                                                                                  
+<!--l. 169--><p class="noindent" >4) <span 
+class="cmbx-10">wget</span><span 
+class="cmbx-10">_search.sh script</span>: Write a script called wget_search.sh that given a text file (containing a list
+of URLs) and a sequence of words, searches for occurences of the words in the webpages.
+This script has some relationship to the function of a search engine&#8217;s crawler. We will look at
+the design and implementation of a simple command-line based search engine later on in the
+course.
+<!--l. 171--><p class="noindent" >You should use the <span 
+class="cmbx-10">wget </span>command to retrieve the html pages from the web URLs in the file. The
+wget command is a non-interactive network downloader. Each retrieved web page should be
+stored and renamed using a progressive integer number (e.g., 1.html, 2.html, 3.html and so
+on).
+<!--l. 173--><p class="noindent" >The command has the the following format:
+<div 
+class="colorbox" id="colorbox6"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">./wget_search.sh</span><span 
+class="cmtt-10">&#x00A0;url.txt</span><span 
+class="cmtt-10">&#x00A0;word1</span><span 
+class="cmtt-10">&#x00A0;word2</span><span 
+class="cmtt-10">&#x00A0;...</span><span 
+class="cmtt-10">&#x00A0;wordn</span><br /><br /><span 
+class="cmtt-10">where:</span><br /><br /><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;url.txt</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;name</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;file</span><span 
+class="cmtt-10">&#x00A0;containing</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;list</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;URLs</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;one</span><span 
+class="cmtt-10">&#x00A0;per</span><span 
+class="cmtt-10">&#x00A0;line</span><span 
+class="cmtt-10">&#x00A0;(e.g,</span><span 
+class="cmtt-10">&#x00A0;http://www.dartmouth.edu/);</span><br /><br /><span 
+class="cmtt-10">-</span><span 
+class="cmtt-10">&#x00A0;word1</span><span 
+class="cmtt-10">&#x00A0;word2</span><span 
+class="cmtt-10">&#x00A0;...</span><span 
+class="cmtt-10">&#x00A0;wordN</span><span 
+class="cmtt-10">&#x00A0;are</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;words</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;checked</span><span 
+class="cmtt-10">&#x00A0;(e.g.,</span><span 
+class="cmtt-10">&#x00A0;computer).</span><br /><br /></div></div>
+<!--l. 192--><p class="noindent" >The number of words is not known a priori. The program should be case sensitive.
+<!--l. 194--><p class="noindent" >For example, given the following list contained in the file url.txt:
+<!--l. 196--><p class="noindent" >http://www.cs.dartmouth.edu <br 
+class="newline" />http://www.dartmouth.edu <br 
+class="newline" />
+<!--l. 199--><p class="noindent" >The execution of the command returns the following output:
+<div 
+class="colorbox" id="colorbox7"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">./wget_search.sh</span><span 
+class="cmtt-10">&#x00A0;url.txt</span><span 
+class="cmtt-10">&#x00A0;Dartmouth</span><span 
+class="cmtt-10">&#x00A0;Campbell</span><br /><br /><span 
+class="cmtt-10">Dartmouth</span><br /><span 
+class="cmtt-10">http://www.dartmouth.edu</span><span 
+class="cmtt-10">&#x00A0;11</span><br /><span 
+class="cmtt-10">http://www.cs.dartmouth.edu</span><span 
+class="cmtt-10">&#x00A0;0</span><br /><br /><span 
+class="cmtt-10">Campbell</span><br /><span 
+class="cmtt-10">http://www.dartmouth.edu</span><span 
+class="cmtt-10">&#x00A0;0</span><br /><span 
+class="cmtt-10">http://www.cs.dartmouth.edu</span><span 
+class="cmtt-10">&#x00A0;0</span><br /><br /></div></div>
+<!--l. 221--><p class="noindent" >5) <span 
+class="cmbx-10">spy.sh script</span>: Write a script called spy.sh that checks if any users given as input to the script,
+e.g.:
+<div 
+class="colorbox" id="colorbox8"><div class="BVerbatimInput"><br /><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;./spy.sh</span><span 
+class="cmtt-10">&#x00A0;"Andrew</span><span 
+class="cmtt-10">&#x00A0;Campbell"</span><span 
+class="cmtt-10">&#x00A0;"Fanglin</span><span 
+class="cmtt-10">&#x00A0;Chen"&amp;</span><br /><br /><br /></div>                                       </div>
+<!--l. 238--><p class="noindent" >are logged on to a machine (e.g., moose). When the user logs out the script sends the user an e-mail with
+the subject title &#8220;Gotcha username!&#8221; The e-mail should include the time the user logged in and out, and
+the duration of time on the machine (e.g., 20 mins).
+<!--l. 242--><p class="noindent" >Update 2014: Because CS50 is a large class we will use a number of machines and split the class into
+groups. The machines are:
+<!--l. 244--><p class="noindent" >carter sabattus coolidge moose
+<!--l. 249--><p class="noindent" >We will discuss the breakdown of groups to machines in class and on Piazza.
+<!--l. 251--><p class="noindent" >In class we used a script to find the username from the /etc/passwd file. One simple way to see if the user
+is running a process is to use the unix command who. There are a number of ways to code this
+up.
+<!--l. 253--><p class="noindent" ><span 
+class="cmbx-10">Important</span>: Andrew and the TA will each log on to the designated machines a number of times on
+<span 
+class="cmbx-10">Monday until 10 PM </span>- they&#8217;ll sneak on, your mission if you accept it is to take them down. To allow
+you to test your script Andrew and the TA will sneak on to the designated machines on <span 
+class="cmbx-10">Sunday</span>
+<span 
+class="cmbx-10">between 12-6 pm </span>too. The TA will post what we did on Sunday evening to see if you caught
+us.
+<!--l. 255--><p class="noindent" ><span 
+class="cmbx-10">Extra credit</span>: Just after <span 
+class="cmbx-10">10 PM Monday </span>send an e-mail to Andrew and the TA that lists the
+following:
+                                                                                  
+                                                                                  
+<div 
+class="colorbox" id="colorbox9"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">Dear</span><span 
+class="cmtt-10">&#x00A0;Sneaky</span><span 
+class="cmtt-10">&#x00A0;cs50</span><span 
+class="cmtt-10">&#x00A0;Guys:</span><br /><br /><span 
+class="cmtt-10">Caught</span><span 
+class="cmtt-10">&#x00A0;you</span><span 
+class="cmtt-10">&#x00A0;sneaking</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;$HOSTNAME</span><span 
+class="cmtt-10">&#x00A0;today.</span><span 
+class="cmtt-10">&#x00A0;Here&#8217;s</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;summary</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;my</span><span 
+class="cmtt-10">&#x00A0;surveillance:</span><br /><br /><span 
+class="cmtt-10">Andrew</span><span 
+class="cmtt-10">&#x00A0;you</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;N</span><span 
+class="cmtt-10">&#x00A0;times</span><span 
+class="cmtt-10">&#x00A0;for</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;total</span><span 
+class="cmtt-10">&#x00A0;period</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;X.</span><span 
+class="cmtt-10">&#x00A0;Here</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;breakdown:</span><br /><br /><span 
+class="cmtt-10">1)</span><span 
+class="cmtt-10">&#x00A0;Logged</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;Sat</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;12</span><span 
+class="cmtt-10">&#x00A0;18:40:34</span><span 
+class="cmtt-10">&#x00A0;EST</span><span 
+class="cmtt-10">&#x00A0;2008;</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;off</span><span 
+class="cmtt-10">&#x00A0;Sat</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;12</span><span 
+class="cmtt-10">&#x00A0;18:40:34</span><span 
+class="cmtt-10">&#x00A0;EST</span><span 
+class="cmtt-10">&#x00A0;2008</span><br /><span 
+class="cmtt-10">2)</span><span 
+class="cmtt-10">&#x00A0;...</span><br /><br /><span 
+class="cmtt-10">TA</span><span 
+class="cmtt-10">&#x00A0;you</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;Z</span><span 
+class="cmtt-10">&#x00A0;times</span><span 
+class="cmtt-10">&#x00A0;for</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;total</span><span 
+class="cmtt-10">&#x00A0;period</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;X.</span><span 
+class="cmtt-10">&#x00A0;Here</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;breakdown:</span><br /><span 
+class="cmtt-10">1)</span><span 
+class="cmtt-10">&#x00A0;Logged</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;Sat</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;12</span><span 
+class="cmtt-10">&#x00A0;18:40:34</span><span 
+class="cmtt-10">&#x00A0;EST</span><span 
+class="cmtt-10">&#x00A0;2008;</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;off</span><span 
+class="cmtt-10">&#x00A0;Sat</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;12</span><span 
+class="cmtt-10">&#x00A0;18:40:34</span><span 
+class="cmtt-10">&#x00A0;EST</span><span 
+class="cmtt-10">&#x00A0;2008</span><br /><span 
+class="cmtt-10">2)</span><span 
+class="cmtt-10">&#x00A0;..</span><br /><span 
+class="cmtt-10">3)</span><span 
+class="cmtt-10">&#x00A0;..</span><br /><br /><span 
+class="cmtt-10">Looks</span><span 
+class="cmtt-10">&#x00A0;like</span><span 
+class="cmtt-10">&#x00A0;Andrew</span><span 
+class="cmtt-10">&#x00A0;||</span><span 
+class="cmtt-10">&#x00A0;TA</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;spent</span><span 
+class="cmtt-10">&#x00A0;most</span><span 
+class="cmtt-10">&#x00A0;time</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;$HOSTNAME</span><span 
+class="cmtt-10">&#x00A0;today</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;100</span><span 
+class="cmtt-10">&#x00A0;mins</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;total</span><span 
+class="cmtt-10">&#x00A0;for</span><br /><span 
+class="cmtt-10">all</span><span 
+class="cmtt-10">&#x00A0;his</span><span 
+class="cmtt-10">&#x00A0;sessions;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Andrew</span><span 
+class="cmtt-10">&#x00A0;||</span><span 
+class="cmtt-10">&#x00A0;TA</span><span 
+class="cmtt-10">&#x00A0;was</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;for</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;shortest</span><span 
+class="cmtt-10">&#x00A0;session</span><span 
+class="cmtt-10">&#x00A0;for</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;period</span><br /><span 
+class="cmtt-10">of</span><span 
+class="cmtt-10">&#x00A0;2</span><span 
+class="cmtt-10">&#x00A0;mins,</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;therefore</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;most</span><span 
+class="cmtt-10">&#x00A0;sneaky;</span><span 
+class="cmtt-10">&#x00A0;and,</span><span 
+class="cmtt-10">&#x00A0;Andrew</span><span 
+class="cmtt-10">&#x00A0;||</span><span 
+class="cmtt-10">&#x00A0;TA</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;on</span><span 
+class="cmtt-10">&#x00A0;the</span><br /><span 
+class="cmtt-10">longest</span><span 
+class="cmtt-10">&#x00A0;session</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;15</span><span 
+class="cmtt-10">&#x00A0;mins.</span><br /><br /><span 
+class="cmtt-10">(Note,</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;number</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;variables</span><span 
+class="cmtt-10">&#x00A0;need</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;maintained</span><span 
+class="cmtt-10">&#x00A0;by</span><span 
+class="cmtt-10">&#x00A0;spy</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;able</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;correctly</span><span 
+class="cmtt-10">&#x00A0;fill</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;paragraph</span><span 
+class="cmtt-10">&#x00A0;above</span><span 
+class="cmtt-10">&#x00A0;correctly</span><span 
+class="cmtt-10">&#x00A0;--</span><span 
+class="cmtt-10">&#x00A0;e.g.,,</span><span 
+class="cmtt-10">&#x00A0;Andrew</span><span 
+class="cmtt-10">&#x00A0;or</span><span 
+class="cmtt-10">&#x00A0;TA,</span><span 
+class="cmtt-10">&#x00A0;session</span><span 
+class="cmtt-10">&#x00A0;lenght</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;loggins,</span><span 
+class="cmtt-10">&#x00A0;etc.</span><span 
+class="cmtt-10">&#x00A0;This</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;note</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;should</span><span 
+class="cmtt-10">&#x00A0;not</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;included</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;email).</span><br /><br /><span 
+class="cmtt-10">Thought</span><span 
+class="cmtt-10">&#x00A0;you</span><span 
+class="cmtt-10">&#x00A0;could</span><span 
+class="cmtt-10">&#x00A0;sneak</span><span 
+class="cmtt-10">&#x00A0;by</span><span 
+class="cmtt-10">&#x00A0;my</span><span 
+class="cmtt-10">&#x00A0;code</span><span 
+class="cmtt-10">&#x00A0;hey</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;nailed</span><span 
+class="cmtt-10">&#x00A0;you.</span><br /><br /><span 
+class="cmtt-10">Best,</span><br /><br /><span 
+class="cmtt-10">Your</span><span 
+class="cmtt-10">&#x00A0;name</span><br /><br /><span 
+class="cmtt-10">Note,</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;above</span><span 
+class="cmtt-10">&#x00A0;we</span><span 
+class="cmtt-10">&#x00A0;use</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;TA</span><span 
+class="cmtt-10">&#x00A0;title</span><span 
+class="cmtt-10">&#x00A0;but</span><span 
+class="cmtt-10">&#x00A0;you&#8217;ll</span><span 
+class="cmtt-10">&#x00A0;have</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;use</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;TA&#8217;s</span><span 
+class="cmtt-10">&#x00A0;name</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;course.</span><br /><br /></div></div>
+<!--l. 295--><p class="noindent" >____________________________________________________________________________
+<!--l. 297--><p class="noindent" ><span 
+class="cmbx-10">Some General Tips: Starting and Killing Deamons, Debugging Scripts</span>
+<!--l. 299--><p class="noindent" ><span 
+class="cmbx-10">How do I run a script?</span>
+<!--l. 301--><p class="noindent" >You need to make sure the script which you create using an editor (e.g., vim or emacs) is excutable; by
+default its a plain text file. Assuming I&#8217;ve just written spy.sh and saved it. Now make let&#8217;s it
+executable:
+<div 
+class="colorbox" id="colorbox10"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$chmod</span><span 
+class="cmtt-10">&#x00A0;+x</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ls</span><span 
+class="cmtt-10">&#x00A0;-l</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><span 
+class="cmtt-10">-rwx------</span><span 
+class="cmtt-10">&#x00A0;1</span><span 
+class="cmtt-10">&#x00A0;campbell</span><span 
+class="cmtt-10">&#x00A0;faculty</span><span 
+class="cmtt-10">&#x00A0;8136</span><span 
+class="cmtt-10">&#x00A0;2008-01-21</span><span 
+class="cmtt-10">&#x00A0;14:11</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><br /></div></div>
+<!--l. 317--><p class="noindent" >Now we can run spy.sh.
+<!--l. 319--><p class="noindent" ><span 
+class="cmbx-10">How do I run my dastardly spy.sh daemon process (in background)?</span>
+<!--l. 321--><p class="noindent" >First our spy.sh process must be written in a &#8220;continous loop&#8221; with a delay at the end of the loop. The
+loop in the process means it will run forever. We want spy to sleep for 60 seconds and then wake up and
+start spying. The delay is important. Just think of it as my job security ;-). OK, so we have written spy
+as a &#8220;while [ true ] loop&#8221; with a sleep 60 and now we want to launch it in the background
+so that when we log out of wildcat the daemon spy process remains running, forever.. so it
+thinks. Our spy program wouldn&#8217;t be much good if it was killed when we log off the machine,
+right?
+<!--l. 326--><p class="noindent" >Here is how we start our spy.sh in background.
+<div 
+class="colorbox" id="colorbox11"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;./spy.sh</span><span 
+class="cmtt-10">&#x00A0;"Andrew</span><span 
+class="cmtt-10">&#x00A0;Campbell"</span><span 
+class="cmtt-10">&#x00A0;"Xiaochao</span><span 
+class="cmtt-10">&#x00A0;Yang"</span><span 
+class="cmtt-10">&#x00A0;&amp;</span><br /><span 
+class="cmtt-10">[1]</span><span 
+class="cmtt-10">&#x00A0;9070</span><br /><span 
+class="cmtt-10">campbell</span><span 
+class="cmtt-10">&#x00A0;added</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;spy</span><span 
+class="cmtt-10">&#x00A0;list</span><br /><span 
+class="cmtt-10">shu</span><span 
+class="cmtt-10">&#x00A0;added</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;spy</span><span 
+class="cmtt-10">&#x00A0;list</span><br /><br /></div></div>
+<!--l. 342--><p class="noindent" >From the above command line you can see we use &#8220;<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">&amp;</span></span></span>&#8221; to push the spy.sh into background OK let&#8217;s see if
+it&#8217;s running using ps
+<div 
+class="colorbox" id="colorbox12"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;PID</span><span 
+class="cmtt-10">&#x00A0;TTY</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;TIME</span><span 
+class="cmtt-10">&#x00A0;CMD</span><br /><span 
+class="cmtt-10">&#x00A0;8118</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;bash</span><br /><span 
+class="cmtt-10">&#x00A0;9070</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><span 
+class="cmtt-10">10368</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sleep</span><br /><span 
+class="cmtt-10">10398</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><br /></div></div>
+<!--l. 361--><p class="noindent" >Note, that we can not only see the spy.sh process but also the sleep command excuted as part of the spy.sh
+script. Why is this? Recall I mentioned in class that the shell creates a new process for every command we
+execute unless it&#8217;s a built-in. Most of the time our spy.sh will be sleeping. It checks things then
+sleeps .. ad nauseam. So it&#8217;s likely that the next time you do a ps we will see two processes
+running again: the spy.sh and its associated &#8220;sleep 60&#8221; command. Let&#8217;s check if that is the
+case:
+<div 
+class="colorbox" id="colorbox13"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;PID</span><span 
+class="cmtt-10">&#x00A0;TTY</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;TIME</span><span 
+class="cmtt-10">&#x00A0;CMD</span><br /><span 
+class="cmtt-10">&#x00A0;8118</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;bash</span><br /><span 
+class="cmtt-10">&#x00A0;9070</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><span 
+class="cmtt-10">11221</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sleep</span><br /><span 
+class="cmtt-10">11253</span><span 
+class="cmtt-10">&#x00A0;pts/9</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><br /><br /></div></div>
+<!--l. 384--><p class="noindent" >Yes.
+<!--l. 386--><p class="noindent" ><span 
+class="cmbx-10">How do I kill my spy deamon?</span>
+<!--l. 388--><p class="noindent" >If you start your spy script and then log off wildcat it will still be running. You want that to be the case
+because you do not know when I or the TA will log on and off of wildcat. You can assume we
+will stay on longer than 60 seconds (why is that important) so your spy will always catch
+us.
+<!--l. 392--><p class="noindent" >During the debug phase you will be revising and testing your spy script. So you will want to &#8220;kill&#8221;
+your perviously started spy before launching your new one. Note, last year some students
+                                                                                  
+                                                                                  
+unbeknowns to themselves started 10s of spys and never killed them! Not good. Note, that
+your &#8220;while [ true ] loop&#8221; has an <span 
+class="cmbx-10">mail command  </span>in it - this is particularly <span 
+class="cmbx-10">dangerous</span>.
+Imagine you launch a deamon that is in a tight loop (e.g., your sleep is missing from the code)
+mailing everyone on the machine (because your who awk filter is incorrect) . Multiply that by
+5 because you didn&#8217;t kill your previous buggy deamons. The result is that you tie up the
+machines processor (problematic, but no big deal), bring down the department email server
+and fill up people&#8217;s inbox with zillions of gotcha mail. The result: Campbell is shipped back
+to the UK. So please take care with this spy program when you are debugging, I like living
+here.
+<!--l. 402--><p class="noindent" >Here is how we kill your deamon spy. Assuming we start the spy in background on wildcat and then
+log off. When we log back on again to wildcat to carry on the assignment and do a ps we
+see:
+<div 
+class="colorbox" id="colorbox14"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;PID</span><span 
+class="cmtt-10">&#x00A0;TTY</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;TIME</span><span 
+class="cmtt-10">&#x00A0;CMD</span><br /><span 
+class="cmtt-10">12373</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;bash</span><br /><span 
+class="cmtt-10">12412</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><br /></div></div>
+<!--l. 419--><p class="noindent" >There is no spy running!
+<!--l. 421--><p class="noindent" >Well there is but it is not associated with the shell that created it (or the parent process ID to be
+accurate) so we do not see it. But we need to be able to see it. Here is one way to find it. If we do a &#8220;ps
+-el&#8221; we see all the processes running on wildcat. And, if we use grep we can see all the spys
+running.
+<div 
+class="colorbox" id="colorbox15"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><span 
+class="cmtt-10">&#x00A0;-el</span><span 
+class="cmtt-10">&#x00A0;|</span><span 
+class="cmtt-10">&#x00A0;grep</span><span 
+class="cmtt-10">&#x00A0;-i</span><span 
+class="cmtt-10">&#x00A0;spy</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;9070</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26396</span><span 
+class="cmtt-10">&#x00A0;wait</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><br /></div></div>
+<!--l. 437--><p class="noindent" >When you do this on Monday you will see all the students spy scripts running in your section. So if you
+want to just see the spy deamon you created (and importantly, all the spys you created and not killed, if
+that is the case) then type:
+<div 
+class="colorbox" id="colorbox16"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;echo</span><span 
+class="cmtt-10">&#x00A0;$UID</span><br /><span 
+class="cmtt-10">529</span><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><span 
+class="cmtt-10">&#x00A0;-el</span><span 
+class="cmtt-10">&#x00A0;|</span><span 
+class="cmtt-10">&#x00A0;grep</span><span 
+class="cmtt-10">&#x00A0;-i</span><span 
+class="cmtt-10">&#x00A0;529</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;9070</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26396</span><span 
+class="cmtt-10">&#x00A0;wait</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;spy.sh</span><br /><span 
+class="cmtt-10">5</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;12372</span><span 
+class="cmtt-10">&#x00A0;12368</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;24308</span><span 
+class="cmtt-10">&#x00A0;poll_s</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sshd</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;12372</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26988</span><span 
+class="cmtt-10">&#x00A0;wait</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;bash</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13479</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;9070</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26161</span><span 
+class="cmtt-10">&#x00A0;hrtime</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sleep</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;R</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13487</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26364</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13488</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;25684</span><span 
+class="cmtt-10">&#x00A0;pipe_w</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;grep</span><br /><br /></div></div>
+<!--l. 459--><p class="noindent" >By first gettting your user ID (mine is 529) and then using ps and grepping the output for all processes
+created by user 529 (me in this case) we see the spy deamon and a bunch of other processes that belong to
+me not visible when just using ps by itself.
+<!--l. 463--><p class="noindent" >Now that I can see my spy deamon I&#8217;m going to &#8220;kill it&#8221;. I&#8217;m not going to worry about the sleep process
+because when the sleep 60 is done and wakes up it will find its parent has been killed (its parent process
+is spy which executed the command sleep 60). A child process (sleep in this case) with no
+parent (in this instance) will die - it&#8217;s an orphan to use the Unix vernacular I hate all these
+negative vibes that Unix gives but that is how it is; the 70s were clearly a brutal time for OS
+designers.
+<!--l. 468--><p class="noindent" >To kill the spy deamon we need the PID (process ID). From the above pipeline output we can see the UID
+(USER ID) followed by the PID. The PID of my spy is 9070.
+<!--l. 471--><p class="noindent" >The final Shakespearean act now falls on us:
+<div 
+class="colorbox" id="colorbox17"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;kill</span><span 
+class="cmtt-10">&#x00A0;-9</span><span 
+class="cmtt-10">&#x00A0;9070</span><br /><br /></div>                                                                     </div>
+<!--l. 483--><p class="noindent" >Let&#8217;s make sure its killed:
+<div 
+class="colorbox" id="colorbox18"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><span 
+class="cmtt-10">&#x00A0;-el</span><span 
+class="cmtt-10">&#x00A0;|</span><span 
+class="cmtt-10">&#x00A0;grep</span><span 
+class="cmtt-10">&#x00A0;-i</span><span 
+class="cmtt-10">&#x00A0;529</span><br /><br /><span 
+class="cmtt-10">5</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;12372</span><span 
+class="cmtt-10">&#x00A0;12368</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;24308</span><span 
+class="cmtt-10">&#x00A0;poll_s</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sshd</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;12372</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26988</span><span 
+class="cmtt-10">&#x00A0;wait</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;bash</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13859</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;1</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26161</span><span 
+class="cmtt-10">&#x00A0;hrtime</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sleep</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;R</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13867</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26365</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13868</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;25684</span><span 
+class="cmtt-10">&#x00A0;pipe_w</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;grep</span><br /><br /></div></div>
+<!--l. 501--><p class="noindent" >No spy.
+                                                                                  
+                                                                                  
+<!--l. 503--><p class="noindent" >And if I wait for another 60 seconds and do a ps
+<div 
+class="colorbox" id="colorbox19"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;ps</span><span 
+class="cmtt-10">&#x00A0;-el</span><span 
+class="cmtt-10">&#x00A0;|</span><span 
+class="cmtt-10">&#x00A0;grep</span><span 
+class="cmtt-10">&#x00A0;-i</span><span 
+class="cmtt-10">&#x00A0;529</span><br /><span 
+class="cmtt-10">5</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;12372</span><span 
+class="cmtt-10">&#x00A0;12368</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;24308</span><span 
+class="cmtt-10">&#x00A0;poll_s</span><span 
+class="cmtt-10">&#x00A0;?</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;sshd</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;S</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;12372</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26988</span><span 
+class="cmtt-10">&#x00A0;wait</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;bash</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;R</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13907</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;26364</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;ps</span><br /><span 
+class="cmtt-10">0</span><span 
+class="cmtt-10">&#x00A0;R</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;529</span><span 
+class="cmtt-10">&#x00A0;13908</span><span 
+class="cmtt-10">&#x00A0;12373</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;80</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;25683</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;pts/11</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;00:00:00</span><span 
+class="cmtt-10">&#x00A0;grep</span><br /><br /></div></div>
+<!--l. 519--><p class="noindent" >No sleep process. All cleaned up. Now I can safely start my new spy again.
+<!--l. 521--><p class="noindent" ><span 
+class="cmbx-10">Simple Debugging Tips</span>.
+<!--l. 523--><p class="noindent" >When you run a script you can use printf or echo to print out places in your script where the excution
+reaches e.g., &#8220;echo Got here&#8221; or print out the contents of script variables as a sanity check: for example, in
+spy you need to maintain a number of arrays one of which is needed to determine if users are logged in -
+echo $USERS&#x02D9;LOGGEDIN[$USERCOUNT].
+<!--l. 528--><p class="noindent" >Another tip: if the script give you a syntax error; for example:
+<div 
+class="colorbox" id="colorbox20"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;./count.sh</span><br /><span 
+class="cmtt-10">./count.sh:</span><span 
+class="cmtt-10">&#x00A0;line</span><span 
+class="cmtt-10">&#x00A0;13:</span><span 
+class="cmtt-10">&#x00A0;syntax</span><span 
+class="cmtt-10">&#x00A0;error</span><span 
+class="cmtt-10">&#x00A0;near</span><span 
+class="cmtt-10">&#x00A0;unexpected</span><span 
+class="cmtt-10">&#x00A0;token</span><span 
+class="cmtt-10">&#x00A0;&#8216;done&#8217;</span><br /><span 
+class="cmtt-10">./count.sh:</span><span 
+class="cmtt-10">&#x00A0;line</span><span 
+class="cmtt-10">&#x00A0;13:</span><span 
+class="cmtt-10">&#x00A0;&#8216;done&#8217;</span><br /><br /></div></div>
+<!--l. 543--><p class="noindent" ><span 
+class="cmbx-10">When testing</span>.
+<!--l. 545--><p class="noindent" >On the Sunday that we test your program we will sneak on to the machine. You can check the times that
+campbell (and the TA/section leader) logged on to the machine by using the last command. You can use
+this to verify the times that your spy.sh program computed. This is useful as a sanity check. <span 
+class="cmbx-10">Note, you</span>
+<span 
+class="cmbx-10">cannot use the last command in your spy code. That would make things way easy for</span>
+<span 
+class="cmbx-10">you</span>.
+<div 
+class="colorbox" id="colorbox21"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">$</span><span 
+class="cmtt-10">&#x00A0;last</span><span 
+class="cmtt-10">&#x00A0;campbell</span><br /><span 
+class="cmtt-10">campbell</span><span 
+class="cmtt-10">&#x00A0;pts/8</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;c-71-192-136-118</span><span 
+class="cmtt-10">&#x00A0;Sun</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;19</span><span 
+class="cmtt-10">&#x00A0;22:39</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;still</span><span 
+class="cmtt-10">&#x00A0;logged</span><span 
+class="cmtt-10">&#x00A0;in</span><br /><span 
+class="cmtt-10">campbell</span><span 
+class="cmtt-10">&#x00A0;pts/5</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;c-71-192-136-118</span><span 
+class="cmtt-10">&#x00A0;Sun</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;19</span><span 
+class="cmtt-10">&#x00A0;22:07</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;22:12</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;(00:04)</span><br /><span 
+class="cmtt-10">campbell</span><span 
+class="cmtt-10">&#x00A0;pts/5</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;c-71-192-136-118</span><span 
+class="cmtt-10">&#x00A0;Sun</span><span 
+class="cmtt-10">&#x00A0;Jan</span><span 
+class="cmtt-10">&#x00A0;19</span><span 
+class="cmtt-10">&#x00A0;22:00</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;22:04</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;(00:04)</span><br /><br /><span 
+class="cmtt-10">wtmp</span><span 
+class="cmtt-10">&#x00A0;begins</span><span 
+class="cmtt-10">&#x00A0;Sun</span><span 
+class="cmtt-10">&#x00A0;May</span><span 
+class="cmtt-10">&#x00A0;29</span><span 
+class="cmtt-10">&#x00A0;15:49:36</span><span 
+class="cmtt-10">&#x00A0;2011</span><br /><br /></div></div>
+<!--l. 565--><p class="noindent" >The error is on or around line 13. In emacs edit the file ./count.sh again and then &#8220;goto line 13&#8221; using the
+sequence of key strokes &#8220;ESC g g&#8221; that is hit the ESC key and hit g twice. Then, enter the line number 13
+and you will be brought to that line. Now fix the bug.
+<!--l. 569--><p class="noindent" >OK. Hope these tips help you.
+<!--l. 571--><p class="noindent" ><span 
+class="cmbx-10">Final tip</span>: Make sure you always logout when you are done and see the prompt to login again before you
+leave the terminal.
+ 
+</body></html> 
+
+                                                                                  
+
+

@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-jcampus.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:jcampus</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Kobby Essien.
+<b>Analysis of a Campus-wide Wireless Network</b>.
+<i>Wireless Networks</i>,
+11(1-2):115-133,
+January,
+2005.
+DOI <a href="http://dx.doi.org/10.1007/s11276-004-4750-0">10.1007/s11276-004-4750-0</a>.
+<p><b>Abstract:</b> Understanding usage patterns in wireless local-area networks
+(WLANs) is critical for those who develop, deploy, and manage WLAN
+technology, as well as those who develop systems and application software for
+wireless networks. This paper presents results from the largest and most
+comprehensive trace of network activity in a large, production wireless LAN.
+For eleven weeks we traced the activity of nearly two thousand users drawn
+from a general campus population, using a campus-wide network of 476 access
+points spread over 161 buildings at Dartmouth College. Our study expands on
+those done by Tang and Baker, with a significantly larger and broader
+population. <P> We found that residential traffic dominated all other
+traffic, particularly in residences populated by newer students; students are
+increasingly choosing a wireless laptop as their primary computer. Although
+web protocols were the single largest component of traffic volume, network
+backup and file sharing contributed an unexpectedly large amount to the
+traffic. Although there was some roaming within a network session, we were
+surprised by the number of situations in which cards roamed excessively,
+unable to settle on one access point. Cross-subnet roams were an especial
+problem, because they broke IP connections, indicating the need for solutions
+that avoid or accommodate such roams.</p>
+<p><b>Keywords:</b> mobile computing,, wireless, network</p>
+<p><a href="bibtex/kotz-jcampus.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-jcampus.pdf">PDF</a> (775K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by Springer Science and Business Media.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-campus-tr2.html">kotz:campus-tr2</a></b>.</p>
+</BODY>
+</HTML>

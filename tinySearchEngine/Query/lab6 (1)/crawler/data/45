@@ -1,0 +1,115 @@
+http://www.cs.dartmouth.edu/~campbell/cs65/svn/terminal.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SVN for Android Studio using the terminal - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<title>
+help
+</title>
+
+<h1 id="using-svn-in-terminal">Using SVN in Terminal</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="http://svnbook.red-bean.com/en/1.7/svn.ref.html">Subversion Complete Reference</a></li>
+<li>Subversion Version Control Introduction from <a href="http://www.cs.dartmouth.edu/~campbell/cs50/svn.html">CS 50</a></li>
+</ul>
+<h2 id="create-a-new-project">Create a new project</h2>
+<p>If you create a new project that is not in your SVN repo, you need to import the project first. Go into your project folder in terminal (e.g., you should inside Myruns1 folder), you can type “pwd” to check your current path or “ls” to list files under your folder.</p>
+<div class="figure">
+<img src="images/terminal/1.png" />
+</div>
+<p>To import your project, use</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn <span class="kw">import</span> path -m &quot;message&quot;</code></pre>
+<p>command. For example in lab1, type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn <span class="kw">import</span> https://svn.cs.dartmouth.edu/classes/cs65-W15/Lixing_Lian/Lab1_submission -m &quot;import myruns1&quot;</code></pre>
+<p>in terminal to import the project. (You don’t have to create the Lab1_submission on svn in advance, it will create it for you if it doesn’t exist)</p>
+<p>You may need to enter your SVN credentials.</p>
+<p>About login credentials:</p>
+<p>Your login names are the &quot;full&quot; dnd names, as reported on the web site <a href="http://dndlookup.dartmouth.edu">http://dndlookup.dartmouth.edu</a> with the capitalization shown there, and please use your DND passwords (which you use for Dartmouth Banner).</p>
+<p>After that, you can open your web browser and go to the address https://svn.cs.dartmouth.edu/classes/cs65-W15/Your_Name/Lab1_submission, you can see the project is successfully uploaded.</p>
+<div class="figure">
+<img src="images/terminal/2.png" />
+</div>
+<h2 id="checkout-your-project">Checkout your project</h2>
+<p>Before you start work on your project, you need to checkout your code first. And you should close your project in Android studio before checkout. Go inside the project folder in terminal, type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn checkout svn_address local_path </code></pre>
+<p>For example, you can checkout your lab1 using</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn checkout https:<span class="co">//svn.cs.dartmouth.edu/classes/cs65-W15/Lixing_Lian/Lab1_submission/ . </span></code></pre>
+<p>Pay attention that there is a space and “.” after the svn path in the command, that means checkout the contents of the svn repo to your current folder. After sucessfully checkout, you can start work on your project in Android Studio.</p>
+<div class="figure">
+<img src="images/terminal/3.png" />
+</div>
+<h2 id="working-your-project">Working your project</h2>
+<p>After you checkout the project from SVN, you can start writing your new codes in your project. If you create a new file, you need to type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn add local_path_to_file </code></pre>
+<p>to add the file to stage, then it will be updated to svn repo after you commit. For example, if you create a TestActivity, you need to add it in terminal:</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn add app/src/main/java/edu/dartmouth/cs/lixing/myruns1/TestActivity.<span class="fu">java</span></code></pre>
+<div class="figure">
+<img src="images/terminal/4.png" />
+</div>
+<p>You can type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn status</code></pre>
+<p>to check which files are changed,</p>
+<div class="figure">
+<img src="images/terminal/5.png" />
+</div>
+<p>If it shows “M” in front of the file, that means the files has modified; “A” means the file is newly added; “?” means you created the file in your local folder, but you didn’t execute “svn add” and the file is not in the stage, that file won’t be committed to your svn repo after your commit. (In this case, you need to execute “svn add file” to add it to the stage.) Some config/environment files are displayed here because Android studio updated them.</p>
+<p>You can also type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn diff path_to_file </code></pre>
+<p>to check the changes to a file. In lab1 example, we type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn diff app/src/main/java/edu/dartmouth/cs/lixing/myruns1/MainActivity.<span class="fu">java</span> </code></pre>
+<div class="figure">
+<img src="images/terminal/6.png" />
+</div>
+<p>Once you finish your coding or want to update your code to SVN repo, type</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn commit –m “commit message”</code></pre>
+<p>to commit your updates. Then you can see the changes on your repo.</p>
+<div class="figure">
+<img src="images/terminal/7.png" />
+</div>
+<h2 id="delete-file-in-svn-repo">Delete file in SVN repo</h2>
+<p>To delete a file in SVN repo, you can remove the local file and commit your changes to repo. Here is the other way to do that</p>
+<pre class="sourceCode java"><code class="sourceCode java">svn delete https:<span class="co">//svn.cs.dartmouth.edu/classes/cs65-W15/Lixing_Lian/Lab1_submission/app/.gitignore -m “delete .gitignore file”</span></code></pre>
+<p>It will delete the file https://svn.cs.dartmouth.edu/classes/cs65-W15/Lixing_Lian/Lab1_submission/app/.gitignore remotely. You can also delete an SVN folder by using this &quot;svn delete&quot; command.</p>
+</body>
+</html>

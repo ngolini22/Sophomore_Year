@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-encyc1.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:encyc1</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Ravi Jain.
+<b>I/O in Parallel and Distributed Systems</b>.
+In
+Allen Kent and James G. Williams.
+editors, 
+<i>Encyclopedia of Computer Science and Technology</i>,
+Marcel Dekker, Inc.,
+1999.
+Supplement 25.
+<p><b>Abstract:</b> We sketch the reasons for the I/O bottleneck in parallel and
+distributed systems, pointing out that it can be viewed as a special case of
+a general bottleneck that arises at all levels of the memory hierarchy. We
+argue that because of its severity, the I/O bottleneck deserves systematic
+attention at all levels of system design. We then present a survey of the
+issues raised by the I/O bottleneck in six key areas of parallel and
+distributed systems: applications, algorithms, languages and compilers,
+run-time libraries, operating systems, and architecture.</p>
+<p><b>Keywords:</b> survey, parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-encyc1.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-encyc1.pdf">PDF</a> (170K)</p>
+<p><b>Copyright &#169;&nbsp;1999 by Marcel Dekker, Inc..</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

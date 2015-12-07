@@ -1,0 +1,888 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs60/lab5.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="lab5.tex"> 
+<meta name="date" content="2012-04-27 16:47:00"> 
+<link rel="stylesheet" type="text/css" href="lab5.css"> 
+</head><body 
+>
+<h1 class="likepartHead"><a 
+ id="x1-1000"></a>CS 60 Computer Networks</h1>
+<h1 class="likepartHead"><a 
+ id="x1-2000"></a>Lab5</h1>
+<h1 class="likepartHead"><a 
+ id="x1-3000"></a>Simple Reliable Transport (SRT) - Implementing Go-Back-N and Checksum</h1>
+<!--l. 19--><p class="noindent" >In this lab, you will implement the data transfer protocol for the Simple Reliable Transport (SRT). SRT
+uses a &#8220;sliding window&#8221; protocol for efficient data transfer between the client and server (unidirectional
+reliable byte stream). The data transfer protocol will be able to recover from SRT packet (SRT header and
+DATA segment) loss and reception of packets with bit errors. We have already dealt with the loss of
+control packets in Lab4 where SYN, SYNACK, FIN, and FINACK can be lost but the protocol
+recovers.
+<!--l. 21--><p class="noindent" >In this lab, DATA and DATAACK packets can be lost and the data transfer is designed to recover. In
+addition, packets may be received in error (be corrupt due to errors on the link). To detect this we will
+implement a checksum that will be included in the SRT header of all transmitted packets. On reception of
+packets (be it the client or server) the checksum will be recomputed and packets will be silently dropped if
+a bit error is detected. So in this lab we will implement Go-Back-N (GBN) and a checksum mechanism.
+This makes our SRT transport robust to packet loss and packet corruption which happen on the
+Internet.
+<!--l. 23--><p class="noindent" >At the end of this lab you will have really good sense for how protocols such as TCP establish connections
+between hosts and how the internal mechanisms resolve issue such as lost or corrupt signaling packets
+(e.g., SYN is lost).
+<!--l. 26--><p class="noindent" ><span 
+class="cmbx-10">Before you read another line of this programming assignment please read or re-read the</span>
+<span 
+class="cmbx-10">lecture notes on </span><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_gobackn.html" > <span 
+class="cmbx-10">SRT Data Transfer </span></a><br 
+class="newline" />
+<!--l. 28--><p class="noindent" ><span 
+class="cmbx-10">Submitting assignment</span>: Submit via svn as usual.
+<!--l. 30--><p class="noindent" >Please make sure that the lab5 directory contains a simple text file, named README, describing anything
+&#8220;unusual&#8221; about how your solutions should be located, executed, and considered; and a Makefile to build
+the source.
+<!--l. 32--><p class="noindent" >In the case of the stress test you will send a plain text file - send_this_text.txt - between the client and
+server. At the server you will save this file as receivedtext.txt. Please do a &#8220;diff&#8221; on those files
+since we will when we run your transport to confirm that all the bytes are received reliably
+in-order.
+<!--l. 34--><p class="noindent" >Your lab5 should have the following structure and files.
+<!--l. 37--><p class="noindent" >[atc@dhcp-212-223 lab4] ls * <br 
+class="newline" />
+<!--l. 39--><p class="noindent" >Makefile ReadMe<br 
+class="newline" />
+<!--l. 41--><p class="noindent" >client:<br 
+class="newline" />app_simple_client.c app_stress_client.c send_this_text.txt srt_client.c srt_client.h<br 
+class="newline" />
+<!--l. 44--><p class="noindent" >common:<br 
+class="newline" />constants.h seg.c seg.h<br 
+class="newline" />
+<!--l. 47--><p class="noindent" >server:<br 
+class="newline" />app_simple_server.c app_stress_server.c receivedtext.txt srt_server.c srt_server.h <br 
+class="newline" />
+<!--l. 51--><p class="noindent" >OK, let&#8217;s get going
+<!--l. 53--><p class="noindent" >____________________________________________________________________________
+<h3 class="likesectionHead"><a 
+ id="x1-4000"></a>Source and header files - please read them</h3>
+<!--l. 57--><p class="noindent" >OK, now you have read the design notes, look at these important files - browse them for now, we will be
+back.
+<!--l. 61--><p class="noindent" ><span 
+class="cmbx-10">Note, all the files listed below plus other files (e.g., makefile, README, etc.) needed for this</span>
+<span 
+class="cmbx-10">lab can be found in this tarball file: </span><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/lab5handout.tar.gz" > <span 
+class="cmbx-10">lab5handout.tar.gz </span></a><span 
+class="cmbx-10">. Save this and work from this</span>
+<span 
+class="cmbx-10">tarball for your assignment</span>.
+<!--l. 63--><p class="noindent" >We provide two sets of application client and server files: (1) <span 
+class="cmti-10">simple application client and</span>
+<span 
+class="cmti-10">server </span>and (2) <span 
+class="cmti-10">stress test application client and server</span>. The simple case will send short text
+buffers between the client and server application. The stress test case send a plain text file
+between the client and server; this last app. will test out your transport in a more comprehensive
+manner.
+<!--l. 65--><p class="noindent" >Note, that you do not have to write any application client or server code in this assignment. This allows
+you to focus on the implementation of the go-back-n and checksum processing for the SRT client and
+server side code. The basic idea is to first get your code running with the simple code set and if that works
+move to running the stress test against your code base. You should extend your srt_client.c and
+srt_server.c that you wrote for lab4. The basic skeleton code for srt_client.c and srt_server.c is given
+below.
+<!--l. 67--><p class="noindent" ><span 
+class="cmbx-10">Simple client and server code:</span>
+<!--l. 69--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/app_simple_client.c" > app_simple_client.c</a><br 
+class="newline" />
+<!--l. 71--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/app_simple_server.c" > app_simple_server.c</a><br 
+class="newline" />
+<!--l. 73--><p class="noindent" ><span 
+class="cmbx-10">Stress test client and server code:</span>
+                                                                                  
+                                                                                  
+<!--l. 75--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/app_stress_client.c" > app_stress_client.c</a><br 
+class="newline" />
+<!--l. 77--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/app_stress_server.c" > app_stress_server.c</a><br 
+class="newline" />
+<!--l. 79--><p class="noindent" >For the stress test you will need two put the following plain text file in the same directory as your
+app&#x02D9;stress&#x02D9;client
+<!--l. 81--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/send_this_text.txt" > send_this_text.txt</a><br 
+class="newline" />
+<!--l. 83--><p class="noindent" ><span 
+class="cmbx-10">Client side data structures and prototypes needed to implement the client side SRT</span>
+<span 
+class="cmbx-10">protocol</span>
+<!--l. 85--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_client.h" > srt_client.h</a><br 
+class="newline" />
+<!--l. 87--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_client.c" > srt_client.c</a><br 
+class="newline" />
+<!--l. 89--><p class="noindent" ><span 
+class="cmbx-10">Server side data structures and prototypes needed to implement the server side SRT</span>
+<span 
+class="cmbx-10">protocol</span>
+<!--l. 91--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_server.h" > srt_server.h</a><br 
+class="newline" />
+<!--l. 93--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_server.c" > srt_server.c</a><br 
+class="newline" />
+<!--l. 95--><p class="noindent" ><span 
+class="cmbx-10">SNP APIs - header file. SRT header and segment data structure, SNP prototypes.</span>
+<!--l. 97--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/seg.h" > seg.h</a><br 
+class="newline" />
+<!--l. 99--><p class="noindent" ><span 
+class="cmbx-10">Constants</span>
+<!--l. 101--><p class="noindent" ><a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/constants.h" > constants.h</a><br 
+class="newline" />
+<!--l. 103--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-5000"></a>Adding the Data Transfer Code to your existing Code Base</h3>
+<!--l. 105--><p class="noindent" >The idea of this lab is to build on what you have already coded. You should start with your
+existing code set and add Data Transfer to that. <span 
+class="cmbx-10">Note, </span>you do not have to start from ground
+zero.
+<!--l. 108--><p class="noindent" >Please familiarize yourself with the following in the <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_gobackn.html" > SRT data transfer design </a>; with focus
+on:
+<!--l. 110--><p class="noindent" >+Send buffer data structure and life cycle
+                                                                                  
+                                                                                  
+<!--l. 112--><p class="noindent" >+Receive buffer data structure and life cycle
+<!--l. 114--><p class="noindent" >+Go-Back-N Finite State Machine
+<!--l. 116--><p class="noindent" >You will need to add new events and actions to your existing state machine implementation according to
+the material discussed on Lecture 13 on SRT Data Transfer. Most code changes are associated with the
+CONNECTED state of the full FSMs described in <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt.html" > SRT design. </a>If you were to look at the CONNECTED
+state in the original design document and then look at the Go-Back-N FSMs for the client and server in <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/srt_gobackn.html" >
+SRT data transfer. </a>So again most of the action is in the CONNECTED state on the client and server
+side.
+<!--l. 119--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-6000"></a>New SRT Functions to Implement</h3>
+<!--l. 121--><p class="noindent" >For Lab5 you need to implement two new SRT interfaces: <span 
+class="cmbx-10">srt</span><span 
+class="cmbx-10">_client</span><span 
+class="cmbx-10">_send() </span>and <span 
+class="cmbx-10">srt</span><span 
+class="cmbx-10">_svr</span><span 
+class="cmbx-10">_recv()</span>. Here
+are the prototypes for these new parts of the SRT API. You can change them according to your own
+design if you want.
+<!--l. 123--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-7000"></a> srt_client_send(int sockfd, void* data, unsigned int length)</h4>
+<!--l. 125--><p class="noindent" >Here is the str_client_send() prototype definition:
+<div 
+class="colorbox" id="colorbox1"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">int</span><span 
+class="cmtt-10">&#x00A0;srt_client_send(int</span><span 
+class="cmtt-10">&#x00A0;sockfd,</span><span 
+class="cmtt-10">&#x00A0;void*</span><span 
+class="cmtt-10">&#x00A0;data,</span><span 
+class="cmtt-10">&#x00A0;unsigned</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;length);</span><br /><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;Send</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;an</span><span 
+class="cmtt-10">&#x00A0;srt</span><span 
+class="cmtt-10">&#x00A0;server.</span><span 
+class="cmtt-10">&#x00A0;This</span><span 
+class="cmtt-10">&#x00A0;function</span><span 
+class="cmtt-10">&#x00A0;should</span><span 
+class="cmtt-10">&#x00A0;use</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;socket</span><span 
+class="cmtt-10">&#x00A0;ID</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;find</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;TCP</span><span 
+class="cmtt-10">&#x00A0;entry.</span><span 
+class="cmtt-10">&#x00A0;Then</span><span 
+class="cmtt-10">&#x00A0;it</span><span 
+class="cmtt-10">&#x00A0;should</span><span 
+class="cmtt-10">&#x00A0;create</span><span 
+class="cmtt-10">&#x00A0;segBufs</span><span 
+class="cmtt-10">&#x00A0;using</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;given</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;append</span><span 
+class="cmtt-10">&#x00A0;them</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;send</span><span 
+class="cmtt-10">&#x00A0;buffer</span><span 
+class="cmtt-10">&#x00A0;linked</span><span 
+class="cmtt-10">&#x00A0;list.</span><span 
+class="cmtt-10">&#x00A0;If</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;send</span><span 
+class="cmtt-10">&#x00A0;buffer</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;was</span><span 
+class="cmtt-10">&#x00A0;empty</span><span 
+class="cmtt-10">&#x00A0;before</span><span 
+class="cmtt-10">&#x00A0;insertion,</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;thread</span><span 
+class="cmtt-10">&#x00A0;called</span><span 
+class="cmtt-10">&#x00A0;sendbuf_timer</span><span 
+class="cmtt-10">&#x00A0;should</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;started</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;poll</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;send</span><span 
+class="cmtt-10">&#x00A0;buffer</span><span 
+class="cmtt-10">&#x00A0;every</span><span 
+class="cmtt-10">&#x00A0;SENDBUF_POLLING_INTERVAL</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;time</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;check</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;timeout</span><span 
+class="cmtt-10">&#x00A0;event</span><span 
+class="cmtt-10">&#x00A0;should</span><span 
+class="cmtt-10">&#x00A0;occur.</span><span 
+class="cmtt-10">&#x00A0;If</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;function</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;completes</span><span 
+class="cmtt-10">&#x00A0;successfully,</span><span 
+class="cmtt-10">&#x00A0;it</span><span 
+class="cmtt-10">&#x00A0;returns</span><span 
+class="cmtt-10">&#x00A0;1.</span><span 
+class="cmtt-10">&#x00A0;Otherwise,</span><span 
+class="cmtt-10">&#x00A0;it</span><span 
+class="cmtt-10">&#x00A0;returns</span><span 
+class="cmtt-10">&#x00A0;-1.</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><br /><span 
+class="cmtt-10">//</span><br /><br /></div></div>
+<!--l. 151--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-8000"></a>srt_server_recv(int sockfd, void* buf, unsigned int length)</h4>
+<!--l. 153--><p class="noindent" >Here is the str_server_recv() prototype definition:
+<div 
+class="colorbox" id="colorbox2"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">int</span><span 
+class="cmtt-10">&#x00A0;srt_server_recv(int</span><span 
+class="cmtt-10">&#x00A0;sockfd,</span><span 
+class="cmtt-10">&#x00A0;void*</span><span 
+class="cmtt-10">&#x00A0;buf,</span><span 
+class="cmtt-10">&#x00A0;unsigned</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;length);</span><br /><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;Receive</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;from</span><span 
+class="cmtt-10">&#x00A0;an</span><span 
+class="cmtt-10">&#x00A0;srt</span><span 
+class="cmtt-10">&#x00A0;client.</span><span 
+class="cmtt-10">&#x00A0;Recall</span><span 
+class="cmtt-10">&#x00A0;this</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;unidirectional</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;transport</span><span 
+class="cmtt-10">&#x00A0;where</span><span 
+class="cmtt-10">&#x00A0;DATA</span><span 
+class="cmtt-10">&#x00A0;flows</span><span 
+class="cmtt-10">&#x00A0;from</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;client</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;server.</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;Signaling/control</span><span 
+class="cmtt-10">&#x00A0;messages</span><span 
+class="cmtt-10">&#x00A0;such</span><span 
+class="cmtt-10">&#x00A0;as</span><span 
+class="cmtt-10">&#x00A0;SYN,</span><span 
+class="cmtt-10">&#x00A0;SYNACK,</span><span 
+class="cmtt-10">&#x00A0;etc.</span><span 
+class="cmtt-10">&#x00A0;flow</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;both</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;directions.</span><span 
+class="cmtt-10">&#x00A0;This</span><span 
+class="cmtt-10">&#x00A0;function</span><span 
+class="cmtt-10">&#x00A0;keeps</span><span 
+class="cmtt-10">&#x00A0;polling</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;receive</span><span 
+class="cmtt-10">&#x00A0;buffer</span><span 
+class="cmtt-10">&#x00A0;every</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;RECVBUF_POLLING_INTERVAL</span><span 
+class="cmtt-10">&#x00A0;until</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;requested</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;available,</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;it</span><span 
+class="cmtt-10">&#x00A0;then</span><span 
+class="cmtt-10">&#x00A0;stores</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;1.</span><span 
+class="cmtt-10">&#x00A0;If</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;function</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;fails,</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;-1</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><br /><span 
+class="cmtt-10">//</span><br /><br /></div></div>
+<!--l. 177--><p class="noindent" >Besides implementing these two new functions you also need to modify other SRT APIs implemented as
+part of Lab4 to make data transfer work correctly. For example, in srt_svr_sock() you need to add code to
+dynamically create the receive buffer and mutex for receive buffer. So you need to think about your design
+and determine what other changes need to be made to make data transfer work. Clearl,y you need a
+sender side buffer to, for example.
+                                                                                  
+                                                                                  
+<!--l. 179--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-9000"></a>Segment Checksum</h3>
+<!--l. 181--><p class="noindent" >You need to implement a checksum. Lab4 uses <span 
+class="cmti-10">seglost() </span>to determine if a segment is lost or not and then
+drop the segment silently if it is deemed lost. In this lab, we extend seglost() to create segment errors by
+flipping a random bit in the segment. You have to implement the checksum creation function
+<span 
+class="cmbx-10">checksum() </span>and the checksum checking function <span 
+class="cmbx-10">checkchecksum() </span>to detect if any bit errors have
+occurred.
+<!--l. 183--><p class="noindent" >Here is the prototype for seglost() and its implementation from seg.h. You can copy the seglost
+implementation directly to your seg.c file.
+<!--l. 185--><p class="noindent" ><span 
+class="cmbx-10">Note, </span>don&#8217;t cut and paste seglost from these notes but cut and paste it from this file - or save this file. <a 
+href="http://www.cs.dartmouth.edu/~campbell/cs60/seg.h" >
+seg.h</a><br 
+class="newline" />
+<!--l. 188--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-10000"></a>seglost(seg_t* segPtr)</h4>
+<div 
+class="colorbox" id="colorbox3"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;This</span><span 
+class="cmtt-10">&#x00A0;function</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;called</span><span 
+class="cmtt-10">&#x00A0;after</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;received</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;has</span><span 
+class="cmtt-10">&#x00A0;PKT_LOSS_RATE</span><span 
+class="cmtt-10">&#x00A0;probability</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;lost</span><span 
+class="cmtt-10">&#x00A0;or</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;has</span><span 
+class="cmtt-10">&#x00A0;invalid</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;with</span><span 
+class="cmtt-10">&#x00A0;PKT_LOSS_RATE/2</span><span 
+class="cmtt-10">&#x00A0;probability,</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;lost,</span><span 
+class="cmtt-10">&#x00A0;this</span><span 
+class="cmtt-10">&#x00A0;function</span><span 
+class="cmtt-10">&#x00A0;returns</span><span 
+class="cmtt-10">&#x00A0;1</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;not</span><span 
+class="cmtt-10">&#x00A0;lost,</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;0</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;Even</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;not</span><span 
+class="cmtt-10">&#x00A0;lost,</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;has</span><span 
+class="cmtt-10">&#x00A0;PKT_LOSS_RATE/2</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;probability</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;have</span><span 
+class="cmtt-10">&#x00A0;invalid</span><span 
+class="cmtt-10">&#x00A0;checksum</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;To</span><span 
+class="cmtt-10">&#x00A0;introduce</span><span 
+class="cmtt-10">&#x00A0;invalid</span><span 
+class="cmtt-10">&#x00A0;checksum,</span><span 
+class="cmtt-10">&#x00A0;we</span><span 
+class="cmtt-10">&#x00A0;flip</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;random</span><span 
+class="cmtt-10">&#x00A0;bit</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;seglost(seg_t*</span><span 
+class="cmtt-10">&#x00A0;segPtr);</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;source</span><span 
+class="cmtt-10">&#x00A0;code</span><span 
+class="cmtt-10">&#x00A0;for</span><span 
+class="cmtt-10">&#x00A0;seglost</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;put</span><span 
+class="cmtt-10">&#x00A0;this</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;seg.c</span><br /><br /><span 
+class="cmtt-10">int</span><span 
+class="cmtt-10">&#x00A0;seglost(seg_t*</span><span 
+class="cmtt-10">&#x00A0;segPtr)</span><span 
+class="cmtt-10">&#x00A0;{</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;random</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;rand()%100;</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;//if</span><span 
+class="cmtt-10">&#x00A0;this</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;corrupted</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if(random&#x003C;PKT_LOSS_RATE*100)</span><span 
+class="cmtt-10">&#x00A0;{</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;//50%</span><span 
+class="cmtt-10">&#x00A0;probability</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;losing</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;segment</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if(rand()%2==0)</span><span 
+class="cmtt-10">&#x00A0;{</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;printf("seg</span><span 
+class="cmtt-10">&#x00A0;lost!!!\n");</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;1;</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;}</span><span 
+class="cmtt-10">&#x00A0;else</span><span 
+class="cmtt-10">&#x00A0;{</span><span 
+class="cmtt-10">&#x00A0;//50%</span><span 
+class="cmtt-10">&#x00A0;chance</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;having</span><span 
+class="cmtt-10">&#x00A0;invalid</span><span 
+class="cmtt-10">&#x00A0;checksum</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;//get</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;length</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;len</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;sizeof(srt_hdr_t)+segPtr-&#x003E;header.length;</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;//get</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;random</span><span 
+class="cmtt-10">&#x00A0;bit</span><span 
+class="cmtt-10">&#x00A0;that</span><span 
+class="cmtt-10">&#x00A0;will</span><span 
+class="cmtt-10">&#x00A0;be</span><span 
+class="cmtt-10">&#x00A0;flipped</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;errorbit</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;rand()%(len*8);</span><br /><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;//flip</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;bit</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;char*</span><span 
+class="cmtt-10">&#x00A0;temp</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;(char*)segPtr;</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;temp</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;temp</span><span 
+class="cmtt-10">&#x00A0;+</span><span 
+class="cmtt-10">&#x00A0;errorbit/8;</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;*temp</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;*temp^(1&#x003C;&#x003C;(errorbit%8));</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;0;</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;}</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;}</span><br /><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;0;</span><br /><span 
+class="cmtt-10">}</span><br /><br /></div></div>
+<!--l. 240--><p class="noindent" >You should implement two new functions checksum() and checkchecksum() in seg.c.
+<!--l. 242--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-11000"></a>checksum(seg_t* segment)</h4>
+<!--l. 244--><p class="noindent" >In what follows, we describe the SRT checksum which is the same as the TCP/UDP checksum. Following
+that we detail the checksum() prototype.
+<!--l. 246--><p class="noindent" ><span 
+class="cmbx-10">The checksum() algorithm: </span>first clear the checksum field in segment to 0. Denote the data from which
+the checksum is calculated as D. <span 
+class="cmti-10">D = segment header + segment data</span>. If size of D (in bytes) is an odd
+number, append a byte with all bits set as 0 to D. (Note, we do not mean add a byte to what is to be
+transfered. But add a byte so the computation is on 16 bit boundaries). Then checksum() divides D into
+16-bits-long values and adds all these 16-bits-long values using 1s complement addition. Then sum of these
+16-bits-long values is flipped and returned to the calling code For signaling messages (e.g., SYN) there is
+a header and no data. Therefore, the checksum is computed on the header. Note that the
+value of the checksum field in the header is always 0 before the checksum computation is
+done.
+<!--l. 248--><p class="noindent" >Note, that on return from checksum the returned checksum value is written to the checksum field in the
+header.
+<!--l. 250--><p class="noindent" >Here is the checksum() prototype definition:
+<div 
+class="colorbox" id="colorbox4"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">unsigned</span><span 
+class="cmtt-10">&#x00A0;short</span><span 
+class="cmtt-10">&#x00A0;checksum(seg_t*</span><span 
+class="cmtt-10">&#x00A0;segment);</span><br /><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;Calculate</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;over</span><span 
+class="cmtt-10">&#x00A0;a</span><span 
+class="cmtt-10">&#x00A0;segment.</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;The</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;calculated</span><span 
+class="cmtt-10">&#x00A0;over</span><span 
+class="cmtt-10">&#x00A0;both</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;header</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;in</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment.</span><span 
+class="cmtt-10">&#x00A0;You</span><span 
+class="cmtt-10">&#x00A0;should</span><span 
+class="cmtt-10">&#x00A0;first</span><span 
+class="cmtt-10">&#x00A0;make</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;field</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;0,</span><span 
+class="cmtt-10">&#x00A0;then</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;data</span><span 
+class="cmtt-10">&#x00A0;contained</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;segment</span><span 
+class="cmtt-10">&#x00A0;has</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;odd</span><span 
+class="cmtt-10">&#x00A0;number</span><span 
+class="cmtt-10">&#x00A0;of</span><span 
+class="cmtt-10">&#x00A0;octets,</span><span 
+class="cmtt-10">&#x00A0;add</span><span 
+class="cmtt-10">&#x00A0;one</span><span 
+class="cmtt-10">&#x00A0;0</span><span 
+class="cmtt-10">&#x00A0;octet</span><span 
+class="cmtt-10">&#x00A0;at</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;end.</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;Then</span><span 
+class="cmtt-10">&#x00A0;calculate</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;using</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;Internet</span><span 
+class="cmtt-10">&#x00A0;checksum</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;calculation</span><span 
+class="cmtt-10">&#x00A0;method</span><span 
+class="cmtt-10">&#x00A0;from</span><span 
+class="cmtt-10">&#x00A0;your</span><span 
+class="cmtt-10">&#x00A0;text</span><span 
+class="cmtt-10">&#x00A0;book</span><span 
+class="cmtt-10">&#x00A0;(one&#8217;s</span><span 
+class="cmtt-10">&#x00A0;complement)</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;value.</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;The</span><span 
+class="cmtt-10">&#x00A0;returned</span><span 
+class="cmtt-10">&#x00A0;value</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;written</span><span 
+class="cmtt-10">&#x00A0;to</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;header</span><span 
+class="cmtt-10">&#x00A0;checksum.</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><br /><span 
+class="cmtt-10">//</span><br /><br /></div></div>
+                                                                                  
+                                                                                  
+<!--l. 277--><p class="noindent" >
+<h4 class="likesubsectionHead"><a 
+ id="x1-12000"></a>checkchecksum(seg_t* segment)</h4>
+<!--l. 279--><p class="noindent" >In what follows, we describe the SRT checksum which is the same as the TCP/UDP checksum. Following
+that we detail the checksum() prototype.
+<!--l. 281--><p class="noindent" ><span 
+class="cmbx-10">The checkchecksum() algorithm: </span>Denote the data from which the checksum is calculated as D. <span 
+class="cmti-10">D</span>
+<span 
+class="cmti-10">= segment header + segment data</span>. If size of D (in bytes) is an odd number, append a byte
+with all bits set as 0 to D. checkchecksum() divides D into 16-bits-long values, and adds all
+these 16-bits-long values using 1s complement to get the sum. <span 
+class="cmbx-10">Note</span>, the sum of D includes
+the computed checkcum put in the packet header by the sender. If resulting sum is 0xFFFF
+(hexadecimal) (where all 16 bits are set) then a valid checksum has been computed for this
+packet. This indicates that there has been no single bit error. Rather than checking 0xFFFF the
+checkchecksum() flips the bits of sum and check the flipped sum against 0. The checkchecksum() function
+flips the sum of these 16-bits-long value and returns 1 if the result is 0. Otherwise, return
+-1.
+<!--l. 284--><p class="noindent" >Here is the checkchecksum() prototype definitions:
+<div 
+class="colorbox" id="colorbox5"><div class="BVerbatimInput"><br /><span 
+class="cmtt-10">int</span><span 
+class="cmtt-10">&#x00A0;checkchecksum(seg_t*</span><span 
+class="cmtt-10">&#x00A0;segment);</span><br /><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;check</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;value</span><span 
+class="cmtt-10">&#x00A0;in</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;segment</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;valid,</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;1</span><br /><span 
+class="cmtt-10">//</span><span 
+class="cmtt-10">&#x00A0;If</span><span 
+class="cmtt-10">&#x00A0;the</span><span 
+class="cmtt-10">&#x00A0;checksum</span><span 
+class="cmtt-10">&#x00A0;is</span><span 
+class="cmtt-10">&#x00A0;invalid,</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;-1</span><br /><span 
+class="cmtt-10">//</span><br /><span 
+class="cmtt-10">//+++++++++++++++++++++++++++++++++++++++++++++++++++++++</span><br /><span 
+class="cmtt-10">//</span><br /><br /></div></div>
+<!--l. 304--><p class="noindent" >To use the checksum you need to modify your previous implementation of snp_sendseg() and
+snp_recvseg().
+<!--l. 306--><p class="noindent" >In snp_sendseg() function, before sending a segment, use checksum() to compute the checksum for the
+segment and put checksum into the segment&#8217;s checksum field. Take a look at the SRT segment header to
+see the field the checksum is written into.
+<!--l. 308--><p class="noindent" >In snp_recvseg() function, after receiving a segment and after calling seglost() we should compute
+the checksum for the packet that is received calling checkchecksum(). If we compute there
+is a corrupt packet we silently drop it else we carry on and process the packet. Note that
+errors can occurs in control (SYN, FIN, etc.) and DATA packets. <span 
+class="cmbx-10">In the case of DATA</span>
+<span 
+class="cmbx-10">segments the checksum must be computed over the SRT header and DATA segment -</span>
+<span 
+class="cmbx-10">that is, compute the checksum for the complete SRT packet</span>. In the case of control
+packets (e.g., SYN) there is no data segment so the checksum is computed on the header
+only.
+<!--l. 310--><p class="noindent" ><span 
+class="cmbx-10">Note, students find the checksum hard to code. Here is what I can do. If you code the</span>
+<span 
+class="cmbx-10">checksum yourself you get an extra credit. If you do not want to do that the c code for the</span>
+<span 
+class="cmbx-10">checksum and other languages can be found in the following RFC - you can use that code</span>
+<span 
+class="cmbx-10">with citation if you wish:</span>
+<!--l. 312--><p class="noindent" ><a 
+href="http://www.rfc-editor.org/rfc/rfc1071.txt" > Computing the Internet Checksum </a><br 
+class="newline" />
+<!--l. 314--><p class="noindent" ><span 
+class="cmbx-10">This is also a very helpful link:</span>
+<!--l. 316--><p class="noindent" ><a 
+href="http://www.barrgroup.com/Embedded-Systems/How-To/Additive-Checksums" > Additive Checksums </a><br 
+class="newline" />
+<!--l. 318--><p class="noindent" >
+<h3 class="likesectionHead"><a 
+ id="x1-13000"></a>Why is this a first for undergrads?</h3>
+<!--l. 320--><p class="noindent" >Once you have completed Lab5 you will have completed what are essentially the core protocol components
+of a transport protocol. You will be able to support multiple connections in parallel. Those connections
+will support reliable in-order byte streams. Your protocol will support loss of packets and
+reception of corrupt packets. Essentially, your protocol and FSM is not widely different from
+TCP.
+<!--l. 322--><p class="noindent" >This is the first time I have seem this done where undergrads have implemented a transport that runs over
+the Internet - this is no stinking simulator or emulator - this is real thing and I think it is very cool that
+you have completed this. And, quite novel. Tell people when you interview - yes, I have implemented a
+transport, and wait for the reaction!
+ 
+</body></html> 
+
+                                                                                  
+
+

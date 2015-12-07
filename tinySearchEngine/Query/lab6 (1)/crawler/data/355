@@ -1,0 +1,35 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cornelius-impedance.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cornelius:impedance</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Cory Cornelius, Jacob Sorber, Ronald Peterson, Joe Skinner, Ryan Halter, and David Kotz.
+<b>Who wears me? Bioimpedance as a passive biometric</b>.
+In
+<i>Proceedings of the USENIX Workshop on Health Security and
+Privacy</i>,
+August,
+2012.
+<p><b>Abstract:</b> Mobile and wearable systems for monitoring health are becoming
+common. If such an mHealth system knows the identity of its wearer, the
+system can properly label and store data collected by the system. Existing
+recognition schemes for such mobile applications and pervasive devices are
+not particularly usable&nbsp;- they require \it active engagement with the
+person (e.g., the input of passwords), or they are too easy to fool (e.g.,
+they depend on the presence of a device that is easily stolen or lost). <P>
+We present a wearable sensor to passively recognize people. Our sensor uses
+the unique electrical properties of a person's body to recognize their
+identity. More specifically, the sensor uses \it bioimpedance&nbsp;- a measure
+of how the body's tissues oppose a tiny applied alternating current&nbsp;- and
+learns how a person's body uniquely responds to alternating current of
+different frequencies. In this paper we demonstrate the feasibility of our
+system by showing its effectiveness at accurately recognizing people in a
+household 90\% of the time.</p>
+<p><a href="bibtex/cornelius-impedance.bib">BibTeX</a></p>
+<p><a target=_top href = "././cornelius-impedance.pdf">PDF</a> (652K)</p>
+<p><b>Copyright &#169;&nbsp;2012 by the authors.</b></p>
+</BODY>
+</HTML>

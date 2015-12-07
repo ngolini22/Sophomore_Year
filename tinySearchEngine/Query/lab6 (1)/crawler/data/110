@@ -1,0 +1,32 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/blinn-hotspot.html
+3
+<HTML>
+<HEAD>
+ <TITLE>blinn:hotspot</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David P. Blinn, Tristan Henderson, and David Kotz.
+<b>Analysis of a Wi-Fi Hotspot Network</b>.
+In
+<i>Proceedings of the International Workshop on Wireless Traffic
+Measurements and Modeling (WiTMeMo&nbsp;'05)</i>,
+pages 1-6,
+June,
+2005.
+USENIX Association.
+<p><b>Abstract:</b> Wireless hotspot networks have become increasingly popular in
+recent years as a means of providing Internet access in public areas such as
+restaurants and airports. In this paper we present the first study of such a
+hotspot network. We examine five weeks of SNMP traces from the Verizon Wi-Fi
+HotSpot network in Manhattan. We find that far more cards associated to the
+network than logged into it. Most clients used the network infrequently and
+visited few APs. AP utilization was uneven and the network displayed some
+unusual patterns in traffic load. Some characteristics were similar to those
+previously observed in studies of campus WLANs.</p>
+<p><b>Keywords:</b> wireless, network, mobile computing</p>
+<p><a href="bibtex/blinn-hotspot.bib">BibTeX</a></p>
+<p><a target=_top href = "././blinn-hotspot.pdf">PDF</a> (172K)</p>
+<p><b>Copyright &#169;&nbsp;2005 by the authors.</b></p>
+</BODY>
+</HTML>

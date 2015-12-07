@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/wang-thesis.html
+3
+<HTML>
+<HEAD>
+ <TITLE>wang:thesis</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Jue Wang.
+<b>Performance Evaluation of a Resource Discovery Service</b>.
+Masters Thesis,
+Dartmouth College Computer Science,
+October,
+2004.
+Available as Dartmouth Computer Science Technical Report TR2004-513.
+<p><b>Abstract:</b> In a pervasive computing environment, the number and variety of
+resources (services, devices, and contextual information resources) make it
+necessary for applications to accurately discover the best ones quickly. Thus
+a resource-discovery service, which locates specific resources and
+establishes network connections as better resources become available, is
+necessary for those applications. The performance of the resource-discovery
+service is important when the applications are in a dynamic and mobile
+environment. In this thesis, however, we do not focus on the resource-
+discovery technology itself, but the evaluation of the scalability and
+mobility of the resource discovery module in Solar, a context fusion
+middleware. Solar has a naming service that provides resource discovery,
+since the resource names encode static and dynamic attributes. The results of
+our experiments show that Solar's resource discovery performed generally well
+in a typical dynamic environment, although Solar can not be scaled as well as
+it should. And we identify the implementation issues related to that problem.
+We also discuss experience, insights, and lessons learned from our
+quantitative analysis of the experiment results.</p>
+<p><a href="bibtex/wang-thesis.bib">BibTeX</a></p>
+<p><a target=_top href = "http://www.cs.dartmouth.edu/reports/TR2004-513.pdf">PDF</a> (remote)</p>
+<p><b>Copyright &#169;&nbsp;2004 by Jue Wang.</b></p>
+</BODY>
+</HTML>

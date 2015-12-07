@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-axioms-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:axioms-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Calvin Newport, and Chip Elliott.
+<b>The mistaken axioms of wireless-network research</b>.
+Technical Report
+TR2003-467,
+Dartmouth Computer Science,
+July,
+2003.
+<p><b>Abstract:</b> Most research on ad-hoc wireless networks makes simplifying
+assumptions about radio propagation. The ``Flat Earth'' model of the world is
+surprisingly popular: all radios have circular range, have perfect coverage
+in that range, and travel on a two-dimensional plane. CMU's \tt ns-2 radio
+models are better but still fail to represent many aspects of realistic radio
+networks, including hills, obstacles, link asymmetries, and unpredictable
+fading. We briefly argue that key ``axioms'' of these types of propagation
+models lead to simulation results that do not adequately reflect real
+behavior of ad-hoc networks, and hence to network protocols that may not work
+well (or at all) in reality. We then present a set of 802.11 measurements
+that clearly demonstrate that these ``axioms'' are contrary to fact. The
+broad chasm between simulation and reality calls into question many of
+results from prior papers, and we summarize with a series of recommendations
+for researchers considering analytic or simulation models of wireless
+networks.</p>
+<p><b>Keywords:</b> mobile computing, wireless, network</p>
+<p><a href="bibtex/kotz-axioms-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-axioms-tr.pdf">PDF</a> (3767K)</p>
+<p><b>Copyright &#169;&nbsp;2003 by the authors.</b></p>
+<p>See also later version <b><a href="abstracts/kotz-axioms-tr2.html">kotz:axioms-tr2</a></b>.</p>
+</BODY>
+</HTML>

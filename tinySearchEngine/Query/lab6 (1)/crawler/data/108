@@ -1,0 +1,39 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/chen-solar-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>chen:solar-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Guanling Chen and David Kotz.
+<b>Supporting Adaptive Ubiquitous Applications with the SOLAR
+System</b>.
+Technical Report
+TR2001-397,
+Dartmouth Computer Science,
+May,
+2001.
+<p><b>Abstract:</b> As we embed more computers into our daily environment, ubiquitous
+computing promises to make them less noticeable and help to prevent
+information overload. We see, however, few ubiquitous applications that are
+able to adapt to the dynamics of user, physical, and computational context.
+We believe that there are two challenges causing this lack of ubiquitous
+applications: there is no flexible and scalable way to support information
+collection and dissemination in a ubiquitous and mobile environment, and
+there is no general approach to building adaptive applications given
+heterogeneous contextual information. We propose a system infrastructure,
+Solar, to meet these challenges. Solar uses a subscription-based operator
+graph abstraction and allows dynamic composition of stackable operators to
+manage ubiquitous information sources. After developing a set of diverse
+adaptive applications, we expect to identify fundamental techniques for
+context-aware adaptation. Our expectation is that Solar's end-to-end support
+for information collection, dissemination, and utilization will make it easy
+to build adaptive applications for a ubiquitous mobile environment with many
+users and devices.</p>
+<p><b>Keywords:</b> ubicomp, distributed computing, mobile computing</p>
+<p><a href="bibtex/chen-solar-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././chen-solar-tr.pdf">PDF</a> (223K)</p>
+<p><b>Copyright &#169;&nbsp;2001 by the authors.</b></p>
+</BODY>
+</HTML>

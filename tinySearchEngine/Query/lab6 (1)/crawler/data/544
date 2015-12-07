@@ -1,0 +1,114 @@
+http://www.cs.dartmouth.edu/%7Edfk/nils/galley.html
+3
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> 
+<HTML>
+<HEAD><TITLE> The Galley Parallel File System </TITLE></HEAD>
+<BODY>
+<IMG height=111 width=372  src="gpic.gif">
+
+<H1> The Galley Parallel File System </H1>
+
+Based on the results of several <A href="workload.html"> workload
+characterization studies </A> we performed, we have designed and
+implemented Galley, a new parallel file system that is intended to meet
+the needs of parallel scientific applications. <P>
+
+Galley was designed to run on networks of workstations (NOWs) or
+parallel supercomputers.  It currently runs on networks of IBM RS/6000s
+(such as our <A href="/research/fleet">FLEET Lab</A>) and the IBM SP-2
+parallel supercomputer (such as <A
+HREF="http://lovelace.nas.nasa.gov/Parallel/SP2/nas_sp2_home.html">Babbage</A>
+at NASA Ames Research Center).<P>
+
+Galley was implemented using a model of distinct Compute Processors and I/O
+Processors.  That is, the nodes in the network or parallel machine are
+partitioned into two sets: one that runs users' applications and one that
+runs Galley's I/O servers.  Even though most NOWs, and some parallel
+machines, have disks on each node, Galley uses the distinct CP/IOP model
+since it leads to more predictable performance and reduces the performance
+impact that one user's application may have on another. <P>
+
+To use the Galley Parallel File System, a user's application must be linked
+with the Galley runtime library.  The runtime library establishes
+connections with the system's I/O servers, and handles all communication
+between the client's code and the servers.  When an application makes a call
+to a Galley routine, the runtime library converts the request into an
+internal format, and passes it on to the I/O servers via message passing.
+The runtime library then controls the flow of data from the IOP to the
+application's address space, or vice versa. <P>
+
+<H2> Features </H2>
+<UL>
+<LI> Support for many <A href="patterns/patterns.html">common access
+patterns</A></LI>
+<LI> Complete control over parallelism </LI>
+<LI> New three-dimensional file structure </LI>
+<LI> Support for libraries </LI>
+<LI> Asynchronous I/O </LI>
+<LI> Low memory and computational overhead </LI>
+<LI> Designed to be portable </LI>
+<LI> Matt Carter later implemented the Vesta File System interface on Galley 
+     (<a href=galley/vesta-galley.tar.Z>tarball</a>)
+</UL>
+
+<H2> More Information </H2>
+
+<UL>
+<LI><A HREF="galley/struct.html">Three-dimensional file structure</A>
+<LI><A HREF="galley/inter.html">Application interface </A>
+<LI><A HREF="galley/man/man.html">Manual pages </A>
+</UL> <P>
+
+<H3> Papers </H3>
+
+<UL>
+  <li> <EM> <A HREF="thesis.ps.Z">
+       Galley: A New Parallel File System for Parallel Applications.</A></EM>
+	 Ph.D. Thesis.
+  <li> <EM><a href="papers/galley.html">
+  The Galley Parallel File System</EM></a>.
+  This paper is a combination of the two papers below, with updated
+  performance results, and will appear in the journal <em>Parallel
+  Computing.</em>
+
+<li> <EM><a href="papers/ics.html">The Galley Parallel File System.
+  </EM></A>  Appeared in ICS '96.
+
+  <li> <EM><a href="papers/gfsperf.html">
+  Performance of the Galley Parallel File System.</EM></a>  Appeared in
+  IOPADS '96 
+
+</ul>
+
+
+Galley makes no pretense to be anything but an experimental file system,
+and is missing many of the features that would be required in a
+'production' file system.  Most importantly, Galley does not provide any
+sort of security or support for
+recovery from IOP crashes (<em> i.e.</em>, fsck).
+
+<H3> Source code </H3>
+
+The <a href="galley/galley.tar.Z">full source code</A> for Galley is now
+available for downloading.  The code isn't as clean or as fully commented
+as I would have liked, but I don't have time to really do a good job on it.<p>
+
+I'm not planning to do any sort of support (unfortunately, this includes
+bugfixes), partly since I believe the non-competition clause of my new
+employment agreement will prohibit it, and partly because I don't expect
+to have time.  If somebody else here at Dartmouth takes up the Galley
+banner, someone will make an announcement
+to that effect.<p>
+
+Finally, if you find this code useful please let me know.
+
+
+<hr>
+<em><A HREF="/~nils/index.html">Nils A. Nieuwejaar</A></em>
+<ADDRESS> <A HREF="mailto:nils@cs.dartmouth.edu">
+nils@cs.dartmouth.edu </A> </ADDRESS>
+
+<em>Last modified Monday, September 2, 1996</em></p>
+
+</BODY>
+</HTML>

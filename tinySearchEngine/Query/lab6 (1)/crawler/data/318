@@ -1,0 +1,36 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-pioarch.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:pioarch</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Introduction to Multiprocessor I/O Architecture</b>.
+In
+Ravi Jain, John Werth, and James C. Browne.
+editors, 
+<i>Input/Output in Parallel and Distributed Computer Systems</i>,
+chapter 4,
+The Kluwer International Series in Engineering and Computer
+Science,
+Kluwer Academic Publishers,
+1996.
+<p><b>Abstract:</b> The computational performance of multiprocessors continues to
+improve by leaps and bounds, fueled in part by rapid improvements in
+processor and interconnection technology. I/O performance thus becomes ever
+more critical, to avoid becoming the bottleneck of system performance. In
+this paper we provide an introduction to I/O architectural issues in
+multiprocessors, with a focus on disk subsystems. While we discuss examples
+from actual architectures and provide pointers to interesting research in the
+literature, we do not attempt to provide a comprehensive survey. We
+concentrate on a study of the architectural design issues, and the effects of
+different design alternatives.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-pioarch.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-pioarch.pdf">PDF</a> (328K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by Kluwer Academic Publishers.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

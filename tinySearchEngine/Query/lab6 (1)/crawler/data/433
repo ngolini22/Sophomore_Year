@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/bratus-streaming-poster.html
+3
+<HTML>
+<HEAD>
+ <TITLE>bratus:streaming-poster</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Sergey Bratus, Joshua Brody, David Kotz, and Anna Shubina.
+<b>Streaming Estimation of Information-theoretic Metrics for Anomaly
+Detection (Extended Abstract)</b>.
+In
+<i>Proceedings of the 11th International Symposium on Recent
+Advances in Intrusion Detection-- Posters</i>,
+pages 412-414,
+Cambridge, MA,
+September,
+2008.
+Springer-Verlag.
+DOI <a href="http://dx.doi.org/10.1007/978-3-540-87403-4_32">10.1007/978-3-540-87403-4_32</a>.
+<p><b>Abstract:</b> Information-theoretic metrics hold great promise for modeling
+traffic and detecting anomalies if only they could be computed in an
+efficient, scalable ways. Recent advances in streaming estimation algorithms
+give hope that such computations can be made practical. We describe our work
+in progress that aims to use streaming algorithms on 802.11a/b/g link layer
+(and above) features and feature pairs to detect anomalies.</p>
+<p><b>Keywords:</b> wireless, security, intrusion detection</p>
+<p><a href="bibtex/bratus-streaming-poster.bib">BibTeX</a></p>
+<p><a target=_top href = "././bratus-streaming-poster.pdf">PDF</a> (82K)</p>
+<p><b>Copyright &#169;&nbsp;2008 by Springer.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

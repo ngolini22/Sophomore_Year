@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/anthony-pervasive.html
+3
+<HTML>
+<HEAD>
+ <TITLE>anthony:pervasive</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Denise Anthony, Tristan Henderson, and David Kotz.
+<b>Privacy in Location Aware Computing Environments</b>.
+<i>IEEE Pervasive</i>,
+6(4):64-72,
+Oct-Dec,
+2007.
+DOI <a href="http://dx.doi.org/10.1109/MPRV.2007.83">10.1109/MPRV.2007.83</a>.
+<p><b>Abstract:</b> As location-aware and pervasive computing technologies become
+more prevalent, privacy concerns are becoming increasingly more important.
+User preferences about location privacy may depend on place, not only in
+terms of their physical location but also in terms of their social context:
+how they define where they are, what they are doing, and whom they are with
+at the time. Using the experience sampling method, the authors explored the
+privacy preferences of 25 users during one week. They found that participants
+were more willing to share location information when at home or alone than
+when at other locations or with friends. Most participants were consistent in
+their location privacy preferences across requester categories and regardless
+of place. Some participants, however, varied in their willingness to share
+location information depending on where they were, who they were with, and
+who was requesting the information. Those participants tended to be more
+concerned about privacy in general. These findings are useful for designing
+future privacy policies and user interfaces for pervasive computing. This
+article is part of a special issue on security and privacy.</p>
+<p><a href="bibtex/anthony-pervasive.bib">BibTeX</a></p>
+<p><a target=_top href = "././anthony-pervasive.pdf">PDF</a> (797K)</p>
+<p><b>Copyright &#169;&nbsp;2007 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

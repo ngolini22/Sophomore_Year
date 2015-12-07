@@ -1,0 +1,89 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture26/lecture26.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>The Cloud: Running on the Real Google Cloud - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h2 id="lecture-25---the-cloud-running-on-the-real-cloud">Lecture 25 - The Cloud: Running on the Real Cloud</h2>
+<p>We carry on discussing App Engine and discuss how to deploy your application to the Google App Engine (i.e. cloud).</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Deploy your application to Google App Engine</li>
+</ul>
+<h2 id="deploying-to-google-app-engine">Deploying to Google App Engine</h2>
+<p>There are two steps to deploy your application to the cloud: 1. create an application on the cloud, and 2. upload your project to the cloud. In what follows, we show you how to do these two steps.</p>
+<h3 id="creating-an-application">Creating an Application</h3>
+<ol style="list-style-type: decimal">
+<li>Login to Google App Engine's <a href="https://appengine.google.com">Application Overview</a>, click &quot;Create Application&quot;.</li>
+</ol>
+<div class="figure">
+<img src="images/gae_create_0.png" />
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Input the &quot;Application Identifier&quot; and click &quot;Check Availability&quot; to make sure it is available. Input the &quot;Application Title&quot; in the following text box. Your application's url will be http://<app_id>.appspot.com. In the example showing below, the url is http://cs65gcmdemo.appspot.com.</li>
+</ol>
+<div class="figure">
+<img src="images/gae_create_1.png" />
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>After creating the application, you can access your application's dash board by clicking the &quot;dashboard&quot; link on the result page.</li>
+</ol>
+<div class="figure">
+<img src="images/gae_create_2.png" />
+</div>
+<h3 id="deploying-an-application">Deploying an Application</h3>
+<p>Before deploying your application, you need to make sure your project is compiled using Java 1.7. To do this, right click your project and click &quot;Properties&quot;. Go to &quot;Project Facets&quot;, and make sure the facet names &quot;Java&quot; is 1.7 and checked.</p>
+<div class="figure">
+<img src="images/gae_deploy_error.png" />
+</div>
+<ol style="list-style-type: decimal">
+<li>In eclipse, right click your project and click &quot;Properties&quot;. Go to &quot;Google&quot; -&gt; &quot;App Engine&quot;, input your application id and version as shown below. It is up to you to decide the version number.</li>
+</ol>
+<div class="figure">
+<img src="images/gae_deploy_0.png" />
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Right click your project, go to &quot;Google&quot; -&gt; &quot;Deploy to App Engine&quot;, a login window will open. Login to your Gmail account to proceed.</li>
+</ol>
+<p><img src="images/gae_deploy_1.png" /> <img src="images/gae_deploy_2.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>After login, click &quot;Deploy&quot; in the next window to start deploying your application to Google App Engine.</li>
+</ol>
+<div class="figure">
+<img src="images/gae_deploy_3.png" />
+</div>
+<p>A progress bar will be showing.</p>
+<div class="figure">
+<img src="images/gae_deploy_4.png" />
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>After deploying the application, go to the dashboard. Go to &quot;Versions&quot;, and make the version you just deployed default.</li>
+</ol>
+<div class="figure">
+<img src="images/gae_deploy_5.png" />
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>You can access your application using the URL now.</li>
+</ol>
+</body>
+</html>

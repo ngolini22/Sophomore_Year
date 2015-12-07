@@ -1,0 +1,498 @@
+http://www.cs.dartmouth.edu/~campbell/cs65/lecture14/lecture14.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>The Phone Camera - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="lecture-8---the-phone-camera-and-data-storage">Lecture 8 - The Phone Camera and Data Storage</h1>
+<p>The phone really is a Swiss army knife. It is a phone, camera, mp3 player -- and a million other things when you consider all the apps that you can download -- the flashlight app can come in very useful. The camera is used for lots of things: snaps, video, virtual reality, car safety apps. MyRuns1 uses the camera in a simple manner -- just to take a photo for the user profile. Apps can easily fire the camera app to take a photo and then manipulate the image that is returned, such as, cropping a thumbnail version of the picture. In this lecture, we discuss how to use the camera and crop apps.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Under the bonnet of the Nexus 4</li>
+<li>Taking a picture and storing it to a file</li>
+<li>Firing an implicit intent to take the photo</li>
+<li>onActivityResult()</li>
+<li>Implicit and explicit intents</li>
+<li>Cropping a photo and saving it</li>
+</ul>
+<p>Also importantly we need to save app data, so this lecture also includes pointers on that:</p>
+<ul>
+<li>Storage -- how Android stores app data</li>
+</ul>
+<h2 id="demo-projects">Demo projects</h2>
+<p>The demo code used in this lecture include:</p>
+<ul>
+<li><p>Simple use of the camera with <a href="../code/camerademo.zip">camerademo.zip</a>. The first project is a very simple app for just taking and displaying the photo in the gallery. The photo is saved in a file. So you implicitly see how to interact with files. The following demo of the camera app is taken directly from the course book <a href="https://github.com/commonsguy/cw-omnibus/tree/master/Camera/Content">CamerContentDemo</a>.</p></li>
+<li><p>The version of the next camera app (below) without Dialogs and Fragements (to be discussed next week) is <a href="CameraNoDialog.zip">here</a>. Use this code example rather than the one below. Caveat: the notes in this lecture need updating because they refer to Dialog and Fragments. Please try and ignore these. Sorry for being confusing here.</p></li>
+<li><p>Photo and crop app with <a href="../code/camera.zip">camera.zip</a>. This project provides additional cropping and allows the user to update an existing picture in the UI -- we need to do this in MyRuns1 so the code serves as a template to doing that. The project also supports building and displaying of customized dialogs, which will come in handy with the MyRuns app.</p></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Android developers <a href="http://developer.android.com/guide/topics/media/camera.html">Camera</a></li>
+<li>Course book section on <a href="http://commonsware.com/Android/">Using the Camera</a></li>
+</ul>
+<h2 id="under-the-bonnet-of-the-nexus-4">Under the bonnet of the Nexus-4</h2>
+<p>We haven't talked about what about what makes the Nexus 4 the Nexus 4.</p>
+<div class="figure">
+<img src="images/nexus.png" />
+</div>
+<p>How beautiful is the Nexus 4 hardware -- the software is darn cool too. You have to love its look and Corning's Gorilla glass but the most geeky thing is that is has a quad-core processor -- think of it class, Moore's law is now doubling the cores every 18 months or less. Nexus 4 is the first smartphone <em>using system on a chip</em> -- Qualcomm <a href="http://en.wikipedia.org/wiki/Snapdragon_system_on_chip">Snapdragon S4 Pro CPU</a>. This is an incredibly cool piece of computing technology. These are exciting times for mobile: the hardware and software is incredibly awesome and you have it in your hands.</p>
+<div class="figure">
+<img src="images/camera.png" />
+</div>
+<p>First the Nexus 4 like many of the smartphones on the market today has two cameras -- front and back -- and we will learn to use some very basic part of the camera API in this lecture. The 8-megapixel (MP) camera back camera is fine not a nice as the Samsung S3 12 MP camera. The front camera is typically lower quality -- used for video chat, etc. The front camera is 1.3 MP. The software comes with what Google call <em>Photo Sphere</em>, which lets you capture images in all directions around you -- very cool. The camera sensors are basic.</p>
+<p>The Nexus 4 has a lot more than cameras -- checkout the <a href="http://www.google.com/nexus/4/specs/">specification</a>:</p>
+<p><strong>Radios</strong></p>
+<ul>
+<li>WiFi 802.11 a/b/g/n</li>
+<li>Bluetooth</li>
+<li>NFC (Android Beam)</li>
+<li>Unlocked GSM/UMTS/HSPA+</li>
+<li>GSM/EDGE/GPRS (850, 900, 1800, 1900 MHz)</li>
+<li>3G (850, 900, 1700, 1900, 2100 MHz)</li>
+<li>HSPA+ 42</li>
+<li>Wireless charging</li>
+</ul>
+<p>Can you believe that!</p>
+<p><strong>Sensors</strong></p>
+<ul>
+<li>Accelerometer</li>
+<li>GPS</li>
+<li>Gyroscope</li>
+<li>Barometer</li>
+<li>Microphone</li>
+<li>Ambient light</li>
+<li>Compass</li>
+<li>2 Cameras</li>
+</ul>
+<p>No, no, I can't believe this. We are not done yet.</p>
+<p><strong>Processors</strong></p>
+<ul>
+<li>Qualcomm <a href="http://en.wikipedia.org/wiki/Snapdragon_system_on_chip">Snapdragon S4 Pro CPU</a></li>
+</ul>
+<p><strong>Memory</strong></p>
+<ul>
+<li>8GB and 2 GB RAM for the cheapo version.</li>
+</ul>
+<h2 id="taking-a-picture-and-storing-it-to-a-file">Taking a picture and storing it to a file</h2>
+<p>OK back to the camera -- I must admit I get totally excited by what is compressed inside some thing that weighs 139g; I know I'm weird. But it's stunning and do not loose sight of hardware developments.</p>
+<p>Many applications want to take a photo. We will discuss how an app can launch the camera, the user can take a photo and the control returns back to the app that invoked the camera. You will do this for the MyRuns Lab 1.</p>
+<p>The following simple demo of the camera app is taken directly from the course book -- the code <a href="../code/camerademo.zip">camerademo.zip</a> is a slightly modified version of the original <a href="https://github.com/commonsguy/cw-omnibus/tree/master/Camera/Content">CamerContentDemo</a>.</p>
+<p>I've had my mother Brenda pose to demo this app with jack and jean her beloved dogs. The three screen dumps show the progression of the app once it is fired. The first image shows the app with the camera app active. The camera app's UI is shown and it is a fully functioning camera view -- full control to set flash, etc. The next image is to <em>check</em> and save the image. The final image is shown after the final part of the demo fires an intent to show the stored image to the user using the gallery app. Note the top left hand corner of the final image: you can see the name of the saved image and its directory. There are two photos in the gallery.</p>
+<p>The activation of the camera and gallery apps is via <strong>implicit intents</strong>. Next, we will discuss how to implement this in the code.</p>
+<div class="figure">
+<img src="images/queen.png" />
+</div>
+<p>You probably are getting use to this now but if you want to start another activity you need to fire an intent -- and that is exactly what we do below. We create an intent using <code>MediaStore.ACTION_IMAGE_CAPTURE</code> action.</p>
+<h2 id="firing-an-implicit-intent-to-take-the-photo">Firing an implicit intent to take the photo</h2>
+<p>The steps needed to take a photo and store it in a file are as follows:</p>
+<ul>
+<li>First create an Intent that requests an image using the intent types MediaStore.ACTION_IMAGE_CAPTURE; this requests an image from the built camera app.</li>
+<li>Next, create a file for the camera app to store the photo -- where to store the photo.</li>
+<li>Next, start the camera intent using <code>startActivityForResult(i, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE)</code>. Note, that after you start the intent, the Camera app UI appears on the device screen and the user can take a photo. We ask the system to return back to the calling activity with a result -- hopefully, the photo was successfully taken.</li>
+</ul>
+<p>The above steps all are implemented as part of onCreate() as shown below.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> CameraDemoActivity <span class="kw">extends</span> Activity {
+            <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = <span class="dv">111</span>;
+            <span class="kw">private</span> File output = <span class="kw">null</span>;
+ 
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+ 
+                        <span class="co">// create Intent to take a picture and return control to the calling</span>
+                        <span class="co">// application</span>
+                        Intent i = <span class="kw">new</span> <span class="fu">Intent</span>(MediaStore.<span class="fu">ACTION_IMAGE_CAPTURE</span>);
+ 
+                        <span class="co">// set up the path name and create a file to save the image</span>
+                        File dir = Environment
+                                        .<span class="fu">getExternalStoragePublicDirectory</span>(Environment.<span class="fu">DIRECTORY_DCIM</span>);
+ 
+                        output = <span class="kw">new</span> File(dir, <span class="st">&quot;CameraDemo.jpeg&quot;</span>);
+                        i.<span class="fu">putExtra</span>(MediaStore.<span class="fu">EXTRA_OUTPUT</span>, Uri.<span class="fu">fromFile</span>(output));
+ 
+                        <span class="co">// start the image capture Intent</span>
+                        <span class="fu">startActivityForResult</span>(i, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+            }</code></pre>
+<h2 id="onactivityresult">onActivityResult()</h2>
+<p>The final part of the steps for displaying the photo are implemented as part of the <code>onActivityResult()</code>call back. Here your app receives a callback and data from the camera intent. In the <code>onActivityResult()</code> callback the code fires the viewer using another intent (using <code>ACTION_VIEW</code> to render the photo stored file: CameraContentDemo.jpeg. This file (data) is used by the receiving app (i.e., gallery app, or another app capable of displaying a JPEG file). The result is that the photo taken under user control by the camera app is displayed on the screen for the user to see by the gallery app.</p>
+<p>The file is stored in the data/DCIM on your phone. Run the app and the use Android explorer or the <em>File Manager</em> on the phone to view the file. If you use the Android explorer you need to drag and drop the file to your desktop (i.e., copy it over) before looking at it.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onActivityResult</span>(<span class="dt">int</span> requestCode, <span class="dt">int</span> resultCode, Intent data) {
+                        <span class="co">// Check the request is for taking a photo and OK</span>
+                        <span class="kw">if</span> (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+                                    <span class="kw">if</span> (resultCode == RESULT_OK) {
+ 
+                                                <span class="co">// fire the intent to view the photo in gallery or another app</span>
+                                                Intent i = <span class="kw">new</span> <span class="fu">Intent</span>(Intent.<span class="fu">ACTION_VIEW</span>);
+                                                i.<span class="fu">setDataAndType</span>(Uri.<span class="fu">fromFile</span>(output), <span class="st">&quot;image/jpeg&quot;</span>);
+                                                <span class="fu">startActivity</span>(i);
+                                                <span class="fu">finish</span>();
+                                    }
+                        }
+            }
+}</code></pre>
+<p>The file in both snippets of code use a <a href="http://developer.android.com/reference/java/net/URI.html">uniform resource identifier (URI)</a>, which is a string of characters used to identify a name or a web resource.</p>
+<h2 id="implicit-and-explicit-intents">Implicit and explicit intents</h2>
+<p>We have now used two different types of intents called Implicit and explicit intents. We have used explicit intents numerous times to start activities such as shown below where we set the intent up to explicitly start a particular activity by naming the target activity</p>
+<pre class="sourceCode java"><code class="sourceCode java">        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(MainLayoutActivity.<span class="fu">this</span>, LinearLayoutActivity.<span class="fu">class</span>);
+        <span class="fu">startActivity</span>(intent);</code></pre>
+<p>The second type of intents are implicit intents, which we have been using in this lecture. Implicit intents do not name a target but the action, as shown below. Implicit intents are often used to activate components in other applications.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            Intent i = <span class="kw">new</span> <span class="fu">Intent</span>(Intent.<span class="fu">ACTION_VIEW</span>);
+            i.<span class="fu">setDataAndType</span>(Uri.<span class="fu">fromFile</span>(output), <span class="st">&quot;image/jpeg&quot;</span>);
+            <span class="fu">startActivity</span>(i);</code></pre>
+<p>The intent only ACTION_VIEW the action. The system resolves to start the activity capable of handling the action without explicitly starting a browser or gallery. The Android system tries to find an app that is capable of performing the requested action in the implicit intent. It does this by considering the requested action, the data that has been passed in the intent (e.g., JPEG file) -- it uses intent filters that consider -- the action, data and category.</p>
+<p>One issue with implicit intents is that you have no control over the app; for example in the case of the camera or the gallery; you fire it and hope for the best. This is a limitation of the approach.</p>
+<h2 id="snap-crop-and-store-a-simple-camera-app">Snap, crop and store: a simple camera app</h2>
+<p>Let's consider a new application that not only takes and stores a photo but also <a href="http://stackoverflow.com/q/3846338">crops</a> the photo based on the user's needs. We now look at the demo project included in this lecture: <a href="../code/camera.zip">camera.zip</a>. This is also needed for MyRuns Lab 1. There isn't anything in the book so the code below and Stackoverflow reference should help. The demo app also include a way to build and control customized dialogs, which is also very useful in developing MyRuns.</p>
+<p>The app works as follows. The first free images are: 1) after the app is first launched; 2) when <em>SnapNow</em> is selected; 3) when the camera app is launched.</p>
+<div class="figure">
+<img src="images/camera2.png" />
+</div>
+<p>The next set of screen dumps show the remainder of the operations in the app workflow: 4) after the photo is take; 5) when the crop app is launched; 6) after the image has been cropped and inserted by replacing the existing photo.</p>
+<div class="figure">
+<img src="images/camera1.png" />
+</div>
+<h2 id="clean-design-guidelines">Clean design guidelines</h2>
+<p>The program allows the user to replace the existing picture if it exists. Note, the program as a better design in terms of helper functions for <em>save_snap()</em> and <em>load_snap()</em>. These help functions load the photo and render it on the UI if it already exists and save a photo it one is taken so it is rendered in the UI next time the app runs.</p>
+<p>The code also has a better way for other activities to return to the calling activity. For example <em>onActivityResult()</em> is the return callback for the camera app after taking a photo and from crop app after cropping. This is a clean design.</p>
+<p>Similarly, we handle dialogs more cleanly. Because there are many dialogs in the MyRuns application we start to build up a common way to handle them in <em>MyRunsDialogFragment</em> which can be extended to handle different type of dialogs. Again, this is a clean design where all dialogs are managed in a centralized manner.</p>
+<p>First, note that in the manifest we have to be granted permission to use the camera app.</p>
+<pre class="sourceCode java"><code class="sourceCode java">    &lt;uses-feature android:name=<span class="st">&quot;android.hardware.camera&quot;</span> /&gt;
+    &lt;uses-permission android:name=<span class="st">&quot;android.permission.CAMERA&quot;</span> /&gt;</code></pre>
+<h2 id="cameracontrolactivity">CameraControlActivity</h2>
+<p>The onCreate() code sets of the view, gets a reference to the current image and retrieves the current image capture URI if it has been saved by the activity when the app exited and called onSaveInstanceState().</p>
+<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">public</span> <span class="kw">class</span> CameraControlActivity <span class="kw">extends</span> Activity {
+ 
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> REQUEST_CODE_TAKE_FROM_CAMERA = <span class="dv">0</span>;
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> REQUEST_CODE_CROP_PHOTO = <span class="dv">2</span>;
+ 
+            <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String IMAGE_UNSPECIFIED = <span class="st">&quot;image/*&quot;</span>;
+            <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String URI_INSTANCE_STATE_KEY = <span class="st">&quot;saved_uri&quot;</span>;
+ 
+            <span class="kw">private</span> Uri mImageCaptureUri;
+            <span class="kw">private</span> ImageView mImageView;
+            <span class="kw">private</span> <span class="dt">boolean</span> isTakenFromCamera;
+ 
+            @Override
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onCreate</span>(Bundle savedInstanceState) {
+                        <span class="kw">super</span>.<span class="fu">onCreate</span>(savedInstanceState);
+                        <span class="fu">setContentView</span>(R.<span class="fu">layout</span>.<span class="fu">profile</span>);
+                        mImageView = (ImageView) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">imageProfile</span>);
+ 
+                        <span class="kw">if</span> (savedInstanceState != <span class="kw">null</span>) {
+                                    mImageCaptureUri = savedInstanceState
+                                                            .<span class="fu">getParcelable</span>(URI_INSTANCE_STATE_KEY);
+                        }
+ 
+                        <span class="fu">loadSnap</span>();
+            }
+ 
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onSaveInstanceState</span>(Bundle outState) {
+                        <span class="kw">super</span>.<span class="fu">onSaveInstanceState</span>(outState);
+                        <span class="co">// Save the image capture uri before the activity goes into background</span>
+                        outState.<span class="fu">putParcelable</span>(URI_INSTANCE_STATE_KEY, mImageCaptureUri);
+            }
+ </code></pre>
+<h2 id="callbacks">Callbacks</h2>
+<p>Two important callbacks are shown in the code below. When the user selects the <em>SnapNow</em> as shown above <em>onChangePhotoClicked(View v)</em> is called. This kicks the main workflow of that is shown in the series of images above. The displayDialog() method creates a new dialog fragment and then <em>onCreateDialog()</em> is called -- see the discussion at the end of the notes on this; but, in summary:</p>
+<ul>
+<li>onCreateDialog() creates a customized dialog and presents it to the user as shown the workflow set of screen dumps.</li>
+<li>onCreateDialog() creates an onClickListerner for the dialog and the onClick() (see below) is called. once the user selects the dialog &quot;Take picture from camera&quot; the next step proceeds.</li>
+<li>onClick() calls onPhotoPickerItemSelected(item) above that kicks of taking the actual photo.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onSaveClicked</span>(View v) {
+                        <span class="co">// Save picture</span>
+                        <span class="fu">saveSnap</span>();
+                        <span class="co">// Making a &quot;toast&quot; informing the user the picture is saved.</span>
+                        Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">ui_profile_toast_save_text</span>),
+                                                Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+                        <span class="co">// Close the activity</span>
+                        <span class="fu">finish</span>();
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onChangePhotoClicked</span>(View v) {
+                        <span class="co">// changing the profile image, show the dialog asking the user</span>
+                        <span class="co">// to choose between taking a picture</span>
+                        <span class="co">// Go to MyRunsDialogFragment for details.</span>
+                        <span class="fu">displayDialog</span>(MyRunsDialogFragment.<span class="fu">DIALOG_ID_PHOTO_PICKER</span>);
+            }
+ 
+            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">displayDialog</span>(<span class="dt">int</span> id) {
+                        DialogFragment fragment = MyRunsDialogFragment.<span class="fu">newInstance</span>(id);
+                        fragment.<span class="fu">show</span>(<span class="fu">getFragmentManager</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">dialog_fragment_tag_photo_picker</span>));
+            }
+ </code></pre>
+<h2 id="photo-picker-dialog-related-functions">Photo picker dialog related functions</h2>
+<p>The onPhotoPickerItemSelected() callback constructs the intent for the camera app as in the first example project using the <em>ACTION_IMAGE_CAPTURE</em> action -- this is an implicit intent. Again, it does not identify the application that meets the action, it just says to the Android system -- need a snap, figure it out for me.</p>
+<p>Because we are taking a photo and later cropping it we set up a temporary path and name to save the photo as we work on it using the and store it in private data (to this activity) <em>mImageCaptureUri</em> (crop later access this). We construct a temporary file based on time and extension jpg. Question: can you tell me where on your phone these photos are stored? The mImageCaptureUri is passed in the intent to the camera app, as is the case with first camera app. Then the camera app is implicitly started using startActivityForResult(). Once the user has taken a picture and clicked the tick icon then control will return to <em>startActivityForResult()</em> with REQUEST_CODE_TAKE_FROM_CAMERA as an input parameter.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onPhotoPickerItemSelected</span>(<span class="dt">int</span> item) {
+                        Intent intent;
+ 
+                        <span class="kw">switch</span> (item) {
+ 
+                        <span class="kw">case</span> MyRunsDialogFragment.<span class="fu">ID_PHOTO_PICKER_FROM_CAMERA</span>:
+                                    <span class="co">// Take photo from camera</span>
+                                    <span class="co">// Construct an intent with action</span>
+                                    <span class="co">// MediaStore.ACTION_IMAGE_CAPTURE</span>
+                                    intent = <span class="kw">new</span> <span class="fu">Intent</span>(MediaStore.<span class="fu">ACTION_IMAGE_CAPTURE</span>);
+                                    <span class="co">// Construct temporary image path and name to save the taken</span>
+                                    <span class="co">// photo</span>
+                                    mImageCaptureUri = Uri.<span class="fu">fromFile</span>(<span class="kw">new</span> File(Environment
+                                                            .<span class="fu">getExternalStorageDirectory</span>(), <span class="st">&quot;tmp_&quot;</span>
+                                                            + String.<span class="fu">valueOf</span>(System.<span class="fu">currentTimeMillis</span>()) + <span class="st">&quot;.jpg&quot;</span>));
+                                    intent.<span class="fu">putExtra</span>(android.<span class="fu">provider</span>.<span class="fu">MediaStore</span>.<span class="fu">EXTRA_OUTPUT</span>,
+                                                            mImageCaptureUri);
+                                    intent.<span class="fu">putExtra</span>(<span class="st">&quot;return-data&quot;</span>, <span class="kw">true</span>);
+                                    <span class="kw">try</span> {
+                                                <span class="co">// Start a camera capturing activity</span>
+                                                <span class="co">// REQUEST_CODE_TAKE_FROM_CAMERA is an integer tag you</span>
+                                                <span class="co">// defined to identify the activity in onActivityResult()</span>
+                                                <span class="co">// when it returns</span>
+                                                <span class="fu">startActivityForResult</span>(intent, REQUEST_CODE_TAKE_FROM_CAMERA);
+                                    } <span class="kw">catch</span> (ActivityNotFoundException e) {
+                                                e.<span class="fu">printStackTrace</span>();
+                                    }
+                                    <span class="kw">break</span>;
+                                    
+                        <span class="kw">default</span>:
+                                    <span class="kw">return</span>;
+                        }
+            }</code></pre>
+<h2 id="after-the-snap-is-taken-onactivityresult-is-called">After the snap is taken: onActivityResult() is called</h2>
+<p>onActivityResult() is called once the user has completed taken the photo. Note there are two possible execution paths in onActivityResult():</p>
+<ul>
+<li>REQUEST_CODE_TAKE_FROM_CAMERA calls cropImage(), which will do as the name suggets</li>
+<li>REQUEST_CODE_CROP_PHOTO gets the data (URI) for the cropped photo and sets the image bit map to the view. Recall mImageView = (ImageView) findViewById(R.id.imageProfile); finally, if the image came from the camera as oppose to the galley (so this code clearly relates to the extension you need to do for galley sourced images) then the temporary image is deleted.</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="co">// Handle data after activity returns.</span>
+            @Override
+            <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">onActivityResult</span>(<span class="dt">int</span> requestCode, <span class="dt">int</span> resultCode, Intent data) {
+                        <span class="kw">if</span> (resultCode != RESULT_OK)
+                                    <span class="kw">return</span>;
+ 
+                        <span class="kw">switch</span> (requestCode) {
+                        <span class="kw">case</span> REQUEST_CODE_TAKE_FROM_CAMERA:
+                                    <span class="co">// Send image taken from camera for cropping</span>
+                                    <span class="fu">cropImage</span>();
+                                    <span class="kw">break</span>;
+ 
+                        <span class="kw">case</span> REQUEST_CODE_CROP_PHOTO:
+                                    <span class="co">// Update image view after image crop</span>
+                                    Bundle extras = data.<span class="fu">getExtras</span>();
+                                    <span class="co">// Set the picture image in UI</span>
+                                    <span class="kw">if</span> (extras != <span class="kw">null</span>) {
+                                                mImageView.<span class="fu">setImageBitmap</span>((Bitmap) extras.<span class="fu">getParcelable</span>(<span class="st">&quot;data&quot;</span>));
+                                    }
+ 
+                                    <span class="co">// Delete temporary image taken by camera after crop.</span>
+                                    <span class="kw">if</span> (isTakenFromCamera) {
+                                                File f = <span class="kw">new</span> File(mImageCaptureUri.<span class="fu">getPath</span>());
+                                                <span class="kw">if</span> (f.<span class="fu">exists</span>())
+                                                            f.<span class="fu">delete</span>();
+                                    }
+ 
+                                    <span class="kw">break</span>;
+                        }
+            }</code></pre>
+<h2 id="discussion-of-the-private-helper-functions-load_snap-and-save_snap">Discussion of the private helper functions: load_snap() and save_snap()</h2>
+<p>To private helper functions support the code for loading the photo from internal storage and committing any changes to the image that have taken place in the execution of the app. More specifically:</p>
+<ul>
+<li>If the user clicks &quot;Save&quot; as shown in the workflow pictures then onSaveClicked() is called and <em>saveSnap()</em> commits all changes to the <em>imageProfile</em> currently rendered in the view and saves the image to internal storage in a file called <em>profile_photo.png</em>.</li>
+<li>when the application is started or restarted onCreate() will call loadSnap() to load the current picture from file (profile_photo.png) and render the photo to <em>mImageView</em>; recall mImageView = (ImageView) findViewById(R.id.imageProfile).</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="kw">private</span> <span class="dt">void</span> <span class="fu">saveSnap</span>() {
+ 
+            <span class="co">// Commit all the changes into preference file</span>
+                        <span class="co">// Save profile image into internal storage.</span>
+                        mImageView.<span class="fu">buildDrawingCache</span>();
+                        Bitmap bmap = mImageView.<span class="fu">getDrawingCache</span>();
+                        <span class="kw">try</span> {
+                                    FileOutputStream fos = <span class="fu">openFileOutput</span>(
+                                                            <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">profile_photo_file_name</span>), MODE_PRIVATE);
+                                    bmap.<span class="fu">compress</span>(Bitmap.<span class="fu">CompressFormat</span>.<span class="fu">PNG</span>, <span class="dv">100</span>, fos);
+                                    fos.<span class="fu">flush</span>();
+                                    fos.<span class="fu">close</span>();
+                        } <span class="kw">catch</span> (IOException ioe) {
+                                    ioe.<span class="fu">printStackTrace</span>();
+                        }
+            }
+ 
+            <span class="kw">private</span> <span class="dt">void</span> <span class="fu">loadSnap</span>() {
+ 
+                        <span class="co">// Load profile photo from internal storage</span>
+                        <span class="kw">try</span> {
+                                    FileInputStream fis = <span class="fu">openFileInput</span>(<span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">profile_photo_file_name</span>));
+                                    Bitmap bmap = BitmapFactory.<span class="fu">decodeStream</span>(fis);
+                                    mImageView.<span class="fu">setImageBitmap</span>(bmap);
+                                    fis.<span class="fu">close</span>();
+                        } <span class="kw">catch</span> (IOException e) {
+                                    <span class="co">// Default profile photo if no photo saved before.</span>
+                                    mImageView.<span class="fu">setImageResource</span>(R.<span class="fu">drawable</span>.<span class="fu">default_profile</span>);
+                        }
+            }
+ </code></pre>
+<h2 id="crop-an-image">Crop an image</h2>
+<p>There is noting in the books about cropping an image but we can fire an implicit intent to start the crop app and pass the image as data and type in the intent. Extract data is used to set the dimension of the image size needed by the crop. More esoteric data is passed associated with aspect ration and finally the intent is fired with REQUEST_CODE_CROP_PHOTO.</p>
+<p>See <a href="http://stackoverflow.com/q/11375131">Android crop Image</a> for more information.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="co">// Crop and resize the image for profile</span>
+            <span class="kw">private</span> <span class="dt">void</span> <span class="fu">cropImage</span>() {
+                        <span class="co">// Use existing crop activity.</span>
+                        Intent intent = <span class="kw">new</span> <span class="fu">Intent</span>(<span class="st">&quot;com.android.camera.action.CROP&quot;</span>);
+                        intent.<span class="fu">setDataAndType</span>(mImageCaptureUri, IMAGE_UNSPECIFIED);
+ 
+                        <span class="co">// Specify image size</span>
+                        intent.<span class="fu">putExtra</span>(<span class="st">&quot;outputX&quot;</span>, <span class="dv">100</span>);
+                        intent.<span class="fu">putExtra</span>(<span class="st">&quot;outputY&quot;</span>, <span class="dv">100</span>);
+ 
+                        <span class="co">// Specify aspect ratio, 1:1</span>
+                        intent.<span class="fu">putExtra</span>(<span class="st">&quot;aspectX&quot;</span>, <span class="dv">1</span>);
+                        intent.<span class="fu">putExtra</span>(<span class="st">&quot;aspectY&quot;</span>, <span class="dv">1</span>);
+                        intent.<span class="fu">putExtra</span>(<span class="st">&quot;scale&quot;</span>, <span class="kw">true</span>);
+                        intent.<span class="fu">putExtra</span>(<span class="st">&quot;return-data&quot;</span>, <span class="kw">true</span>);
+                        <span class="co">// REQUEST_CODE_CROP_PHOTO is an integer tag you defined to</span>
+                        <span class="co">// identify the activity in onActivityResult() when it returns</span>
+                        <span class="fu">startActivityForResult</span>(intent, REQUEST_CODE_CROP_PHOTO);
+            }
+ 
+}</code></pre>
+<h2 id="build-and-showing-customized-dialogs">Build and showing customized dialogs</h2>
+<p>If you are designing an app like MyRuns that uses dialogs all over the code it is better to provide a common dialog services that can be used to build, show and return user input from dialogs. <em>MyRunsDialogFragment()</em> handles all the customized dialog boxes in our project -differentiated by dialog id used but the MyRunsDialogFragment constructor. This is all accomplished by extending the simple <em>MyRunsDialogFragment</em> fragment shown below which extends the <em>DialogFragment</em> class . The code is self-explanatory:</p>
+<ul>
+<li>In this case the parent (activity that creates the dialog) passes the type of dialog to build and display in the constructor.</li>
+<li>Then the <em>onCreateDialog()</em> builds and displays the <strong>custom</strong> dialog.</li>
+<li>When the user provides input to the dialog <em>onClick()</em> calls onPhotoPickerItemSelected(item) in the parent activity -- that is, CameraControlActivity.</li>
+</ul>
+<p>When the user touches the dialog &quot;take picture from camera&quot; the <em>onChangePhotoClicked()</em> method calls <em>displayDialog()</em> to display the dialog and trigger the workflow shown in the workflow diagram.</p>
+<pre class="sourceCode java"><code class="sourceCode java">            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">displayDialog</span>(<span class="dt">int</span> id) {
+                        DialogFragment fragment = MyRunsDialogFragment.<span class="fu">newInstance</span>(id);
+                        fragment.<span class="fu">show</span>(<span class="fu">getFragmentManager</span>(),
+                                                <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">dialog_fragment_tag_photo_picker</span>));
+            }</code></pre>
+<p>You can extend this code for MyRuns 2 where you could select from the galley (and an existing photo) as well as the camera.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> MyRunsDialogFragment <span class="kw">extends</span> DialogFragment {
+ 
+            <span class="co">// Different dialog IDs</span>
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> DIALOG_ID_ERROR = -<span class="dv">1</span>;
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> DIALOG_ID_PHOTO_PICKER = <span class="dv">1</span>;
+ 
+            <span class="co">// For photo picker selection:</span>
+            <span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> ID_PHOTO_PICKER_FROM_CAMERA = <span class="dv">0</span>;
+ 
+            <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String DIALOG_ID_KEY = <span class="st">&quot;dialog_id&quot;</span>;
+ 
+            <span class="kw">public</span> <span class="dt">static</span> MyRunsDialogFragment <span class="fu">newInstance</span>(<span class="dt">int</span> dialog_id) {
+                        MyRunsDialogFragment frag = <span class="kw">new</span> <span class="fu">MyRunsDialogFragment</span>();
+                        Bundle args = <span class="kw">new</span> <span class="fu">Bundle</span>();
+                        args.<span class="fu">putInt</span>(DIALOG_ID_KEY, dialog_id);
+                        frag.<span class="fu">setArguments</span>(args);
+                        <span class="kw">return</span> frag;
+            }
+ 
+            @Override
+            <span class="kw">public</span> Dialog <span class="fu">onCreateDialog</span>(Bundle savedInstanceState) {
+                        <span class="dt">int</span> dialog_id = <span class="fu">getArguments</span>().<span class="fu">getInt</span>(DIALOG_ID_KEY);
+ 
+                        <span class="dt">final</span> Activity parent = <span class="fu">getActivity</span>();
+ 
+                        <span class="co">// Setup dialog appearance and onClick Listeners</span>
+                        <span class="kw">switch</span> (dialog_id) {
+                        <span class="kw">case</span> DIALOG_ID_PHOTO_PICKER:
+                                    <span class="co">// Build picture picker dialog for choosing from camera or gallery</span>
+                                    AlertDialog.<span class="fu">Builder</span> builder = <span class="kw">new</span> AlertDialog.<span class="fu">Builder</span>(parent);
+                                    builder.<span class="fu">setTitle</span>(R.<span class="fu">string</span>.<span class="fu">ui_profile_photo_picker_title</span>);
+                                    <span class="co">// Set up click listener, firing intents open camera</span>
+                                    DialogInterface.<span class="fu">OnClickListener</span> dlistener = <span class="kw">new</span> DialogInterface.<span class="fu">OnClickListener</span>() {
+                                                <span class="kw">public</span> <span class="dt">void</span> <span class="fu">onClick</span>(DialogInterface dialog, <span class="dt">int</span> item) {
+                                                            <span class="co">// Item is ID_PHOTO_PICKER_FROM_CAMERA</span>
+                                                            <span class="co">// Call the onPhotoPickerItemSelected in the parent</span>
+                                                            <span class="co">// activity, i.e., ameraControlActivity in this case</span>
+                                                            ((CameraControlActivity) parent)
+                                                                                    .<span class="fu">onPhotoPickerItemSelected</span>(item);
+                                                }
+                                    };
+                                    <span class="co">// Set the item/s to display and create the dialog</span>
+                                    builder.<span class="fu">setItems</span>(R.<span class="fu">array</span>.<span class="fu">ui_profile_photo_picker_items</span>, dlistener);
+                                    <span class="kw">return</span> builder.<span class="fu">create</span>();
+                        <span class="kw">default</span>:
+                                    <span class="kw">return</span> <span class="kw">null</span>;
+                        }
+            }
+}</code></pre>
+<h2 id="storage----how-android-stores-app-data">Storage -- how Android stores app data</h2>
+<p>Android has a number of options to store the apps data. Take a look at the <a href="http://developer.android.com/guide/topics/data/data-storage.html">developer notes</a> for more details. MyRuns1 will require you to save the profile photo to a file.</p>
+<p>The options for storage in Android can be summarized as:</p>
+<ul>
+<li>Shared Preferences -- store private primitive data in key-value pairs.</li>
+<li>Internal Storage -- store private data on the device memory.</li>
+<li>External Storage -- store public data on the shared external storage.</li>
+<li>SQLite Databases -- store structured data in a private database.</li>
+</ul>
+<p>We will use all of these options when building out the complete MyRuns app.</p>
+<p>Also read <a href="http://developer.android.com/training/basics/data-storage/files.html">saving files</a>.</p>
+<p>For example you can use openFileOutput(String name, int mode) to open a private file associated with this Context's application package for writing. This is a good place to store private data associated with an app. Consider the following snippet. The file profile_file.png is saved to /data/data/edu.dartmouthcs.myruns1/files. You may only get access to the file if rooted.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+        <span class="kw">try</span> {
+            <span class="kw">if</span> (mProfilePictureArray != <span class="kw">null</span>) {
+                Log.<span class="fu">d</span>(TAG, <span class="st">&quot;Save photo in ByteArray to profile_photo.png&quot;</span>);
+                FileOutputStream fos = <span class="fu">openFileOutput</span>(
+                        <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">profile_photo_file_name</span>),
+                        MODE_PRIVATE);
+                fos.<span class="fu">write</span>(mProfilePictureArray);
+
+                <span class="co">// from the code - path of profile_photo.png</span>
+                <span class="co">// is/data/data/edu.dartmouthcs.myruns1/files</span>
+
+                String path = <span class="kw">this</span>.<span class="fu">getFilesDir</span>().<span class="fu">getAbsolutePath</span>();
+                Log.<span class="fu">d</span>(TAG, <span class="st">&quot;path of profile_photo.png is&quot;</span> + path);
+
+                fos.<span class="fu">flush</span>();
+                fos.<span class="fu">close</span>();
+            }
+        } <span class="kw">catch</span> (Exception ioe) {
+            ioe.<span class="fu">printStackTrace</span>();
+        }</code></pre>
+</body>
+</html>

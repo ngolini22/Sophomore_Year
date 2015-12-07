@@ -1,0 +1,42 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/shin-anonytiles.html
+3
+<HTML>
+<HEAD>
+ <TITLE>shin:anonytiles</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Minho Shin, Cory Cornelius, Apu Kapadia, Nikos Triandopoulos, and David Kotz.
+<b>Location Privacy for Opportunistic Sensing through Population
+Mapping</b>.
+In preparation,
+December,
+2013.
+<p><b>Abstract:</b> Opportunistic sensing allows applications to ``task'' mobile
+devices to measure context in a target region. For example, one could
+leverage sensor-equipped vehicles to measure traffic or pollution levels on a
+particular street, or users' mobile phones to locate (Bluetooth-enabled)
+objects in their vicinity. In most proposed applications, context reports
+include the time and location of the event, putting the privacy of users at
+increased risk--even if identifying information has been removed from a
+report, the accompanying time and location can reveal sufficient information
+to deanonymize the user whose device sent the report. <P> We propose and
+evaluate a novel spatiotemporal blurring mechanism based on tessellation and
+clustering to protect users' privacy against the system while reporting
+context. Our technique employs a notion of probabilistic k-anonymity;
+it allows users to perform local blurring of reports efficiently
+without an online anonymization server before the data is sent to the
+system. The proposed scheme can control the degree of certainty in location
+privacy and the quality of reports through a system parameter. %We describe
+our technique in the context of \sys, our general-purpose architecture for
+leveraging users' mobile devices for measuring context, while maintaining the
+privacy of the users. We outline the architecture and security properties of
+our approach, and evaluate our tessellation and clustering algorithm against
+real mobility traces.</p>
+<p><b>Keywords:</b> mobile computing, sensors, wireless, ubicomp</p>
+<p><a href="bibtex/shin-anonytiles.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;2013 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/kapadia-anonysense.html">kapadia:anonysense</a></b>.</p>
+</BODY>
+</HTML>

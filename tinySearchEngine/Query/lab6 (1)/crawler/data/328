@@ -1,0 +1,43 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-addrtrace.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:addrtrace</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Preston Crow.
+<b>The Expected Lifetime of ``Single-Address-Space'' Operating
+Systems</b>.
+In
+<i>Proceedings of the 1994 ACM SIGMETRICS Conference on Measurement
+and Modeling of Computer Systems</i>,
+pages 161-170,
+May,
+1994.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/183019.183036">10.1145/183019.183036</a>.
+<p><b>Abstract:</b> Trends toward shared-memory programming paradigms, large (64-bit)
+address spaces, and memory-mapped files have led some to propose the use of a
+single virtual-address space, shared by all processes and processors. Typical
+proposals require the single address space to contain all process-private
+data, shared data, and stored files. To simplify management of an address
+space where stale pointers make it difficult to re-use addresses, some have
+claimed that a 64-bit address space is sufficiently large that there is no
+need to ever re-use addresses. Unfortunately, there has been no data to
+either support or refute these claims, or to aid in the design of appropriate
+address-space management policies. In this paper, we present the results of
+extensive kernel-level tracing of the workstations in our department, and
+discuss the implications for single-address-space operating systems. We found
+that single-address-space systems will not outgrow the available address
+space, but only if reasonable space-allocation policies are used, and only if
+the system can adapt as larger address spaces become available.</p>
+<p><b>Keywords:</b> operating system, distributed computing</p>
+<p><a href="bibtex/kotz-addrtrace.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-addrtrace.pdf">PDF</a> (649K)</p>
+<p><b>Copyright &#169;&nbsp;1994 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-addrtrace-tr.html">kotz:addrtrace-tr</a></b>.</p>
+<p>See also later version <b><a href="abstracts/kotz-jaddrtrace.html">kotz:jaddrtrace</a></b>.</p>
+</BODY>
+</HTML>

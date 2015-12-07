@@ -1,0 +1,37 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-expand.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:expand</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Expanding the Potential for Disk-Directed I/O</b>.
+In
+<i>Proceedings of the 1995 IEEE Symposium on Parallel and
+Distributed Processing (SPDP)</i>,
+pages 490-495,
+San Antonio, TX,
+October,
+1995.
+IEEE Computer Society Press.
+DOI <a href="http://dx.doi.org/10.1109/SPDP.1995.530723">10.1109/SPDP.1995.530723</a>.
+<p><b>Abstract:</b> As parallel computers are increasingly used to run scientific
+applications with large data sets, and as processor speeds continue to
+increase, it becomes more important to provide fast, effective parallel file
+systems for data storage and for temporary files. In an earlier work we
+demonstrated that a technique we call disk-directed I/O has the potential to
+provide consistent high performance for large, collective, structured I/O
+requests. In this paper we expand on this potential by demonstrating the
+ability of a disk-directed I/O system to read irregular subsets of data from
+a file, and to filter and distribute incoming data according to
+data-dependent functions.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/kotz-expand.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-expand.pdf">PDF</a> (393K)</p>
+<p><b>Copyright &#169;&nbsp;1995 by IEEE.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also earlier version <b><a href="abstracts/kotz-expand-tr.html">kotz:expand-tr</a></b>.</p>
+</BODY>
+</HTML>

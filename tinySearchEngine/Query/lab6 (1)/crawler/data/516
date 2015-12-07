@@ -1,0 +1,31 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/cormen-integrate-tr.html
+3
+<HTML>
+<HEAD>
+ <TITLE>cormen:integrate-tr</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+Thomas H. Cormen and David Kotz.
+<b>Integrating Theory and Practice in Parallel File Systems</b>.
+Technical Report
+PCS-TR93-188,
+Dept. of Math and Computer Science, Dartmouth College,
+March,
+1993.
+Revised 9/20/94.
+<p><b>Abstract:</b> Several algorithms for parallel disk systems have appeared in the
+literature recently, and they are asymptotically optimal in terms of the
+number of disk accesses. Scalable systems with parallel disks must be able to
+run these algorithms. We present a list of capabilities that must be provided
+by the system to support these optimal algorithms: control over declustering,
+querying about the configuration, independent I/O, turning off file caching
+and prefetching, and bypassing parity. We summarize recent theoretical and
+empirical work that justifies the need for these capabilities.</p>
+<p><b>Keywords:</b> parallel-IO, parallel computing, file system</p>
+<p><a href="bibtex/cormen-integrate-tr.bib">BibTeX</a></p>
+<p><a target=_top href = "././cormen-integrate-tr.pdf">PDF</a> (148K)</p>
+<p><b>Copyright &#169;&nbsp;1993 by the authors.</b></p>
+<p>See also earlier version <b><a href="abstracts/cormen-integrate.html">cormen:integrate</a></b>.</p>
+</BODY>
+</HTML>

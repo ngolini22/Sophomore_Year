@@ -1,0 +1,34 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-bpractical.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:bpractical</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz and Carla Schlatter Ellis.
+<b>Practical Prefetching Techniques for Multiprocessor File Systems</b>.
+In
+Hai Jin, Toni Cortes, and Rajkumar Buyya.
+editors, 
+<i>High Performance Mass Storage and Parallel I/O: Technologies
+and Applications</i>,
+chapter 17,
+IEEE Computer Society Press and John Wiley &amp; Sons,
+2001.
+<p><b>Abstract:</b> Improvements in the processing speed of multiprocessors are
+outpacing improvements in the speed of disk hardware. Parallel disk I/O
+subsystems have been proposed as one way to close the gap between processor
+and disk speeds. In a previous paper we showed that prefetching and caching
+have the potential to deliver the performance benefits of parallel file
+systems to parallel applications. In this paper we describe experiments with
+practical prefetching policies that base decisions only on on-line reference
+history, and that can be implemented efficiently. We also test the ability of
+these policies across a range of architectural parameters.</p>
+<p><b>Keywords:</b> parallel computing, file system, parallel-IO</p>
+<p><a href="bibtex/kotz-bpractical.bib">BibTeX</a></p>
+<p>No online copy available.</p>
+<p><b>Copyright &#169;&nbsp;2001 by Kluwer Academic Publishers.</b></p>
+<p>Identical to <b><a href="abstracts/kotz-jpractical.html">kotz:jpractical</a></b>.</p>
+</BODY>
+</HTML>

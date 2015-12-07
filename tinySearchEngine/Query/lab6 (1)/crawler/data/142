@@ -1,0 +1,231 @@
+http://www.cs.dartmouth.edu/%7Eniclane/talks.html
+3
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nic Lane</title>
+
+<meta name="keywords" content="keywords" />
+
+<meta name="description" content="A little something about Nic Lane." />
+
+<link href="stylesheet.css" rel="stylesheet" type="text/css"  />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32165484-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body>
+
+<!-- begin background wrapper -->
+<div class="wrapper-background">
+
+<!-- begin main content wrapper -->
+<div class="wrapper-main-content">
+
+
+
+<!-- ################################################################################## -->
+<!-- begin header -->
+<div class="header"><br/><br/>
+
+<!-- begin spaces to align links -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<!-- end spaces to align links -->
+
+<!-- begin links -->
+<!--[<a href="" target="_parent">projects</a>] &nbsp;  [<a href="" target="_parent">publications</a>] &nbsp;  [<a href="" target="_parent">cv</a>] &nbsp; [<a href="" target="_parent">meetings</a>] &nbsp; [<a href="" target="_parent">talks</a>] &nbsp; [<a href="" target="_parent">press</a>]-->
+[<a href="index.html">home</a>] &nbsp;  [<a href="news.html">news</a>] &nbsp; [<a href="papers.html">publications</a>] &nbsp; [<a href="resume_150215.pdf">resume</a>] &nbsp; [<a href="talks.html">talks</a>] &nbsp; [<a href="service.html">service</a>] 
+<!-- end links -->
+</div>
+<!-- end header -->
+
+<div class="papers">
+Below lists my external invited talks.
+<BR><BR>
+<b>2015</b>
+<BR>
+"Can Deep Learning Revolutionize Mobile Sensing?", 16th Workshop on Mobile Computing Systems and Applications (HotMobile '15). Santa Fe, NM, USA -- February 13th 2015
+<BR><BR>
+<b>2014</b>
+<BR>
+"Population-scale Mobile Sensing Systems", University of Birmingham. Birmingham, England -- October 6th 2014
+<BR><BR>
+"Connecting Personal-scale Sensing and Networked Community Behavior to Infer Human Activities", 16th International Conference on Ubiquitous Computing (UbiComp '14). Seattle, WA, USA -- September 16th 2014
+<BR><BR>
+"Population-scale Networked Mobile Sensing Systems", Intel China Research Center. Beijing, China -- July 30th 2014
+<BR><BR>
+"Population-scale Networked Mobile Sensing Systems", Imperial College -- EE Department, London, England -- May 16th 2014
+<BR><BR>
+"Smartphones, Crowds, and the Cloud: Population Guided Sensing Systems", Mobile Sensing, Mining and Visualization for Human Behavior Inference. Tainan, Taiwan -- May 13th 2014
+<BR><BR>
+"How the Modern Smartphone became the Gateway Drug of the Mobile Sensing Revolution", National Chiao Tung University. Hsinchu City, Taiwan -- May 12th 2014
+<BR><BR>
+"Enabling Population-scale Sensing Systems with Dynamic Inference Pipelines and Community Similarity Networks", Imperial College -- CS Department, London, England -- March 19th 2014
+<BR><BR>
+"Enabling Population-scale Sensing Systems with Dynamic Inference Pipelines and Community Similarity Networks", ETH Zürich, Zürich, Switzerland -- March 18th 2014
+<BR><BR>
+<b>2013</b>
+<BR>
+"Smartphones, Crowds and the Cloud: Population Guided Sensing Systems",
+University of Cambridge. Cambridge, England -- November 15th 2013
+<BR><BR>
+"Piggyback CrowdSensing (PCS): Energy Efficient Crowdsourcing of Mobile Sensor Data by Exploiting Smartphone App Opportunities", 11th ACM Conference on Embedded Network Sensor Systems (Sensys '13). Rome, Italy -- November 12th 2013
+<BR><BR>
+"Preference, Context and Communities: A Multi-faceted Approach to Predicting
+Smartphone App Usage Patterns", 17th International Symposium on Wearable Computers (ISWC '13). Zurich, Switzerland -- September 11th 2013
+<BR><BR>
+"Smartphones, Crowds and the Cloud: Population Guided Sensing Systems", 5th ACM International Workshop on Hot Topics in Planet-Scale Measurement (HotPlanet '13). Hong Kong, China -- August 16th 2013
+<BR><BR>
+"Towards Symbiotic CrowdSensing Systems", Intel-NTU Connected Context Computing Center. Taipei, Taiwan -- June 24th 2013
+<BR><BR>
+"Smartphones, Crowds and the Cloud: Population Guided Sensing Systems", University of California -- Los Angeles. Los Angeles, CA, USA -- April 10th 2013
+<BR><BR>
+<b>2012</b>
+<BR>
+"On the Feasibility of User De-Anonymization in Shared Mobile Sensor Data",
+3rd International Workshop on Sensing Applications on Mobile Phones (PhoneSense '12). Toronto, Canada -- November 6th 2012
+<BR><BR>
+"Opportunistic CrowdSensing", Microsoft Resesarch Asia Faculty Summit.
+Tianjin, China -- October 27th 2012
+<BR><BR>
+"Quantifying the Threat of User De-Anonymization in Shared Mobile Sensor Data",
+Institute of Computing Technology, Chinese Academy of Sciences.
+Beijing, China -- October 25th 2012
+<BR><BR>
+"Opportunistic CrowdSensing", Forum on Information Technology 2012 (FIT '12).
+Tokyo, Japan -- September 4th 2012
+<BR><BR>
+"Applications and Elements of Sensory Computing", Aoyama Gakuin University.
+Tokyo, Japan -- September 3rd 2012
+<BR><BR>
+"Opportunistic CrowdSensing",
+3rd International Workshop on Networks of Cooperating Objects (CONET ‘12).
+Bejing, China -- April 16th 2012
+<BR><BR>
+<b>2011</b>
+<BR>
+"Windows Phone: An Enabling Platform for Smartphone Sensing Research",
+4th Microsoft Research Asia Joint Laboratory Symposium.
+Beijing, China -- September 27th 2011
+<BR><BR>
+"Enabling Large-scale Human Activity Inference on Smartphones using Community Similarity Networks (CSN)", 13th International Conference on Ubiquitous Computing (Ubicomp ‘11). Beijing, China -- September 21st 2011
+<BR><BR>
+"Tapping into the Vibe of the City Using VibN",
+1st International Symposium on Social and Community Intelligence (SCI '11).
+Beijing, China -- September 18th 2011
+<BR><BR>
+"BeWell: A Smartphone Application to Monitor, Model and Promote Wellbeing",
+5th International Conference on Pervasive Computing Technologies for Healthcare 2011 (Pervasive Health '11). Dublin, Ireland -- May 25th 2011
+<BR><BR>
+"Community-Guided Mobile Phone Sensing Systems",
+Ph.D. Dissertation Defense. Hanover, NH, USA -- February 23rd 2011
+<BR><BR>
+<b>2010</b>
+<BR>
+"Hapori: Context-based Local Search for Mobile Phones using Community Behavioral Modeling and Similarity", 12th International Conference on Ubiquitous Computing (Ubicomp ‘10). Copenhagen, Denmark -- September 28th 2010
+<BR><BR>
+"Research in the App Store Era: Experiences from the CenceMe App Deployment on the iPhone", 1st International Workshop Research in the Large: Using App Stores, Markets, and other Wide Distribution Channels in UbiComp Research.
+Copenhagen, Denmark -- September 26th 2010
+<BR><BR>
+"Community-Guided Learning: Exploiting Mobile Sensor Users to Model Human Behavior", 24th Conference on Artificial Intelligence (AAAI ‘10).
+Atlanta, GA, USA -- July 14th 2010
+<BR><BR>
+"Halo: Managing Node Rendezvous in Opportunistic Sensor Networks", 6th International Conference on Distributed Computing in Sensor Systems (DCOSS '10).
+Santa Barbara, CA, USA -- June 22nd 2010
+<BR><BR>
+"Mobile Phone Sensing: Big Data and Small Smart Phones",
+Microsoft Research Asia. Beijing, China -- May 13th 2010
+<BR><BR>
+"Mobile Phone Sensing is the Next Big Thing!" (co-presented with Emiliano Miluzzo),
+Computer Science Department Symposium, Dartmouth College.
+Hanover, NH, USA -- January 13th 2010
+<BR><BR>
+"Classification Pipeline Tuning for Mobile Sensing Systems", 3rd Annual Dartmouth Computer Science Research Symposium (CSRS '10). Hanover, NH, USA -- January 9th 2010  <b><font color=red>[Best Presentation Award]</font></b>
+<BR><BR>
+<b>2009</b>
+<BR>
+"SoundSense: Scalable Sound Sensing for People-Centric Sensing Applications on Mobile
+Phones", 7th ACM Conference on Mobile Systems, Applications, and Services
+(MobiSys ‘09). Krakow, Poland -- June 24th 2010
+<BR><BR>
+<b>2008</b>
+<BR>
+"Sensing Meets Mobile Social Networks: The Design, Implementation and Evaluation of
+the CenceMe Application", 7thACM Conference on Embedded Network Sensor Systems (Sensys ‘08). Raleigh, NC, USA -- November 7th 2008
+<BR><BR>
+"Cooperative Techniques Supporting Sensor-based People-centric Inferencing", 6th International Conference on Pervasive Computing (Pervasive ‘08).
+Sydney, Australia -- May 22nd 2008
+<BR><BR>
+"Urban Sensing Systems: Opportunistic or Participatory?", 9th Workshop on Mobile Computing Systems and Applications (HotMobile ‘08).
+Napa Valley, CA, USA -- February 25th 2008
+<BR><BR>
+<b>2007</B>
+<BR>
+"The BikeNet Mobile Sensing System for Cyclist Experience Mapping", 6th ACM
+Conference on Embedded Network Sensor Systems (Sensys ‘07).
+Sydney, Australia -- November 7th 2007
+<BR><BR>
+"Ambient Beacon Localization: Using Sensed Characteristics of the Physical World to
+Localize Mobile Sensors", 4th IEEE Workshop on Embedded Networked Sensors (EmNets ‘07). Cork, Ireland -- June 25th 2007
+<BR><BR>
+<b>2006</b>
+<BR>
+"The Influence of Microprocessor Instructions on the Energy Consumption of Wireless
+Sensor Networks", 3rd IEEE Workshop on Embedded Networked Sensors (EmNets ‘06).
+Cambridge, MA, USA -- May 30th 2006
+</div>
+
+<!-- ################################## LEFT COLUMN ################################################ -->
+<!-- ******************* BIO ********************** -->
+
+<!-- begin left main column bio, news, service etc. -->
+<!--<div class="left-column">
+
+<!-- begin vertical spacer for bio -->
+<!--<div style="height:25px"></div>
+<!-- end vertical spacer for bio -->
+
+
+<!-- begin vertical spacer for bio bottom -->
+<!--<div style="height:20px"></div>
+<!-- end vertical spacer for bio bottom -->
+
+<!--</div> -->
+<!-- end left main  column -->
+
+<!-- #################################### RIGHT COLUMN ############################################## -->
+
+<!-- begin right main column photo and widgets -->
+<!--<div class="right-column"><img src="images/photos/portrait.jpg" />
+
+
+</div>-->
+<!-- end right main column -->
+
+<!-- ################################################################################## -->
+
+
+<div class="page-bottom-spacer"></div>
+
+</div>
+<!-- end main content wrapper -->
+</div>
+<!-- end background wrapper -->
+
+</body>
+</html>

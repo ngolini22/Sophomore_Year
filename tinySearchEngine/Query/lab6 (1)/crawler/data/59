@@ -1,0 +1,223 @@
+http://www.cs.dartmouth.edu/%7Ecampbell/cs65/lecture10/lecture10.html
+2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Debugging - </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="db-simple.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+
+<div id="sitetitle"><b>Dartmouth CS 65/165</b></div>
+<div id="container">
+<div id="sitesubtitle"><b>Smartphone Programming</b></div>
+<div id="siterightheader"><b>Professor Andrew T. Campbell</b></div>
+</div>
+
+<div class="clearer"><!-- --></div>
+
+
+<hr>
+</div>
+<h1 id="debugging">Debugging</h1>
+<p>You can debug code on the emulator or phone. The Android Studio environment offers the Android DDMS which represents a sophisticated tool for debugging code. Hopefully, most of the time this will suffice. Andriod is quite hard to program and debug (for me anyway) because of the large number of new APIs. If you are experienced with Java you will catch many of the obvious bugs from desk checking and looking for the obvious edge issues and API problems.</p>
+<p>We also briefly discuss how to set breakpoints and look at variables in the code and run time.</p>
+<h2 id="what-this-lecture-will-teach-you">What this lecture will teach you</h2>
+<ul>
+<li>Tips</li>
+<li>Logging</li>
+<li>Printing out program data using Log.d()</li>
+<li>Printing out the full stack trace</li>
+<li>Buggy code example</li>
+<li>Setting Breakpoints</li>
+<li>Debuging steps</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>There are a number of good resources for debugging in Android:</p>
+<ul>
+<li><a href="http://developer.android.com/tools/debugging/index.html">Developers debugging</a></li>
+<li>Debugging crashes pg 120 in course book</li>
+<li><a href="http://developer.android.com/tools/debugging/debugging-studio.html">Debugging with Android Studio</a></li>
+</ul>
+<p>Read the very good <a href="http://developer.android.com/tools/debugging/debugging-studio.html">Debugging with Android Studio</a> from Android Developers guide. Many of you have debugged Java in CS10. For Android you do almost exactly the same. Make sure your phone is plugged in and debug perspective is shown.</p>
+<h2 id="tips">Tips</h2>
+<p>There are a number of tips when debugging -- here are some relevant to the type of coding we are doing:</p>
+<p><em>Dump the stack trace</em></p>
+<p>We show you how to log the stack trace.</p>
+<p><em>Use debugging helper classes</em></p>
+<p>Android provides debug helper classes such as util.Log and Debug for your convenience.</p>
+<p><em>Display useful info on phone screen</em></p>
+<p>The device can display useful information such as CPU usage or highlights around redrawn areas. Turn these features on and off in the developer settings window as described in Debugging with the Dev Tools App.</p>
+<p><em>Log trace data</em></p>
+<p>You can use the Logcat to log debug data and look at data. You can also log method calls and other tracing data in an activity by calling startMethodTracing(). See Profiling with Traceview and dmtracedump for details.</p>
+<h2 id="logging---a-debug-tool">Logging - a debug tool</h2>
+<p>Before we get started note that the strange looking <em>Log.d(TAG, &quot;loadUserData()&quot;)</em> method. This is associated with debugging. The Andriod system with keep a log of these Log.d() calls embedded in the code -- if you are C programmer these are like printf() but not to the screen (you would need toast to do that). Log.d printout (which could include data structures and member variable state) is directed to the <em>LogCat</em>. The logging system provides a mechanism for collecting and viewing system debug output. Logcat dumps a log of system messages and potentially much more. We will come back to logging. Right now you should know that you can run LogCat through the <em>Dalvik Debug Monitor Server (DDMS)</em> allowing you to read the messages in real time. Check out the screen dump of DDMS below. To display log messages (and BTW, the <code>d</code> in <code>log.d</code> refers to debug messages) you have to switch to the DDMS view from the default Java view. Then set up a filter in this case for the TAG CS65. This is set up at the start of the activity</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">final</span> String TAG = <span class="st">&quot;CS65&quot;</span>;</code></pre>
+<p>Then run the app. For example, start the SharedPreference activity from the main menu and hit the <code>Save</code>. You should see the two log message shown in the screen dump below. Please do this and play with the log system. More on debugging later. We will need debugging tools. Note, this is all from the phone. I did not run this under the emulation mode -- it's too darn slow.</p>
+<div class="figure">
+<img src="images/s-logd.png" />
+</div>
+<h2 id="printing-out-program-data-using-log.d">Printing out program data using Log.d()</h2>
+<p>You can print out the value of member variables in your code using Log.d(); for example:</p>
+<pre class="sourceCode java"><code class="sourceCode java"> Log.<span class="fu">d</span>(TAG, <span class="st">&quot;loadUserData() email is &quot;</span> + mValue);
+
+ Log.<span class="fu">d</span>(TAG, <span class="st">&quot;loadUserData(): number of the radioButton is &quot;</span> + mIntValue);</code></pre>
+<p>The equivalent using toast is for the radio button is:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                    <span class="st">&quot;number of the radioButton is : &quot;</span> + mIntValue,
+                    Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();</code></pre>
+<p>But remember Toast is not for debugging -- the toast is fleeting, pops up and disappears but the log.d is always there afterwards to study.</p>
+<p>If I run the layouts code and click on <em>SharedPreferences</em> I get this in LogCat.</p>
+<div class="figure">
+<img src="images/debug3.png" />
+</div>
+<p>This relates to this code in <em>SharedPreferencesActivity.java</em> in the layouts project:</p>
+<pre class="sourceCode java"><code class="sourceCode java">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">loadUserData</span>() {
+
+        <span class="co">// We can also use log.d to print to the LogCat</span>
+
+        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;loadUserData()&quot;</span>);
+
+        <span class="co">// Load and update all profile views</span>
+
+        <span class="co">// Get the shared preferences - create or retrieve the activity</span>
+        <span class="co">// preference object</span>
+
+        String mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_name</span>);
+        SharedPreferences mPrefs = <span class="fu">getSharedPreferences</span>(mKey, MODE_PRIVATE);
+
+        <span class="co">// Load the user email</span>
+
+        mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_email</span>);
+        String mValue = mPrefs.<span class="fu">getString</span>(mKey, <span class="st">&quot; &quot;</span>);
+        ((EditText) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">editEmail</span>)).<span class="fu">setText</span>(mValue);
+        
+        Log.<span class="fu">d</span>(TAG, <span class="st">&quot;loadUserData() email is &quot;</span> + mValue);
+
+
+        <span class="co">// Please Load gender info and set radio box</span>
+
+        mKey = <span class="fu">getString</span>(R.<span class="fu">string</span>.<span class="fu">preference_key_profile_gender</span>);
+
+        <span class="dt">int</span> mIntValue = mPrefs.<span class="fu">getInt</span>(mKey, -<span class="dv">1</span>);
+        <span class="co">// In case there isn&#39;t one saved before:</span>
+        <span class="kw">if</span> (mIntValue &gt;= <span class="dv">0</span>) {
+            <span class="co">// Find the radio button that should be checked.</span>
+            RadioButton radioBtn = (RadioButton) ((RadioGroup) <span class="fu">findViewById</span>(R.<span class="fu">id</span>.<span class="fu">radioGender</span>))
+                    .<span class="fu">getChildAt</span>(mIntValue);
+            <span class="co">// Check the button.</span>
+            radioBtn.<span class="fu">setChecked</span>(<span class="kw">true</span>);
+            Toast.<span class="fu">makeText</span>(<span class="fu">getApplicationContext</span>(),
+                    <span class="st">&quot;number of the radioButton is : &quot;</span> + mIntValue,
+                    Toast.<span class="fu">LENGTH_SHORT</span>).<span class="fu">show</span>();
+            Log.<span class="fu">d</span>(TAG, <span class="st">&quot;loadUserData(): number of the radioButton is &quot;</span> + mIntValue);
+        <span class="co">//  Log.d(TAG, Log.getStackTraceString(new Exception()));</span>
+        }
+
+    }</code></pre>
+<h2 id="printing-out-the-full-stack-trace">Printing out the full stack trace</h2>
+<p>When your app crashes for some reason (e.g., NullPointerException, NetworkOnMainThreadException, ActivityNotFoundException, etc.) the Android Studio prints out the full stack trace.</p>
+<p>If you want to print out the <a href="http://stackoverflow.com/q/7841232">full stack trace</a> without any bugs in your code, inserting the following code into your program will force a checkpoint of the stack to be dumped to the Logcat.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+Log.<span class="fu">d</span>(TAG, Log.<span class="fu">getStackTraceString</span>(<span class="kw">new</span> Exception()));</code></pre>
+<p>If I uncomment this line in my code above <em>SharedPreferencesActivity.java</em> then I get the following stack dump in the Logcat</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="dv">01-20</span> <span class="dv">11</span>:<span class="dv">44</span>:<span class="fl">00.783</span>  <span class="dv">30497-30497</span>/edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">layouts</span> D/CS65﹕ <span class="fu">loadUserData</span>()
+<span class="dv">01-20</span> <span class="dv">11</span>:<span class="dv">44</span>:<span class="fl">00.785</span>  <span class="dv">30497-30497</span>/edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">layouts</span> D/CS65﹕ <span class="fu">loadUserData</span>() email is  campbell@cs.<span class="fu">dartmouth</span>.<span class="fu">edu</span>
+<span class="dv">01-20</span> <span class="dv">11</span>:<span class="dv">44</span>:<span class="fl">00.785</span>  <span class="dv">30497-30497</span>/edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">layouts</span> D/CS65﹕ <span class="fu">loadUserData</span>(): number of the radioButton is <span class="dv">1</span>
+<span class="dv">01-20</span> <span class="dv">11</span>:<span class="dv">44</span>:<span class="fl">00.786</span>  <span class="dv">30497-30497</span>/edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">layouts</span> D/CS65﹕ java.<span class="fu">lang</span>.<span class="fu">Exception</span>
+            at edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">layouts</span>.<span class="fu">SharedPreferencesActivity</span>.<span class="fu">loadUserData</span>(SharedPreferencesActivity.<span class="fu">java</span>:<span class="dv">99</span>)
+            at edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">layouts</span>.<span class="fu">SharedPreferencesActivity</span>.<span class="fu">onCreate</span>(SharedPreferencesActivity.<span class="fu">java</span>:<span class="dv">28</span>)
+            at android.<span class="fu">app</span>.<span class="fu">Activity</span>.<span class="fu">performCreate</span>(Activity.<span class="fu">java</span>:<span class="dv">5933</span>)
+            at android.<span class="fu">app</span>.<span class="fu">Instrumentation</span>.<span class="fu">callActivityOnCreate</span>(Instrumentation.<span class="fu">java</span>:<span class="dv">1105</span>)
+            at android.<span class="fu">app</span>.<span class="fu">ActivityThread</span>.<span class="fu">performLaunchActivity</span>(ActivityThread.<span class="fu">java</span>:<span class="dv">2251</span>)
+            at android.<span class="fu">app</span>.<span class="fu">ActivityThread</span>.<span class="fu">handleLaunchActivity</span>(ActivityThread.<span class="fu">java</span>:<span class="dv">2360</span>)
+            at android.<span class="fu">app</span>.<span class="fu">ActivityThread</span>.<span class="fu">handleRelaunchActivity</span>(ActivityThread.<span class="fu">java</span>:<span class="dv">3912</span>)
+            at android.<span class="fu">app</span>.<span class="fu">ActivityThread</span>.<span class="fu">access</span>$<span class="dv">900</span>(ActivityThread.<span class="fu">java</span>:<span class="dv">144</span>)
+            at android.<span class="fu">app</span>.<span class="fu">ActivityThread</span>$H.<span class="fu">handleMessage</span>(ActivityThread.<span class="fu">java</span>:<span class="dv">1284</span>)
+            at android.<span class="fu">os</span>.<span class="fu">Handler</span>.<span class="fu">dispatchMessage</span>(Handler.<span class="fu">java</span>:<span class="dv">102</span>)
+            at android.<span class="fu">os</span>.<span class="fu">Looper</span>.<span class="fu">loop</span>(Looper.<span class="fu">java</span>:<span class="dv">135</span>)
+            at android.<span class="fu">app</span>.<span class="fu">ActivityThread</span>.<span class="fu">main</span>(ActivityThread.<span class="fu">java</span>:<span class="dv">5221</span>)
+            at java.<span class="fu">lang</span>.<span class="fu">reflect</span>.<span class="fu">Method</span>.<span class="fu">invoke</span>(Native Method)
+            at java.<span class="fu">lang</span>.<span class="fu">reflect</span>.<span class="fu">Method</span>.<span class="fu">invoke</span>(Method.<span class="fu">java</span>:<span class="dv">372</span>)
+            at com.<span class="fu">android</span>.<span class="fu">internal</span>.<span class="fu">os</span>.<span class="fu">ZygoteInit</span>$MethodAndArgsCaller.<span class="fu">run</span>(ZygoteInit.<span class="fu">java</span>:<span class="dv">899</span>)
+            at com.<span class="fu">android</span>.<span class="fu">internal</span>.<span class="fu">os</span>.<span class="fu">ZygoteInit</span>.<span class="fu">main</span>(ZygoteInit.<span class="fu">java</span>:<span class="dv">694</span>)</code></pre>
+<h2 id="buggy-code">Buggy code</h2>
+<p>Let's go over the ActionTabs example again this time to illustrate the idea of how to interpret the error messages in the Logcat. I've missed something in the code, and when I launch it, the app crashes without showing the main screen.</p>
+<div class="figure">
+<img src="images/crash.png" />
+</div>
+<p>Here is how the bug does down. We use the LogCat on errors. Let's look through them after the crash.</p>
+<div class="figure">
+<img src="images/debug.png" />
+</div>
+<p>From the lengthy log stack, let's focus this specific line which begins with a &quot;Caused by:&quot;.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+ Caused by: java.<span class="fu">lang</span>.<span class="fu">NullPointerException</span>: Attempt to invoke virtual method &#39;int java.<span class="fu">util</span>.<span class="fu">ArrayList</span>.<span class="fu">size</span>()&#39; on a <span class="kw">null</span> object reference
+            at edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">actiontabs</span>.<span class="fu">ActionTabsViewPagerAdapter</span>.<span class="fu">getCount</span>(ActionTabsViewPagerAdapter.<span class="fu">java</span>:<span class="dv">35</span>)
+            at android.<span class="fu">support</span>.<span class="fu">v4</span>.<span class="fu">view</span>.<span class="fu">ViewPager</span>.<span class="fu">setAdapter</span>(ViewPager.<span class="fu">java</span>:<span class="dv">439</span>)
+            at edu.<span class="fu">dartmouth</span>.<span class="fu">cs</span>.<span class="fu">actiontabs</span>.<span class="fu">MainActivity</span>.<span class="fu">onCreate</span>(MainActivity.<span class="fu">java</span>:<span class="dv">46</span>)
+            at android.<span class="fu">app</span>.<span class="fu">Activity</span>.<span class="fu">performCreate</span>(Activity.<span class="fu">java</span>:<span class="dv">5933</span>)</code></pre>
+<p>When we click the highlighted line it can bring us to the line of buggy code.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        myViewPageAdapter =<span class="kw">new</span> <span class="fu">ActionTabsViewPagerAdapter</span>(<span class="fu">getFragmentManager</span>(),
+                fragments);
+        viewPager.<span class="fu">setAdapter</span>(myViewPageAdapter);</code></pre>
+<p>Ah, fragments list is not yet initialized and the viewPager is trying to set an adapter with nothing actual fragments in it. Bad. We need to add all the fragments in order to this list for a fix.</p>
+<pre class="sourceCode java"><code class="sourceCode java">        <span class="co">// create a fragment list in order.</span>
+        fragments = <span class="kw">new</span> ArrayList&lt;Fragment&gt;();
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">FindFragment</span>());
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">ChatFragment</span>());
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">MeetFragment</span>());
+        fragments.<span class="fu">add</span>(<span class="kw">new</span> <span class="fu">PartyFragment</span>());
+
+        <span class="co">// use FragmentPagerAdapter to bind the slidingTabLayout (tabs with different titles)</span>
+        <span class="co">// and ViewPager (different pages of fragment) together.</span>
+        myViewPageAdapter =<span class="kw">new</span> <span class="fu">ActionTabsViewPagerAdapter</span>(<span class="fu">getFragmentManager</span>(),
+                fragments);
+        viewPager.<span class="fu">setAdapter</span>(myViewPageAdapter);</code></pre>
+<p>OK. Let's buid and see what we get.</p>
+<div class="figure">
+<img src="images/eyeclean.png" />
+</div>
+<h2 id="setting-breakpoints">Setting Breakpoints</h2>
+<p>Many times you will need to run your code in debug mode in Android Studio to set breakpoints and inspect variables to work out exactly what happened before you program crashed; Let's still use the ActionBars bug for example. We know it crashes at line 46, but we don't know why exactly the exception occured there. So we set a breakpoint at line 44 -- the line before the exception and then look at the variables such as fragments and getFragmentManager() to see if they are OK. If they are then we single step to the next line 46. We notice, however, once line 44 is executed, the variable fragments is NULL, which is a bug.</p>
+<div class="figure">
+<img src="images/sdebugpres.png" />
+</div>
+<h2 id="debugging-steps">Debugging steps</h2>
+<p>Typically you want to do the following when you have a bug in your code and want to get to the bottom of it:</p>
+<ul>
+<li>Find the line number where the exception occured</li>
+<li>Set a breakpoint the line before the exception happened</li>
+<li>Run your program in debug mode -- the execution will stop at the breakpoint</li>
+<li>Take a look the variables and see if that shines some light on the exception</li>
+<li>Single step (using <strong>F8</strong> -- see below for all the options) to the next line of code and look at variables again</li>
+</ul>
+<p>It is good to just set a breakpoint at the start of your code e.g., onCreate() or in a helper function or many methods and functions and just step therough the code and look variables in the program. This is good practice and can help you fine problems.</p>
+<p>But there is nothing as good as desk checking your code -- that is, reading closely through your code and &quot;executing it&quot; with a pen and paper.</p>
+</body>
+</html>

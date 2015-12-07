@@ -1,0 +1,33 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-agents.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:agents</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz, Robert Gray, and Daniela Rus.
+<b>Transportable Agents Support Worldwide Applications</b>.
+In
+<i>Proceedings of the Seventh ACM SIGOPS European Workshop</i>,
+pages 41-48,
+September,
+1996.
+ACM Press.
+DOI <a href="http://dx.doi.org/10.1145/504450.504458">10.1145/504450.504458</a>.
+<p><b>Abstract:</b> Worldwide applications exist in an environment that is inherently
+distributed, dynamic, heterogeneous, insecure, unreliable, and unpredictable.
+In particular, the latency and bandwidth of network connections varies
+tremendously from place to place and time to time, particularly when
+considering wireless networks, mobile devices, and satellite connections.
+Applications in this environment must be able to adapt to different and
+changing conditions. We believe that transportable autonomous agents provide
+an excellent mechanism for the construction of such applications. We describe
+our prototype transportable-agent system and several applications.</p>
+<p><b>Keywords:</b> mobile computing, mobile-agent, distributed computing</p>
+<p><a href="bibtex/kotz-agents.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-agents.pdf">PDF</a> (335K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by ACM.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+</BODY>
+</HTML>

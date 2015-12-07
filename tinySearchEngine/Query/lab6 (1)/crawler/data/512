@@ -1,0 +1,30 @@
+http://www.cs.dartmouth.edu/%7Edfk/papers/abstracts/kotz-app-pario.html
+3
+<HTML>
+<HEAD>
+ <TITLE>kotz:app-pario</TITLE>
+  <BASE href="http://www.cs.dartmouth.edu/~dfk/papers/index-t.html">
+</HEAD>
+<BODY background="" TEXT="#000000" BGCOLOR="#ffffff">
+David Kotz.
+<b>Applications of Parallel I/O</b>.
+Technical Report
+PCS-TR96-297,
+Dartmouth Computer Science,
+October,
+1996.
+Release 1.
+<p><b>Abstract:</b> Scientific applications are increasingly being implemented on
+massively parallel supercomputers. Many of these applications have intense
+I/O demands, as well as massive computational requirements. This paper is
+essentially an annotated bibliography of papers and other sources of
+information about scientific applications using parallel I/O. It will be
+updated periodically.</p>
+<p><b>Keywords:</b> parallel-IO, file system, parallel computing</p>
+<p><a href="bibtex/kotz-app-pario.bib">BibTeX</a></p>
+<p><a target=_top href = "././kotz-app-pario.pdf">PDF</a> (203K)</p>
+<p><b>Copyright &#169;&nbsp;1996 by David Kotz.</b></p>
+The copy made available here is the authors' version; for a definitive copy see the publisher's version described above.
+<p>See also later version <b><a href="abstracts/oldfield-app-pario.html">oldfield:app-pario</a></b>.</p>
+</BODY>
+</HTML>
