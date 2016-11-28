@@ -1,0 +1,3 @@
+This project allows the user to find an actor/actress' Kevin Bacon number.
+
+We were provided with a text file of actors, movies, and a list of the actors who appear in each movie. I had to build a graph where the vertices are actors, and the edges represent the movies the actor is in. When the user chooses an actor/actress to find their Kevin Bacon number, the program conducts a BFS of the graph from the user input actor/actress to Kevin Bacon. 
