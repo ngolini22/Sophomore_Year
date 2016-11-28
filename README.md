@@ -8,4 +8,4 @@ Object Oriented Programming:
   - Region Growing Game
 
 Software Design and Implementation:
-  - Timy Search Engine
+  - Tiny Search Engine
