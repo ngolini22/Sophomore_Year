@@ -1,0 +1,6 @@
+To run this search engine, run the file: make_test_run_tinysearch.sh in the folder: Sophomore_Year/tinySearchEngine/Query/lab6 (1)/query_engine. See the comments in the make file to find the different test cases it covers.
+
+This project includes a crawler, indexer, and query engine. 
+- The crawler begins at my class webpage and runs to a depth of 3 webpages, collecting the html script for every reachable webpage from the seed url, saving them in individual folders. 
+- The indexer parses the html scripts saved from the crawler, and creates a dictionary (called the index) of every word from text in each webpage found in the crawler. It also saves a list of webpages in which each word appears in with the frequency at which that word appears. 
+- The query engine takes in a word request form the user and outputs an ordered list of the webpages it appears in, ranked by the frequency of the word in the webpages. 
