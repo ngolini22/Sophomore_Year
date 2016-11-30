@@ -1,0 +1,4 @@
+This was my first java application developed. It requires a webcam. 
+
+This project is a webcam region growing game. Once the webcam pops up after running the code, click on a color region on the webcam video. A color region will be grown within the clicked color, and small black circles will fly across the screen. The user can then use the grown region to "catch" the flying objects. 
+
