@@ -2,3 +2,4 @@ This project takes in a text file and compresses it using Huffman Coding.
 
 
 To run this project, run the HuffmanCoding.java script and select a document to compress. The compressed document will have the same name with "comp" concatenated to it. Then the program decompresses the file and calls it the original name + "decomp". 
+ 
